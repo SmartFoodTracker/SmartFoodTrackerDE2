@@ -146,6 +146,7 @@ architecture structure of SmartFoodTrackerDE2 is
             tristate_conduit_bridge_out_tristate_controller_tcm_address_out       : out   std_logic_vector(21 downto 0);                    -- tristate_controller_tcm_address_out
             tristate_conduit_bridge_out_tristate_controller_tcm_data_out          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- tristate_controller_tcm_data_outtristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_write_n_out
             tristate_conduit_bridge_out_tristate_controller_tcm_chipselect_n_out  : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_chipselect_n_out
+            tristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_write_n_out
             audio_clock_secondary_clk_in_clk                                      : in    std_logic                     := 'X';             -- clk
             audio_clock_secondary_clk_in_reset_reset_n                            : in    std_logic                     := 'X';             -- reset_n
             audio_clock_sdram_clk_clk                                             : out   std_logic                                         -- clk
@@ -227,6 +228,7 @@ begin
             tristate_conduit_bridge_out_tristate_controller_tcm_address_out       => FL_ADDR,       --                                       .tristate_controller_tcm_address_out
             tristate_conduit_bridge_out_tristate_controller_tcm_data_out          => FL_DQ,          --                                       .tristate_controller_tcm_data_outristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       => FL_WE_N,       --                                       .tristate_controller_tcm_write_n_out
             tristate_conduit_bridge_out_tristate_controller_tcm_chipselect_n_out  => FL_CE_N,  --                                       .tristate_controller_tcm_chipselect_n_out
+            tristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       => FL_WE_N,       --                                       .tristate_controller_tcm_write_n_out
             audio_clock_secondary_clk_in_clk                                      => CLOCK_27,                                      --           audio_clock_secondary_clk_in.clk
             audio_clock_secondary_clk_in_reset_reset_n                            => KEY(0),                             --     audio_clock_secondary_clk_in_reset.reset_n
             audio_clock_sdram_clk_clk                                             => DRAM_CLK                                             --                  audio_clock_sdram_clk.clk

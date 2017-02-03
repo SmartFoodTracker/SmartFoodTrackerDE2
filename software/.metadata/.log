@@ -1,0 +1,126 @@
+!SESSION 2017-02-03 13:05:45.536 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-03 13:09:03.082
+!MESSAGE Indexed 'Capstone-FIT_bsp' (226 sources, 236 headers) in 6.15 sec: 13,149 declarations; 47,011 references; 96 unresolved inclusions; 8 syntax errors; 399 unresolved names (0.66%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-03 13:09:03.661
+!MESSAGE Indexed 'Capstone-FIT' (5 sources, 75 headers) in 0.56 sec: 3,254 declarations; 4,780 references; 31 unresolved inclusions; 3 syntax errors; 117 unresolved names (1.44%)
+!SESSION 2017-02-03 14:10:18.228 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 14:11:21.097
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x19090b8 --id=0x0 --timestamp=1486152219]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 14:11:22.601
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x19090b8 --id=0x0 --timestamp=1486152219 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:25:22.626
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1486160258", expected: "1486152219".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:25:22.636
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1486160258", expected: "1486152219".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:25:43.027
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:25:44.748
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:25:48.519
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.7]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x19090b8, /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:25:48.523
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:34:32.772
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:34:34.184
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:34:37.496
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.7]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x19090b8, /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:34:37.501
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:34:49.245
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:34:50.659
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:34:53.954
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.7]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x19090b8, /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:34:53.958
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:35:14.462
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:35:15.875
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:35:19.171
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.7]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x19090b8, /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-03 15:35:19.177
+!MESSAGE Downloading ELF Process failed
+!SESSION 2017-02-03 15:45:52.736 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:47:11.912
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:47:13.427
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:49:18.143
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.7]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:49:18.327
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-03 15:49:19.693
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/capstone/software/Capstone-FIT/Capstone-FIT.elf]

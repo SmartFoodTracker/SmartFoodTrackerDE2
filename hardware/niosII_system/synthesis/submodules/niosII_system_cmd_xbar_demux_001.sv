@@ -31,7 +31,7 @@
 //   ST_DATA_W:           102
 //   ST_CHANNEL_W:        19
 //   NUM_OUTPUTS:         5
-//   VALID_WIDTH:         1
+//   VALID_WIDTH:         19
 // ------------------------------------------
 
 //------------------------------------------
@@ -45,7 +45,7 @@ module niosII_system_cmd_xbar_demux_001
     // -------------------
     // Sink
     // -------------------
-    input  [1-1      : 0]   sink_valid,
+    input  [19-1      : 0]   sink_valid,
     input  [102-1    : 0]   sink_data, // ST_DATA_W=102
     input  [19-1 : 0]   sink_channel, // ST_CHANNEL_W=19
     input                         sink_startofpacket,
@@ -113,35 +113,35 @@ module niosII_system_cmd_xbar_demux_001
         src0_endofpacket   = sink_endofpacket;
         src0_channel       = sink_channel >> NUM_OUTPUTS;
 
-        src0_valid         = sink_channel[0] && sink_valid;
+        src0_valid         = sink_channel[0] && sink_valid[0];
 
         src1_data          = sink_data;
         src1_startofpacket = sink_startofpacket;
         src1_endofpacket   = sink_endofpacket;
         src1_channel       = sink_channel >> NUM_OUTPUTS;
 
-        src1_valid         = sink_channel[1] && sink_valid;
+        src1_valid         = sink_channel[1] && sink_valid[1];
 
         src2_data          = sink_data;
         src2_startofpacket = sink_startofpacket;
         src2_endofpacket   = sink_endofpacket;
         src2_channel       = sink_channel >> NUM_OUTPUTS;
 
-        src2_valid         = sink_channel[2] && sink_valid;
+        src2_valid         = sink_channel[2] && sink_valid[2];
 
         src3_data          = sink_data;
         src3_startofpacket = sink_startofpacket;
         src3_endofpacket   = sink_endofpacket;
         src3_channel       = sink_channel >> NUM_OUTPUTS;
 
-        src3_valid         = sink_channel[3] && sink_valid;
+        src3_valid         = sink_channel[3] && sink_valid[3];
 
         src4_data          = sink_data;
         src4_startofpacket = sink_startofpacket;
         src4_endofpacket   = sink_endofpacket;
         src4_channel       = sink_channel >> NUM_OUTPUTS;
 
-        src4_valid         = sink_channel[4] && sink_valid;
+        src4_valid         = sink_channel[4] && sink_valid[4];
 
     end
 

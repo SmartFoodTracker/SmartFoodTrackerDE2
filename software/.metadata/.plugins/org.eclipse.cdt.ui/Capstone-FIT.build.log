@@ -1,0 +1,7 @@
+
+**** Clean-only build of configuration Nios II for project Capstone-FIT ****
+
+make clean 
+[Capstone-FIT clean complete]
+
+**** Build Finished ****
