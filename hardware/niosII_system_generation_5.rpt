@@ -1,0 +1,358 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: ip-generate --project-directory=/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/ --output-directory=/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/ --report-file=bsf:/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system.bsf --system-info=DEVICE_FAMILY="Cyclone II" --system-info=DEVICE=EP2C35F672C6 --system-info=DEVICE_SPEEDGRADE=6 --component-file=/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system.qsys
+Progress: Loading hardware/niosII_system.qsys
+Progress: Reading input file
+Progress: Adding clock_50MHz [clock_source 12.1]
+Progress: Parameterizing module clock_50MHz
+Progress: Adding nios2_qsys [altera_nios2_qsys 12.1]
+Progress: Parameterizing module nios2_qsys
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 12.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 12.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Adding timer [altera_avalon_timer 12.1]
+Progress: Parameterizing module timer
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 12.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding character_lcd [altera_up_avalon_character_lcd 12.0]
+Progress: Parameterizing module character_lcd
+Progress: Adding green_leds [altera_avalon_pio 12.1]
+Progress: Parameterizing module green_leds
+Progress: Adding switch [altera_avalon_pio 12.1]
+Progress: Parameterizing module switch
+Progress: Adding sdram [altera_avalon_new_sdram_controller 12.1]
+Progress: Parameterizing module sdram
+Progress: Adding sram [altera_up_avalon_sram 12.0]
+Progress: Parameterizing module sram
+Progress: Adding add_button [altera_avalon_pio 12.1]
+Progress: Parameterizing module add_button
+Progress: Adding remove_button [altera_avalon_pio 12.1]
+Progress: Parameterizing module remove_button
+Progress: Adding cancel_button [altera_avalon_pio 12.1]
+Progress: Parameterizing module cancel_button
+Progress: Adding red_leds [altera_avalon_pio 12.1]
+Progress: Parameterizing module red_leds
+Progress: Adding barcode_scanner_ps2 [altera_up_avalon_ps2 12.0]
+Progress: Parameterizing module barcode_scanner_ps2
+Progress: Adding audio_core [altera_up_avalon_audio 12.0]
+Progress: Parameterizing module audio_core
+Progress: Adding audio_config [altera_up_avalon_audio_and_video_config 12.0]
+Progress: Parameterizing module audio_config
+Progress: Adding audio_clock [altera_up_clocks 12.0]
+Progress: Parameterizing module audio_clock
+Progress: Adding audio_clock_secondary [clock_source 12.1]
+Progress: Parameterizing module audio_clock_secondary
+Progress: Adding altpll [altpll 12.1]
+Progress: Parameterizing module altpll
+Progress: Adding dm9000a_if_ethernet [DM9000A_IF 1.0]
+Progress: Parameterizing module dm9000a_if_ethernet
+Progress: Adding tristate_controller [altera_generic_tristate_controller 12.1]
+Progress: Parameterizing module tristate_controller
+Progress: Adding tristate_conduit_bridge [altera_tristate_conduit_bridge 12.1]
+Progress: Parameterizing module tristate_conduit_bridge
+Progress: Adding tristate_conduit_pin_sharer [altera_tristate_conduit_pin_sharer 12.1]
+Progress: Parameterizing module tristate_conduit_pin_sharer
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: niosII_system.onchip_memory2: Memory will be initialized from onchip_memory2.hex
+Info: niosII_system.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: niosII_system.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: niosII_system.switch: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: niosII_system.add_button: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: niosII_system.remove_button: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: niosII_system.cancel_button: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Warning: niosII_system.tristate_controller: Properties (isFlash,isMemoryDevice,isNonVolatileStorage) have been set on interface uas - in composed mode these are ignored
+Warning: niosII_system.altpll: altpll.areset_conduit must be exported, or connected to a matching conduit.
+Warning: niosII_system.altpll: altpll.locked_conduit must be exported, or connected to a matching conduit.
+Warning: niosII_system.altpll: altpll.phasedone_conduit must be exported, or connected to a matching conduit.
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/ --output-directory=/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/synthesis/ --file-set=QUARTUS_SYNTH --report-file=sopcinfo:/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system.sopcinfo --report-file=html:/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system.html --report-file=qip:/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/synthesis/niosII_system.qip --report-file=cmp:/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system.cmp --system-info=DEVICE_FAMILY="Cyclone II" --system-info=DEVICE=EP2C35F672C6 --system-info=DEVICE_SPEEDGRADE=6 --component-file=/afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system.qsys
+Progress: Loading hardware/niosII_system.qsys
+Progress: Reading input file
+Progress: Adding clock_50MHz [clock_source 12.1]
+Progress: Parameterizing module clock_50MHz
+Progress: Adding nios2_qsys [altera_nios2_qsys 12.1]
+Progress: Parameterizing module nios2_qsys
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 12.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 12.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Adding timer [altera_avalon_timer 12.1]
+Progress: Parameterizing module timer
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 12.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding character_lcd [altera_up_avalon_character_lcd 12.0]
+Progress: Parameterizing module character_lcd
+Progress: Adding green_leds [altera_avalon_pio 12.1]
+Progress: Parameterizing module green_leds
+Progress: Adding switch [altera_avalon_pio 12.1]
+Progress: Parameterizing module switch
+Progress: Adding sdram [altera_avalon_new_sdram_controller 12.1]
+Progress: Parameterizing module sdram
+Progress: Adding sram [altera_up_avalon_sram 12.0]
+Progress: Parameterizing module sram
+Progress: Adding add_button [altera_avalon_pio 12.1]
+Progress: Parameterizing module add_button
+Progress: Adding remove_button [altera_avalon_pio 12.1]
+Progress: Parameterizing module remove_button
+Progress: Adding cancel_button [altera_avalon_pio 12.1]
+Progress: Parameterizing module cancel_button
+Progress: Adding red_leds [altera_avalon_pio 12.1]
+Progress: Parameterizing module red_leds
+Progress: Adding barcode_scanner_ps2 [altera_up_avalon_ps2 12.0]
+Progress: Parameterizing module barcode_scanner_ps2
+Progress: Adding audio_core [altera_up_avalon_audio 12.0]
+Progress: Parameterizing module audio_core
+Progress: Adding audio_config [altera_up_avalon_audio_and_video_config 12.0]
+Progress: Parameterizing module audio_config
+Progress: Adding audio_clock [altera_up_clocks 12.0]
+Progress: Parameterizing module audio_clock
+Progress: Adding audio_clock_secondary [clock_source 12.1]
+Progress: Parameterizing module audio_clock_secondary
+Progress: Adding altpll [altpll 12.1]
+Progress: Parameterizing module altpll
+Progress: Adding dm9000a_if_ethernet [DM9000A_IF 1.0]
+Progress: Parameterizing module dm9000a_if_ethernet
+Progress: Adding tristate_controller [altera_generic_tristate_controller 12.1]
+Progress: Parameterizing module tristate_controller
+Progress: Adding tristate_conduit_bridge [altera_tristate_conduit_bridge 12.1]
+Progress: Parameterizing module tristate_conduit_bridge
+Progress: Adding tristate_conduit_pin_sharer [altera_tristate_conduit_pin_sharer 12.1]
+Progress: Parameterizing module tristate_conduit_pin_sharer
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: niosII_system.onchip_memory2: Memory will be initialized from onchip_memory2.hex
+Info: niosII_system.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: niosII_system.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: niosII_system.switch: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: niosII_system.add_button: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: niosII_system.remove_button: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: niosII_system.cancel_button: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Warning: niosII_system.tristate_controller: Properties (isFlash,isMemoryDevice,isNonVolatileStorage) have been set on interface uas - in composed mode these are ignored
+Warning: niosII_system.altpll: altpll.areset_conduit must be exported, or connected to a matching conduit.
+Warning: niosII_system.altpll: altpll.locked_conduit must be exported, or connected to a matching conduit.
+Warning: niosII_system.altpll: altpll.phasedone_conduit must be exported, or connected to a matching conduit.
+Info: niosII_system: Generating niosII_system "niosII_system" for QUARTUS_SYNTH
+Info: pipeline_bridge_swap_transform: After transform: 25 modules, 152 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_translator_transform: After transform: 47 modules, 284 connections
+Info: merlin_domain_transform: After transform: 94 modules, 729 connections
+Info: merlin_router_transform: After transform: 116 modules, 861 connections
+Info: merlin_burst_transform: After transform: 120 modules, 885 connections
+Info: reset_adaptation_transform: After transform: 124 modules, 488 connections
+Info: merlin_network_to_switch_transform: After transform: 167 modules, 582 connections
+Info: merlin_width_transform: After transform: 175 modules, 606 connections
+Info: Inserting clock-crossing logic between cmd_xbar_demux.src15 and cmd_xbar_mux_015.sink0
+Info: Inserting clock-crossing logic between cmd_xbar_demux.src16 and cmd_xbar_mux_016.sink0
+Info: Inserting clock-crossing logic between cmd_xbar_demux.src17 and cmd_xbar_mux_017.sink0
+Info: Inserting clock-crossing logic between cmd_xbar_demux.src18 and cmd_xbar_mux_018.sink0
+Info: Inserting clock-crossing logic between rsp_xbar_demux_015.src0 and rsp_xbar_mux.sink15
+Info: Inserting clock-crossing logic between rsp_xbar_demux_016.src0 and rsp_xbar_mux.sink16
+Info: Inserting clock-crossing logic between rsp_xbar_demux_017.src0 and rsp_xbar_mux.sink17
+Info: Inserting clock-crossing logic between rsp_xbar_demux_018.src0 and rsp_xbar_mux.sink18
+Info: com_altera_sopcmodel_transforms_avalon_ClockCrossingTransform: After transform: 183 modules, 646 connections
+Info: merlin_interrupt_mapper_transform: After transform: 184 modules, 649 connections
+Info: merlin_interrupt_sync_transform: After transform: 186 modules, 659 connections
+Info: nios2_qsys: Starting RTL generation for module 'niosII_system_nios2_qsys'
+Info: nios2_qsys:   Generation command is [exec /OPT/altera/12.1/quartus/../ip/altera/nios2_ip/altera_nios2/eperl -I /OPT/altera/12.1/quartus/common/ip/altera/common/perl/5.8.3 -I /OPT/altera/12.1/quartus/sopc_builder/bin/europa -I /OPT/altera/12.1/quartus/sopc_builder/bin/perl_lib -I /OPT/altera/12.1/quartus/sopc_builder/bin -I /OPT/altera/12.1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I /OPT/altera/12.1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I /OPT/altera/12.1/quartus/../ip/altera/nios2_ip/altera_nios2 -I /OPT/altera/12.1/quartus/../ip/altera/nios2_ip/altera_nios2 -- /OPT/altera/12.1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=niosII_system_nios2_qsys --dir=/tmp/alt7199_6546058633013636611.dir/0143_nios2_qsys_gen/ --quartus_dir=/OPT/altera/12.1/quartus --verilog --config=/tmp/alt7199_6546058633013636611.dir/0143_nios2_qsys_gen//niosII_system_nios2_qsys_processor_configuration.pl  --do_build_sim=0    --bogus  ]
+Info: nios2_qsys: # 2017.02.02 16:17:55 (*) Starting Nios II generation
+Info: nios2_qsys: # 2017.02.02 16:17:55 (*)   Checking for plaintext license.
+Info: nios2_qsys: # 2017.02.02 16:17:56 (*)   Couldn't query license setup in Quartus directory /OPT/altera/12.1/quartus
+Info: nios2_qsys: # 2017.02.02 16:17:56 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: nios2_qsys: # 2017.02.02 16:17:56 (*)   Plaintext license not found.
+Info: nios2_qsys: # 2017.02.02 16:17:56 (*)   No license required to generate encrypted Nios II/e.
+Info: nios2_qsys: # 2017.02.02 16:17:56 (*)   Elaborating CPU configuration settings
+Info: nios2_qsys: # 2017.02.02 16:17:56 (*)   Creating all objects for CPU
+Info: nios2_qsys: # 2017.02.02 16:17:57 (*)   Generating RTL from CPU objects
+Info: nios2_qsys: # 2017.02.02 16:17:57 (*)   Creating plain-text RTL
+Info: nios2_qsys: # 2017.02.02 16:17:59 (*) Done Nios II generation
+Info: nios2_qsys: Done RTL generation for module 'niosII_system_nios2_qsys'
+Info: nios2_qsys: "niosII_system" instantiated altera_nios2_qsys "nios2_qsys"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0144_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0144_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2308): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2308): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0144_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0144_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0144_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2352): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2352): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+# 2017.02.02 16:18:03 (*) Success: sopc_builder finished.
+Info: onchip_memory2: "niosII_system" instantiated altera_avalon_onchip_memory2 "onchip_memory2"
+Info: sysid_qsys: "niosII_system" instantiated altera_avalon_sysid_qsys "sysid_qsys"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0146_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0146_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2398): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2398): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0146_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0146_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0146_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2433): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2433): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+# 2017.02.02 16:18:06 (*) Success: sopc_builder finished.
+Info: timer: "niosII_system" instantiated altera_avalon_timer "timer"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0147_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0147_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2486): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2486): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0147_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0147_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0147_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2529): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2529): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+# 2017.02.02 16:18:10 (*) Success: sopc_builder finished.
+Info: jtag_uart: "niosII_system" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: character_lcd: Starting Generation of Character LCD
+Info: character_lcd: "niosII_system" instantiated altera_up_avalon_character_lcd "character_lcd"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0149_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0149_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2575): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2575): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0149_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0149_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0149_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2618): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2618): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+# 2017.02.02 16:18:13 (*) Success: sopc_builder finished.
+Info: green_leds: "niosII_system" instantiated altera_avalon_pio "green_leds"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0150_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0150_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2664): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2664): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0150_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0150_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0150_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2698): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2698): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+# 2017.02.02 16:18:17 (*) Success: sopc_builder finished.
+Info: switch: "niosII_system" instantiated altera_avalon_pio "switch"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0151_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0151_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2747): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2747): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0151_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0151_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0151_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2787): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2787): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+.
+# 2017.02.02 16:18:21 (*) Running Test Generator Program for niosII_system_sdram
+# 2017.02.02 16:18:21 (*) Success: sopc_builder finished.
+Info: sdram: "niosII_system" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: sram: Starting Generation of SRAM or SSRAM Controller
+Info: sram: "niosII_system" instantiated altera_up_avalon_sram "sram"
+Info: Starting classic module elaboration.
+"/OPT/altera/12.1/quartus/linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0153_sopclgen  --no_splash --refresh /tmp/alt7199_6546058633013636611.dir/0153_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus" --sopc_perl="/OPT/altera/12.1/quartus/linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus/../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus/../ip/altera/nios2_ip"
+(java:2843): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2843): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Info: Finished elaborating classic module.
+Executing: /OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder --classic --generate /tmp/alt7199_6546058633013636611.dir/0153_sopclgen/yysystem.ptf
+Info: Running sopc_builder...
+"/OPT/altera/12.1/quartus//linux/jre/bin/java" -Xmx512M -classpath "/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_builder.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/PinAssigner.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/sopc_wizard.jar:/OPT/altera/12.1/quartus//sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"/OPT/altera/12.1/quartus//sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpath/tmp/alt7199_6546058633013636611.dir/0153_sopclgen  --generate /tmp/alt7199_6546058633013636611.dir/0153_sopclgen/yysystem.v --quartus_dir="/OPT/altera/12.1/quartus/" --sopc_perl="/OPT/altera/12.1/quartus//linux/perl" --sopc_lib_path="++/OPT/altera/12.1/quartus//../ip/altera/sopc_builder_ip+/OPT/altera/12.1/quartus//../ip/altera/nios2_ip"
+(java:2877): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+(java:2877): Gtk-WARNING **: Unable to locate theme engine in module_path: "adwaita",
+Gtk-Message: Failed to load module "pk-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+.
+# 2017.02.02 16:18:25 (*) Success: sopc_builder finished.
+Info: add_button: "niosII_system" instantiated altera_avalon_pio "add_button"
+Info: barcode_scanner_ps2: Starting Generation of PS2 Controller
+Info: barcode_scanner_ps2: "niosII_system" instantiated altera_up_avalon_ps2 "barcode_scanner_ps2"
+Info: audio_core: Starting Generation of Audio Controller
+Info: audio_core: "niosII_system" instantiated altera_up_avalon_audio "audio_core"
+Info: audio_config: Starting Generation of Audio and Video Config
+Info: audio_config: "niosII_system" instantiated altera_up_avalon_audio_and_video_config "audio_config"
+Info: audio_clock: Starting Generation of Required Clocks for DE-Series Boards
+Info: audio_clock: "niosII_system" instantiated altera_up_clocks "audio_clock"
+Info: altpll: "niosII_system" instantiated altpll "altpll"
+Info: dm9000a_if_ethernet: "niosII_system" instantiated DM9000A_IF "dm9000a_if_ethernet"
+Info: pipeline_bridge_swap_transform: After transform: 5 modules, 10 connections
+Info: No custom instruction connections, skipping transform 
+Info: tristate_controller: "niosII_system" instantiated altera_generic_tristate_controller "tristate_controller"
+Info: tristate_conduit_bridge: "niosII_system" instantiated altera_tristate_conduit_bridge "tristate_conduit_bridge"
+Info: pipeline_bridge_swap_transform: After transform: 4 modules, 7 connections
+Info: No custom instruction connections, skipping transform 
+Info: No Avalon connections, skipping transform 
+Info: No Avalon connections, skipping transform 
+Info: tristate_conduit_pin_sharer: "niosII_system" instantiated altera_tristate_conduit_pin_sharer "tristate_conduit_pin_sharer"
+Info: nios2_qsys_data_master_translator: "niosII_system" instantiated altera_merlin_master_translator "nios2_qsys_data_master_translator"
+Info: nios2_qsys_jtag_debug_module_translator: "niosII_system" instantiated altera_merlin_slave_translator "nios2_qsys_jtag_debug_module_translator"
+Info: nios2_qsys_data_master_translator_avalon_universal_master_0_agent: "niosII_system" instantiated altera_merlin_master_agent "nios2_qsys_data_master_translator_avalon_universal_master_0_agent"
+Info: nios2_qsys_jtag_debug_module_translator_avalon_universal_slave_0_agent: "niosII_system" instantiated altera_merlin_slave_agent "nios2_qsys_jtag_debug_module_translator_avalon_universal_slave_0_agent"
+Info: nios2_qsys_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo: "niosII_system" instantiated altera_avalon_sc_fifo "nios2_qsys_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo"
+Info: addr_router: "niosII_system" instantiated altera_merlin_router "addr_router"
+Info: addr_router_001: "niosII_system" instantiated altera_merlin_router "addr_router_001"
+Info: id_router: "niosII_system" instantiated altera_merlin_router "id_router"
+Info: id_router_001: "niosII_system" instantiated altera_merlin_router "id_router_001"
+Info: id_router_002: "niosII_system" instantiated altera_merlin_router "id_router_002"
+Info: id_router_003: "niosII_system" instantiated altera_merlin_router "id_router_003"
+Info: id_router_019: "niosII_system" instantiated altera_merlin_router "id_router_019"
+Info: burst_adapter: "niosII_system" instantiated altera_merlin_burst_adapter "burst_adapter"
+Info: rst_controller: "niosII_system" instantiated altera_reset_controller "rst_controller"
+Info: cmd_xbar_demux: "niosII_system" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_demux_001: "niosII_system" instantiated altera_merlin_demultiplexer "cmd_xbar_demux_001"
+Info: cmd_xbar_mux: "niosII_system" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: rsp_xbar_demux: "niosII_system" instantiated altera_merlin_demultiplexer "rsp_xbar_demux"
+Info: rsp_xbar_demux_001: "niosII_system" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_001"
+Info: rsp_xbar_mux: "niosII_system" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file /afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_mux_001: "niosII_system" instantiated altera_merlin_multiplexer "rsp_xbar_mux_001"
+Info: Reusing file /afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: width_adapter: "niosII_system" instantiated altera_merlin_width_adapter "width_adapter"
+Info: Reusing file /afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: Reusing file /afs/ualberta.ca/home/k/o/koshaugh/ECE492_Projects/volatile/SmartFoodTrackerDE2/hardware/niosII_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: crosser: "niosII_system" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: irq_mapper: "niosII_system" instantiated altera_irq_mapper "irq_mapper"
+Info: irq_synchronizer: "niosII_system" instantiated altera_irq_clock_crosser "irq_synchronizer"
+Info: tdt: "tristate_controller" instantiated altera_tristate_controller_translator "tdt"
+Info: tda: "tristate_controller" instantiated altera_tristate_controller_aggregator "tda"
+Info: pin_sharer: "tristate_conduit_pin_sharer" instantiated altera_tristate_conduit_pin_sharer_core "pin_sharer"
+Info: arbiter: "tristate_conduit_pin_sharer" instantiated altera_merlin_std_arbitrator "arbiter"
+Info: niosII_system: Done niosII_system" with 50 modules, 279 files, 4911496 bytes
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
