@@ -101,8 +101,8 @@ architecture structure of SmartFoodTrackerDE2 is
             add_button_external_connection_export                                 : in    std_logic                     := 'X';             -- export
             remove_button_external_connection_export                              : in    std_logic                     := 'X';             -- export
             red_leds_external_connection_export                                   : out   DE2_LED_RED;                     -- export
-            altpll_c0_clk                                                         : out   std_logic;                                        -- clk
-            altpll_c2_clk                                                         : out   std_logic;                                         -- clk
+            --altpll_c0_clk                                                         : out   std_logic;                                        -- clk
+            --altpll_c2_clk                                                         : out   std_logic;                                         -- clk
             sdram_wire_addr                                                       : out   DE2_SDRAM_ADDR_BUS;                    -- addr
             sdram_wire_ba                                                         : out   std_logic_vector(1 downto 0);                     -- ba
             sdram_wire_cas_n                                                      : out   std_logic;                                        -- cas_n
@@ -147,12 +147,14 @@ architecture structure of SmartFoodTrackerDE2 is
             tristate_conduit_bridge_out_tristate_controller_tcm_data_out          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- tristate_controller_tcm_data_outtristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_write_n_out
             tristate_conduit_bridge_out_tristate_controller_tcm_chipselect_n_out  : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_chipselect_n_out
             audio_clock_secondary_clk_in_clk                                      : in    std_logic                     := 'X';             -- clk
-            audio_clock_secondary_clk_in_reset_reset_n                            : in    std_logic                     := 'X'              -- reset_n
+            audio_clock_secondary_clk_in_reset_reset_n                            : in    std_logic                     := 'X';             -- reset_n
+            audio_clock_sdram_clk_clk                                             : out   std_logic                                         -- clk
     );
    end component niosII_system;
 
-   signal BA   :  std_logic_vector (1 downto 0);
-   signal DQM  :  std_logic_vector (1 downto 0);
+   signal BA         :  std_logic_vector (1 downto 0);
+   signal DQM        :  std_logic_vector (1 downto 0);
+   signal clock_25   :  std_logic;
 
 begin
 
@@ -161,6 +163,15 @@ begin
 
    DRAM_UDQM   <= DQM(1);
    DRAM_LDQM   <= DQM(0);
+
+   ENET_CLK    <= clock_25;
+
+   Gen25MHz : process (CLOCK_50) is
+   begin
+      if rising_edge(CLOCK_50) then
+         clock_25 <= not clock_25;
+      end if;
+   end process;
 
    u0 : component niosII_system port map
    (
@@ -171,8 +182,8 @@ begin
             add_button_external_connection_export                                 => KEY(3),                                 --         add_button_external_connection.export
             remove_button_external_connection_export                              => KEY(2),                                      --              pio_0_external_connection.export
             red_leds_external_connection_export                                   => LEDR,                                   --           red_leds_external_connection.export
-            altpll_c0_clk                                                         => DRAM_CLK,                                                         --                              altpll_c0.clk
-            altpll_c2_clk                                                         => ENET_CLK,                                                          --                              altpll_c2.clk
+            --altpll_c0_clk                                                         => DRAM_CLK,                                                         --                              altpll_c0.clk
+            --altpll_c2_clk                                                         => ENET_CLK,                                                          --                              altpll_c2.clk
             sdram_wire_addr                                                       => DRAM_ADDR,                                                       --                             sdram_wire.addr
             sdram_wire_ba                                                         => BA,                                                         --                                       .ba
             sdram_wire_cas_n                                                      => DRAM_CAS_N,                                                      --                                       .cas_n
@@ -217,7 +228,8 @@ begin
             tristate_conduit_bridge_out_tristate_controller_tcm_data_out          => FL_DQ,          --                                       .tristate_controller_tcm_data_outristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       => FL_WE_N,       --                                       .tristate_controller_tcm_write_n_out
             tristate_conduit_bridge_out_tristate_controller_tcm_chipselect_n_out  => FL_CE_N,  --                                       .tristate_controller_tcm_chipselect_n_out
             audio_clock_secondary_clk_in_clk                                      => CLOCK_27,                                      --           audio_clock_secondary_clk_in.clk
-            audio_clock_secondary_clk_in_reset_reset_n                            => KEY(0)                             --     audio_clock_secondary_clk_in_reset.reset_n
+            audio_clock_secondary_clk_in_reset_reset_n                            => KEY(0),                             --     audio_clock_secondary_clk_in_reset.reset_n
+            audio_clock_sdram_clk_clk                                             => DRAM_CLK                                             --                  audio_clock_sdram_clk.clk
    );
 
 end structure;

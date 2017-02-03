@@ -3,7 +3,7 @@
  <debug showDebugMenu="0" />
  <systemtable>
   <columns>
-   <connections preferredWidth="287" />
+   <connections preferredWidth="255" />
    <irq preferredWidth="34" />
    <export preferredWidth="185" />
    <name preferredWidth="206" />
@@ -17,8 +17,7 @@
    <frequency preferredWidth="310" />
   </columns>
  </clocktable>
- <library
-   expandedCategories="Library/University Program/Memory,Library/University Program,Library/Interface Protocols/PCI,Library/Verification/Simulation,Library/Memories and Memory Controllers/On-Chip,Library/Embedded Processors,Project,Library/Memories and Memory Controllers,Library/Bridges/Streaming,Library/Interface Protocols/Transceiver PHY,Library/Memories and Memory Controllers/External Memory Interfaces/Memory Models,Library/Peripherals,Project/Terasic Technologies Inc.,Library/DSP/Video and Image Processing,Library/University Program/Audio &amp; Video,Library/DSP,Library/University Program/Audio &amp; Video/Video,Library/Qsys Interconnect/Interrupt,Library/Interface Protocols/Serial,Library/Interface Protocols,Library/Merlin Components,Library/Bridges/Memory-Mapped,Library/Qsys Interconnect/Memory-Mapped,Library/PLL,Library/Bridges,Library/Verification,Library/Interface Protocols/Ethernet,Library,Library/Memories and Memory Controllers/External Memory Interfaces/Flash Interfaces,Library/Peripherals/Debug and Performance,Library/DSP/Filters,Library/Interface Protocols/Ethernet/Example,Library/Memories and Memory Controllers/External Memory Interfaces/Pattern Generators,Library/Memories and Memory Controllers/External Memory Interfaces/Performance Monitors,Library/Qsys Interconnect,Library/Interface Protocols/Ethernet/Submodules,Library/Memories and Memory Controllers/External Memory Interfaces" />
+ <library expandedCategories="Library,Project" />
  <window width="1440" height="855" x="-9" y="20" />
  <hdlexample language="VHDL" />
 </preferences>

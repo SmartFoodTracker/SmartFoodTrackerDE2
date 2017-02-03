@@ -54,6 +54,7 @@ module niosII_system_audio_clock (
 	// Bidirectional
 
 	// Outputs
+	SDRAM_CLK,
 	AUD_CLK,
 	sys_clk,
 	sys_reset_n
@@ -75,6 +76,7 @@ input						reset;
 // Bidirectionals
 
 // Outputs
+output					SDRAM_CLK;
 output					AUD_CLK;
 output					sys_clk;
 output					sys_reset_n;
@@ -100,7 +102,6 @@ wire						clk_locked;
 wire						audio_clk_locked;
 
 wire						video_in_clk;
-wire						SDRAM_CLK;
 wire						VGA_CLK;
 
 // Internal Registers

@@ -29,7 +29,7 @@
 
 `timescale 1 ns / 1 ns
 
-module niosII_system_id_router_001_default_decode
+module niosII_system_id_router_018_default_decode
   #(
      parameter DEFAULT_CHANNEL = 0,
                DEFAULT_DESTID = 0 
@@ -51,7 +51,7 @@ module niosII_system_id_router_001_default_decode
 endmodule
 
 
-module niosII_system_id_router_001
+module niosII_system_id_router_018
 (
     // -------------------
     // Clock & Reset
@@ -132,7 +132,7 @@ module niosII_system_id_router_001
 
 
 
-    niosII_system_id_router_001_default_decode the_default_decode(
+    niosII_system_id_router_018_default_decode the_default_decode(
       .default_destination_id (default_destid),
       .default_src_channel (default_src_channel)
     );
@@ -149,7 +149,10 @@ module niosII_system_id_router_001
 
 
         if (destid == 0 ) begin
-            src_channel = 19'b1;
+            src_channel = 19'b01;
+        end
+        if (destid == 1 ) begin
+            src_channel = 19'b10;
         end
 
 

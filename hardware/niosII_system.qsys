@@ -233,43 +233,11 @@
          type = "int";
       }
    }
-   element sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "8388608";
-         type = "String";
-      }
-   }
-   element remove_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251376";
-         type = "String";
-      }
-   }
-   element switch.s1
-   {
-      datum baseAddress
-      {
-         value = "26251408";
-         type = "String";
-      }
-   }
    element onchip_memory2.s1
    {
       datum baseAddress
       {
          value = "26230784";
-         type = "String";
-      }
-   }
-   element add_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251392";
          type = "String";
       }
    }
@@ -281,11 +249,11 @@
          type = "String";
       }
    }
-   element red_leds.s1
+   element add_button.s1
    {
       datum baseAddress
       {
-         value = "26251344";
+         value = "26251392";
          type = "String";
       }
    }
@@ -297,6 +265,14 @@
          type = "String";
       }
    }
+   element red_leds.s1
+   {
+      datum baseAddress
+      {
+         value = "26251344";
+         type = "String";
+      }
+   }
    element dm9000a_if_ethernet.s1
    {
       datum baseAddress
@@ -305,11 +281,35 @@
          type = "String";
       }
    }
+   element switch.s1
+   {
+      datum baseAddress
+      {
+         value = "26251408";
+         type = "String";
+      }
+   }
    element green_leds.s1
    {
       datum baseAddress
       {
          value = "26251424";
+         type = "String";
+      }
+   }
+   element remove_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251376";
+         type = "String";
+      }
+   }
+   element sdram.s1
+   {
+      datum baseAddress
+      {
+         value = "8388608";
          type = "String";
       }
    }
@@ -405,7 +405,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1486085812541" />
+ <parameter name="timeStamp" value="1486135469784" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clock_50MHz.clk_in" type="clock" dir="end" />
@@ -434,7 +434,7 @@
    internal="red_leds.external_connection"
    type="conduit"
    dir="end" />
- <interface name="altpll_c0" internal="altpll.c0" type="clock" dir="start" />
+ <interface name="altpll_c0" internal="altpll.c0" />
  <interface name="sdram_wire" internal="sdram.wire" type="conduit" dir="end" />
  <interface
    name="sram_external_interface"
@@ -477,11 +477,6 @@
    type="conduit"
    dir="end" />
  <interface
-   name="audio_clock_secondary_clk_in"
-   internal="audio_clock_secondary.clk_in"
-   type="clock"
-   dir="end" />
- <interface
    name="audio_clock_secondary_clk_in_reset"
    internal="audio_clock_secondary.clk_in_reset"
    type="reset"
@@ -491,7 +486,17 @@
    internal="remove_button.external_connection"
    type="conduit"
    dir="end" />
- <interface name="altpll_c2" internal="altpll.c2" type="clock" dir="start" />
+ <interface name="altpll_c2" internal="altpll.c2" />
+ <interface
+   name="audio_clock_sdram_clk"
+   internal="audio_clock.sdram_clk"
+   type="clock"
+   dir="start" />
+ <interface
+   name="audio_clock_secondary_clk_in"
+   internal="audio_clock_secondary.clk_in"
+   type="clock"
+   dir="end" />
  <module kind="clock_source" version="12.1" enabled="1" name="clock_50MHz">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -594,7 +599,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x800000' end='0x1000000' /><slave name='tristate_controller.uas' start='0x1400000' end='0x1800000' /><slave name='sram.avalon_sram_slave' start='0x1880000' end='0x1900000' /><slave name='onchip_memory2.s1' start='0x1904000' end='0x1908000' /><slave name='nios2_qsys.jtag_debug_module' start='0x1908800' end='0x1909000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x800000' end='0x1000000' /><slave name='tristate_controller.uas' start='0x1400000' end='0x1800000' /><slave name='sram.avalon_sram_slave' start='0x1880000' end='0x1900000' /><slave name='onchip_memory2.s1' start='0x1904000' end='0x1908000' /><slave name='nios2_qsys.jtag_debug_module' start='0x1908800' end='0x1909000' /><slave name='timer.s1' start='0x1909000' end='0x1909020' /><slave name='altpll.pll_slave' start='0x1909020' end='0x1909030' /><slave name='audio_config.avalon_av_config_slave' start='0x1909030' end='0x1909040' /><slave name='audio_core.avalon_audio_slave' start='0x1909040' end='0x1909050' /><slave name='red_leds.s1' start='0x1909050' end='0x1909060' /><slave name='cancel_button.s1' start='0x1909060' end='0x1909070' /><slave name='remove_button.s1' start='0x1909070' end='0x1909080' /><slave name='add_button.s1' start='0x1909080' end='0x1909090' /><slave name='switch.s1' start='0x1909090' end='0x19090A0' /><slave name='green_leds.s1' start='0x19090A0' end='0x19090B0' /><slave name='dm9000a_if_ethernet.s1' start='0x19090B0' end='0x19090B8' /><slave name='barcode_scanner_ps2.avalon_ps2_slave' start='0x19090B8' end='0x19090C0' /><slave name='jtag_uart.avalon_jtag_slave' start='0x19090C0' end='0x19090C8' /><slave name='sysid_qsys.control_slave' start='0x19090C8' end='0x19090D0' /><slave name='character_lcd.avalon_lcd_slave' start='0x19090D0' end='0x19090D2' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x800000' end='0x1000000' /><slave name='tristate_controller.uas' start='0x1400000' end='0x1800000' /><slave name='sram.avalon_sram_slave' start='0x1880000' end='0x1900000' /><slave name='onchip_memory2.s1' start='0x1904000' end='0x1908000' /><slave name='nios2_qsys.jtag_debug_module' start='0x1908800' end='0x1909000' /><slave name='timer.s1' start='0x1909000' end='0x1909020' /><slave name='audio_config.avalon_av_config_slave' start='0x1909030' end='0x1909040' /><slave name='audio_core.avalon_audio_slave' start='0x1909040' end='0x1909050' /><slave name='red_leds.s1' start='0x1909050' end='0x1909060' /><slave name='cancel_button.s1' start='0x1909060' end='0x1909070' /><slave name='remove_button.s1' start='0x1909070' end='0x1909080' /><slave name='add_button.s1' start='0x1909080' end='0x1909090' /><slave name='switch.s1' start='0x1909090' end='0x19090A0' /><slave name='green_leds.s1' start='0x19090A0' end='0x19090B0' /><slave name='dm9000a_if_ethernet.s1' start='0x19090B0' end='0x19090B8' /><slave name='barcode_scanner_ps2.avalon_ps2_slave' start='0x19090B8' end='0x19090C0' /><slave name='jtag_uart.avalon_jtag_slave' start='0x19090C0' end='0x19090C8' /><slave name='sysid_qsys.control_slave' start='0x19090C8' end='0x19090D0' /><slave name='character_lcd.avalon_lcd_slave' start='0x19090D0' end='0x19090D2' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="511" />
@@ -850,13 +855,13 @@
   <parameter name="video_format" value="NTSC" />
   <parameter name="d5m_resolution" value="2592 x 1944" />
   <parameter name="exposure" value="false" />
-  <parameter name="AUTO_CLOCK_RESET_CLOCK_RATE" value="12880000" />
+  <parameter name="AUTO_CLOCK_RESET_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
  <module kind="altera_up_clocks" version="12.0" enabled="1" name="audio_clock">
   <parameter name="board" value="DE2" />
   <parameter name="sys_clk_freq" value="50" />
-  <parameter name="sdram_clk" value="false" />
+  <parameter name="sdram_clk" value="true" />
   <parameter name="vga_clk" value="false" />
   <parameter name="audio_clk" value="true" />
   <parameter name="audio_clk_freq" value="12.288" />
@@ -873,7 +878,7 @@
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
- <module kind="altpll" version="12.1" enabled="1" name="altpll">
+ <module kind="altpll" version="12.1" enabled="0" name="altpll">
   <parameter name="HIDDEN_CUSTOM_ELABORATION">altpll_avalon_elaboration</parameter>
   <parameter name="HIDDEN_CUSTOM_POST_EDIT">altpll_avalon_post_edit</parameter>
   <parameter name="INTENDED_DEVICE_FAMILY" value="Cyclone II" />
@@ -1730,19 +1735,6 @@
    start="nios2_qsys.jtag_debug_module_reset"
    end="altpll.inclk_interface_reset" />
  <connection
-   kind="clock"
-   version="12.1"
-   start="altpll.c1"
-   end="onchip_memory2.clk1" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="green_leds.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="jtag_uart.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="nios2_qsys.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="sdram.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="switch.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="sysid_qsys.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="timer.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="sram.clock_reset" />
- <connection
    kind="avalon"
    version="12.1"
    start="nios2_qsys.data_master"
@@ -1755,15 +1747,6 @@
    version="12.1"
    start="clock_50MHz.clk"
    end="altpll.inclk_interface" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="add_button.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="remove_button.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="cancel_button.clk" />
- <connection kind="clock" version="12.1" start="altpll.c1" end="red_leds.clk" />
- <connection
-   kind="clock"
-   version="12.1"
-   start="altpll.c1"
-   end="barcode_scanner_ps2.clock_reset" />
  <connection
    kind="reset"
    version="12.1"
@@ -1809,11 +1792,6 @@
    end="dm9000a_if_ethernet.s1_irq">
   <parameter name="irqNumber" value="8" />
  </connection>
- <connection
-   kind="clock"
-   version="12.1"
-   start="altpll.c1"
-   end="tristate_controller.clk" />
  <connection
    kind="reset"
    version="12.1"
@@ -1896,11 +1874,6 @@
    start="tristate_controller.tcm"
    end="tristate_conduit_pin_sharer.tcs0" />
  <connection
-   kind="clock"
-   version="12.1"
-   start="altpll.c1"
-   end="tristate_conduit_bridge.clk" />
- <connection
    kind="tristate_conduit"
    version="12.1"
    start="tristate_conduit_pin_sharer.tcm"
@@ -1908,17 +1881,77 @@
  <connection
    kind="clock"
    version="12.1"
-   start="altpll.c1"
+   start="clock_50MHz.clk"
+   end="audio_clock.clk_in_primary" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="onchip_memory2.clk1" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="cancel_button.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="green_leds.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="jtag_uart.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="nios2_qsys.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="red_leds.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="remove_button.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="sdram.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="barcode_scanner_ps2.clock_reset" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
    end="tristate_conduit_pin_sharer.clk" />
  <connection
    kind="clock"
    version="12.1"
-   start="altpll.c1"
+   start="audio_clock.sys_clk"
+   end="tristate_conduit_bridge.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="tristate_controller.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
    end="dm9000a_if_ethernet.s1_clock" />
  <connection
    kind="clock"
    version="12.1"
-   start="audio_clock.audio_clk"
+   start="audio_clock.sys_clk"
    end="audio_config.clock_reset" />
  <connection
    kind="clock"
@@ -1928,11 +1961,31 @@
  <connection
    kind="clock"
    version="12.1"
-   start="altpll.c1"
+   start="audio_clock.sys_clk"
+   end="add_button.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="switch.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
    end="character_lcd.clock_reset" />
  <connection
    kind="clock"
    version="12.1"
-   start="altpll.c1"
-   end="audio_clock.clk_in_primary" />
+   start="audio_clock.sys_clk"
+   end="sram.clock_reset" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="timer.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="audio_clock.sys_clk"
+   end="sysid_qsys.clk" />
 </system>
