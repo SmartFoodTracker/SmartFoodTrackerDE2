@@ -45,5 +45,6 @@ sopc_builder_log.txt
 *.jdi
 *.map
 *.objdump
+*.force_relink
 software/*/obj/*
 
