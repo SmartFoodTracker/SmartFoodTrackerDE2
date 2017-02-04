@@ -40,5 +40,6 @@ incremental_db/*
 output_files/*
 simulation/*
 sopc_builder_log.txt
-
+*.sopcinfo
+*.jdi
 
