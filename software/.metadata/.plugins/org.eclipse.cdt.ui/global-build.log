@@ -1,0 +1,39 @@
+
+**** Build of configuration Nios II for project barcode_scanner ****
+
+make all 
+Info: Building ../barcode_scanner_bsp/
+make --no-print-directory -C ../barcode_scanner_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../barcode_scanner_bsp//UCOSII/inc -I../barcode_scanner_bsp//HAL/inc -I../barcode_scanner_bsp/ -I../barcode_scanner_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+Info: Linking barcode_scanner.elf
+nios2-elf-g++  -T'../barcode_scanner_bsp//linker.x' -msys-crt0='../barcode_scanner_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../barcode_scanner_bsp/   -Wl,-Map=barcode_scanner.map   -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o barcode_scanner.elf obj/default/main.o -lm 
+nios2-elf-insert barcode_scanner.elf --thread_model ucosii --cpu_name nios2_qsys --qsys true --simulation_enabled false --id 0 --sidp 0x19090b8 --timestamp 1486171616 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2" --jdi /afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2/software/barcode_scanner_bsp/../../SmartFoodTrackerDE2.jdi --sopcinfo /afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2/software/barcode_scanner_bsp/../../niosII_system.sopcinfo
+Info: (barcode_scanner.elf) 96 KBytes program size (code + initialized data).
+Info:                       8088 KBytes free for stack + heap.
+Info: Creating barcode_scanner.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source barcode_scanner.elf >barcode_scanner.objdump
+[barcode_scanner build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project barcode_scanner ****
+
+make all 
+Info: Building ../barcode_scanner_bsp/
+make --no-print-directory -C ../barcode_scanner_bsp/
+[BSP build complete]
+[barcode_scanner build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project barcode_scanner ****
+
+make all 
+Info: Building ../barcode_scanner_bsp/
+make --no-print-directory -C ../barcode_scanner_bsp/
+[BSP build complete]
+[barcode_scanner build complete]
+
+**** Build Finished ****

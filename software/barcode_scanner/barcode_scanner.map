@@ -1,0 +1,2141 @@
+Archive member included because of file (symbol)
+
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+                              obj/default/main.o (puts)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o) (strlen)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o) (__sfvwrite_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o) (_impure_ptr)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (_malloc_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (memchr)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (memcpy)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (memmove)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (_realloc_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o) (_sbrk_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (__swsetup_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (_fflush_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o) (__sinit)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o) (_free_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o) (_fwalk_reent)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o) (errno)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o) (__smakebuf_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o) (memset)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o) (__sclose)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o) (_write_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o) (_close_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o) (fclose)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o) (_fstat_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o) (_isatty_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o) (_lseek_r)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o) (_read_r)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o) (close)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o) (alt_fd_list)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o) (alt_errno)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o) (fstat)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o) (isatty)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+                              ../barcode_scanner_bsp//obj/HAL/src/crt0.o (alt_load)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o) (lseek)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+                              ../barcode_scanner_bsp//obj/HAL/src/crt0.o (alt_main)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o) (read)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o) (alt_release_fd)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o) (sbrk)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o) (write)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (alt_envsem)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o) (__malloc_lock)
+../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (OSInit)
+../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (OSDebugInit)
+../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (OS_FlagInit)
+../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (OS_MemInit)
+../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (OS_QInit)
+../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (OSSemCreate)
+../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+                              obj/default/main.o (OSTaskCreateExt)
+../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (OSTimeDly)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (alt_irq_init)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (altera_avalon_jtag_uart_read_fd)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (altera_avalon_jtag_uart_init)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o) (altera_avalon_jtag_uart_ioctl)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o) (altera_avalon_jtag_uart_read)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o) (altera_avalon_jtag_uart_write)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (alt_avalon_timer_sc_init)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (alt_up_character_lcd_init)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (alt_up_ps2_init)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o) (alt_alarm_start)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o) (alt_dcache_flush_all)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (alt_dev_llist_insert)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (_do_ctors)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (_do_dtors)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o) (alt_find_dev)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o) (alt_icache_flush_all)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (alt_io_redirect)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o) (alt_irq_register)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o) (alt_irq_active)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o) (open)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o) (_alt_tick_rate)
+../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o) (altera_nios2_qsys_irq_init)
+../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (OSIntCtxSw)
+../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o) (OSTaskStkInit)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o) (alt_find_file)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o) (alt_get_fd)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o) (alt_icache_flush)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o) (alt_irq_entry)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o) (alt_irq_handler)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o) (alt_exception)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (atexit)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o) (exit)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o) (memcmp)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o) (__register_exitproc)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o) (__call_exitprocs)
+/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+                              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o) (__udivsi3)
+../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+                              /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o) (_exit)
+
+Allocating common symbols
+Common symbol       size              file
+
+alt_irq             0x100             ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+task1_stk           0x2000            obj/default/main.o
+OSLockNesting       0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSRunning           0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSIdleCtr           0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSPrioHighRdy       0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+errno               0x4               /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+alt_heapsem         0x4               ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+OSFlagTbl           0x370             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSPrioCur           0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTCBList           0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+alt_fd_list_lock    0x4               ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+OSMemTbl            0xc30             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTickStepState     0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTaskStatStk       0x800             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSCtxSwCtr          0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSIdleCtrMax        0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTCBFreeList       0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSCPUUsage          0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTaskCtr           0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSMemFreeList       0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSQTbl              0x1e0             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTCBHighRdy        0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSQFreeList         0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSRdyGrp            0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+task2_stk           0x2000            obj/default/main.o
+_atexit0            0x190             /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+OSRdyTbl            0x3               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSEventFreeList     0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSIntNesting        0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTCBCur            0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTime              0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTaskIdleStk       0x800             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSEventTbl          0xb40             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTCBTbl            0x510             ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSFlagFreeList      0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSStatRdy           0x1               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+OSTCBPrioTbl        0x54              ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+alt_envsem          0x4               ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+OSIdleCtrRun        0x4               ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+sdram            0x00800000         0x00800000
+tristate_controller 0x01400000         0x00400000
+sram             0x01880000         0x00080000
+reset            0x01904000         0x00000020
+onchip_memory2   0x01904020         0x00003fe0
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+LOAD obj/default/main.o
+LOAD /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libstdc++.a
+LOAD /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libm.a
+LOAD /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a
+START GROUP
+LOAD /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a
+LOAD /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a
+LOAD ../barcode_scanner_bsp//libucosii_bsp.a
+END GROUP
+LOAD /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a
+                0x00800000                __alt_mem_sdram = 0x800000
+                0x01400000                __alt_mem_tristate_controller = 0x1400000
+                0x01880000                __alt_mem_sram = 0x1880000
+                0x01904000                __alt_mem_onchip_memory2 = 0x1904000
+
+.entry          0x01904000       0x20
+ *(.entry)
+ .entry         0x01904000       0x20 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+                0x01904000                __reset
+
+.exceptions     0x01904020      0x1a0 load address 0x00800000
+                0x01904020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x01904020                . = ALIGN (0x20)
+ *(.irq)
+ *(.exceptions.entry.label)
+ .exceptions.entry.label
+                0x01904020        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+                0x01904020                alt_irq_entry
+ .exceptions.entry.label
+                0x01904020        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+                0x01904020                alt_exception
+ *(.exceptions.entry.user)
+ *(.exceptions.entry)
+ .exceptions.entry
+                0x01904020       0x54 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ *(.exceptions.irqtest.user)
+ *(.exceptions.irqtest)
+ .exceptions.irqtest
+                0x01904074       0x10 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ *(.exceptions.irqhandler.user)
+ *(.exceptions.irqhandler)
+ .exceptions.irqhandler
+                0x01904084        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ *(.exceptions.irqreturn.user)
+ *(.exceptions.irqreturn)
+ .exceptions.irqreturn
+                0x01904088        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ *(.exceptions.notirq.label)
+ .exceptions.notirq.label
+                0x0190408c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ *(.exceptions.notirq.user)
+ *(.exceptions.notirq)
+ .exceptions.notirq
+                0x0190408c        0x8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ *(.exceptions.soft.user)
+ *(.exceptions.soft)
+ *(.exceptions.unknown.user)
+ *(.exceptions.unknown)
+ .exceptions.unknown
+                0x01904094        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ *(.exceptions.exit.label)
+ .exceptions.exit.label
+                0x01904098        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .exceptions.exit.label
+                0x01904098        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ *(.exceptions.exit.user)
+ *(.exceptions.exit)
+ .exceptions.exit
+                0x01904098       0x54 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ *(.exceptions)
+ .exceptions    0x019040ec       0xd4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+                0x019040ec                alt_irq_handler
+                0x019041c0                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x00800000                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+
+.text           0x008001a0     0xef2c
+                0x008001a0                PROVIDE (stext, ABSOLUTE (.))
+ *(.interp)
+ *(.hash)
+ *(.dynsym)
+ *(.dynstr)
+ *(.gnu.version)
+ *(.gnu.version_d)
+ *(.gnu.version_r)
+ *(.rel.init)
+ *(.rela.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rela.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rela.ctors)
+ *(.rel.dtors)
+ *(.rela.dtors)
+ *(.rel.got)
+ *(.rela.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rel.plt)
+ *(.rela.plt)
+ *(.rel.dyn)
+ *(.init)
+ *(.plt)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x008001a0       0x3c ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+                0x008001a0                _start
+ .text          0x008001dc      0x11c obj/default/main.o
+                0x008001dc                task1
+                0x00800214                task2
+                0x0080024c                main
+ .text          0x008002f8       0xb4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+                0x008002f8                _puts_r
+                0x00800398                puts
+ .text          0x008003ac       0x74 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+                0x008003ac                strlen
+ .text          0x00800420      0x49c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+                0x00800420                __sfvwrite_r
+ .text          0x008008bc        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .text          0x008008bc      0x740 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                0x008008bc                _malloc_r
+ .text          0x00800ffc       0xe4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+                0x00800ffc                memchr
+ .text          0x008010e0       0xa0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+                0x008010e0                memcpy
+ .text          0x00801180       0xe0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+                0x00801180                memmove
+ .text          0x00801260      0x5f4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+                0x00801260                _realloc_r
+ .text          0x00801854       0x70 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+                0x00801854                _sbrk_r
+ .text          0x008018c4      0x13c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+                0x008018c4                __swsetup_r
+ .text          0x00801a00      0x230 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+                0x00801a00                _fflush_r
+                0x00801bfc                fflush
+ .text          0x00801c30      0x2c0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+                0x00801c88                __sfp_lock_acquire
+                0x00801c8c                __sfp_lock_release
+                0x00801c90                __sinit_lock_acquire
+                0x00801c94                __sinit_lock_release
+                0x00801c98                __sinit
+                0x00801d4c                __fp_unlock_all
+                0x00801d64                __fp_lock_all
+                0x00801d7c                _cleanup_r
+                0x00801d88                _cleanup
+                0x00801d98                __sfmoreglue
+                0x00801e00                __sfp
+ .text          0x00801ef0      0x440 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+                0x00801ef0                _malloc_trim_r
+                0x0080201c                _free_r
+ .text          0x00802330      0x180 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+                0x00802330                _fwalk_reent
+                0x008023f8                _fwalk
+ .text          0x008024b0        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .text          0x008024b0      0x194 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+                0x008024b0                __smakebuf_r
+ .text          0x00802644       0x98 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+                0x00802644                memset
+ .text          0x008026dc      0x14c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+                0x008026dc                __sclose
+                0x008026e4                __sseek
+                0x0080274c                __swrite
+                0x008027c8                __sread
+ .text          0x00802828       0x78 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+                0x00802828                _write_r
+ .text          0x008028a0       0x70 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+                0x008028a0                _close_r
+ .text          0x00802910      0x124 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+                0x00802910                _fclose_r
+                0x00802a20                fclose
+ .text          0x00802a34       0x74 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+                0x00802a34                _fstat_r
+ .text          0x00802aa8       0x70 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+                0x00802aa8                _isatty_r
+ .text          0x00802b18       0x78 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+                0x00802b18                _lseek_r
+ .text          0x00802b90       0x78 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+                0x00802b90                _read_r
+ .text          0x00802c08      0x15c ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+                0x00802c08                close
+ .text          0x00802d64       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .text          0x00802d90        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .text          0x00802d90      0x134 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+                0x00802d90                fstat
+ .text          0x00802ec4      0x120 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+                0x00802ec4                isatty
+ .text          0x00802fe4       0xec ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+                0x00802fe4                alt_load
+ .text          0x008030d0      0x150 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+                0x008030d0                lseek
+ .text          0x00803220       0xc8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+                0x00803220                alt_main
+ .text          0x008032e8      0x180 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+                0x008032e8                read
+ .text          0x00803468       0x60 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+                0x00803468                alt_release_fd
+ .text          0x008034c8       0xbc ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+                0x008034c8                sbrk
+ .text          0x00803584      0x180 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+                0x00803584                write
+ .text          0x00803704      0x108 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+                0x00803704                __env_lock
+                0x008037b0                __env_unlock
+ .text          0x0080380c      0x1d8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+                0x0080380c                __malloc_lock
+                0x00803914                __malloc_unlock
+ .text          0x008039e4     0x2128 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+                0x008039e4                OSEventNameGet
+                0x00803b14                OSEventNameSet
+                0x00803c58                OSEventPendMulti
+                0x0080430c                OSInit
+                0x00804360                OSIntEnter
+                0x008043dc                OSIntExit
+                0x008044dc                OSSchedLock
+                0x00804568                OSSchedUnlock
+                0x0080464c                OSStart
+                0x008046bc                OSStatInit
+                0x00804768                OSTimeTick
+                0x008049a8                OSVersion
+                0x008049c8                OS_Dummy
+                0x008049e4                OS_EventTaskRdy
+                0x00804b78                OS_EventTaskWait
+                0x00804c88                OS_EventTaskWaitMulti
+                0x00804ddc                OS_EventTaskRemove
+                0x00804e94                OS_EventTaskRemoveMulti
+                0x00804f98                OS_EventWaitListInit
+                0x00805364                OS_MemClr
+                0x008053b8                OS_MemCopy
+                0x00805424                OS_Sched
+                0x00805568                OS_StrCopy
+                0x008055e8                OS_StrLen
+                0x00805640                OS_TaskIdle
+                0x0080569c                OS_TaskStat
+                0x00805764                OS_TaskStatStkChk
+                0x0080582c                OS_TCBInit
+ .text          0x00805b0c      0x18c ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+                0x00805b0c                OSDebugInit
+ .text          0x00805c98     0x193c ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+                0x00805c98                OSFlagAccept
+                0x00805fcc                OSFlagCreate
+                0x00806108                OSFlagDel
+                0x008063b0                OSFlagNameGet
+                0x008064f4                OSFlagNameSet
+                0x00806648                OSFlagPend
+                0x00806c8c                OSFlagPendGetFlagsRdy
+                0x00806cf4                OSFlagPost
+                0x0080709c                OSFlagQuery
+                0x00807334                OS_FlagInit
+                0x00807528                OS_FlagUnlink
+ .text          0x008075d4      0x808 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+                0x008075d4                OSMemCreate
+                0x008077f0                OSMemGet
+                0x008078f4                OSMemNameGet
+                0x00807a00                OSMemNameSet
+                0x00807b20                OSMemPut
+                0x00807c10                OSMemQuery
+                0x00807d0c                OS_MemInit
+ .text          0x00807ddc     0x1334 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+                0x00807ddc                OSQAccept
+                0x00807f30                OSQCreate
+                0x00808144                OSQDel
+                0x00808444                OSQFlush
+                0x0080850c                OSQPend
+                0x0080882c                OSQPendAbort
+                0x008089a8                OSQPost
+                0x00808b28                OSQPostFront
+                0x00808cb0                OSQPostOpt
+                0x00808ee4                OSQQuery
+                0x00809064                OS_QInit
+ .text          0x00809110      0xbc8 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+                0x00809110                OSSemAccept
+                0x008091d0                OSSemCreate
+                0x008092e4                OSSemDel
+                0x00809584                OSSemPend
+                0x00809800                OSSemPendAbort
+                0x0080997c                OSSemPost
+                0x00809aa4                OSSemQuery
+                0x00809bd4                OSSemSet
+ .text          0x00809cd8     0x1a40 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+                0x00809cd8                OSTaskChangePrio
+                0x0080a24c                OSTaskCreate
+                0x0080a420                OSTaskCreateExt
+                0x0080a620                OSTaskDel
+                0x0080aa2c                OSTaskDelReq
+                0x0080ab9c                OSTaskNameGet
+                0x0080ad54                OSTaskNameSet
+                0x0080af18                OSTaskResume
+                0x0080b130                OSTaskStkChk
+                0x0080b32c                OSTaskSuspend
+                0x0080b558                OSTaskQuery
+                0x0080b69c                OS_TaskStkClr
+ .text          0x0080b718      0x598 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+                0x0080b718                OSTimeDly
+                0x0080b864                OSTimeDlyHMSM
+                0x0080b9d8                OSTimeDlyResume
+                0x0080bbe8                OSTimeGet
+                0x0080bc4c                OSTimeSet
+ .text          0x0080bcb0      0x110 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+                0x0080bcb0                alt_irq_init
+                0x0080bce4                alt_sys_init
+ .text          0x0080bdc0      0x148 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x0080bdc0                altera_avalon_jtag_uart_read_fd
+                0x0080be18                altera_avalon_jtag_uart_write_fd
+                0x0080be70                altera_avalon_jtag_uart_close_fd
+                0x0080beb8                altera_avalon_jtag_uart_ioctl_fd
+ .text          0x0080bf08      0x580 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+                0x0080bf08                altera_avalon_jtag_uart_init
+                0x0080c414                altera_avalon_jtag_uart_close
+ .text          0x0080c488       0xf4 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                0x0080c488                altera_avalon_jtag_uart_ioctl
+ .text          0x0080c57c      0x2c0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0080c57c                altera_avalon_jtag_uart_read
+ .text          0x0080c83c      0x2dc ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0080c83c                altera_avalon_jtag_uart_write
+ .text          0x0080cb18       0xfc ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+                0x0080cb8c                alt_avalon_timer_sc_init
+ .text          0x0080cc14      0x530 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+                0x0080cc14                get_DDRAM_addr
+                0x0080cc90                alt_up_character_lcd_send_cmd
+                0x0080ccc4                alt_up_character_lcd_init
+                0x0080ccf8                alt_up_character_lcd_open_dev
+                0x0080cd38                alt_up_character_lcd_write
+                0x0080cdb0                alt_up_character_lcd_string
+                0x0080ce28                alt_up_character_lcd_write_fd
+                0x0080ce74                alt_up_character_lcd_set_cursor_pos
+                0x0080ceec                alt_up_character_lcd_shift_cursor
+                0x0080cf9c                alt_up_character_lcd_shift_display
+                0x0080d04c                alt_up_character_lcd_erase_pos
+                0x0080d0dc                alt_up_character_lcd_cursor_off
+                0x0080d110                alt_up_character_lcd_cursor_blink_on
+ .text          0x0080d144      0x700 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+                0x0080d144                read_RI_bit
+                0x0080d178                read_RE_bit
+                0x0080d1a8                read_CE_bit
+                0x0080d1dc                read_num_bytes_available
+                0x0080d210                read_data_valid
+                0x0080d244                read_data_byte
+                0x0080d270                alt_up_ps2_init
+                0x0080d33c                alt_up_ps2_enable_read_interrupt
+                0x0080d390                alt_up_ps2_disable_read_interrupt
+                0x0080d3e8                alt_up_ps2_write_data_byte
+                0x0080d460                alt_up_ps2_wait_for_ack
+                0x0080d4d0                alt_up_ps2_write_data_byte_with_ack
+                0x0080d53c                alt_up_ps2_read_data_byte_timeout
+                0x0080d5ec                alt_up_ps2_read_data_byte
+                0x0080d668                alt_up_ps2_clear_fifo
+                0x0080d6c0                alt_up_ps2_read_fd
+                0x0080d75c                alt_up_ps2_write_fd
+                0x0080d804                alt_up_ps2_open_dev
+ .text          0x0080d844      0x154 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+                0x0080d844                alt_alarm_start
+ .text          0x0080d998       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+                0x0080d998                alt_dcache_flush_all
+ .text          0x0080d9b4      0x114 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+                0x0080d9b4                alt_dev_llist_insert
+ .text          0x0080dac8       0x64 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+                0x0080dac8                _do_ctors
+ .text          0x0080db2c       0x64 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+                0x0080db2c                _do_dtors
+ .text          0x0080db90       0x94 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+                0x0080db90                alt_find_dev
+ .text          0x0080dc24       0x30 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+                0x0080dc24                alt_icache_flush_all
+ .text          0x0080dc54      0x13c ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+                0x0080dd18                alt_io_redirect
+ .text          0x0080dd90      0x1c0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+                0x0080dd90                alt_irq_register
+ .text          0x0080df50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .text          0x0080df50      0x2c4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+                0x0080e02c                open
+ .text          0x0080e214      0x1a8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+                0x0080e214                alt_alarm_stop
+                0x0080e2ac                alt_tick
+ .text          0x0080e3bc       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+                0x0080e3bc                altera_nios2_qsys_irq_init
+ .text          0x0080e3dc       0xd0 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+                0x0080e3dc                OSCtxSw
+                0x0080e3dc                OSIntCtxSw
+                0x0080e468                OSStartHighRdy
+                0x0080e488                OSStartTsk
+ .text          0x0080e4ac      0x418 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+                0x0080e4ac                OSTaskStkInit
+                0x0080e7bc                OSTaskCreateHook
+                0x0080e7dc                OSTaskDelHook
+                0x0080e7fc                OSTaskSwHook
+                0x0080e818                OSTaskStatHook
+                0x0080e834                OSTimeTickHook
+                0x0080e850                OSInitHookBegin
+                0x0080e86c                OSInitHookEnd
+                0x0080e888                OSTaskIdleHook
+                0x0080e8a4                OSTCBInitHook
+ .text          0x0080e8c4      0x120 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+                0x0080e8c4                alt_find_file
+ .text          0x0080e9e4       0xf4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+                0x0080e9e4                alt_get_fd
+ .text          0x0080ead8       0x90 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+                0x0080ead8                alt_icache_flush
+ .text          0x0080eb68        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .text          0x0080eb68        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .text          0x0080eb68        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .text          0x0080eb68       0x14 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+                0x0080eb68                atexit
+ .text          0x0080eb7c       0x38 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+                0x0080eb7c                exit
+ .text          0x0080ebb4       0x74 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+                0x0080ebb4                memcmp
+ .text          0x0080ec28      0x134 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+                0x0080ec28                __register_exitproc
+ .text          0x0080ed5c      0x1b4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+                0x0080ed60                __call_exitprocs
+ .text          0x0080ef10      0x14c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+                0x0080ef8c                __divsi3
+                0x0080efec                __modsi3
+                0x0080f04c                __udivsi3
+                0x0080f054                __umodsi3
+ .text          0x0080f05c       0x6c ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+                0x0080f09c                _exit
+ *(.gnu.warning.*)
+ *(.fini)
+                0x0080f0c8                PROVIDE (__etext, ABSOLUTE (.))
+                0x0080f0c8                PROVIDE (_etext, ABSOLUTE (.))
+                0x0080f0c8                PROVIDE (etext, ABSOLUTE (.))
+ *(.eh_frame_hdr)
+                0x0080f0c8                . = ALIGN (0x4)
+                0x0080f0c8                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+ *(.preinit_array)
+                0x0080f0c8                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x0080f0c8                PROVIDE (__init_array_start, ABSOLUTE (.))
+ *(.init_array)
+                0x0080f0c8                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x0080f0c8                PROVIDE (__fini_array_start, ABSOLUTE (.))
+ *(.fini_array)
+                0x0080f0c8                PROVIDE (__fini_array_end, ABSOLUTE (.))
+ *(.eh_frame)
+ *(.gcc_except_table)
+ *(.dynamic)
+                0x0080f0c8                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+ *(.ctors)
+ *(SORT(.ctors.*))
+ .ctors.65535   0x0080f0c8        0x4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+                0x0080f0cc                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x0080f0cc                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ *(.dtors)
+ *(SORT(.dtors.*))
+                0x0080f0cc                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+ *(.jcr)
+                0x0080f0cc                . = ALIGN (0x4)
+
+.rodata         0x0080f0cc      0x1d4
+                0x0080f0cc                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x0080f0cc                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0080f0cc       0x28 obj/default/main.o
+ .rodata.str1.4
+                0x0080f0f4        0x2 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+                                  0x4 (size before relaxing)
+ *fill*         0x0080f0f6        0x2 00
+ .rodata.str1.4
+                0x0080f0f8        0x4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .rodata        0x0080f0fc        0xc ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .rodata        0x0080f108       0x10 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .rodata        0x0080f118      0x120 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+                0x0080f118                OSUnMapTbl
+ .rodata        0x0080f238       0x64 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .rodata        0x0080f29c        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ *(.rodata1)
+                0x0080f2a0                . = ALIGN (0x4)
+                0x0080f2a0                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x0080f0cc                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+
+.rwdata         0x0080f2a0     0x1b94 load address 0x00810e34
+                0x0080f2a0                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0080f2a0                . = ALIGN (0x4)
+ *(.got.plt)
+ *(.got)
+ *(.data1)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0080f2a0        0x0 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .data          0x0080f2a0        0x0 obj/default/main.o
+ .data          0x0080f2a0        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .data          0x0080f2a0        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .data          0x0080f2a0        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .data          0x0080f2a0      0x400 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .data          0x0080f6a0      0x408 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                0x0080f6a0                __malloc_av_
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .data          0x0080faa8        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .data          0x0080faa8        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .data          0x0080faa8      0x1a8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+                0x0080faa8                alt_dev_null
+                0x0080fad0                alt_fd_list
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .data          0x0080fc50        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .data          0x0080fc50     0x1130 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .data          0x00810d80        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .data          0x00810d80        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .data          0x00810d80        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .data          0x00810d80        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .data          0x00810d80        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .data          0x00810d80        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .data          0x00810d80        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+                0x00818d80                _gp = ABSOLUTE ((. + 0x8000))
+                0x00818d80                PROVIDE (gp, _gp)
+ *(.rwdata .rwdata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x00810d80        0x8 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+                0x00810d80                _impure_ptr
+                0x00810d84                _global_impure_ptr
+ .sdata         0x00810d88        0x8 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                0x00810d88                __malloc_trim_threshold
+                0x00810d8c                __malloc_sbrk_base
+ .sdata         0x00810d90       0x14 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+                0x00810d90                alt_fs_list
+                0x00810d98                alt_dev_list
+                0x00810da0                alt_max_fd
+ .sdata         0x00810da4        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+                0x00810da4                alt_errno
+ .sdata         0x00810da8        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .sdata         0x00810dac        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .sdata         0x00810db0        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .sdata         0x00810db4       0x74 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+                0x00810db4                OSDebugEn
+                0x00810db8                OSEndiannessTest
+                0x00810dbc                OSEventEn
+                0x00810dbe                OSEventMax
+                0x00810dc0                OSEventNameSize
+                0x00810dc2                OSEventSize
+                0x00810dc4                OSEventTblSize
+                0x00810dc6                OSEventMultiEn
+                0x00810dc8                OSFlagEn
+                0x00810dca                OSFlagGrpSize
+                0x00810dcc                OSFlagNodeSize
+                0x00810dce                OSFlagWidth
+                0x00810dd0                OSFlagMax
+                0x00810dd2                OSFlagNameSize
+                0x00810dd4                OSLowestPrio
+                0x00810dd6                OSMboxEn
+                0x00810dd8                OSMemEn
+                0x00810dda                OSMemMax
+                0x00810ddc                OSMemNameSize
+                0x00810dde                OSMemSize
+                0x00810de0                OSMemTblSize
+                0x00810de2                OSMutexEn
+                0x00810de4                OSPtrSize
+                0x00810de6                OSQEn
+                0x00810de8                OSQMax
+                0x00810dea                OSQSize
+                0x00810dec                OSRdyTblSize
+                0x00810dee                OSSemEn
+                0x00810df0                OSStkWidth
+                0x00810df2                OSTaskCreateEn
+                0x00810df4                OSTaskCreateExtEn
+                0x00810df6                OSTaskDelEn
+                0x00810df8                OSTaskIdleStkSize
+                0x00810dfa                OSTaskProfileEn
+                0x00810dfc                OSTaskMax
+                0x00810dfe                OSTaskNameSize
+                0x00810e00                OSTaskStatEn
+                0x00810e02                OSTaskStatStkSize
+                0x00810e04                OSTaskStatStkChkEn
+                0x00810e06                OSTaskSwHookEn
+                0x00810e08                OSTCBPrioTblMax
+                0x00810e0a                OSTCBSize
+                0x00810e0c                OSTicksPerSec
+                0x00810e0e                OSTimeTickHookEn
+                0x00810e10                OSVersionNbr
+                0x00810e12                OSTmrEn
+                0x00810e14                OSTmrCfgMax
+                0x00810e16                OSTmrCfgNameSize
+                0x00810e18                OSTmrCfgWheelSize
+                0x00810e1a                OSTmrCfgTicksPerSec
+                0x00810e1c                OSTmrSize
+                0x00810e1e                OSTmrTblSize
+                0x00810e20                OSTmrWheelSize
+                0x00810e22                OSTmrWheelTblSize
+                0x00810e24                OSDataSize
+ .sdata         0x00810e28        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+                0x00810e28                alt_priority_mask
+ .sdata         0x00810e2c        0x8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+                0x00810e2c                alt_alarm_list
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+                0x00810e34                . = ALIGN (0x4)
+                0x00810e34                _edata = ABSOLUTE (.)
+                0x00810e34                PROVIDE (edata, ABSOLUTE (.))
+                0x00810e34                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x00810e34                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+
+.bss            0x008129c8     0x7568
+                0x008129c8                __bss_start = ABSOLUTE (.)
+                0x008129c8                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x008129c8                PROVIDE (___sbss_start, ABSOLUTE (.))
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x008129c8        0xc /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                0x008129c8                __malloc_top_pad
+                0x008129cc                __malloc_max_sbrked_mem
+                0x008129d0                __malloc_max_total_mem
+ .sbss          0x008129d4        0x4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+                0x008129d4                errno
+ .sbss          0x008129d8        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+                0x008129d8                alt_fd_list_lock
+ .sbss          0x008129dc        0xc ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+                0x008129dc                alt_argc
+                0x008129e0                alt_argv
+                0x008129e4                alt_envp
+ .sbss          0x008129e8        0x8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+                0x008129ec                alt_envsem
+ .sbss          0x008129f0        0x8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+                0x008129f4                alt_heapsem
+ .sbss          0x008129f8       0x50 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+                0x008129f8                OSLockNesting
+                0x008129f9                OSRunning
+                0x008129fc                OSIdleCtr
+                0x00812a00                OSPrioHighRdy
+                0x00812a01                OSPrioCur
+                0x00812a04                OSTCBList
+                0x00812a08                OSTickStepState
+                0x00812a0c                OSCtxSwCtr
+                0x00812a10                OSIdleCtrMax
+                0x00812a14                OSTCBFreeList
+                0x00812a18                OSCPUUsage
+                0x00812a19                OSTaskCtr
+                0x00812a1c                OSMemFreeList
+                0x00812a20                OSTCBHighRdy
+                0x00812a24                OSQFreeList
+                0x00812a28                OSRdyGrp
+                0x00812a29                OSRdyTbl
+                0x00812a2c                OSEventFreeList
+                0x00812a30                OSIntNesting
+                0x00812a34                OSTCBCur
+                0x00812a38                OSTime
+                0x00812a3c                OSFlagFreeList
+                0x00812a40                OSStatRdy
+                0x00812a44                OSIdleCtrRun
+ .sbss          0x00812a48        0x4 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+                0x00812a48                alt_irq_active
+ .sbss          0x00812a4c        0x8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+                0x00812a4c                _alt_tick_rate
+                0x00812a50                _alt_nticks
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+ *(.scommon)
+                0x00812a54                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x00812a54                PROVIDE (___sbss_end, ABSOLUTE (.))
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00812a54        0x0 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .bss           0x00812a54        0x0 obj/default/main.o
+ .bss           0x00812a54        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .bss           0x00812a54        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .bss           0x00812a54        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .bss           0x00812a54        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .bss           0x00812a54       0x28 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                0x00812a54                __malloc_current_mallinfo
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .bss           0x00812a7c        0x0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .bss           0x00812a7c        0x0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+ *(COMMON)
+ COMMON         0x00812a7c     0x4000 obj/default/main.o
+                0x00812a7c                task1_stk
+                0x00814a7c                task2_stk
+ COMMON         0x00816a7c     0x3224 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+                0x00816a7c                OSFlagTbl
+                0x00816dec                OSMemTbl
+                0x00817a1c                OSTaskStatStk
+                0x0081821c                OSQTbl
+                0x008183fc                OSTaskIdleStk
+                0x00818bfc                OSEventTbl
+                0x0081973c                OSTCBTbl
+                0x00819c4c                OSTCBPrioTbl
+ COMMON         0x00819ca0      0x100 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+                0x00819ca0                alt_irq
+ COMMON         0x00819da0      0x190 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+                0x00819da0                _atexit0
+                0x00819f30                . = ALIGN (0x4)
+                0x00819f30                __bss_end = ABSOLUTE (.)
+
+.sdram          0x00819f30        0x0
+                0x00819f30                PROVIDE (_alt_partition_sdram_start, ABSOLUTE (.))
+ *(.sdram. sdram.*)
+                0x00819f30                . = ALIGN (0x4)
+                0x00819f30                PROVIDE (_alt_partition_sdram_end, ABSOLUTE (.))
+                0x00819f30                _end = ABSOLUTE (.)
+                0x00819f30                end = ABSOLUTE (.)
+                0x00819f30                __alt_stack_base = ABSOLUTE (.)
+                0x00819f30                PROVIDE (_alt_partition_sdram_load_addr, LOADADDR (.sdram))
+
+.tristate_controller
+                0x01400000        0x0 load address 0x00819f30
+                0x01400000                PROVIDE (_alt_partition_tristate_controller_start, ABSOLUTE (.))
+ *(.tristate_controller. tristate_controller.*)
+                0x01400000                . = ALIGN (0x4)
+                0x01400000                PROVIDE (_alt_partition_tristate_controller_end, ABSOLUTE (.))
+                0x00819f30                PROVIDE (_alt_partition_tristate_controller_load_addr, LOADADDR (.tristate_controller))
+
+.sram           0x01880000        0x0 load address 0x00819f30
+                0x01880000                PROVIDE (_alt_partition_sram_start, ABSOLUTE (.))
+ *(.sram. sram.*)
+                0x01880000                . = ALIGN (0x4)
+                0x01880000                PROVIDE (_alt_partition_sram_end, ABSOLUTE (.))
+                0x00819f30                PROVIDE (_alt_partition_sram_load_addr, LOADADDR (.sram))
+
+.onchip_memory2
+                0x019041c0        0x0 load address 0x00819f30
+                0x019041c0                PROVIDE (_alt_partition_onchip_memory2_start, ABSOLUTE (.))
+ *(.onchip_memory2. onchip_memory2.*)
+                0x019041c0                . = ALIGN (0x4)
+                0x019041c0                PROVIDE (_alt_partition_onchip_memory2_end, ABSOLUTE (.))
+                0x00819f30                PROVIDE (_alt_partition_onchip_memory2_load_addr, LOADADDR (.onchip_memory2))
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x26
+ *(.comment)
+ .comment       0x00000000       0x26 obj/default/main.o
+                                 0x27 (size before relaxing)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .comment       0x00000000       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .comment       0x00000000       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xa98
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .debug_aranges
+                0x00000028       0x20 obj/default/main.o
+ .debug_aranges
+                0x00000048       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_aranges
+                0x00000068       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_aranges
+                0x00000088       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_aranges
+                0x000000a8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_aranges
+                0x000000c8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_aranges
+                0x000000e8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_aranges
+                0x00000108       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_aranges
+                0x00000128       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_aranges
+                0x00000148       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_aranges
+                0x00000168       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_aranges
+                0x00000188       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_aranges
+                0x000001a8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_aranges
+                0x000001c8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_aranges
+                0x000001e8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_aranges
+                0x00000208       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_aranges
+                0x00000228       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_aranges
+                0x00000248       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_aranges
+                0x00000268       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_aranges
+                0x00000288       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_aranges
+                0x000002a8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_aranges
+                0x000002c8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_aranges
+                0x000002e8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_aranges
+                0x00000308       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_aranges
+                0x00000328       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_aranges
+                0x00000348       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_aranges
+                0x00000368       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_aranges
+                0x00000388       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_aranges
+                0x000003a8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_aranges
+                0x000003c8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_aranges
+                0x000003e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_aranges
+                0x00000408       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_aranges
+                0x00000428       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_aranges
+                0x00000448       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_aranges
+                0x00000468       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_aranges
+                0x00000488       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_aranges
+                0x000004a8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_aranges
+                0x000004c8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_aranges
+                0x000004e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_aranges
+                0x00000508       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_aranges
+                0x00000528       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_aranges
+                0x00000548       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_aranges
+                0x00000568       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_aranges
+                0x00000588       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_aranges
+                0x000005a8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_aranges
+                0x000005c8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_aranges
+                0x000005e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_aranges
+                0x00000608       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_aranges
+                0x00000628       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_aranges
+                0x00000648       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_aranges
+                0x00000668       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_aranges
+                0x00000688       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_aranges
+                0x000006a8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_aranges
+                0x000006c8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_aranges
+                0x000006e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_aranges
+                0x00000708       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_aranges
+                0x00000728       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_aranges
+                0x00000748       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_aranges
+                0x00000768       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_aranges
+                0x00000788       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_aranges
+                0x000007a8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_aranges
+                0x000007c8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_aranges
+                0x000007e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_aranges
+                0x00000808       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_aranges
+                0x00000828       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_aranges
+                0x00000848       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_aranges
+                0x00000868       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_aranges
+                0x00000888       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .debug_aranges
+                0x000008a8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_aranges
+                0x000008c8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_aranges
+                0x000008e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_aranges
+                0x00000908       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_aranges
+                0x00000928       0x30 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_aranges
+                0x00000958       0x28 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_aranges
+                0x00000980       0x38 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_aranges
+                0x000009b8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_aranges
+                0x000009d8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_aranges
+                0x000009f8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_aranges
+                0x00000a18       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_aranges
+                0x00000a38       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x00000a58       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_aranges
+                0x00000a78       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_pubnames
+                0x00000000     0x1dc7
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x4b obj/default/main.o
+ .debug_pubnames
+                0x0000004b       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_pubnames
+                0x00000072       0x1d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_pubnames
+                0x0000008f       0x23 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_pubnames
+                0x000000b2       0x39 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .debug_pubnames
+                0x000000eb       0xce /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_pubnames
+                0x000001b9       0x1d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_pubnames
+                0x000001d6       0x1d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_pubnames
+                0x000001f3       0x1e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_pubnames
+                0x00000211       0x21 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_pubnames
+                0x00000232       0x1e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_pubnames
+                0x00000250       0x22 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_pubnames
+                0x00000272       0x2b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_pubnames
+                0x0000029d       0xdb /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_pubnames
+                0x00000378       0x31 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_pubnames
+                0x000003a9       0x2e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_pubnames
+                0x000003d7       0x1c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .debug_pubnames
+                0x000003f3       0x23 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_pubnames
+                0x00000416       0x1d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_pubnames
+                0x00000433       0x44 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_pubnames
+                0x00000477       0x1f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_pubnames
+                0x00000496       0x1f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_pubnames
+                0x000004b5       0x2b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_pubnames
+                0x000004e0       0x1f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_pubnames
+                0x000004ff       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_pubnames
+                0x0000051f       0x1f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_pubnames
+                0x0000053e       0x1e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_pubnames
+                0x0000055c       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_pubnames
+                0x00000578       0x78 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_pubnames
+                0x000005f0       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_pubnames
+                0x00000610       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_pubnames
+                0x0000062c       0x1d ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_pubnames
+                0x00000649       0x1f ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_pubnames
+                0x00000668       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_pubnames
+                0x00000684       0x46 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_pubnames
+                0x000006ca       0x1b ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_pubnames
+                0x000006e5       0x25 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_pubnames
+                0x0000070a       0x1b ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_pubnames
+                0x00000725       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_pubnames
+                0x00000741       0x41 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_pubnames
+                0x00000782       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_pubnames
+                0x000007ca      0x3f8 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_pubnames
+                0x00000bc2      0x3c5 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_pubnames
+                0x00000f87       0xd0 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_pubnames
+                0x00001057       0x7c ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_pubnames
+                0x000010d3       0xa9 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_pubnames
+                0x0000117c       0x8a ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_pubnames
+                0x00001206       0xe5 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_pubnames
+                0x000012eb       0x62 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_pubnames
+                0x0000134d       0x34 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_pubnames
+                0x00001381       0xa5 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_pubnames
+                0x00001426       0x55 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_pubnames
+                0x0000147b       0x34 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_pubnames
+                0x000014af       0x33 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_pubnames
+                0x000014e2       0x34 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_pubnames
+                0x00001516       0x2f ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_pubnames
+                0x00001545      0x1cd ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_pubnames
+                0x00001712      0x1ed ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_pubnames
+                0x000018ff       0x26 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_pubnames
+                0x00001925       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_pubnames
+                0x00001950       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_pubnames
+                0x0000197b       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_pubnames
+                0x0000199b       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_pubnames
+                0x000019bb       0x23 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_pubnames
+                0x000019de       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_pubnames
+                0x00001a09       0x26 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_pubnames
+                0x00001a2f       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_pubnames
+                0x00001a56       0x3b ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .debug_pubnames
+                0x00001a91       0x1b ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_pubnames
+                0x00001aac       0x68 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_pubnames
+                0x00001b14       0x31 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_pubnames
+                0x00001b45       0xcd ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_pubnames
+                0x00001c12       0x24 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_pubnames
+                0x00001c36       0x21 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_pubnames
+                0x00001c57       0x27 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_pubnames
+                0x00001c7e       0x32 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_pubnames
+                0x00001cb0       0x2a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_pubnames
+                0x00001cda       0x1b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_pubnames
+                0x00001cf5       0x1d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_pubnames
+                0x00001d12       0x2a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_pubnames
+                0x00001d3c       0x27 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_pubnames
+                0x00001d63       0x48 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_pubnames
+                0x00001dab       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_info     0x00000000    0x28037
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000       0x85 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .debug_info    0x00000085      0x26e obj/default/main.o
+ .debug_info    0x000002f3      0xa25 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_info    0x00000d18       0xdb /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_info    0x00000df3      0xa88 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_info    0x0000187b      0x93d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .debug_info    0x000021b8      0xcd0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_info    0x00002e88      0x138 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_info    0x00002fc0      0x106 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_info    0x000030c6      0x13e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_info    0x00003204      0xbd7 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_info    0x00003ddb      0x962 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_info    0x0000473d      0x95d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_info    0x0000509a      0x9fe /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_info    0x00005a98      0xb72 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_info    0x0000660a      0xbc9 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_info    0x000071d3      0xaed /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_info    0x00007cc0       0x8c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .debug_info    0x00007d4c      0xb1a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_info    0x00008866      0x113 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_info    0x00008979      0xaac /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_info    0x00009425      0x993 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_info    0x00009db8      0x958 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_info    0x0000a710      0x994 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_info    0x0000b0a4      0xafc /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_info    0x0000bba0      0x958 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_info    0x0000c4f8      0x981 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_info    0x0000ce79      0x98c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_info    0x0000d805      0x4f8 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_info    0x0000dcfd      0x81a ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_info    0x0000e517      0x16e ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_info    0x0000e685      0x6f1 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_info    0x0000ed76      0x6f7 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_info    0x0000f46d      0x297 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_info    0x0000f704      0x52b ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_info    0x0000fc2f      0x41a ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_info    0x00010049      0x71b ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_info    0x00010764      0x48c ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_info    0x00010bf0      0x308 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_info    0x00010ef8      0x724 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_info    0x0001161c     0x1210 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_info    0x0001282c     0x136c ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_info    0x00013b98     0x1c26 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_info    0x000157be     0x116b ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_info    0x00016929     0x1281 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_info    0x00017baa      0x84b ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_info    0x000183f5     0x10bb ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_info    0x000194b0      0xd23 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_info    0x0001a1d3     0x1399 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_info    0x0001b56c      0xa1d ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_info    0x0001bf89      0xc00 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_info    0x0001cb89      0xa0f ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_info    0x0001d598      0x99a ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_info    0x0001df32      0x679 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_info    0x0001e5ab      0x835 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_info    0x0001ede0      0x82c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x0001f60c      0x3d5 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_info    0x0001f9e1      0x939 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_info    0x0002031a      0xb6f ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_info    0x00020e89      0x47f ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_info    0x00021308      0x166 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0002146e      0x2c1 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x0002172f      0x119 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_info    0x00021848      0x118 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_info    0x00021960      0x4a9 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_info    0x00021e09      0x166 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x00021f6f      0x726 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_info    0x00022695      0x479 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_info    0x00022b0e      0x171 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .debug_info    0x00022c7f      0x5a7 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_info    0x00023226      0x44e ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_info    0x00023674      0x1b4 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_info    0x00023828       0x8d ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .debug_info    0x000238b5     0x1310 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_info    0x00024bc5      0x4b0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_info    0x00025075      0x642 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_info    0x000256b7      0x1ae ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_info    0x00025865       0x8e ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_info    0x000258f3      0x2fc ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_info    0x00025bef       0x94 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_info    0x00025c83      0x181 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_info    0x00025e04      0x93f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_info    0x00026743      0x115 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_info    0x00026858      0x99c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_info    0x000271f4      0x9e2 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_info    0x00027bd6      0x21c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_info    0x00027df2      0x245 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_abbrev   0x00000000     0x6ad4
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x12 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .debug_abbrev  0x00000012       0xb6 obj/default/main.o
+ .debug_abbrev  0x000000c8      0x1ac /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_abbrev  0x00000274       0x8b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_abbrev  0x000002ff      0x1a3 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_abbrev  0x000004a2      0x157 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .debug_abbrev  0x000005f9      0x216 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_abbrev  0x0000080f       0xb5 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_abbrev  0x000008c4       0xb5 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_abbrev  0x00000979       0xb5 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_abbrev  0x00000a2e      0x1c3 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_abbrev  0x00000bf1      0x18c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_abbrev  0x00000d7d      0x170 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_abbrev  0x00000eed      0x1c6 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_abbrev  0x000010b3      0x24c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_abbrev  0x000012ff      0x1d9 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_abbrev  0x000014d8      0x1e3 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_abbrev  0x000016bb       0x3b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x000016f6      0x197 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_abbrev  0x0000188d       0xb8 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_abbrev  0x00001945      0x1c9 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_abbrev  0x00001b0e      0x184 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_abbrev  0x00001c92      0x17f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_abbrev  0x00001e11      0x1a7 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_abbrev  0x00001fb8      0x18e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_abbrev  0x00002146      0x17f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_abbrev  0x000022c5      0x18e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_abbrev  0x00002453      0x17f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_abbrev  0x000025d2      0x102 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_abbrev  0x000026d4      0x10a ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_abbrev  0x000027de       0x5e ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_abbrev  0x0000283c      0x102 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_abbrev  0x0000293e      0x102 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_abbrev  0x00002a40       0x88 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_abbrev  0x00002ac8      0x102 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_abbrev  0x00002bca      0x120 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_abbrev  0x00002cea      0x102 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_abbrev  0x00002dec       0xd3 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_abbrev  0x00002ebf      0x11c ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_abbrev  0x00002fdb      0x107 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_abbrev  0x000030e2      0x1b3 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_abbrev  0x00003295      0x234 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_abbrev  0x000034c9      0x2aa ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_abbrev  0x00003773      0x114 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_abbrev  0x00003887      0x21b ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_abbrev  0x00003aa2      0x235 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_abbrev  0x00003cd7      0x20d ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_abbrev  0x00003ee4      0x20d ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_abbrev  0x000040f1      0x20e ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_abbrev  0x000042ff      0x1de ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_abbrev  0x000044dd      0x1d7 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x000046b4      0x13c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_abbrev  0x000047f0      0x21e ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_abbrev  0x00004a0e      0x135 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_abbrev  0x00004b43      0x1ee ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_abbrev  0x00004d31      0x1ea ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x00004f1b      0x137 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_abbrev  0x00005052      0x127 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_abbrev  0x00005179      0x174 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_abbrev  0x000052ed      0x172 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_abbrev  0x0000545f       0x3f ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000549e       0xf6 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_abbrev  0x00005594       0x76 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_abbrev  0x0000560a       0x76 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_abbrev  0x00005680       0xd6 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_abbrev  0x00005756       0x3f ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x00005795       0xf7 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_abbrev  0x0000588c      0x180 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_abbrev  0x00005a0c       0x44 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .debug_abbrev  0x00005a50      0x119 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_abbrev  0x00005b69      0x161 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_abbrev  0x00005cca       0x64 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_abbrev  0x00005d2e       0x14 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .debug_abbrev  0x00005d42      0x1d0 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_abbrev  0x00005f12       0xd6 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_abbrev  0x00005fe8      0x173 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_abbrev  0x0000615b       0x7a ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_abbrev  0x000061d5       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_abbrev  0x000061e7      0x124 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_abbrev  0x0000630b       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_abbrev  0x0000631d       0xb7 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_abbrev  0x000063d4      0x16e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_abbrev  0x00006542       0x7c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x000065be      0x1ae /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_abbrev  0x0000676c      0x1de /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x0000694a       0xe0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_abbrev  0x00006a2a       0xaa ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_line     0x00000000    0x150d6
+ *(.debug_line)
+ .debug_line    0x00000000       0x6c ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .debug_line    0x0000006c      0x303 obj/default/main.o
+ .debug_line    0x0000036f      0x2f7 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_line    0x00000666      0x26d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_line    0x000008d3      0x641 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_line    0x00000f14      0x22d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+ .debug_line    0x00001141      0x80a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_line    0x0000194b      0x303 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_line    0x00001c4e      0x1ac /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_line    0x00001dfa      0x30a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_line    0x00002104      0x58a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_line    0x0000268e      0x299 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_line    0x00002927      0x2f0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_line    0x00002c17      0x40d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_line    0x00003024      0x601 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_line    0x00003625      0x5eb /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_line    0x00003c10      0x34a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_line    0x00003f5a      0x1df /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+ .debug_line    0x00004139      0x3c3 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_line    0x000044fc      0x301 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_line    0x000047fd      0x38c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_line    0x00004b89      0x29a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_line    0x00004e23      0x29a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_line    0x000050bd      0x2e8 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_line    0x000053a5      0x264 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_line    0x00005609      0x29b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_line    0x000058a4      0x29a /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_line    0x00005b3e      0x299 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_line    0x00005dd7      0x315 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_line    0x000060ec      0x2d9 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_line    0x000063c5      0x1b2 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_line    0x00006577      0x31d ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_line    0x00006894      0x31e ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_line    0x00006bb2      0x21f ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_line    0x00006dd1      0x31d ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_line    0x000070ee      0x365 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_line    0x00007453      0x344 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_line    0x00007797      0x295 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_line    0x00007a2c      0x282 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_line    0x00007cae      0x345 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_line    0x00007ff3      0x2e0 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_line    0x000082d3      0x39c ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_line    0x0000866f     0x1684 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_line    0x00009cf3      0x3a9 ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_line    0x0000a09c     0x1208 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_line    0x0000b2a4      0x7ab ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_line    0x0000ba4f      0xe8c ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_line    0x0000c8db      0xa44 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_line    0x0000d31f     0x114d ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_line    0x0000e46c      0x550 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_line    0x0000e9bc      0x3bf ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000ed7b      0x338 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_line    0x0000f0b3      0x5b7 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_line    0x0000f66a      0x375 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_line    0x0000f9df      0x4b3 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x0000fe92      0x4c1 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x00010353      0x2d2 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_line    0x00010625      0x4e1 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_line    0x00010b06      0x675 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_line    0x0001117b      0x2fd ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_line    0x00011478      0x1bd ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x00011635      0x262 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x00011897       0x83 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_line    0x0001191a       0x83 ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_line    0x0001199d      0x2f6 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_line    0x00011c93      0x1c5 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x00011e58      0x33f ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_line    0x00012197      0x375 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_line    0x0001250c       0x72 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .debug_line    0x0001257e      0x37b ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_line    0x000128f9      0x337 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_line    0x00012c30      0x1ef ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_line    0x00012e1f       0x86 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .debug_line    0x00012ea5      0x349 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_line    0x000131ee      0x307 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_line    0x000134f5      0x337 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_line    0x0001382c      0x201 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_line    0x00013a2d       0x6b ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_line    0x00013a98      0x2e5 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_line    0x00013d7d       0xab ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_line    0x00013e28      0x200 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_line    0x00014028      0x238 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_line    0x00014260      0x29f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_line    0x000144ff      0x313 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_line    0x00014812      0x367 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x00014b79      0x2c6 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_line    0x00014e3f      0x297 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_frame    0x00000000     0x1fcc
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x64 obj/default/main.o
+ .debug_frame   0x00000064       0x3c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_frame   0x000000a0       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_frame   0x000000c0       0x38 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_frame   0x000000f8       0x38 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_frame   0x00000130       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_frame   0x00000150       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_frame   0x00000170       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_frame   0x00000190       0x38 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_frame   0x000001c8       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x000001f4       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_frame   0x00000220       0x40 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_frame   0x00000260      0x118 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_frame   0x00000378       0x4c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_frame   0x000003c4       0x60 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_frame   0x00000424       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_frame   0x00000450       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_frame   0x00000470       0x78 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_frame   0x000004e8       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_frame   0x00000514       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_frame   0x00000540       0x3c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_frame   0x0000057c       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_frame   0x000005a8       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_frame   0x000005d4       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_frame   0x00000600       0x2c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_frame   0x0000062c       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_frame   0x00000674       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_frame   0x000006a0       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_frame   0x000006e8       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_frame   0x00000730       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_frame   0x00000778       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_frame   0x000007c0       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_frame   0x000007ec       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_frame   0x00000834       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_frame   0x00000860       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_frame   0x0000088c       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_frame   0x000008d4       0x4c ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_frame   0x00000920       0x4c ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_frame   0x0000096c      0x3e4 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_frame   0x00000d50       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_frame   0x00000d7c      0x180 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_frame   0x00000efc       0xd4 ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_frame   0x00000fd0      0x144 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_frame   0x00001114       0xf0 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_frame   0x00001204      0x160 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_frame   0x00001364       0xa0 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_frame   0x00001404       0x64 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_frame   0x00001468       0x80 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_frame   0x000014e8       0x80 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_frame   0x00001568       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_frame   0x00001594       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_frame   0x000015c0       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x000015ec       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_frame   0x00001634      0x17c ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_frame   0x000017b0      0x208 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_frame   0x000019b8       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_frame   0x000019e4       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x00001a10       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_frame   0x00001a58       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_frame   0x00001a84       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_frame   0x00001ab0       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_frame   0x00001adc       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x00001b08       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_frame   0x00001b50       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_frame   0x00001b7c       0x64 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_frame   0x00001be0       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_frame   0x00001c28       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_frame   0x00001c54      0x128 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_frame   0x00001d7c       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_frame   0x00001da8       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_frame   0x00001dd4       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_frame   0x00001e00       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_frame   0x00001e2c       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_frame   0x00001e4c       0x28 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_frame   0x00001e74       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_frame   0x00001e94       0x34 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00001ec8       0x4c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00001f14       0x70 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_frame   0x00001f84       0x48 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_str      0x00000000     0x1a03
+ *(.debug_str)
+ .debug_str     0x00000000       0x12 obj/default/main.o
+ .debug_str     0x00000012      0x4d4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+                                0x54e (size before relaxing)
+ .debug_str     0x000004e6       0xe0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+                                0x182 (size before relaxing)
+ .debug_str     0x000005c6       0x66 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+                                0x568 (size before relaxing)
+ .debug_str     0x0000062c       0xe9 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-impure.o)
+                                0x51f (size before relaxing)
+ .debug_str     0x00000715      0x29f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+                                0x6f6 (size before relaxing)
+ .debug_str     0x000009b4       0x63 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+                                0x190 (size before relaxing)
+ .debug_str     0x00000a17       0x69 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+                                0x12d (size before relaxing)
+ .debug_str     0x00000a80       0x4d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+                                0x1a2 (size before relaxing)
+ .debug_str     0x00000acd       0x59 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+                                0x5c8 (size before relaxing)
+ .debug_str     0x00000b26       0x50 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+                                0x510 (size before relaxing)
+ .debug_str     0x00000b76       0x46 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+                                0x511 (size before relaxing)
+ .debug_str     0x00000bbc       0x52 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+                                0x537 (size before relaxing)
+ .debug_str     0x00000c0e      0x102 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+                                0x5f9 (size before relaxing)
+ .debug_str     0x00000d10       0x3c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+                                0x648 (size before relaxing)
+ .debug_str     0x00000d4c       0x5e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+                                0x53a (size before relaxing)
+ .debug_str     0x00000daa       0x3d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-int_errno.o)
+                                0x168 (size before relaxing)
+ .debug_str     0x00000de7      0x123 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+                                0x60b (size before relaxing)
+ .debug_str     0x00000f0a       0x42 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+                                0x183 (size before relaxing)
+ .debug_str     0x00000f4c       0x62 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+                                0x536 (size before relaxing)
+ .debug_str     0x00000fae       0x4c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+                                0x513 (size before relaxing)
+ .debug_str     0x00000ffa       0x43 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+                                0x503 (size before relaxing)
+ .debug_str     0x0000103d       0x50 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+                                0x51b (size before relaxing)
+ .debug_str     0x0000108d       0x49 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+                                0x5f6 (size before relaxing)
+ .debug_str     0x000010d6       0x45 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+                                0x505 (size before relaxing)
+ .debug_str     0x0000111b       0x43 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+                                0x511 (size before relaxing)
+ .debug_str     0x0000115e       0x41 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+                                0x511 (size before relaxing)
+ .debug_str     0x0000119f       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_str     0x000011b1       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_str     0x000011c3       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_str     0x000011d5       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_str     0x000011e7       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_str     0x000011f9       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_str     0x0000120b       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_str     0x0000121d       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_str     0x0000122f       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_str     0x00001241       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_str     0x00001253       0x1a ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_str     0x0000126d       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_str     0x0000127f       0x36 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_str     0x000012b5       0x36 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_str     0x000012eb       0x46 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_str     0x00001331       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_str     0x0000135c       0x4e ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_str     0x000013aa       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_str     0x000013d6       0x36 ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_str     0x0000140c       0x36 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_str     0x00001442       0x23 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_str     0x00001465       0x1f ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_str     0x00001484       0x65 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_str     0x000014e9       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_str     0x000014fb       0x1a ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_str     0x00001515       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_str     0x00001527       0x22 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_str     0x00001549       0x22 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_str     0x0000156b       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_str     0x0000157d       0x55 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_str     0x000015d2       0x3a ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_str     0x0000160c       0x23 ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_str     0x0000162f       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_str     0x00001641       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_str     0x00001653       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_str     0x00001665       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_str     0x00001677       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_str     0x00001689       0x21 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_str     0x000016aa       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_str     0x000016bc       0x1a ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_str     0x000016d6       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_str     0x000016e8       0x20 ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_str     0x00001708       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_str     0x0000171a       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_str     0x0000172c       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_str     0x0000173e       0x12 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_str     0x00001750       0x3b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+                                0x1c4 (size before relaxing)
+ .debug_str     0x0000178b       0x3e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+                                0x511 (size before relaxing)
+ .debug_str     0x000017c9       0x42 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+                                0x16f (size before relaxing)
+ .debug_str     0x0000180b       0x51 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+                                0x529 (size before relaxing)
+ .debug_str     0x0000185c       0x7b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+                                0x553 (size before relaxing)
+ .debug_str     0x000018d7      0x110 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+                                0x1b9 (size before relaxing)
+ .debug_str     0x000019e7       0x1c ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_loc      0x00000000     0x563e
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x81 obj/default/main.o
+ .debug_loc     0x00000081       0xa2 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-puts.o)
+ .debug_loc     0x00000123       0x3c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_loc     0x0000015f      0x4e4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_loc     0x00000643      0xaeb /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_loc     0x0000112e      0x106 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memchr.o)
+ .debug_loc     0x00001234       0xca /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcpy.o)
+ .debug_loc     0x000012fe      0x117 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memmove.o)
+ .debug_loc     0x00001415      0x8c0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_loc     0x00001cd5       0x5b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-sbrkr.o)
+ .debug_loc     0x00001d30       0x7c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-wsetup.o)
+ .debug_loc     0x00001dac      0x1f6 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_loc     0x00001fa2      0x19f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-findfp.o)
+ .debug_loc     0x00002141      0x4a7 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-freer.o)
+ .debug_loc     0x000025e8      0x1d2 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_loc     0x000027ba      0x11c /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-makebuf.o)
+ .debug_loc     0x000028d6       0xa1 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memset.o)
+ .debug_loc     0x00002977      0x21f /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-stdio.o)
+ .debug_loc     0x00002b96       0x97 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-writer.o)
+ .debug_loc     0x00002c2d       0x5b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-closer.o)
+ .debug_loc     0x00002c88       0xe4 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fclose.o)
+ .debug_loc     0x00002d6c       0x79 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fstatr.o)
+ .debug_loc     0x00002de5       0x5b /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-isattyr.o)
+ .debug_loc     0x00002e40       0x97 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-lseekr.o)
+ .debug_loc     0x00002ed7       0x97 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-readr.o)
+ .debug_loc     0x00002f6e       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_loc     0x00002fc4       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_loc     0x00002fef       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_fstat.o)
+ .debug_loc     0x00003045       0x57 ../barcode_scanner_bsp//libucosii_bsp.a(alt_isatty.o)
+ .debug_loc     0x0000309c       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_loc     0x000030f2       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_lseek.o)
+ .debug_loc     0x00003148       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_loc     0x00003173       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_read.o)
+ .debug_loc     0x000031c9       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_loc     0x000031f4       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_sbrk.o)
+ .debug_loc     0x0000321f       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_loc     0x00003275       0x57 ../barcode_scanner_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_loc     0x000032cc       0x57 ../barcode_scanner_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_loc     0x00003323      0x5e2 ../barcode_scanner_bsp//libucosii_bsp.a(os_core.o)
+ .debug_loc     0x00003905       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_loc     0x00003930      0x232 ../barcode_scanner_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_loc     0x00003b62      0x12d ../barcode_scanner_bsp//libucosii_bsp.a(os_mem.o)
+ .debug_loc     0x00003c8f      0x1da ../barcode_scanner_bsp//libucosii_bsp.a(os_q.o)
+ .debug_loc     0x00003e69      0x158 ../barcode_scanner_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_loc     0x00003fc1      0x207 ../barcode_scanner_bsp//libucosii_bsp.a(os_task.o)
+ .debug_loc     0x000041c8       0xd7 ../barcode_scanner_bsp//libucosii_bsp.a(os_time.o)
+ .debug_loc     0x0000429f       0x81 ../barcode_scanner_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_loc     0x00004320       0xac ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_loc     0x000043cc       0xac ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_loc     0x00004478       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_loc     0x000044a3       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_loc     0x000044cf       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_loc     0x000044fb       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_loc     0x00004551      0x22f ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_character_lcd.o)
+ .debug_loc     0x00004780      0x306 ../barcode_scanner_bsp//libucosii_bsp.a(altera_up_avalon_ps2.o)
+ .debug_loc     0x00004a86       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_loc     0x00004ab1       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_loc     0x00004adc       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_loc     0x00004b32       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_loc     0x00004b5d       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_loc     0x00004b88       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_loc     0x00004bb3       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_loc     0x00004bde       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_loc     0x00004c34       0x2c ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_register.o)
+ .debug_loc     0x00004c60       0x81 ../barcode_scanner_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_loc     0x00004ce1       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_loc     0x00004d37       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_loc     0x00004d62      0x1ae ../barcode_scanner_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_loc     0x00004f10       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_loc     0x00004f3b       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_loc     0x00004f66       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_icache_flush.o)
+ .debug_loc     0x00004f91       0x2b ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_loc     0x00004fbc       0x1e /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-atexit.o)
+ .debug_loc     0x00004fda       0x3d /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-exit.o)
+ .debug_loc     0x00005017      0x114 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-memcmp.o)
+ .debug_loc     0x0000512b      0x120 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__atexit.o)
+ .debug_loc     0x0000524b      0x1cb /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_loc     0x00005416      0x1d2 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/libgcc.a(lib2-divmod.o)
+ .debug_loc     0x000055e8       0x56 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exit.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_alt_sim_info
+                0x00000000       0x20
+ *(.debug_alt_sim_info)
+ .debug_alt_sim_info
+                0x00000000       0x20 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+                0x01000000                __alt_data_end = 0x1000000
+                0x01000000                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                0x00819f30                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x00819f30                PROVIDE (__alt_heap_start, end)
+                0x01000000                PROVIDE (__alt_heap_limit, 0x1000000)
+OUTPUT(barcode_scanner.elf elf32-littlenios2)
+
+.debug_ranges   0x00000000      0x310
+ .debug_ranges  0x00000000       0x20 ../barcode_scanner_bsp//obj/HAL/src/crt0.o
+ .debug_ranges  0x00000020       0x28 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fvwrite.o)
+ .debug_ranges  0x00000048       0x70 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-mallocr.o)
+ .debug_ranges  0x000000b8      0x110 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-reallocr.o)
+ .debug_ranges  0x000001c8       0x20 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fflush.o)
+ .debug_ranges  0x000001e8       0xa0 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-fwalk.o)
+ .debug_ranges  0x00000288       0x18 ../barcode_scanner_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_ranges  0x000002a0       0x28 ../barcode_scanner_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_ranges  0x000002c8       0x30 ../barcode_scanner_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_ranges  0x000002f8       0x18 /OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/libc.a(lib_a-__call_atexit.o)
