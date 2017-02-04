@@ -33,7 +33,12 @@
 *.su
 
 # Quartus, Qsys, Eclipse
-*.qsys_edit/
 *.bak
+*.rpt
+db/*
+incremental_db/*
+output_files/*
+simulation/*
 sopc_builder_log.txt
+
 

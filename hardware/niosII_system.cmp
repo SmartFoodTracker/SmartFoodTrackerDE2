@@ -53,10 +53,10 @@
 			tristate_conduit_bridge_out_tristate_controller_tcm_begintransfer_out : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_begintransfer_out
 			tristate_conduit_bridge_out_tristate_controller_tcm_write_n_out       : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_write_n_out
 			tristate_conduit_bridge_out_tristate_controller_tcm_chipselect_n_out  : out   std_logic_vector(0 downto 0);                     -- tristate_controller_tcm_chipselect_n_out
-			audio_clock_secondary_clk_in_reset_reset_n                            : in    std_logic                     := 'X';             -- reset_n
 			remove_button_external_connection_export                              : in    std_logic                     := 'X';             -- export
-			audio_clock_sdram_clk_clk                                             : out   std_logic;                                        -- clk
-			audio_clock_secondary_clk_in_clk                                      : in    std_logic                     := 'X'              -- clk
+			main_pll_sdram_clk_clk                                                : out   std_logic;                                        -- clk
+			clock_27mhz_clk_in_clk                                                : in    std_logic                     := 'X';             -- clk
+			clock_27mhz_clk_in_reset_reset_n                                      : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component niosII_system;
 

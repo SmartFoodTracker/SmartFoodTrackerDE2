@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="niosII_system" kind="niosII_system" version="1.0" fabric="QSYS">
  <!-- Format version 12.1sp1 243 (Future versions may contain additional information.) -->
- <!-- 2017.02.03.15:41:53 -->
+ <!-- 2017.02.03.17:07:36 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1486161713</value>
+  <value>1486166856</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -59,7 +59,7 @@
   <visible>false</visible>
   <valid>true</valid>
  </parameter>
- <parameter name="AUTO_AUDIO_CLOCK_SECONDARY_CLK_IN_CLOCK_RATE">
+ <parameter name="AUTO_CLOCK_27MHZ_CLK_IN_CLOCK_RATE">
   <type>java.lang.Long</type>
   <value>-1</value>
   <derived>false</derived>
@@ -67,7 +67,7 @@
   <visible>false</visible>
   <valid>true</valid>
  </parameter>
- <parameter name="AUTO_AUDIO_CLOCK_SECONDARY_CLK_IN_CLOCK_DOMAIN">
+ <parameter name="AUTO_CLOCK_27MHZ_CLK_IN_CLOCK_DOMAIN">
   <type>java.lang.Integer</type>
   <value>-1</value>
   <derived>false</derived>
@@ -75,7 +75,7 @@
   <visible>false</visible>
   <valid>true</valid>
  </parameter>
- <parameter name="AUTO_AUDIO_CLOCK_SECONDARY_CLK_IN_RESET_DOMAIN">
+ <parameter name="AUTO_CLOCK_27MHZ_CLK_IN_RESET_DOMAIN">
   <type>java.lang.Integer</type>
   <value>-1</value>
   <derived>false</derived>
@@ -338,9 +338,9 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>audio_clock</moduleName>
+    <moduleName>main_pll</moduleName>
     <slaveName>clk_in_primary</slaveName>
-    <name>audio_clock.clk_in_primary</name>
+    <name>main_pll.clk_in_primary</name>
    </clockDomainMember>
   </interface>
   <interface name="clk_reset" kind="reset_source" version="12.1">
@@ -3735,7 +3735,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1486161713</value>
+   <value>1486166856</value>
   </assignment>
   <parameter name="id">
    <type>int</type>
@@ -3747,7 +3747,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1486161713</value>
+   <value>1486166856</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -13852,10 +13852,10 @@ parameters are a RESULT of the module parameters. -->
   </interface>
  </module>
  <module
-   name="audio_clock"
+   name="main_pll"
    kind="altera_up_clocks"
    version="12.0"
-   path="audio_clock">
+   path="main_pll">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="board">
@@ -14485,10 +14485,10 @@ parameters are a RESULT of the module parameters. -->
   </interface>
  </module>
  <module
-   name="audio_clock_secondary"
+   name="clock_27MHz"
    kind="clock_source"
    version="12.1"
-   path="audio_clock_secondary">
+   path="clock_27MHz">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="clockFrequency">
@@ -14723,9 +14723,9 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>audio_clock</moduleName>
+    <moduleName>main_pll</moduleName>
     <slaveName>clk_in_secondary</slaveName>
-    <name>audio_clock.clk_in_secondary</name>
+    <name>main_pll.clk_in_secondary</name>
    </clockDomainMember>
   </interface>
   <interface name="clk_reset" kind="reset_source" version="12.1">
@@ -15968,7 +15968,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="AUTO_CLK_CLOCK_DOMAIN">
    <type>java.lang.Integer</type>
-   <value>2</value>
+   <value>6</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -15976,7 +15976,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="AUTO_CLK_RESET_DOMAIN">
    <type>java.lang.Integer</type>
-   <value>2</value>
+   <value>6</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -17116,7 +17116,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="AUTO_CLK_CLOCK_DOMAIN">
    <type>java.lang.Integer</type>
-   <value>2</value>
+   <value>6</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -17124,7 +17124,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="AUTO_CLK_RESET_DOMAIN">
    <type>java.lang.Integer</type>
-   <value>2</value>
+   <value>6</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -19344,10 +19344,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>interrupt</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/nios2_qsys.reset_n"
+   name="main_pll.sys_clk_reset/nios2_qsys.reset_n"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="nios2_qsys.reset_n">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19365,16 +19365,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>nios2_qsys</endModule>
   <endConnectionPoint>reset_n</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/onchip_memory2.reset1"
+   name="main_pll.sys_clk_reset/onchip_memory2.reset1"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="onchip_memory2.reset1">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19392,16 +19392,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>onchip_memory2</endModule>
   <endConnectionPoint>reset1</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/sysid_qsys.reset"
+   name="main_pll.sys_clk_reset/sysid_qsys.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="sysid_qsys.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19419,16 +19419,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>sysid_qsys</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/timer.reset"
+   name="main_pll.sys_clk_reset/timer.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="timer.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19446,16 +19446,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>timer</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/jtag_uart.reset"
+   name="main_pll.sys_clk_reset/jtag_uart.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="jtag_uart.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19473,16 +19473,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>jtag_uart</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/character_lcd.clock_reset_reset"
+   name="main_pll.sys_clk_reset/character_lcd.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="character_lcd.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19500,16 +19500,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>character_lcd</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/green_leds.reset"
+   name="main_pll.sys_clk_reset/green_leds.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="green_leds.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19527,16 +19527,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>green_leds</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/switch.reset"
+   name="main_pll.sys_clk_reset/switch.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="switch.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19554,16 +19554,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>switch</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/sdram.reset"
+   name="main_pll.sys_clk_reset/sdram.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="sdram.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19581,16 +19581,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>sdram</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/sram.clock_reset_reset"
+   name="main_pll.sys_clk_reset/sram.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="sram.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19608,16 +19608,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>sram</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/add_button.reset"
+   name="main_pll.sys_clk_reset/add_button.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="add_button.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19635,16 +19635,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>add_button</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/remove_button.reset"
+   name="main_pll.sys_clk_reset/remove_button.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="remove_button.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19662,16 +19662,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>remove_button</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/cancel_button.reset"
+   name="main_pll.sys_clk_reset/cancel_button.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="cancel_button.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19689,16 +19689,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>cancel_button</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/red_leds.reset"
+   name="main_pll.sys_clk_reset/red_leds.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="red_leds.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19716,16 +19716,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>red_leds</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/barcode_scanner_ps2.clock_reset_reset"
+   name="main_pll.sys_clk_reset/barcode_scanner_ps2.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="barcode_scanner_ps2.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19743,7 +19743,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>barcode_scanner_ps2</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
@@ -19803,10 +19803,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/audio_core.clock_reset_reset"
+   name="main_pll.sys_clk_reset/audio_core.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="audio_core.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19824,7 +19824,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>audio_core</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
@@ -19884,10 +19884,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/audio_config.clock_reset_reset"
+   name="main_pll.sys_clk_reset/audio_config.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="audio_config.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -19905,17 +19905,17 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>audio_config</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="clock_50MHz.clk_reset/audio_clock.clk_in_primary_reset"
+   name="clock_50MHz.clk_reset/main_pll.clk_in_primary_reset"
    kind="reset"
    version="12.1"
    start="clock_50MHz.clk_reset"
-   end="audio_clock.clk_in_primary_reset">
+   end="main_pll.clk_in_primary_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -19934,15 +19934,15 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clock_50MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
-  <endModule>audio_clock</endModule>
+  <endModule>main_pll</endModule>
   <endConnectionPoint>clk_in_primary_reset</endConnectionPoint>
  </connection>
  <connection
-   name="nios2_qsys.jtag_debug_module_reset/audio_clock.clk_in_primary_reset"
+   name="nios2_qsys.jtag_debug_module_reset/main_pll.clk_in_primary_reset"
    kind="reset"
    version="12.1"
    start="nios2_qsys.jtag_debug_module_reset"
-   end="audio_clock.clk_in_primary_reset">
+   end="main_pll.clk_in_primary_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -19961,15 +19961,15 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>nios2_qsys</startModule>
   <startConnectionPoint>jtag_debug_module_reset</startConnectionPoint>
-  <endModule>audio_clock</endModule>
+  <endModule>main_pll</endModule>
   <endConnectionPoint>clk_in_primary_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/audio_clock.clk_in_primary_reset"
+   name="main_pll.sys_clk_reset/main_pll.clk_in_primary_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
-   end="audio_clock.clk_in_primary_reset">
+   start="main_pll.sys_clk_reset"
+   end="main_pll.clk_in_primary_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -19986,9 +19986,9 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
-  <endModule>audio_clock</endModule>
+  <endModule>main_pll</endModule>
   <endConnectionPoint>clk_in_primary_reset</endConnectionPoint>
  </connection>
  <connection
@@ -20078,11 +20078,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>avalon_av_config_slave</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk/audio_clock.clk_in_secondary"
+   name="clock_27MHz.clk/main_pll.clk_in_secondary"
    kind="clock"
    version="12.1"
-   start="audio_clock_secondary.clk"
-   end="audio_clock.clk_in_secondary">
+   start="clock_27MHz.clk"
+   end="main_pll.clk_in_secondary">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -20099,9 +20099,9 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>audio_clock</endModule>
+  <endModule>main_pll</endModule>
   <endConnectionPoint>clk_in_secondary</endConnectionPoint>
  </connection>
  <connection
@@ -20140,10 +20140,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>interrupt</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/nios2_qsys.reset_n"
+   name="clock_27MHz.clk_reset/nios2_qsys.reset_n"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="nios2_qsys.reset_n">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20161,16 +20161,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>nios2_qsys</endModule>
   <endConnectionPoint>reset_n</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/onchip_memory2.reset1"
+   name="clock_27MHz.clk_reset/onchip_memory2.reset1"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="onchip_memory2.reset1">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20188,16 +20188,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>onchip_memory2</endModule>
   <endConnectionPoint>reset1</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/sysid_qsys.reset"
+   name="clock_27MHz.clk_reset/sysid_qsys.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="sysid_qsys.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20215,16 +20215,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>sysid_qsys</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/timer.reset"
+   name="clock_27MHz.clk_reset/timer.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="timer.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20242,16 +20242,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>timer</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/jtag_uart.reset"
+   name="clock_27MHz.clk_reset/jtag_uart.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="jtag_uart.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20269,16 +20269,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>jtag_uart</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/character_lcd.clock_reset_reset"
+   name="clock_27MHz.clk_reset/character_lcd.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="character_lcd.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20296,16 +20296,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>character_lcd</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/green_leds.reset"
+   name="clock_27MHz.clk_reset/green_leds.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="green_leds.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20323,16 +20323,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>green_leds</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/switch.reset"
+   name="clock_27MHz.clk_reset/switch.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="switch.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20350,16 +20350,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>switch</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/sdram.reset"
+   name="clock_27MHz.clk_reset/sdram.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="sdram.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20377,16 +20377,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>sdram</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/sram.clock_reset_reset"
+   name="clock_27MHz.clk_reset/sram.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="sram.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20404,16 +20404,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>sram</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/add_button.reset"
+   name="clock_27MHz.clk_reset/add_button.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="add_button.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20431,16 +20431,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>add_button</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/remove_button.reset"
+   name="clock_27MHz.clk_reset/remove_button.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="remove_button.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20458,16 +20458,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>remove_button</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/cancel_button.reset"
+   name="clock_27MHz.clk_reset/cancel_button.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="cancel_button.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20485,16 +20485,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>cancel_button</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/red_leds.reset"
+   name="clock_27MHz.clk_reset/red_leds.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="red_leds.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20512,16 +20512,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>red_leds</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/barcode_scanner_ps2.clock_reset_reset"
+   name="clock_27MHz.clk_reset/barcode_scanner_ps2.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="barcode_scanner_ps2.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20539,16 +20539,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>barcode_scanner_ps2</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/audio_core.clock_reset_reset"
+   name="clock_27MHz.clk_reset/audio_core.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="audio_core.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20566,16 +20566,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>audio_core</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/audio_config.clock_reset_reset"
+   name="clock_27MHz.clk_reset/audio_config.clock_reset_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="audio_config.clock_reset_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20593,17 +20593,17 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>audio_config</endModule>
   <endConnectionPoint>clock_reset_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/audio_clock.clk_in_primary_reset"
+   name="clock_27MHz.clk_reset/main_pll.clk_in_primary_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
-   end="audio_clock.clk_in_primary_reset">
+   start="clock_27MHz.clk_reset"
+   end="main_pll.clk_in_primary_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -20620,9 +20620,9 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
-  <endModule>audio_clock</endModule>
+  <endModule>main_pll</endModule>
   <endConnectionPoint>clk_in_primary_reset</endConnectionPoint>
  </connection>
  <connection
@@ -20723,10 +20723,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>s1_clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/dm9000a_if_ethernet.s1_clock_reset"
+   name="main_pll.sys_clk_reset/dm9000a_if_ethernet.s1_clock_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="dm9000a_if_ethernet.s1_clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20744,16 +20744,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>dm9000a_if_ethernet</endModule>
   <endConnectionPoint>s1_clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/dm9000a_if_ethernet.s1_clock_reset"
+   name="clock_27MHz.clk_reset/dm9000a_if_ethernet.s1_clock_reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="dm9000a_if_ethernet.s1_clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20771,7 +20771,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>dm9000a_if_ethernet</endModule>
   <endConnectionPoint>s1_clock_reset</endConnectionPoint>
@@ -20866,10 +20866,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/tristate_controller.reset"
+   name="main_pll.sys_clk_reset/tristate_controller.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="tristate_controller.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20887,16 +20887,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>tristate_controller</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/tristate_controller.reset"
+   name="clock_27MHz.clk_reset/tristate_controller.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="tristate_controller.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20914,7 +20914,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>tristate_controller</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
@@ -20974,10 +20974,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/tristate_conduit_bridge.reset"
+   name="main_pll.sys_clk_reset/tristate_conduit_bridge.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="tristate_conduit_bridge.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -20995,16 +20995,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>tristate_conduit_bridge</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/tristate_conduit_bridge.reset"
+   name="clock_27MHz.clk_reset/tristate_conduit_bridge.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="tristate_conduit_bridge.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21022,7 +21022,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>tristate_conduit_bridge</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
@@ -21082,10 +21082,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk_reset/tristate_conduit_pin_sharer.reset"
+   name="main_pll.sys_clk_reset/tristate_conduit_pin_sharer.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock.sys_clk_reset"
+   start="main_pll.sys_clk_reset"
    end="tristate_conduit_pin_sharer.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21103,16 +21103,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk_reset</startConnectionPoint>
   <endModule>tristate_conduit_pin_sharer</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock_secondary.clk_reset/tristate_conduit_pin_sharer.reset"
+   name="clock_27MHz.clk_reset/tristate_conduit_pin_sharer.reset"
    kind="reset"
    version="12.1"
-   start="audio_clock_secondary.clk_reset"
+   start="clock_27MHz.clk_reset"
    end="tristate_conduit_pin_sharer.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21130,7 +21130,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock_secondary</startModule>
+  <startModule>clock_27MHz</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>tristate_conduit_pin_sharer</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
@@ -21276,11 +21276,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>tcs</endConnectionPoint>
  </connection>
  <connection
-   name="clock_50MHz.clk/audio_clock.clk_in_primary"
+   name="clock_50MHz.clk/main_pll.clk_in_primary"
    kind="clock"
    version="12.1"
    start="clock_50MHz.clk"
-   end="audio_clock.clk_in_primary">
+   end="main_pll.clk_in_primary">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -21299,14 +21299,14 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clock_50MHz</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>audio_clock</endModule>
+  <endModule>main_pll</endModule>
   <endConnectionPoint>clk_in_primary</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/onchip_memory2.clk1"
+   name="main_pll.sys_clk/onchip_memory2.clk1"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="onchip_memory2.clk1">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21324,16 +21324,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>onchip_memory2</endModule>
   <endConnectionPoint>clk1</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/cancel_button.clk"
+   name="main_pll.sys_clk/cancel_button.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="cancel_button.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21351,16 +21351,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>cancel_button</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/green_leds.clk"
+   name="main_pll.sys_clk/green_leds.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="green_leds.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21378,16 +21378,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>green_leds</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/jtag_uart.clk"
+   name="main_pll.sys_clk/jtag_uart.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="jtag_uart.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21405,16 +21405,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>jtag_uart</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/nios2_qsys.clk"
+   name="main_pll.sys_clk/nios2_qsys.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="nios2_qsys.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21432,16 +21432,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>nios2_qsys</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/red_leds.clk"
+   name="main_pll.sys_clk/red_leds.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="red_leds.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21459,16 +21459,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>red_leds</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/remove_button.clk"
+   name="main_pll.sys_clk/remove_button.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="remove_button.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21486,16 +21486,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>remove_button</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/sdram.clk"
+   name="main_pll.sys_clk/sdram.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="sdram.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21513,16 +21513,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>sdram</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/barcode_scanner_ps2.clock_reset"
+   name="main_pll.sys_clk/barcode_scanner_ps2.clock_reset"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="barcode_scanner_ps2.clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21540,16 +21540,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>barcode_scanner_ps2</endModule>
   <endConnectionPoint>clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/tristate_conduit_pin_sharer.clk"
+   name="main_pll.sys_clk/tristate_conduit_pin_sharer.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="tristate_conduit_pin_sharer.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21567,16 +21567,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>tristate_conduit_pin_sharer</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/tristate_conduit_bridge.clk"
+   name="main_pll.sys_clk/tristate_conduit_bridge.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="tristate_conduit_bridge.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21594,16 +21594,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>tristate_conduit_bridge</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/tristate_controller.clk"
+   name="main_pll.sys_clk/tristate_controller.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="tristate_controller.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21621,16 +21621,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>tristate_controller</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/dm9000a_if_ethernet.s1_clock"
+   name="main_pll.sys_clk/dm9000a_if_ethernet.s1_clock"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="dm9000a_if_ethernet.s1_clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21648,16 +21648,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>dm9000a_if_ethernet</endModule>
   <endConnectionPoint>s1_clock</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/audio_config.clock_reset"
+   name="main_pll.sys_clk/audio_config.clock_reset"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="audio_config.clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21675,16 +21675,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>audio_config</endModule>
   <endConnectionPoint>clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.audio_clk/audio_core.clock_reset"
+   name="main_pll.audio_clk/audio_core.clock_reset"
    kind="clock"
    version="12.1"
-   start="audio_clock.audio_clk"
+   start="main_pll.audio_clk"
    end="audio_core.clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21702,16 +21702,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>audio_clk</startConnectionPoint>
   <endModule>audio_core</endModule>
   <endConnectionPoint>clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/add_button.clk"
+   name="main_pll.sys_clk/add_button.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="add_button.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21729,16 +21729,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>add_button</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/switch.clk"
+   name="main_pll.sys_clk/switch.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="switch.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21756,16 +21756,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>switch</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/character_lcd.clock_reset"
+   name="main_pll.sys_clk/character_lcd.clock_reset"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="character_lcd.clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21783,16 +21783,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>character_lcd</endModule>
   <endConnectionPoint>clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/sram.clock_reset"
+   name="main_pll.sys_clk/sram.clock_reset"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="sram.clock_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21810,16 +21810,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>sram</endModule>
   <endConnectionPoint>clock_reset</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/timer.clk"
+   name="main_pll.sys_clk/timer.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="timer.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21837,16 +21837,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>timer</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="audio_clock.sys_clk/sysid_qsys.clk"
+   name="main_pll.sys_clk/sysid_qsys.clk"
    kind="clock"
    version="12.1"
-   start="audio_clock.sys_clk"
+   start="main_pll.sys_clk"
    end="sysid_qsys.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -21864,19 +21864,11 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>audio_clock</startModule>
+  <startModule>main_pll</startModule>
   <startConnectionPoint>sys_clk</startConnectionPoint>
   <endModule>sysid_qsys</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>reset_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
-  <version>12.1</version>
- </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
   <name>altera_tristate_conduit_bridge</name>
@@ -21886,19 +21878,43 @@ parameters are a RESULT of the module parameters. -->
   <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>6</instanceCount>
-  <name>conduit</name>
+  <instanceCount>12</instanceCount>
+  <name>reset_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit Endpoint</displayName>
-  <version>7.1</version>
+  <displayName>Reset Input</displayName>
+  <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>2</instanceCount>
-  <name>avalon_master</name>
+  <instanceCount>6</instanceCount>
+  <name>altera_avalon_pio</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>PIO (Parallel I/O)</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_jtag_uart</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>JTAG UART</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_new_sdram_controller</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>SDRAM Controller</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>conduit_end</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Master</displayName>
+  <displayName>Conduit</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
@@ -21910,19 +21926,163 @@ parameters are a RESULT of the module parameters. -->
   <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>2</instanceCount>
-  <name>clock_source</name>
+  <instanceCount>1</instanceCount>
+  <name>altera_tristate_conduit_pin_sharer</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Tri-State Conduit Pin Sharer</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_generic_tristate_controller</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Generic Tri-State Controller</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>12</instanceCount>
+  <name>reset_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Output</displayName>
+  <displayName>Reset Input</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>avalon_master</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Master</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>9</instanceCount>
+  <name>interrupt</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Interrupt Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>13</instanceCount>
+  <name>clock_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Input</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_up_avalon_ps2</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>PS2 Controller</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_up_avalon_audio</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Audio</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_timer</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Interval Timer</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
   <instanceCount>6</instanceCount>
-  <name>interrupt_sender</name>
+  <name>conduit</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Sender</displayName>
+  <displayName>Conduit Endpoint</displayName>
+  <version>7.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>88</instanceCount>
+  <name>reset</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Reset Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>tristate_conduit_master</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Tristate Conduit Master</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>tristate_conduit_slave</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Tristate Conduit Slave</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>tristate_conduit</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Tristate Conduit Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>7</instanceCount>
+  <name>conduit_end</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Conduit</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>interrupt_receiver</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Interrupt Receiver</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_up_clocks</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Clock Signals for DE-series Board Peripherals</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>10</instanceCount>
+  <name>avalon_slave</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_up_avalon_sram</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>SRAM/SSRAM Controller</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>12</instanceCount>
+  <name>clock_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Input</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
@@ -21932,6 +22092,78 @@ parameters are a RESULT of the module parameters. -->
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>16x2 Character Display</displayName>
   <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>24</instanceCount>
+  <name>avalon</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Memory Mapped Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>interrupt_sender</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Interrupt Sender</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_nios2_qsys</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Nios II Processor</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>23</instanceCount>
+  <name>clock</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Clock Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>nios_custom_instruction_master</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Custom Instruction Master</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_sysid_qsys</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>System ID Peripheral</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>clock_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Output</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>9</instanceCount>
+  <name>avalon_slave</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>reset_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Output</displayName>
+  <version>12.1</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
@@ -21950,43 +22182,11 @@ parameters are a RESULT of the module parameters. -->
   <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>88</instanceCount>
-  <name>reset</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Reset Connection</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
   <instanceCount>6</instanceCount>
-  <name>altera_avalon_pio</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>PIO (Parallel I/O)</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_up_avalon_audio_and_video_config</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Audio and Video Config</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>nios_custom_instruction_master</name>
+  <name>interrupt_sender</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Custom Instruction Master</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_jtag_uart</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>JTAG UART</displayName>
+  <displayName>Interrupt Sender</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
@@ -21999,218 +22199,18 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_avalon_timer</name>
+  <name>altera_up_avalon_audio_and_video_config</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Interval Timer</displayName>
-  <version>12.1</version>
+  <displayName>Audio and Video Config</displayName>
+  <version>12.0</version>
  </plugin>
  <plugin>
-  <instanceCount>3</instanceCount>
+  <instanceCount>2</instanceCount>
   <name>clock_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Output</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>9</instanceCount>
-  <name>interrupt</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Interrupt Connection</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>interrupt_receiver</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Receiver</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>interrupt_sender</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Sender</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>10</instanceCount>
-  <name>avalon_slave</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_nios2_qsys</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Nios II Processor</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>tristate_conduit_slave</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Tristate Conduit Slave</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_generic_tristate_controller</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Generic Tri-State Controller</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_new_sdram_controller</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>SDRAM Controller</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_up_avalon_sram</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>SRAM/SSRAM Controller</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>9</instanceCount>
-  <name>avalon_slave</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>7</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>13</instanceCount>
-  <name>clock_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_sysid_qsys</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>System ID Peripheral</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_up_avalon_ps2</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>PS2 Controller</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_tristate_conduit_pin_sharer</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Tri-State Conduit Pin Sharer</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_up_avalon_audio</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Audio</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>23</instanceCount>
-  <name>clock</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Clock Connection</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_up_clocks</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Clock Signals for DE-series Board Peripherals</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>clock_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>tristate_conduit_master</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Tristate Conduit Master</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>reset_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>24</instanceCount>
-  <name>avalon</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Memory Mapped Connection</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>reset_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Output</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>tristate_conduit</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Tristate Conduit Connection</displayName>
   <version>12.1</version>
  </plugin>
  <reportVersion>12.1sp1 243</reportVersion>
