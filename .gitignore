@@ -43,4 +43,7 @@ software/.metadata/*
 sopc_builder_log.txt
 *.sopcinfo
 *.jdi
+*.map
+*.objdump
+software/*/obj/*
 
