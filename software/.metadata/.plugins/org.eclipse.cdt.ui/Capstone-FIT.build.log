@@ -1,0 +1,10 @@
+
+**** Build of configuration Nios II for project Capstone-FIT ****
+
+make all 
+Info: Building ../Capstone-FIT_bsp/
+make --no-print-directory -C ../Capstone-FIT_bsp/
+[BSP build complete]
+[Capstone-FIT build complete]
+
+**** Build Finished ****

@@ -217,19 +217,11 @@
          type = "int";
       }
    }
-   element dm9000a_if_ethernet.s1
+   element add_button.s1
    {
       datum baseAddress
       {
-         value = "26251424";
-         type = "String";
-      }
-   }
-   element cancel_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251344";
+         value = "26251376";
          type = "String";
       }
    }
@@ -241,19 +233,19 @@
          type = "String";
       }
    }
-   element add_button.s1
+   element cancel_button.s1
    {
       datum baseAddress
       {
-         value = "26251376";
+         value = "26251344";
          type = "String";
       }
    }
-   element green_leds.s1
+   element onchip_memory2.s1
    {
       datum baseAddress
       {
-         value = "26251408";
+         value = "26230784";
          type = "String";
       }
    }
@@ -265,11 +257,11 @@
          type = "String";
       }
    }
-   element timer.s1
+   element red_leds.s1
    {
       datum baseAddress
       {
-         value = "26251264";
+         value = "26251328";
          type = "String";
       }
    }
@@ -281,19 +273,27 @@
          type = "String";
       }
    }
-   element red_leds.s1
+   element green_leds.s1
    {
       datum baseAddress
       {
-         value = "26251328";
+         value = "26251408";
          type = "String";
       }
    }
-   element onchip_memory2.s1
+   element timer.s1
    {
       datum baseAddress
       {
-         value = "26230784";
+         value = "26251264";
+         type = "String";
+      }
+   }
+   element dm9000a_if_ethernet.s1
+   {
+      datum baseAddress
+      {
+         value = "26251424";
          type = "String";
       }
    }
@@ -389,7 +389,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1486163746397" />
+ <parameter name="timeStamp" value="1486253127626" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clock_50MHz.clk_in" type="clock" dir="end" />
@@ -555,15 +555,15 @@
   <parameter name="mmu_tlbPtrSz" value="7" />
   <parameter name="mmu_tlbNumWays" value="16" />
   <parameter name="mmu_processIDNumBits" value="8" />
-  <parameter name="impl" value="Small" />
-  <parameter name="icache_size" value="4096" />
+  <parameter name="impl" value="Fast" />
+  <parameter name="icache_size" value="8192" />
   <parameter name="icache_ramBlockType" value="Automatic" />
   <parameter name="icache_numTCIM" value="0" />
-  <parameter name="icache_burstType" value="None" />
-  <parameter name="dcache_bursts" value="false" />
+  <parameter name="icache_burstType" value="Sequential" />
+  <parameter name="dcache_bursts" value="true" />
   <parameter name="debug_level" value="Level1" />
   <parameter name="debug_OCIOnchipTrace" value="_128" />
-  <parameter name="dcache_size" value="2048" />
+  <parameter name="dcache_size" value="8192" />
   <parameter name="dcache_ramBlockType" value="Automatic" />
   <parameter name="dcache_numTCDM" value="0" />
   <parameter name="dcache_lineSize" value="32" />

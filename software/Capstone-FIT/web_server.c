@@ -112,7 +112,7 @@ void lcd_ip_addr()
   
   /* Display the IP Address (initially) on the LCD Display. */
   lcdDevice = fopen( LCD_DISPLAY_NAME, "w" );
-  fprintf(lcdDevice, "\nIP Address\n%d.%d.%d.%d\n",
+  fprintf(lcdDevice, "%d.%d.%d.%d",
         ip4_addr1(*ipaddr),
         ip4_addr2(*ipaddr),
         ip4_addr3(*ipaddr),
@@ -221,15 +221,15 @@ int main (int argc, char* argv[], char* envp[])
 
   /* Clear the RTOS timer */
   OSTimeSet(0);
-  
+  printf("Started");
   /* turn on green leds */
   *(volatile INT8U *)(GREEN_LEDS_BASE) = 0xff;
 
   /* WSInitialTask will initialize the NicheStack TCP/IP Stack and then 
    * initialize the rest of the web server's tasks.
    */ 
-  DM9000A_INSTANCE( DM9000A_0, dm9000a_0 );
-  DM9000A_INIT( DM9000A_0, dm9000a_0 );
+  DM9000A_INSTANCE( DM9000A_IF_ETHERNET, dm9000a_0 );
+  DM9000A_INIT( DM9000A_IF_ETHERNET, dm9000a_0 );
   error_code = OSTaskCreateExt(WSInitialTask,
                              NULL,
                              (void *)&WSInitialTaskStk[TASK_STACKSIZE-1],

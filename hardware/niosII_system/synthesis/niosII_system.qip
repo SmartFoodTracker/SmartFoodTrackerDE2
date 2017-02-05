@@ -2,7 +2,7 @@ set_global_assignment -entity "niosII_system" -library "niosII_system" -name IP_
 set_global_assignment -entity "niosII_system" -library "niosII_system" -name IP_TOOL_VERSION "12.1sp1"
 set_global_assignment -entity "niosII_system" -library "niosII_system" -name IP_TOOL_ENV "qsys"
 set_global_assignment -library "niosII_system" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../niosII_system.sopcinfo"]
-set_instance_assignment -entity "niosII_system" -library "niosII_system" -name SLD_INFO "QSYS_NAME niosII_system HAS_SOPCINFO 1 GENERATION_ID 1486166856"
+set_instance_assignment -entity "niosII_system" -library "niosII_system" -name SLD_INFO "QSYS_NAME niosII_system HAS_SOPCINFO 1 GENERATION_ID 1486253148"
 set_global_assignment -library "niosII_system" -name MISC_FILE [file join $::quartus(qip_path) "../../niosII_system.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "niosII_system" -name MISC_FILE [file join $::quartus(qip_path) "../../niosII_system.qsys"]
@@ -84,26 +84,28 @@ set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_up_character_lcd_initialization.v"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_character_lcd.v"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_jtag_uart.v"]
-set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_jtag_uart_input_mutex.dat"]
 set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_jtag_uart_output_stream.dat"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_jtag_uart_input_mutex.dat"]
 set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_jtag_uart_input_stream.dat"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_timer.v"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_sysid_qsys.v"]
-set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_onchip_memory2.hex"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_onchip_memory2.v"]
-set_global_assignment -library "niosII_system" -name SDC_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys.sdc"]
-set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_oci_test_bench.v"]
-set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys.v"]
-set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_mult_cell.v"]
-set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_ic_tag_ram.mif"]
-set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys.ocp"]
-set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_jtag_debug_module_sysclk.v"]
-set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_rf_ram_b.mif"]
-set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_ociram_default_contents.mif"]
-set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_jtag_debug_module_wrapper.v"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_onchip_memory2.hex"]
 set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_rf_ram_a.mif"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_bht_ram.mif"]
+set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys.v"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_ociram_default_contents.mif"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_test_bench.v"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_ic_tag_ram.mif"]
+set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_jtag_debug_module_sysclk.v"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_dc_tag_ram.mif"]
+set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_jtag_debug_module_wrapper.v"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_jtag_debug_module_tck.v"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys.ocp"]
+set_global_assignment -library "niosII_system" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_rf_ram_b.mif"]
+set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_oci_test_bench.v"]
+set_global_assignment -library "niosII_system" -name SDC_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys.sdc"]
+set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_nios2_qsys_mult_cell.v"]
 
 set_global_assignment -entity "altera_irq_clock_crosser" -library "niosII_system" -name IP_TOOL_NAME "altera_irq_clock_crosser"
 set_global_assignment -entity "altera_irq_clock_crosser" -library "niosII_system" -name IP_TOOL_VERSION "12.1"

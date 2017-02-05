@@ -34,12 +34,12 @@ module niosII_system_id_router_002_default_decode
      parameter DEFAULT_CHANNEL = 0,
                DEFAULT_DESTID = 0 
    )
-  (output [73 - 69 : 0] default_destination_id,
+  (output [79 - 75 : 0] default_destination_id,
    output [19-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[73 - 69 : 0];
+    DEFAULT_DESTID[79 - 75 : 0];
   generate begin : default_decode
     if (DEFAULT_CHANNEL == -1)
       assign default_src_channel = '0;
@@ -63,7 +63,7 @@ module niosII_system_id_router_002
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [84-1 : 0]    sink_data,
+    input  [90-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -72,7 +72,7 @@ module niosII_system_id_router_002
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [84-1    : 0] src_data,
+    output reg [90-1    : 0] src_data,
     output reg [19-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
@@ -84,9 +84,9 @@ module niosII_system_id_router_002
     // -------------------------------------------------------
     localparam PKT_ADDR_H = 42;
     localparam PKT_ADDR_L = 18;
-    localparam PKT_DEST_ID_H = 73;
-    localparam PKT_DEST_ID_L = 69;
-    localparam ST_DATA_W = 84;
+    localparam PKT_DEST_ID_H = 79;
+    localparam PKT_DEST_ID_L = 75;
+    localparam ST_DATA_W = 90;
     localparam ST_CHANNEL_W = 19;
     localparam DECODER_TYPE = 1;
 

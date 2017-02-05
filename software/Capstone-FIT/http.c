@@ -1299,166 +1299,22 @@ void http_handle_transmit(http_conn* conn, int http_instance)
  */
 void WSTask()
 {
-  int     i, fd_listen, max_socket;
-  struct  sockaddr_in addr;
-  struct  timeval select_timeout;
-  fd_set  readfds, writefds;
-  static  http_conn     conn[HTTP_NUM_CONNECTIONS];
-
-  /*
-   * Sockets primer...
-   * The socket() call creates an endpoint for TCP of UDP communication. It 
-   * returns a descriptor (similar to a file descriptor) that we call fd_listen,
-   * or, "the socket we're listening on for connection requests" in our web
-   * server example.
-   */ 
-  if ((fd_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-  {
-    die_with_error("[WSTask] Listening socket creation failed");
+  struct sockaddr_in serverDetails;
+  int server = 0;
+  int port;
+  server = socket(AF_INET, SOCK_STREAM, 0);
+  if (server < 0) {
+      printf("Error: failed to intitialize server socket connection.");
+      exit(EXIT_FAILURE);
   }
-  
-  /*
-   * Sockets primer, continued...
-   * Calling bind() associates a socket created with socket() to a particular IP
-   * port and incoming address. In this case we're binding to HTTP_PORT and to
-   * INADDR_ANY address (allowing anyone to connect to us. Bind may fail for 
-   * various reasons, but the most common is that some other socket is bound to
-   * the port we're requesting. 
-   */ 
-  addr.sin_family = AF_INET;
-  addr.sin_port = htons(HTTP_PORT);
-  addr.sin_addr.s_addr = INADDR_ANY;
-    
-  if ((bind(fd_listen,(struct sockaddr *)&addr,sizeof(addr))) < 0)
-  {
-    die_with_error("[WSTask] Bind failed");
+  bzero((char *) &serverDetails, sizeof(serverDetails));
+  serverDetails.sin_family = AF_INET;
+  serverDetails.sin_port = htons((INT16U) port);
+  serverDetails.sin_addr.s_addr = INADDR_ANY;
+  if (connect(server, (struct sockaddr *) &serverDetails, sizeof(serverDetails)) < 0) {
+      printf("Error: failed to connect to server.");
   }
-    
-  /*
-   * Sockets primer, continued...
-   * The listen socket is a socket which is waiting for incoming connections.
-   * This call to listen will block (i.e. not return) until someone tries to 
-   * connect to this port.
-   */ 
-  if ((listen(fd_listen,1)) < 0)
-  {
-    die_with_error("[WSTask] Listen failed");
-  }
-
-  /* 
-   * At this point we have successfully created a socket which is listening
-   * on HTTP_PORT for connection requests from any remote address.
-   */
-  for(i=0; i<HTTP_NUM_CONNECTIONS; i++)
-  {
-    http_reset_connection(&conn[i], i);
-  }
-   
-  while(1)
-  {
-    /* 
-     * The select() call below tells the stack to return  from this call 
-     * when any of the events we have expressed an interest in happen (it 
-     * blocks until our call to select() is satisfied). 
-     * 
-     * In the call below we're only interested in either someone trying to 
-     * connect to us, or when an existing (active) connection has new receive 
-     * data, or when an existing connection is in the "DATA" state meaning that
-     * we're in the middle of processing an HTTP request. If none of these 
-     * conditions are satisfied, select() blocks until a timeout specified 
-     * in the select_timeout struct.
-     * 
-     * The sockets we're interested in (for RX) are passed in inside the 
-     * readfds parameter, while those we're interested in for TX as passed in 
-     * inside the writefds parameter. The format of readfds and writefds is 
-     * implementation dependant, hence there are standard macros for 
-     * setting/reading the values:
-     * 
-     *   FD_ZERO  - Zero's out the sockets we're interested in
-     *   FD_SET   - Adds a socket to those we're interested in
-     *   FD_ISSET - Tests whether the chosen socket is set 
-     */
-    FD_ZERO(&readfds);
-    FD_ZERO(&writefds);
-    FD_SET(fd_listen, &readfds);
-    
-    max_socket = fd_listen+1;
-    
-    for(i=0; i<HTTP_NUM_CONNECTIONS; i++)
-    {
-      if (conn[i].fd != -1)
-      {
-        /* We're interested in reading any of our active sockets */
-        FD_SET(conn[i].fd, &readfds);
-        
-        /* 
-         * We're interested in writing to any of our active sockets in the DATA
-         * state
-         */
-        if(conn[i].state == DATA)
-        {
-          FD_SET(conn[i].fd, &writefds);
-        }
-        
-        /*
-         * select() must be called with the maximum number of sockets to look 
-         * through. This will be the largest socket number + 1 (since we start
-         * at zero).
-         */
-        if (max_socket <= conn[i].fd)
-        {
-          max_socket = conn[i].fd+1;
-        }
-      }
-    }
-
-    /* 
-     * Set timeout value for select. This must be reset for each select()
-     * call.
-     */
-    select_timeout.tv_sec = 0;
-    select_timeout.tv_usec = 500000;
-
-    select(max_socket, &readfds, &writefds, NULL, &select_timeout);
-
-    /* 
-     * If fd_listen (the listening socket we originally created in this thread
-     * is "set" in readfds, then we have an incoming connection request. 
-     * We'll call a routine to explicitly accept or deny the incoming connection 
-     * request.
-     */
-    if (FD_ISSET(fd_listen, &readfds))
-    {
-      http_handle_accept(fd_listen, conn);
-    }
-
-    /*
-     * If http_handle_accept() accepts the connection, it creates *another*
-     * socket for sending/receiving data. This socket is independant of the 
-     * listening socket we created above. This socket's descriptor is stored 
-     * in conn[i].fd. Therefore if conn[i].fd is set in readfs, we have
-     * incoming data for our HTTP server, and we call our receive routine
-     * to process it. Likewise, if conn[i].fd is set in writefds, we have
-     * an open connection that is *capable* of being written to.
-     */
-    for(i=0; i<HTTP_NUM_CONNECTIONS; i++)
-    {
-      if (conn[i].fd != -1)
-      { 
-        if(FD_ISSET(conn[i].fd,&readfds))
-        {
-          http_handle_receive(&conn[i], i);
-        }
-        
-        if(FD_ISSET(conn[i].fd,&writefds))
-        {
-          http_handle_transmit(&conn[i], i);
-        }
-        
-        http_manage_connection(&conn[i], i);
-      }
-    }  
-  } /* while(1) */
+  printf("woo?");
 }
 
 /******************************************************************************

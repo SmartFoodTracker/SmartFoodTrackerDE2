@@ -158,7 +158,9 @@ error_t generate_and_store_mac_addr()
     printf("that your flash was erased). We will assign you a MAC address and\n");
     printf("static network settings\n\n");
     
-    ser_num = get_serial_number();
+    // We dont have one, no point asking
+    //ser_num = get_serial_number();
+    ser_num = 123456789;
   
     if (ser_num)
     {
@@ -248,7 +250,9 @@ error_t generate_mac_addr(unsigned char mac_addr[6])
     printf("\nCan't read the MAC address from your board. We will assign you\n");
     printf("a MAC address.\n\n");
     
-    ser_num = get_serial_number();
+    // We dont have one, no point asking us
+    //ser_num = get_serial_number();
+    ser_num = 123456789;
   
     if (ser_num)
     {

@@ -20,29 +20,34 @@
 
 module niosII_system_nios2_qsys_test_bench (
                                              // inputs:
-                                              E_src1,
-                                              E_src2,
+                                              A_bstatus_reg,
+                                              A_cmp_result,
+                                              A_ctrl_exception,
+                                              A_ctrl_ld_non_bypass,
+                                              A_dst_regnum,
+                                              A_en,
+                                              A_estatus_reg,
+                                              A_ienable_reg,
+                                              A_ipending_reg,
+                                              A_iw,
+                                              A_mem_byte_en,
+                                              A_op_hbreak,
+                                              A_op_intr,
+                                              A_pcb,
+                                              A_st_data,
+                                              A_status_reg,
+                                              A_valid,
+                                              A_wr_data_unfiltered,
+                                              A_wr_dst_reg,
+                                              E_add_br_to_taken_history_unfiltered,
+                                              E_logic_result,
                                               E_valid,
-                                              M_bstatus_reg,
-                                              M_cmp_result,
-                                              M_ctrl_exception,
-                                              M_ctrl_ld_non_io,
-                                              M_dst_regnum,
-                                              M_en,
-                                              M_estatus_reg,
-                                              M_ienable_reg,
-                                              M_ipending_reg,
-                                              M_iw,
+                                              M_bht_ptr_unfiltered,
+                                              M_bht_wr_data_unfiltered,
+                                              M_bht_wr_en_unfiltered,
                                               M_mem_baddr,
-                                              M_mem_byte_en,
-                                              M_op_hbreak,
-                                              M_op_intr,
-                                              M_pcb,
-                                              M_st_data,
-                                              M_status_reg,
+                                              M_target_pcb,
                                               M_valid,
-                                              M_wr_data_unfiltered,
-                                              M_wr_dst_reg,
                                               W_dst_regnum,
                                               W_iw,
                                               W_iw_op,
@@ -50,7 +55,6 @@ module niosII_system_nios2_qsys_test_bench (
                                               W_pcb,
                                               W_valid,
                                               W_vinst,
-                                              W_wr_data,
                                               W_wr_dst_reg,
                                               clk,
                                               d_address,
@@ -63,38 +67,51 @@ module niosII_system_nios2_qsys_test_bench (
                                               reset_n,
 
                                              // outputs:
+                                              A_wr_data_filtered,
+                                              E_add_br_to_taken_history_filtered,
                                               E_src1_eq_src2,
-                                              M_wr_data_filtered,
+                                              M_bht_ptr_filtered,
+                                              M_bht_wr_data_filtered,
+                                              M_bht_wr_en_filtered,
                                               test_has_ended
                                            )
 ;
 
+  output  [ 31: 0] A_wr_data_filtered;
+  output           E_add_br_to_taken_history_filtered;
   output           E_src1_eq_src2;
-  output  [ 31: 0] M_wr_data_filtered;
+  output  [  7: 0] M_bht_ptr_filtered;
+  output  [  1: 0] M_bht_wr_data_filtered;
+  output           M_bht_wr_en_filtered;
   output           test_has_ended;
-  input   [ 31: 0] E_src1;
-  input   [ 31: 0] E_src2;
+  input   [ 31: 0] A_bstatus_reg;
+  input            A_cmp_result;
+  input            A_ctrl_exception;
+  input            A_ctrl_ld_non_bypass;
+  input   [  4: 0] A_dst_regnum;
+  input            A_en;
+  input   [ 31: 0] A_estatus_reg;
+  input   [ 31: 0] A_ienable_reg;
+  input   [ 31: 0] A_ipending_reg;
+  input   [ 31: 0] A_iw;
+  input   [  3: 0] A_mem_byte_en;
+  input            A_op_hbreak;
+  input            A_op_intr;
+  input   [ 24: 0] A_pcb;
+  input   [ 31: 0] A_st_data;
+  input   [ 31: 0] A_status_reg;
+  input            A_valid;
+  input   [ 31: 0] A_wr_data_unfiltered;
+  input            A_wr_dst_reg;
+  input            E_add_br_to_taken_history_unfiltered;
+  input   [ 31: 0] E_logic_result;
   input            E_valid;
-  input   [ 31: 0] M_bstatus_reg;
-  input            M_cmp_result;
-  input            M_ctrl_exception;
-  input            M_ctrl_ld_non_io;
-  input   [  4: 0] M_dst_regnum;
-  input            M_en;
-  input   [ 31: 0] M_estatus_reg;
-  input   [ 31: 0] M_ienable_reg;
-  input   [ 31: 0] M_ipending_reg;
-  input   [ 31: 0] M_iw;
+  input   [  7: 0] M_bht_ptr_unfiltered;
+  input   [  1: 0] M_bht_wr_data_unfiltered;
+  input            M_bht_wr_en_unfiltered;
   input   [ 24: 0] M_mem_baddr;
-  input   [  3: 0] M_mem_byte_en;
-  input            M_op_hbreak;
-  input            M_op_intr;
-  input   [ 24: 0] M_pcb;
-  input   [ 31: 0] M_st_data;
-  input   [ 31: 0] M_status_reg;
+  input   [ 24: 0] M_target_pcb;
   input            M_valid;
-  input   [ 31: 0] M_wr_data_unfiltered;
-  input            M_wr_dst_reg;
   input   [  4: 0] W_dst_regnum;
   input   [ 31: 0] W_iw;
   input   [  5: 0] W_iw_op;
@@ -102,7 +119,6 @@ module niosII_system_nios2_qsys_test_bench (
   input   [ 24: 0] W_pcb;
   input            W_valid;
   input   [ 55: 0] W_vinst;
-  input   [ 31: 0] W_wr_data;
   input            W_wr_dst_reg;
   input            clk;
   input   [ 24: 0] d_address;
@@ -114,42 +130,46 @@ module niosII_system_nios2_qsys_test_bench (
   input            i_readdatavalid;
   input            reset_n;
 
+  reg     [ 24: 0] A_mem_baddr;
+  reg     [ 24: 0] A_target_pcb;
+  wire    [ 31: 0] A_wr_data_filtered;
+  wire             A_wr_data_unfiltered_0_is_x;
+  wire             A_wr_data_unfiltered_10_is_x;
+  wire             A_wr_data_unfiltered_11_is_x;
+  wire             A_wr_data_unfiltered_12_is_x;
+  wire             A_wr_data_unfiltered_13_is_x;
+  wire             A_wr_data_unfiltered_14_is_x;
+  wire             A_wr_data_unfiltered_15_is_x;
+  wire             A_wr_data_unfiltered_16_is_x;
+  wire             A_wr_data_unfiltered_17_is_x;
+  wire             A_wr_data_unfiltered_18_is_x;
+  wire             A_wr_data_unfiltered_19_is_x;
+  wire             A_wr_data_unfiltered_1_is_x;
+  wire             A_wr_data_unfiltered_20_is_x;
+  wire             A_wr_data_unfiltered_21_is_x;
+  wire             A_wr_data_unfiltered_22_is_x;
+  wire             A_wr_data_unfiltered_23_is_x;
+  wire             A_wr_data_unfiltered_24_is_x;
+  wire             A_wr_data_unfiltered_25_is_x;
+  wire             A_wr_data_unfiltered_26_is_x;
+  wire             A_wr_data_unfiltered_27_is_x;
+  wire             A_wr_data_unfiltered_28_is_x;
+  wire             A_wr_data_unfiltered_29_is_x;
+  wire             A_wr_data_unfiltered_2_is_x;
+  wire             A_wr_data_unfiltered_30_is_x;
+  wire             A_wr_data_unfiltered_31_is_x;
+  wire             A_wr_data_unfiltered_3_is_x;
+  wire             A_wr_data_unfiltered_4_is_x;
+  wire             A_wr_data_unfiltered_5_is_x;
+  wire             A_wr_data_unfiltered_6_is_x;
+  wire             A_wr_data_unfiltered_7_is_x;
+  wire             A_wr_data_unfiltered_8_is_x;
+  wire             A_wr_data_unfiltered_9_is_x;
+  wire             E_add_br_to_taken_history_filtered;
   wire             E_src1_eq_src2;
-  wire    [ 32: 0] E_src1_src2_fast_cmp;
-  reg     [ 24: 0] M_target_pcb;
-  wire    [ 31: 0] M_wr_data_filtered;
-  wire             M_wr_data_unfiltered_0_is_x;
-  wire             M_wr_data_unfiltered_10_is_x;
-  wire             M_wr_data_unfiltered_11_is_x;
-  wire             M_wr_data_unfiltered_12_is_x;
-  wire             M_wr_data_unfiltered_13_is_x;
-  wire             M_wr_data_unfiltered_14_is_x;
-  wire             M_wr_data_unfiltered_15_is_x;
-  wire             M_wr_data_unfiltered_16_is_x;
-  wire             M_wr_data_unfiltered_17_is_x;
-  wire             M_wr_data_unfiltered_18_is_x;
-  wire             M_wr_data_unfiltered_19_is_x;
-  wire             M_wr_data_unfiltered_1_is_x;
-  wire             M_wr_data_unfiltered_20_is_x;
-  wire             M_wr_data_unfiltered_21_is_x;
-  wire             M_wr_data_unfiltered_22_is_x;
-  wire             M_wr_data_unfiltered_23_is_x;
-  wire             M_wr_data_unfiltered_24_is_x;
-  wire             M_wr_data_unfiltered_25_is_x;
-  wire             M_wr_data_unfiltered_26_is_x;
-  wire             M_wr_data_unfiltered_27_is_x;
-  wire             M_wr_data_unfiltered_28_is_x;
-  wire             M_wr_data_unfiltered_29_is_x;
-  wire             M_wr_data_unfiltered_2_is_x;
-  wire             M_wr_data_unfiltered_30_is_x;
-  wire             M_wr_data_unfiltered_31_is_x;
-  wire             M_wr_data_unfiltered_3_is_x;
-  wire             M_wr_data_unfiltered_4_is_x;
-  wire             M_wr_data_unfiltered_5_is_x;
-  wire             M_wr_data_unfiltered_6_is_x;
-  wire             M_wr_data_unfiltered_7_is_x;
-  wire             M_wr_data_unfiltered_8_is_x;
-  wire             M_wr_data_unfiltered_9_is_x;
+  wire    [  7: 0] M_bht_ptr_filtered;
+  wire    [  1: 0] M_bht_wr_data_filtered;
+  wire             M_bht_wr_en_filtered;
   wire             W_op_add;
   wire             W_op_addi;
   wire             W_op_and;
@@ -410,84 +430,104 @@ module niosII_system_nios2_qsys_test_bench (
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
-          M_target_pcb <= 0;
-      else if (M_en)
-          M_target_pcb <= E_src1[24 : 0];
+          A_target_pcb <= 0;
+      else if (A_en)
+          A_target_pcb <= M_target_pcb;
     end
 
 
-  assign E_src1_src2_fast_cmp = {1'b0, E_src1 ^ E_src2} - 33'b1;
-  assign E_src1_eq_src2 = E_src1_src2_fast_cmp[32];
+  always @(posedge clk or negedge reset_n)
+    begin
+      if (reset_n == 0)
+          A_mem_baddr <= 0;
+      else if (A_en)
+          A_mem_baddr <= M_mem_baddr;
+    end
+
+
+  assign E_src1_eq_src2 = E_logic_result == 0;
+  //Propagating 'X' data bits
+  assign E_add_br_to_taken_history_filtered = E_add_br_to_taken_history_unfiltered;
+
+  //Propagating 'X' data bits
+  assign M_bht_wr_en_filtered = M_bht_wr_en_unfiltered;
+
+  //Propagating 'X' data bits
+  assign M_bht_wr_data_filtered = M_bht_wr_data_unfiltered;
+
+  //Propagating 'X' data bits
+  assign M_bht_ptr_filtered = M_bht_ptr_unfiltered;
+
   assign test_has_ended = 1'b0;
 
 //synthesis translate_off
 //////////////// SIMULATION-ONLY CONTENTS
   //Clearing 'X' data bits
-  assign M_wr_data_unfiltered_0_is_x = ^(M_wr_data_unfiltered[0]) === 1'bx;
+  assign A_wr_data_unfiltered_0_is_x = ^(A_wr_data_unfiltered[0]) === 1'bx;
 
-  assign M_wr_data_filtered[0] = (M_wr_data_unfiltered_0_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[0];
-  assign M_wr_data_unfiltered_1_is_x = ^(M_wr_data_unfiltered[1]) === 1'bx;
-  assign M_wr_data_filtered[1] = (M_wr_data_unfiltered_1_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[1];
-  assign M_wr_data_unfiltered_2_is_x = ^(M_wr_data_unfiltered[2]) === 1'bx;
-  assign M_wr_data_filtered[2] = (M_wr_data_unfiltered_2_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[2];
-  assign M_wr_data_unfiltered_3_is_x = ^(M_wr_data_unfiltered[3]) === 1'bx;
-  assign M_wr_data_filtered[3] = (M_wr_data_unfiltered_3_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[3];
-  assign M_wr_data_unfiltered_4_is_x = ^(M_wr_data_unfiltered[4]) === 1'bx;
-  assign M_wr_data_filtered[4] = (M_wr_data_unfiltered_4_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[4];
-  assign M_wr_data_unfiltered_5_is_x = ^(M_wr_data_unfiltered[5]) === 1'bx;
-  assign M_wr_data_filtered[5] = (M_wr_data_unfiltered_5_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[5];
-  assign M_wr_data_unfiltered_6_is_x = ^(M_wr_data_unfiltered[6]) === 1'bx;
-  assign M_wr_data_filtered[6] = (M_wr_data_unfiltered_6_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[6];
-  assign M_wr_data_unfiltered_7_is_x = ^(M_wr_data_unfiltered[7]) === 1'bx;
-  assign M_wr_data_filtered[7] = (M_wr_data_unfiltered_7_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[7];
-  assign M_wr_data_unfiltered_8_is_x = ^(M_wr_data_unfiltered[8]) === 1'bx;
-  assign M_wr_data_filtered[8] = (M_wr_data_unfiltered_8_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[8];
-  assign M_wr_data_unfiltered_9_is_x = ^(M_wr_data_unfiltered[9]) === 1'bx;
-  assign M_wr_data_filtered[9] = (M_wr_data_unfiltered_9_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[9];
-  assign M_wr_data_unfiltered_10_is_x = ^(M_wr_data_unfiltered[10]) === 1'bx;
-  assign M_wr_data_filtered[10] = (M_wr_data_unfiltered_10_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[10];
-  assign M_wr_data_unfiltered_11_is_x = ^(M_wr_data_unfiltered[11]) === 1'bx;
-  assign M_wr_data_filtered[11] = (M_wr_data_unfiltered_11_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[11];
-  assign M_wr_data_unfiltered_12_is_x = ^(M_wr_data_unfiltered[12]) === 1'bx;
-  assign M_wr_data_filtered[12] = (M_wr_data_unfiltered_12_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[12];
-  assign M_wr_data_unfiltered_13_is_x = ^(M_wr_data_unfiltered[13]) === 1'bx;
-  assign M_wr_data_filtered[13] = (M_wr_data_unfiltered_13_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[13];
-  assign M_wr_data_unfiltered_14_is_x = ^(M_wr_data_unfiltered[14]) === 1'bx;
-  assign M_wr_data_filtered[14] = (M_wr_data_unfiltered_14_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[14];
-  assign M_wr_data_unfiltered_15_is_x = ^(M_wr_data_unfiltered[15]) === 1'bx;
-  assign M_wr_data_filtered[15] = (M_wr_data_unfiltered_15_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[15];
-  assign M_wr_data_unfiltered_16_is_x = ^(M_wr_data_unfiltered[16]) === 1'bx;
-  assign M_wr_data_filtered[16] = (M_wr_data_unfiltered_16_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[16];
-  assign M_wr_data_unfiltered_17_is_x = ^(M_wr_data_unfiltered[17]) === 1'bx;
-  assign M_wr_data_filtered[17] = (M_wr_data_unfiltered_17_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[17];
-  assign M_wr_data_unfiltered_18_is_x = ^(M_wr_data_unfiltered[18]) === 1'bx;
-  assign M_wr_data_filtered[18] = (M_wr_data_unfiltered_18_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[18];
-  assign M_wr_data_unfiltered_19_is_x = ^(M_wr_data_unfiltered[19]) === 1'bx;
-  assign M_wr_data_filtered[19] = (M_wr_data_unfiltered_19_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[19];
-  assign M_wr_data_unfiltered_20_is_x = ^(M_wr_data_unfiltered[20]) === 1'bx;
-  assign M_wr_data_filtered[20] = (M_wr_data_unfiltered_20_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[20];
-  assign M_wr_data_unfiltered_21_is_x = ^(M_wr_data_unfiltered[21]) === 1'bx;
-  assign M_wr_data_filtered[21] = (M_wr_data_unfiltered_21_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[21];
-  assign M_wr_data_unfiltered_22_is_x = ^(M_wr_data_unfiltered[22]) === 1'bx;
-  assign M_wr_data_filtered[22] = (M_wr_data_unfiltered_22_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[22];
-  assign M_wr_data_unfiltered_23_is_x = ^(M_wr_data_unfiltered[23]) === 1'bx;
-  assign M_wr_data_filtered[23] = (M_wr_data_unfiltered_23_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[23];
-  assign M_wr_data_unfiltered_24_is_x = ^(M_wr_data_unfiltered[24]) === 1'bx;
-  assign M_wr_data_filtered[24] = (M_wr_data_unfiltered_24_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[24];
-  assign M_wr_data_unfiltered_25_is_x = ^(M_wr_data_unfiltered[25]) === 1'bx;
-  assign M_wr_data_filtered[25] = (M_wr_data_unfiltered_25_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[25];
-  assign M_wr_data_unfiltered_26_is_x = ^(M_wr_data_unfiltered[26]) === 1'bx;
-  assign M_wr_data_filtered[26] = (M_wr_data_unfiltered_26_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[26];
-  assign M_wr_data_unfiltered_27_is_x = ^(M_wr_data_unfiltered[27]) === 1'bx;
-  assign M_wr_data_filtered[27] = (M_wr_data_unfiltered_27_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[27];
-  assign M_wr_data_unfiltered_28_is_x = ^(M_wr_data_unfiltered[28]) === 1'bx;
-  assign M_wr_data_filtered[28] = (M_wr_data_unfiltered_28_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[28];
-  assign M_wr_data_unfiltered_29_is_x = ^(M_wr_data_unfiltered[29]) === 1'bx;
-  assign M_wr_data_filtered[29] = (M_wr_data_unfiltered_29_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[29];
-  assign M_wr_data_unfiltered_30_is_x = ^(M_wr_data_unfiltered[30]) === 1'bx;
-  assign M_wr_data_filtered[30] = (M_wr_data_unfiltered_30_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[30];
-  assign M_wr_data_unfiltered_31_is_x = ^(M_wr_data_unfiltered[31]) === 1'bx;
-  assign M_wr_data_filtered[31] = (M_wr_data_unfiltered_31_is_x & (M_ctrl_ld_non_io)) ? 1'b0 : M_wr_data_unfiltered[31];
+  assign A_wr_data_filtered[0] = (A_wr_data_unfiltered_0_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[0];
+  assign A_wr_data_unfiltered_1_is_x = ^(A_wr_data_unfiltered[1]) === 1'bx;
+  assign A_wr_data_filtered[1] = (A_wr_data_unfiltered_1_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[1];
+  assign A_wr_data_unfiltered_2_is_x = ^(A_wr_data_unfiltered[2]) === 1'bx;
+  assign A_wr_data_filtered[2] = (A_wr_data_unfiltered_2_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[2];
+  assign A_wr_data_unfiltered_3_is_x = ^(A_wr_data_unfiltered[3]) === 1'bx;
+  assign A_wr_data_filtered[3] = (A_wr_data_unfiltered_3_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[3];
+  assign A_wr_data_unfiltered_4_is_x = ^(A_wr_data_unfiltered[4]) === 1'bx;
+  assign A_wr_data_filtered[4] = (A_wr_data_unfiltered_4_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[4];
+  assign A_wr_data_unfiltered_5_is_x = ^(A_wr_data_unfiltered[5]) === 1'bx;
+  assign A_wr_data_filtered[5] = (A_wr_data_unfiltered_5_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[5];
+  assign A_wr_data_unfiltered_6_is_x = ^(A_wr_data_unfiltered[6]) === 1'bx;
+  assign A_wr_data_filtered[6] = (A_wr_data_unfiltered_6_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[6];
+  assign A_wr_data_unfiltered_7_is_x = ^(A_wr_data_unfiltered[7]) === 1'bx;
+  assign A_wr_data_filtered[7] = (A_wr_data_unfiltered_7_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[7];
+  assign A_wr_data_unfiltered_8_is_x = ^(A_wr_data_unfiltered[8]) === 1'bx;
+  assign A_wr_data_filtered[8] = (A_wr_data_unfiltered_8_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[8];
+  assign A_wr_data_unfiltered_9_is_x = ^(A_wr_data_unfiltered[9]) === 1'bx;
+  assign A_wr_data_filtered[9] = (A_wr_data_unfiltered_9_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[9];
+  assign A_wr_data_unfiltered_10_is_x = ^(A_wr_data_unfiltered[10]) === 1'bx;
+  assign A_wr_data_filtered[10] = (A_wr_data_unfiltered_10_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[10];
+  assign A_wr_data_unfiltered_11_is_x = ^(A_wr_data_unfiltered[11]) === 1'bx;
+  assign A_wr_data_filtered[11] = (A_wr_data_unfiltered_11_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[11];
+  assign A_wr_data_unfiltered_12_is_x = ^(A_wr_data_unfiltered[12]) === 1'bx;
+  assign A_wr_data_filtered[12] = (A_wr_data_unfiltered_12_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[12];
+  assign A_wr_data_unfiltered_13_is_x = ^(A_wr_data_unfiltered[13]) === 1'bx;
+  assign A_wr_data_filtered[13] = (A_wr_data_unfiltered_13_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[13];
+  assign A_wr_data_unfiltered_14_is_x = ^(A_wr_data_unfiltered[14]) === 1'bx;
+  assign A_wr_data_filtered[14] = (A_wr_data_unfiltered_14_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[14];
+  assign A_wr_data_unfiltered_15_is_x = ^(A_wr_data_unfiltered[15]) === 1'bx;
+  assign A_wr_data_filtered[15] = (A_wr_data_unfiltered_15_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[15];
+  assign A_wr_data_unfiltered_16_is_x = ^(A_wr_data_unfiltered[16]) === 1'bx;
+  assign A_wr_data_filtered[16] = (A_wr_data_unfiltered_16_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[16];
+  assign A_wr_data_unfiltered_17_is_x = ^(A_wr_data_unfiltered[17]) === 1'bx;
+  assign A_wr_data_filtered[17] = (A_wr_data_unfiltered_17_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[17];
+  assign A_wr_data_unfiltered_18_is_x = ^(A_wr_data_unfiltered[18]) === 1'bx;
+  assign A_wr_data_filtered[18] = (A_wr_data_unfiltered_18_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[18];
+  assign A_wr_data_unfiltered_19_is_x = ^(A_wr_data_unfiltered[19]) === 1'bx;
+  assign A_wr_data_filtered[19] = (A_wr_data_unfiltered_19_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[19];
+  assign A_wr_data_unfiltered_20_is_x = ^(A_wr_data_unfiltered[20]) === 1'bx;
+  assign A_wr_data_filtered[20] = (A_wr_data_unfiltered_20_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[20];
+  assign A_wr_data_unfiltered_21_is_x = ^(A_wr_data_unfiltered[21]) === 1'bx;
+  assign A_wr_data_filtered[21] = (A_wr_data_unfiltered_21_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[21];
+  assign A_wr_data_unfiltered_22_is_x = ^(A_wr_data_unfiltered[22]) === 1'bx;
+  assign A_wr_data_filtered[22] = (A_wr_data_unfiltered_22_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[22];
+  assign A_wr_data_unfiltered_23_is_x = ^(A_wr_data_unfiltered[23]) === 1'bx;
+  assign A_wr_data_filtered[23] = (A_wr_data_unfiltered_23_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[23];
+  assign A_wr_data_unfiltered_24_is_x = ^(A_wr_data_unfiltered[24]) === 1'bx;
+  assign A_wr_data_filtered[24] = (A_wr_data_unfiltered_24_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[24];
+  assign A_wr_data_unfiltered_25_is_x = ^(A_wr_data_unfiltered[25]) === 1'bx;
+  assign A_wr_data_filtered[25] = (A_wr_data_unfiltered_25_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[25];
+  assign A_wr_data_unfiltered_26_is_x = ^(A_wr_data_unfiltered[26]) === 1'bx;
+  assign A_wr_data_filtered[26] = (A_wr_data_unfiltered_26_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[26];
+  assign A_wr_data_unfiltered_27_is_x = ^(A_wr_data_unfiltered[27]) === 1'bx;
+  assign A_wr_data_filtered[27] = (A_wr_data_unfiltered_27_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[27];
+  assign A_wr_data_unfiltered_28_is_x = ^(A_wr_data_unfiltered[28]) === 1'bx;
+  assign A_wr_data_filtered[28] = (A_wr_data_unfiltered_28_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[28];
+  assign A_wr_data_unfiltered_29_is_x = ^(A_wr_data_unfiltered[29]) === 1'bx;
+  assign A_wr_data_filtered[29] = (A_wr_data_unfiltered_29_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[29];
+  assign A_wr_data_unfiltered_30_is_x = ^(A_wr_data_unfiltered[30]) === 1'bx;
+  assign A_wr_data_filtered[30] = (A_wr_data_unfiltered_30_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[30];
+  assign A_wr_data_unfiltered_31_is_x = ^(A_wr_data_unfiltered[31]) === 1'bx;
+  assign A_wr_data_filtered[31] = (A_wr_data_unfiltered_31_is_x & (A_ctrl_ld_non_bypass)) ? 1'b0 : A_wr_data_unfiltered[31];
   always @(posedge clk)
     begin
       if (reset_n)
@@ -508,20 +548,6 @@ module niosII_system_nios2_qsys_test_bench (
           if (^(W_dst_regnum) === 1'bx)
             begin
               $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/W_dst_regnum is 'x'\n", $time);
-              $stop;
-            end
-    end
-
-
-  always @(posedge clk or negedge reset_n)
-    begin
-      if (reset_n == 0)
-        begin
-        end
-      else if (W_wr_dst_reg)
-          if (^(W_wr_data) === 1'bx)
-            begin
-              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/W_wr_data is 'x'\n", $time);
               $stop;
             end
     end
@@ -569,9 +595,9 @@ module niosII_system_nios2_qsys_test_bench (
   always @(posedge clk)
     begin
       if (reset_n)
-          if (^(M_en) === 1'bx)
+          if (^(A_en) === 1'bx)
             begin
-              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/M_en is 'x'\n", $time);
+              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/A_en is 'x'\n", $time);
               $stop;
             end
     end
@@ -599,15 +625,59 @@ module niosII_system_nios2_qsys_test_bench (
     end
 
 
+  always @(posedge clk)
+    begin
+      if (reset_n)
+          if (^(A_valid) === 1'bx)
+            begin
+              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/A_valid is 'x'\n", $time);
+              $stop;
+            end
+    end
+
+
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
         begin
         end
-      else if (M_valid & M_en & M_wr_dst_reg)
-          if (^(M_wr_data_unfiltered) === 1'bx)
+      else if (A_valid & A_en & A_wr_dst_reg)
+          if (^(A_wr_data_unfiltered) === 1'bx)
             begin
-              $write("%0d ns: WARNING: niosII_system_nios2_qsys_test_bench/M_wr_data_unfiltered is 'x'\n", $time);
+              $write("%0d ns: WARNING: niosII_system_nios2_qsys_test_bench/A_wr_data_unfiltered is 'x'\n", $time);
+            end
+    end
+
+
+  always @(posedge clk)
+    begin
+      if (reset_n)
+          if (^(A_status_reg) === 1'bx)
+            begin
+              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/A_status_reg is 'x'\n", $time);
+              $stop;
+            end
+    end
+
+
+  always @(posedge clk)
+    begin
+      if (reset_n)
+          if (^(A_estatus_reg) === 1'bx)
+            begin
+              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/A_estatus_reg is 'x'\n", $time);
+              $stop;
+            end
+    end
+
+
+  always @(posedge clk)
+    begin
+      if (reset_n)
+          if (^(A_bstatus_reg) === 1'bx)
+            begin
+              $write("%0d ns: ERROR: niosII_system_nios2_qsys_test_bench/A_bstatus_reg is 'x'\n", $time);
+              $stop;
             end
     end
 
@@ -707,8 +777,8 @@ module niosII_system_nios2_qsys_test_bench (
   end
   always @(posedge clk)
     begin
-      if ((~reset_n || (M_valid & M_en)) && ~test_has_ended)
-          $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h\n", $time, ~reset_n, M_pcb, 0, M_op_intr, M_op_hbreak, M_iw, ~(M_op_intr | M_op_hbreak), M_wr_dst_reg, M_dst_regnum, 0, M_wr_data_filtered, M_mem_baddr, M_st_data, M_mem_byte_en, M_cmp_result, M_target_pcb, M_status_reg, M_estatus_reg, M_bstatus_reg, M_ienable_reg, M_ipending_reg, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, M_ctrl_exception, 0, 0, 0, 0);
+      if ((~reset_n || (A_valid & A_en)) && ~test_has_ended)
+          $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h\n", $time, ~reset_n, A_pcb, 0, A_op_intr, A_op_hbreak, A_iw, ~(A_op_intr | A_op_hbreak), A_wr_dst_reg, A_dst_regnum, 0, A_wr_data_filtered, A_mem_baddr, A_st_data, A_mem_byte_en, A_cmp_result, A_target_pcb, A_status_reg, A_estatus_reg, A_bstatus_reg, A_ienable_reg, A_ipending_reg, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, A_ctrl_exception ? 1 : 0, 0, 0, 0, 0);
     end
 
 
@@ -718,7 +788,7 @@ module niosII_system_nios2_qsys_test_bench (
 //synthesis translate_on
 //synthesis read_comments_as_HDL on
 //  
-//  assign M_wr_data_filtered = M_wr_data_unfiltered;
+//  assign A_wr_data_filtered = A_wr_data_unfiltered;
 //
 //synthesis read_comments_as_HDL off
 

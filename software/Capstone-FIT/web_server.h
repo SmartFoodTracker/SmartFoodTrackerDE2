@@ -16,6 +16,7 @@
 
 #include "alt_types.h"
 #include "includes.h"
+
 /*
  * Prototypes:
  *    die_with_error() - Kills current task and delivers error message to 
@@ -61,15 +62,15 @@ extern FILE* lcdDevice;
  *      Gateway: 192.168.1.1
  *  Subnet Mask: 255.255.255.0
  */
-#define IPADDR0   0 
-#define IPADDR1   0 
-#define IPADDR2   0 
-#define IPADDR3   0
+#define IPADDR0   192
+#define IPADDR1   168
+#define IPADDR2   0
+#define IPADDR3   20
 
-#define GWADDR0   0 
-#define GWADDR1   0 
-#define GWADDR2   0 
-#define GWADDR3   0
+#define GWADDR0   192
+#define GWADDR1   168
+#define GWADDR2   0
+#define GWADDR3   1
 
 #define MSKADDR0  255
 #define MSKADDR1  255

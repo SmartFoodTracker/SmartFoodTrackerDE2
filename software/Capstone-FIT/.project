@@ -3,6 +3,7 @@
 	<name>Capstone-FIT</name>
 	<comment></comment>
 	<projects>
+		<project>Capstone-FIT_bsp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

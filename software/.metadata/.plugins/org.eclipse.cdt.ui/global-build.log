@@ -1,39 +1,53 @@
 
-**** Build of configuration Nios II for project barcode_scanner ****
+**** Build of configuration Nios II for project Capstone-FIT_bsp ****
 
 make all 
-Info: Building ../barcode_scanner_bsp/
-make --no-print-directory -C ../barcode_scanner_bsp/
 [BSP build complete]
-Info: Compiling main.c to obj/default/main.o
-nios2-elf-gcc -xc -MP -MMD -c -I../barcode_scanner_bsp//UCOSII/inc -I../barcode_scanner_bsp//HAL/inc -I../barcode_scanner_bsp/ -I../barcode_scanner_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
-Info: Linking barcode_scanner.elf
-nios2-elf-g++  -T'../barcode_scanner_bsp//linker.x' -msys-crt0='../barcode_scanner_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../barcode_scanner_bsp/   -Wl,-Map=barcode_scanner.map   -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o barcode_scanner.elf obj/default/main.o -lm 
-nios2-elf-insert barcode_scanner.elf --thread_model ucosii --cpu_name nios2_qsys --qsys true --simulation_enabled false --id 0 --sidp 0x19090b8 --timestamp 1486171616 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2" --jdi /afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2/software/barcode_scanner_bsp/../../SmartFoodTrackerDE2.jdi --sopcinfo /afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2/software/barcode_scanner_bsp/../../niosII_system.sopcinfo
-Info: (barcode_scanner.elf) 96 KBytes program size (code + initialized data).
-Info:                       8088 KBytes free for stack + heap.
-Info: Creating barcode_scanner.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source barcode_scanner.elf >barcode_scanner.objdump
-[barcode_scanner build complete]
 
 **** Build Finished ****
 
-**** Build of configuration Nios II for project barcode_scanner ****
+**** Build of configuration Nios II for project Capstone-FIT ****
 
 make all 
-Info: Building ../barcode_scanner_bsp/
-make --no-print-directory -C ../barcode_scanner_bsp/
+Info: Building ../Capstone-FIT_bsp/
+make --no-print-directory -C ../Capstone-FIT_bsp/
 [BSP build complete]
-[barcode_scanner build complete]
+Info: Compiling web_server.c to obj/default/web_server.o
+nios2-elf-gcc -xc -MP -MMD -c -I../Capstone-FIT_bsp//iniche/inc -I../Capstone-FIT_bsp//iniche/src/h -I../Capstone-FIT_bsp//iniche/src/h/nios2 -I../Capstone-FIT_bsp//iniche/src/nios2 -I../Capstone-FIT_bsp//UCOSII/inc -I../Capstone-FIT_bsp//HAL/inc -I../Capstone-FIT_bsp/ -I../Capstone-FIT_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_INICHE -DRO_ZIPFS -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/web_server.o web_server.c
+Info: Linking Capstone-FIT.elf
+nios2-elf-g++  -T'../Capstone-FIT_bsp//linker.x' -msys-crt0='../Capstone-FIT_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../Capstone-FIT_bsp/   -Wl,-Map=Capstone-FIT.map   -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o Capstone-FIT.elf obj/default/alt_error_handler.o obj/default/dm9000a.o obj/default/http.o obj/default/network_utilities.o obj/default/srec_flash.o obj/default/web_server.o -lm 
+nios2-elf-insert Capstone-FIT.elf --thread_model ucosii --cpu_name nios2_qsys --qsys true --simulation_enabled false --id 0 --sidp 0x19090b8 --timestamp 1486253230 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2" --jdi /afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2/software/Capstone-FIT_bsp/../../SmartFoodTrackerDE2.jdi --sopcinfo /afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2/software/Capstone-FIT_bsp/../../niosII_system.sopcinfo
+Info: (Capstone-FIT.elf) 6329 KBytes program size (code + initialized data).
+Info:                    1855 KBytes free for stack + heap.
+Info: Creating Capstone-FIT.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source Capstone-FIT.elf >Capstone-FIT.objdump
+[Capstone-FIT build complete]
 
 **** Build Finished ****
 
-**** Build of configuration Nios II for project barcode_scanner ****
+**** Build of configuration Nios II for project Capstone-FIT ****
 
 make all 
-Info: Building ../barcode_scanner_bsp/
-make --no-print-directory -C ../barcode_scanner_bsp/
+Info: Building ../Capstone-FIT_bsp/
+make --no-print-directory -C ../Capstone-FIT_bsp/
 [BSP build complete]
-[barcode_scanner build complete]
+[Capstone-FIT build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project Capstone-FIT_bsp ****
+
+make all 
+[BSP build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project Capstone-FIT ****
+
+make all 
+Info: Building ../Capstone-FIT_bsp/
+make --no-print-directory -C ../Capstone-FIT_bsp/
+[BSP build complete]
+[Capstone-FIT build complete]
 
 **** Build Finished ****
