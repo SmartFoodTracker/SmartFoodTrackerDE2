@@ -39,7 +39,12 @@ db/*
 incremental_db/*
 output_files/*
 simulation/*
+software/.metadata/*
 sopc_builder_log.txt
 *.sopcinfo
 *.jdi
+*.map
+*.objdump
+*.force_relink
+software/*/obj/*
 

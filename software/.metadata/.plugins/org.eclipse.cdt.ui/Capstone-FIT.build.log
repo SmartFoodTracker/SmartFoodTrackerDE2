@@ -1,10 +1,7 @@
 
-**** Build of configuration Nios II for project Capstone-FIT ****
+**** Clean-only build of configuration Nios II for project Capstone-FIT ****
 
-make all 
-Info: Building ../Capstone-FIT_bsp/
-make --no-print-directory -C ../Capstone-FIT_bsp/
-[BSP build complete]
-[Capstone-FIT build complete]
+make clean 
+../Capstone-FIT_bsp//public.mk:159: *** missing separator.  Stop.
 
 **** Build Finished ****
