@@ -48,6 +48,9 @@
 char http_rx_buffer[HTTP_NUM_CONNECTIONS][HTTP_RX_BUF_SIZE];
 char http_tx_buffer[HTTP_NUM_CONNECTIONS][HTTP_TX_BUF_SIZE];
 
+// Forward declaration of implementation in c file in nichestack
+u_long inet_addr(char FAR * str);
+
 /* Declare upload buffer structure globally. */
 struct upload_buf_struct
 {
@@ -1299,22 +1302,44 @@ void http_handle_transmit(http_conn* conn, int http_instance)
  */
 void WSTask()
 {
-  struct sockaddr_in serverDetails;
-  int server = 0;
-  int port;
-  server = socket(AF_INET, SOCK_STREAM, 0);
-  if (server < 0) {
-      printf("Error: failed to intitialize server socket connection.");
-      exit(EXIT_FAILURE);
+  while (1) {
+	  printf("trying to talk to server...\n");
+	  int sockfd;
+	  int port = 80;
+	  char buffer[1024] = "GET http://www.w3.org/pub/WWW/TheProject.html HTTP/1.1";
+	  struct sockaddr_in dest;
+	  char buffer[1024] = "HELLO";
+
+	  /*---Open socket for streaming---*/
+	  if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0 )
+	  {
+		  perror("Socket");
+		  exit(errno);
+	  }
+
+	  /*---Initialize server address/port struct---*/
+	  bzero(&dest, sizeof(dest));
+	  dest.sin_family = AF_INET;
+	  dest.sin_port = htons(port);
+	  // ip address
+	  dest.sin_addr.s_addr = inet_addr("192.168.0.100");
+	  /*---Connect to server---*/
+	  if ( connect(sockfd, (struct sockaddr*)&dest, sizeof(dest)) != 0 )
+	  {
+		  perror("Connect ");
+		  exit(errno);
+	  }
+
+	  /*---Get "Hello?"---*/
+	  send(sockfd, buffer, sizeof(buffer), 0);
+	  bzero(buffer, 1024);
+	  recv(sockfd, buffer, sizeof(buffer), 0);
+	  printf("%s\n", buffer);
+
+	  /*---Clean up---*/
+	  close(sockfd);
+	  OSTimeDlyHMSM(0,0,10,0);
   }
-  bzero((char *) &serverDetails, sizeof(serverDetails));
-  serverDetails.sin_family = AF_INET;
-  serverDetails.sin_port = htons((INT16U) port);
-  serverDetails.sin_addr.s_addr = INADDR_ANY;
-  if (connect(server, (struct sockaddr *) &serverDetails, sizeof(serverDetails)) < 0) {
-      printf("Error: failed to connect to server.");
-  }
-  printf("woo?");
 }
 
 /******************************************************************************

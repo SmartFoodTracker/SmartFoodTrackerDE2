@@ -221,7 +221,6 @@ int main (int argc, char* argv[], char* envp[])
 
   /* Clear the RTOS timer */
   OSTimeSet(0);
-  printf("Started");
   /* turn on green leds */
   *(volatile INT8U *)(GREEN_LEDS_BASE) = 0xff;
 
