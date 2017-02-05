@@ -2,15 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-<<<<<<< HEAD
-        <BspGeneratedTimeStamp>Feb 4, 2017 5:41:16 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1486255276192</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Feb 5, 2017 11:54:19 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1486320859679</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2/software/Capstone-FIT_bsp</BspGeneratedLocation>
-=======
-        <BspGeneratedTimeStamp>Feb 4, 2017 11:55:44 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1486234544916</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2/software/Capstone-FIT_bsp</BspGeneratedLocation>
->>>>>>> add4a3325a6a589b61221166c597ffd27e6bb3fc
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>

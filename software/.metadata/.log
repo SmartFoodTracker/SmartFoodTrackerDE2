@@ -666,3 +666,71 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY com.altera.sbtgui.launch 1 0 2017-02-04 18:23:58.134
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2/software/Capstone-FIT/Capstone-FIT.elf]
+!SESSION 2017-02-05 11:44:25.196 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.core 4 0 2017-02-05 11:49:20.305
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: error: Unexpected character encountered (lex state 9): '<'
+SEVERE: nios2-bsp-generate-files failed.
+
+
+!ENTRY com.altera.sbtgui.core 4 0 2017-02-05 11:50:34.775
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: error: Unexpected character encountered (lex state 9): '<'
+SEVERE: nios2-bsp-generate-files failed.
+
+
+!ENTRY com.altera.sbtgui.core 4 0 2017-02-05 11:50:57.301
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: error: Unexpected character encountered (lex state 9): '<'
+SEVERE: nios2-bsp-generate-files failed.
+
+!SESSION 2017-02-05 11:52:44.197 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.core 4 0 2017-02-05 11:52:57.522
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: error: Unexpected character encountered (lex state 9): '<'
+SEVERE: nios2-bsp-generate-files failed.
+
+
+!ENTRY org.eclipse.ui.browser 2 0 2017-02-05 11:53:28.472
+!MESSAGE Internal browser is not available: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-05 11:55:08.120
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x19090b8]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-05 11:55:09.652
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.5]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=0x19090b8] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-02-05 11:55:09.720
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x19090b8 /afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2/software/Capstone-FIT/Capstone-FIT.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-05 11:55:11.132
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.5]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x19090b8, /afs/ualberta.ca/home/a/b/abradsha/good_capstone/SmartFoodTrackerDE2/software/Capstone-FIT/Capstone-FIT.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-02-05 11:55:11.143
+!MESSAGE Downloading ELF Process failed

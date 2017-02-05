@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="h_addr" key="selection"/>
+		<item value="HEAD" key="selection"/>
 		<list key="findhistory">
+			<item value="head"/>
+			<item value="haed"/>
 			<item value="h_addr"/>
 			<item value="berkley"/>
 			<item value="connect"/>
 			<item value="9000"/>
 			<item value="flash"/>
 			<item value="mac"/>
-			<item value="IP addres"/>
-			<item value="DHCP"/>
 		</list>
 		<list key="replacehistory">
 		</list>
