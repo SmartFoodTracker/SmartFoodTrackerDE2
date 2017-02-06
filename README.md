@@ -13,7 +13,7 @@ Next, launch the Eclipse development environment and import a project from /soft
 ## Overview of Repository  
 
 `hardware/`: all required hardware for the project (Qsys config, vhdl top-level, third party verilog, etc.)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`DM9000A_IF.v` and `DM9000A_IF_hw.tcl`: Verilog and generation script for our ethernet component (source: _____)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`DM9000A_IF.v` and `DM9000A_IF_hw.tcl`: Verilog and generation script for our ethernet component (source: https://sites.ualberta.ca/~delliott/ece492/appnotes/2013w/Ethernet_DM9000A/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`SmartFoodTrackerDE2.vhd`: Top level vhdl component representing our Qsys configuration  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`niosII_system.qsys`: Qsys configuration
 
