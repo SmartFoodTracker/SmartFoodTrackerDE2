@@ -148,6 +148,7 @@ C_SRCS += network_utilities.c
 C_SRCS += srec_flash.c
 C_SRCS += web_server.c
 C_SRCS += dm9000a.c
+C_SRCS += client.c
 CXX_SRCS :=
 ASM_SRCS :=
 

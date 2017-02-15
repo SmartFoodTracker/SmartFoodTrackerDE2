@@ -142,7 +142,8 @@ ACDS_VERSION := 12.1sp1
 ELF := barcode_scanner.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := main.c
+C_SRCS += main.c
+C_SRCS += barcode_scanner.c
 CXX_SRCS :=
 ASM_SRCS :=
 
