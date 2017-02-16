@@ -1,25 +1,27 @@
 #ifndef __BARCODE_SCANNER_H
 #define __BARCODE_SCANNER_H
 
+/*****************************************************************************/
+/* Includes                                                                  */
+/*****************************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
 #include "includes.h"
-#include "io.h"
 #include "altera_up_avalon_ps2.h"
 #include "altera_up_ps2_keyboard.h"
 
+/*****************************************************************************/
+/* Constants                                                                 */
+/*****************************************************************************/
 
-/* Constants */
 #define BARCODE_MESSAGE_QUEUE_SIZE  64
 #define MAX_BARCODE_LENGTH          48
 #define MAX_KEY_PRESS_LENGTH        16
-/* Constants*/
 
+/*****************************************************************************/
+/* Enumerations                                                              */
+/*****************************************************************************/
 
-/* Enumerations */
 typedef enum _DecodeStatus
 {
     DecodeStatusComplete,
@@ -31,20 +33,21 @@ typedef enum _KeyPosition
     KeyPositionUp,
     KeyPositionDown
 } KeyPosition;
-/* Enumerations */
 
+/*****************************************************************************/
+/* Structures                                                                */
+/*****************************************************************************/
 
-/* Structures */
+typedef struct _Barcode
+{
+    char            pString[MAX_BARCODE_LENGTH];
+} Barcode;
+
 typedef struct _EncodedKeyPress
 {
     KB_CODE_TYPE    decodeMode;
     INT8U           encodedValue;
 } EncodedKeyPress;
-
-typedef struct _Barcode
-{
-    char pString[MAX_BARCODE_LENGTH];
-} Barcode;
 
 typedef struct _BarcodeScanner
 {
@@ -54,14 +57,21 @@ typedef struct _BarcodeScanner
     KeyPosition     keyPosition;
     bool            enabled;
 } BarcodeScanner;
-/* Structures */
 
+/*****************************************************************************/
+/* Functions                                                                 */
+/*****************************************************************************/
 
-/* Functions */
-BarcodeScanner* barcodeScannerCreate();
+BarcodeScanner* barcodeScannerCreate(const char   *pName,
+                                     unsigned int  baseAddress,
+                                     unsigned int  irq);
 void            barcodeScannerDestroy(BarcodeScanner *pBarcodeScanner);
-void            barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode);
-/* Functions */
+void            barcodeScannerDecode(BarcodeScanner *pBarcodeScanner,
+                                     Barcode        *pBarcode);
 
+/*****************************************************************************/
+/* End of File                                                               */
+/*****************************************************************************/
 
 #endif /* __BARCODE_SCANNER_H */
+

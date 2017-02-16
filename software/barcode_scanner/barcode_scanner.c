@@ -1,69 +1,73 @@
+/*****************************************************************************/
+/* Includes                                                                  */
+/*****************************************************************************/
+
+#include <stdlib.h>
+#include <string.h>
+#include "io.h"
 #include "barcode_scanner.h"
 
-static void barcodeScannerISR(void *pContext, alt_u32 id);
+/*****************************************************************************/
+/* Declarations                                                              */
+/*****************************************************************************/
+
+static BarcodeScanner*  acquireBarcodeScanner();
+static void             releaseBarcodeScanner(BarcodeScanner *pBarcodeScanner);
+static INT8U            initHandle(BarcodeScanner *pBarcodeScanner,
+                                   const char     *pName,
+                                   unsigned int    baseAddress,
+                                   unsigned int    irq);
+static INT8U            initQueue(BarcodeScanner *pBarcodeScanner);
+static void             dataLineISR(void *pContext, alt_u32 id);
+
+/*****************************************************************************/
+/* Fucntions                                                                 */
+/*****************************************************************************/
 
 BarcodeScanner*
-barcodeScannerCreate()
+barcodeScannerCreate(const char   *pName,
+                     unsigned int  baseAddress,
+                     unsigned int  irq)
 {
     INT8U           status          = OS_NO_ERR;
-    BarcodeScanner *pBarcodeScanner = (BarcodeScanner *) malloc(sizeof(BarcodeScanner));
+    BarcodeScanner *pBarcodeScanner = acquireBarcodeScanner();
 
     if (pBarcodeScanner == NULL)
     {
         status = OS_ERR_PDATA_NULL;
     }
-    else
+
+    // Register PS2 device handle with interrupt
+    if (status == OS_NO_ERR)
     {
-        // Set defaults
-        pBarcodeScanner->pHandle                = NULL;
-        pBarcodeScanner->pBarcodeKeyPressQueue  = NULL;
-        pBarcodeScanner->enabled                = true;
-        pBarcodeScanner->keyPosition            = KeyPositionUp;
+        status = initHandle(pBarcodeScanner, pName, baseAddress, irq);
+    }
 
-        // Setup device handle
-        if ((pBarcodeScanner->pHandle = alt_up_ps2_open_dev(BARCODE_SCANNER_PS2_NAME)) != NULL)
-        {
-            pBarcodeScanner->pHandle->base          = BARCODE_SCANNER_PS2_BASE;
-            pBarcodeScanner->pHandle->irq_id        = BARCODE_SCANNER_PS2_IRQ;
-            pBarcodeScanner->pHandle->timeout       = 0;
-            pBarcodeScanner->pHandle->device_type   = PS2_KEYBOARD;
+    // Initialize message queue
+    if (status == OS_NO_ERR)
+    {
+        status = initQueue(pBarcodeScanner);
+    }
 
-            set_keyboard_rate(pBarcodeScanner->pHandle, 0);
-
-            alt_up_ps2_enable_read_interrupt(pBarcodeScanner->pHandle);
-
-            status = alt_irq_register(pBarcodeScanner->pHandle->irq_id,
-                                      (void *)pBarcodeScanner,
-                                      barcodeScannerISR);
-        }
-        else
-        {
-            status = OS_ERR_PDATA_NULL;
-        }
-
-        // Initialize synchronized data structures
-        pBarcodeScanner->pBarcodeKeyPressQueue = OSQCreate(pBarcodeScanner->pBarcodeKeyPressQueueData,
-                                                           BARCODE_MESSAGE_QUEUE_SIZE);
-        if (pBarcodeScanner->pBarcodeKeyPressQueue == NULL)
-        {
-            status = OS_ERR_PDATA_NULL;
-        }
-
-        if (status != OS_NO_ERR)
-        {
-            free(pBarcodeScanner);
-            pBarcodeScanner = NULL;
-        }
+    // Cleanup if an error has occured
+    if (status != OS_NO_ERR)
+    {
+        releaseBarcodeScanner(pBarcodeScanner);
+        pBarcodeScanner = NULL;
     }
 
     return pBarcodeScanner;
-}
+} // barcodeScannerCreate
+
+/*****************************************************************************/
 
 void
 barcodeScannerDestroy(BarcodeScanner *pBarcodeScanner)
 {
-    free(pBarcodeScanner);
-}
+    releaseBarcodeScanner(pBarcodeScanner);
+} // barcodeScannerDestroy
+
+/*****************************************************************************/
 
 void
 barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
@@ -129,16 +133,93 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
                 free(pEncodedKeyPress);
                 pEncodedKeyPress = NULL;
             }
-            else
-            {
-                printf("Error pending on pBarcodeKeyPressQueue: %d\n", queueError);
-            }
         }
     }
-}
+} // barcodeScannerDecode
+
+/*****************************************************************************/
+/* Static Fucntions                                                          */
+/*****************************************************************************/
+
+static BarcodeScanner*
+acquireBarcodeScanner()
+{
+    BarcodeScanner *pBarcodeScanner = (BarcodeScanner *) malloc(sizeof(BarcodeScanner));
+    if (pBarcodeScanner)
+    {
+        pBarcodeScanner->pHandle                = NULL;
+        pBarcodeScanner->pBarcodeKeyPressQueue  = NULL;
+        pBarcodeScanner->enabled                = true;
+        pBarcodeScanner->keyPosition            = KeyPositionUp;
+    }
+
+    return pBarcodeScanner;
+} // acquireBarcodeScanner
+
+/*****************************************************************************/
 
 static void
-barcodeScannerISR(void *pContext, alt_u32 id)
+releaseBarcodeScanner(BarcodeScanner *pBarcodeScanner)
+{
+    if (pBarcodeScanner)
+    {
+        free(pBarcodeScanner);
+    }
+} // releaseBarcodeScanner
+
+/*****************************************************************************/
+
+static INT8U
+initHandle(BarcodeScanner *pBarcodeScanner,
+           const char     *pName,
+           unsigned int    baseAddress,
+           unsigned int    irq)
+{
+    INT8U status = OS_NO_ERR;
+
+    if (pBarcodeScanner && ((pBarcodeScanner->pHandle = alt_up_ps2_open_dev(pName)) != NULL))
+    {
+        pBarcodeScanner->pHandle->base          = baseAddress;
+        pBarcodeScanner->pHandle->irq_id        = irq;
+        pBarcodeScanner->pHandle->timeout       = 0;
+        pBarcodeScanner->pHandle->device_type   = PS2_KEYBOARD;
+
+        set_keyboard_rate(pBarcodeScanner->pHandle, 0);
+
+        alt_up_ps2_enable_read_interrupt(pBarcodeScanner->pHandle);
+
+        status = alt_irq_register(pBarcodeScanner->pHandle->irq_id,
+                                  (void *)pBarcodeScanner,
+                                  dataLineISR);
+    }
+    else
+    {
+        status = OS_ERR_PDATA_NULL;
+    }
+
+    return status;
+} // initHandle
+
+/*****************************************************************************/
+
+static INT8U
+initQueue(BarcodeScanner *pBarcodeScanner)
+{
+    INT8U status = OS_NO_ERR;
+    pBarcodeScanner->pBarcodeKeyPressQueue = OSQCreate(pBarcodeScanner->pBarcodeKeyPressQueueData,
+                                                       BARCODE_MESSAGE_QUEUE_SIZE);
+    if (pBarcodeScanner->pBarcodeKeyPressQueue == NULL)
+    {
+        status = OS_ERR_PDATA_NULL;
+    }
+
+    return status;
+} // initQueue
+
+/*****************************************************************************/
+
+static void
+dataLineISR(void *pContext, alt_u32 id)
 {
     BarcodeScanner     *pBarcodeScanner = (BarcodeScanner *)pContext;
     EncodedKeyPress    *pData           = NULL;
@@ -157,4 +238,8 @@ barcodeScannerISR(void *pContext, alt_u32 id)
             OSQPost(pBarcodeScanner->pBarcodeKeyPressQueue, pData);
         }
     }
-}
+} // dataLineISR
+
+/*****************************************************************************/
+/* End of File                                                               */
+/*****************************************************************************/
