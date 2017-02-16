@@ -21,7 +21,7 @@ static INT8U            initQueue(BarcodeScanner *pBarcodeScanner);
 static void             dataLineISR(void *pContext, alt_u32 id);
 
 /*****************************************************************************/
-/* Fucntions                                                                 */
+/* Functions                                                                 */
 /*****************************************************************************/
 
 BarcodeScanner*
@@ -138,7 +138,7 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
 } // barcodeScannerDecode
 
 /*****************************************************************************/
-/* Static Fucntions                                                          */
+/* Static Functions                                                          */
 /*****************************************************************************/
 
 static BarcodeScanner*
