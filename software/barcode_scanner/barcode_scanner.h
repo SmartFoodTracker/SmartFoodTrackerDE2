@@ -30,7 +30,7 @@
 #define MAX_KEY_PRESS_LENGTH        16
 
 #define BARCODE_CONTROL             "L CTRL"
-#define BARCODE_SHIFT               "L SHIFT"
+#define BARCODE_SHIFT               "L SHFT"
 #define BARCODE_DELIMITER           "ENTER"
 
 /*****************************************************************************/
