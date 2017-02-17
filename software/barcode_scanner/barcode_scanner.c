@@ -30,6 +30,10 @@ static INT8U            initHandle(BarcodeScanner *pBarcodeScanner,
 static INT8U            initQueue(BarcodeScanner *pBarcodeScanner);
 static void             dataLineISR(void *pContext, alt_u32 id);
 static EncodedKeyPress* getNextKeyPress(BarcodeScanner *pBarcodeScanner);
+static void             toggleKeyPosition(KeyPosition *pKeyPosition);
+static bool             isControlKey(const char *pKeyPressString);
+static bool             isValidKey(const char *pKeyPressString);
+static bool             isDelimiterKey(const char *pKeyPressString);
 
 /*****************************************************************************/
 /* Functions                                                                 */
@@ -136,22 +140,23 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
                                     pEncodedKeyPress->encodedValue,
                                     pKeyPressString);
 
-                // Toggle decoding around "L CTRL"
-                if (strcmp(pKeyPressString, "L CTRL") == 0)
+                // Toggle decoding around CTRL, these come in pairs (up/down)
+                // This prevents carriage returns from being processed
+                if (isControlKey(pKeyPressString))
                 {
                     pBarcodeScanner->enabled = !(pBarcodeScanner->enabled);
                 }
 
                 // Begin filtering out repeated keys, delimiters, etc.
-                if (pBarcodeScanner->enabled &&
-                    (strcmp(pKeyPressString, "L SHFT") != 0) &&
-                    (strcmp(pKeyPressString, "L CTRL") != 0))
+                if (pBarcodeScanner->enabled && isValidKey(pKeyPressString))
                 {
-                    // Update the key position from the last decode sequence
-                    if (pBarcodeScanner->keyPosition == KeyPositionUp)
+                    // Toggle the key position of the virtual keyboard
+                    toggleKeyPosition(&(pBarcodeScanner->keyPosition));
+
+                    // Only process "down" key presses
+                    if (pBarcodeScanner->keyPosition == KeyPositionDown)
                     {
-                        pBarcodeScanner->keyPosition = KeyPositionDown;
-                        if (strcmp(pKeyPressString, "ENTER") == 0)
+                        if (isDelimiterKey(pKeyPressString))
                         {
                             status = DecodeStatusComplete;
                         }
@@ -161,10 +166,6 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
                                     pKeyPressString,
                                     strlen(pKeyPressString));
                         }
-                    }
-                    else
-                    {
-                        pBarcodeScanner->keyPosition = KeyPositionUp;
                     }
                 }
 
@@ -245,10 +246,10 @@ initHandle(BarcodeScanner *pBarcodeScanner,
 
     if (pBarcodeScanner && ((pBarcodeScanner->pHandle = alt_up_ps2_open_dev(pName)) != NULL))
     {
-        pBarcodeScanner->pHandle->base          = baseAddress;
-        pBarcodeScanner->pHandle->irq_id        = irq;
-        pBarcodeScanner->pHandle->timeout       = 0;
-        pBarcodeScanner->pHandle->device_type   = PS2_KEYBOARD;
+        pBarcodeScanner->pHandle->base        = baseAddress;
+        pBarcodeScanner->pHandle->irq_id      = irq;
+        pBarcodeScanner->pHandle->timeout     = 0;
+        pBarcodeScanner->pHandle->device_type = PS2_KEYBOARD;
 
         set_keyboard_rate(pBarcodeScanner->pHandle, 0);
 
@@ -313,7 +314,8 @@ dataLineISR(void *pContext, alt_u32 id)
     char                asciiValue      = '\0';
 
     // Read byte from device and clear interrupt
-    if (decode_scancode(pBarcodeScanner->pHandle, &decodeMode, &encodedValue, &asciiValue) == 0)
+    if (decode_scancode(pBarcodeScanner->pHandle, &decodeMode,
+                        &encodedValue, &asciiValue) == 0)
     {
         pData = (EncodedKeyPress *)malloc(sizeof(EncodedKeyPress));
         if (pData != NULL)
@@ -354,6 +356,70 @@ getNextKeyPress(BarcodeScanner *pBarcodeScanner)
 
     return pEncodedKeyPress;
 } // getNextKeyPress
+
+/*****************************************************************************/
+
+static void
+toggleKeyPosition(KeyPosition *pKeyPosition)
+{
+    if (pKeyPosition)
+    {
+        if (*pKeyPosition == KeyPositionUp)
+        {
+            *pKeyPosition = KeyPositionDown;
+        }
+        else
+        {
+            *pKeyPosition = KeyPositionUp;
+        }
+    }
+} // toggleKeyPosition
+
+/*****************************************************************************/
+
+static bool
+isControlKey(const char *pKeyPressString)
+{
+    bool bReturn = false;
+
+    if (pKeyPressString)
+    {
+        bReturn = (strcmp(pKeyPressString, BARCODE_CONTROL) == 0);
+    }
+
+    return bReturn;
+} // isControlKey
+
+/*****************************************************************************/
+
+static bool
+isValidKey(const char *pKeyPressString)
+{
+    bool bReturn = false;
+
+    if (pKeyPressString)
+    {
+        bReturn = ((strcmp(pKeyPressString, BARCODE_SHIFT)   != 0) &&
+                   (strcmp(pKeyPressString, BARCODE_CONTROL) != 0));
+    }
+
+    return bReturn;
+} // isValidKey
+
+/*****************************************************************************/
+
+static bool
+isDelimiterKey(const char *pKeyPressString)
+{
+    bool bReturn = false;
+
+    if (pKeyPressString)
+    {
+        bReturn = (strcmp(pKeyPressString, BARCODE_DELIMITER) == 0);
+    }
+
+    return bReturn;
+} // isDelimiterKey
 
 /*****************************************************************************/
 /* End of File                                                               */
