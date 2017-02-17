@@ -1,3 +1,12 @@
+/** @file   main.c
+ *  @brief  Testing program for PS/2 barcode scanner
+ *
+ *  Setup, and consumption of data produced by a BarcodeScanner object.
+ *  Scanned barcodes are printed to the embedded LCD screen.
+ *
+ *  @author Kyle O'Shaughnessy (koshaugh)
+ */
+
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/

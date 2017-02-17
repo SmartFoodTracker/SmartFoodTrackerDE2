@@ -1,3 +1,14 @@
+/** @file   barcode_scanner.h
+ *  @brief  Declarations, Structure, and Enumeration definitions for barcode
+ *          scanner driver.
+ *
+ *  Fucntions in the public API can be found under the *Functions* header
+ *  below. All Enumerations are used for the internals of the scanner, all
+ *  structures defined below are to be used with the public API.
+ *
+ *  @author Kyle O'Shaughnessy (koshaugh)
+ */
+
 #ifndef __BARCODE_SCANNER_H
 #define __BARCODE_SCANNER_H
 
@@ -74,4 +85,3 @@ void            barcodeScannerDecode(BarcodeScanner *pBarcodeScanner,
 /*****************************************************************************/
 
 #endif /* __BARCODE_SCANNER_H */
-

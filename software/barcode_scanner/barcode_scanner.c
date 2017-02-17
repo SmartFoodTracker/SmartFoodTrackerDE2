@@ -1,3 +1,13 @@
+/** @file   barcode_scanner.c
+ *  @brief  Source for public and private routines used for barcode scanning
+ *
+ *  Driver for the PS2 barcode scanner. All non-static functions are
+ *  effectively part of the public API, those that are static should be
+ *  considered private.
+ *
+ *  @author Kyle O'Shaughnessy (koshaugh)
+ */
+
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
