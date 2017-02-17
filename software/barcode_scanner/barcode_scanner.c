@@ -19,6 +19,7 @@ static INT8U            initHandle(BarcodeScanner *pBarcodeScanner,
                                    unsigned int    irq);
 static INT8U            initQueue(BarcodeScanner *pBarcodeScanner);
 static void             dataLineISR(void *pContext, alt_u32 id);
+static EncodedKeyPress* getNextKeyPress(BarcodeScanner *pBarcodeScanner);
 
 /*****************************************************************************/
 /* Functions                                                                 */
@@ -105,7 +106,6 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
 {
     char                pKeyPressString[MAX_KEY_PRESS_LENGTH];
     EncodedKeyPress    *pEncodedKeyPress    = NULL;
-    INT8U               queueError          = OS_NO_ERR;
     DecodeStatus        status              = DecodeStatusNotComplete;
 
     if (pBarcodeScanner && pBarcode)
@@ -116,12 +116,10 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
         // Begin decode process
         while (status == DecodeStatusNotComplete)
         {
-            // Receive encoded key press from ISR
-            pEncodedKeyPress = (EncodedKeyPress *)OSQPend(pBarcodeScanner->pBarcodeKeyPressQueue,
-                                                          0,
-                                                          &queueError);
+            // Fetch next encoded key press
+            pEncodedKeyPress = getNextKeyPress(pBarcodeScanner);
 
-            if ((queueError == OS_NO_ERR) && (pEncodedKeyPress != NULL))
+            if (pEncodedKeyPress != NULL)
             {
                 // Decode the key press
                 translate_make_code(pEncodedKeyPress->decodeMode,
@@ -224,6 +222,8 @@ releaseBarcodeScanner(BarcodeScanner *pBarcodeScanner)
  * @param pName             Name of dev port for the ps2 device.
  * @param baseAddress       Base address of the memory mapped device.
  * @param irq               IRQ number for memory mapped device.
+ * @return                  OS_NO_ERR if no errors, OS_ERR_PDATA_NULL if handle
+ *                          fails to initialize.
  */
 static INT8U
 initHandle(BarcodeScanner *pBarcodeScanner,
@@ -260,10 +260,12 @@ initHandle(BarcodeScanner *pBarcodeScanner,
 
 /**
  * @brief                   Initialize the barcode keypress queue.
- * @details                 Simply associated the queue data with a new queue
+ * @details                 Simply associates the queue data with a new queue.
  *                          which is assigned to the barcode scanner.
  * 
  * @param pBarcodeScanner   Pointer to parent object.
+ * @return                  OS_NO_ERR if no error, OS_ERR_PDATA_NULL if created
+ *                          queue is NULL.
  */
 static INT8U
 initQueue(BarcodeScanner *pBarcodeScanner)
@@ -312,6 +314,36 @@ dataLineISR(void *pContext, alt_u32 id)
         }
     }
 } // dataLineISR
+
+/*****************************************************************************/
+
+/**
+ * @brief                   Fetches next available key press from the scanner's
+ *                          processing queue.
+ * @details                 Pends on pBarcodeKeyPressQueue indefinitely to get
+ *                          next keypress.
+ *
+ * @param pBarcodeScanner   Pointer to a BarcodeScanner object with a keypress
+ *                          available.
+ * @return                  Pointer to an EncodedKeyPress object, this needs to
+ *                          be freed by the consumer after use.
+ */
+static EncodedKeyPress*
+getNextKeyPress(BarcodeScanner *pBarcodeScanner)
+{
+    EncodedKeyPress *pEncodedKeyPress = NULL;
+    INT8U            queueError       = OS_NO_ERR;
+
+    pEncodedKeyPress = (EncodedKeyPress *)OSQPend(pBarcodeScanner->pBarcodeKeyPressQueue,
+                                                  0,
+                                                  &queueError);
+    if (queueError != OS_NO_ERR)
+    {
+        pEncodedKeyPress = NULL;
+    }
+
+    return pEncodedKeyPress;
+} // getNextKeyPress
 
 /*****************************************************************************/
 /* End of File                                                               */
