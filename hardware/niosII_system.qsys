@@ -217,19 +217,19 @@
          type = "int";
       }
    }
-   element add_button.s1
+   element timer.s1
    {
       datum baseAddress
       {
-         value = "26251376";
+         value = "26251264";
          type = "String";
       }
    }
-   element remove_button.s1
+   element green_leds.s1
    {
       datum baseAddress
       {
-         value = "26251360";
+         value = "26251408";
          type = "String";
       }
    }
@@ -249,19 +249,35 @@
          type = "String";
       }
    }
+   element remove_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251360";
+         type = "String";
+      }
+   }
+   element add_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251376";
+         type = "String";
+      }
+   }
+   element dm9000a_if_ethernet.s1
+   {
+      datum baseAddress
+      {
+         value = "26251424";
+         type = "String";
+      }
+   }
    element switch.s1
    {
       datum baseAddress
       {
          value = "26251392";
-         type = "String";
-      }
-   }
-   element red_leds.s1
-   {
-      datum baseAddress
-      {
-         value = "26251328";
          type = "String";
       }
    }
@@ -273,27 +289,11 @@
          type = "String";
       }
    }
-   element green_leds.s1
+   element red_leds.s1
    {
       datum baseAddress
       {
-         value = "26251408";
-         type = "String";
-      }
-   }
-   element timer.s1
-   {
-      datum baseAddress
-      {
-         value = "26251264";
-         type = "String";
-      }
-   }
-   element dm9000a_if_ethernet.s1
-   {
-      datum baseAddress
-      {
-         value = "26251424";
+         value = "26251328";
          type = "String";
       }
    }
@@ -389,7 +389,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1486253127626" />
+ <parameter name="timeStamp" value="1487445685586" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clock_50MHz.clk_in" type="clock" dir="end" />
@@ -735,12 +735,12 @@
  <module kind="altera_avalon_pio" version="12.1" enabled="1" name="add_button">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
+  <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
   <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="RISING" />
+  <parameter name="edgeType" value="FALLING" />
   <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="LEVEL" />
+  <parameter name="irqType" value="EDGE" />
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
@@ -753,12 +753,12 @@
    name="remove_button">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
+  <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
   <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="RISING" />
+  <parameter name="edgeType" value="FALLING" />
   <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="LEVEL" />
+  <parameter name="irqType" value="EDGE" />
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
@@ -771,12 +771,12 @@
    name="cancel_button">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
+  <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
   <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="RISING" />
+  <parameter name="edgeType" value="FALLING" />
   <parameter name="generateIRQ" value="true" />
-  <parameter name="irqType" value="LEVEL" />
+  <parameter name="irqType" value="EDGE" />
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
