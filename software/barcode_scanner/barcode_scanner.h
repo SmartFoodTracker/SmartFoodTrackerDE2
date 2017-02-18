@@ -88,4 +88,4 @@ void            barcodeScannerDecode(BarcodeScanner *pBarcodeScanner,
 /* End of File                                                               */
 /*****************************************************************************/
 
-#endif /* __BARCODE_SCANNER_H */
+#endif // __BARCODE_SCANNER_H

@@ -216,8 +216,20 @@ acquireBarcodeScanner()
 static void
 releaseBarcodeScanner(BarcodeScanner *pBarcodeScanner)
 {
+    INT8U queueError = OS_NO_ERR;
     if (pBarcodeScanner)
     {
+        alt_up_ps2_disable_read_interrupt(pBarcodeScanner->pHandle);
+
+        if(pBarcodeScanner->pBarcodeKeyPressQueue)
+        {
+            OSQDel(pBarcodeScanner->pBarcodeKeyPressQueue,
+                   OS_DEL_ALWAYS,
+                   &queueError);
+
+            pBarcodeScanner->pBarcodeKeyPressQueue = NULL;
+        }
+
         free(pBarcodeScanner);
     }
 } // releaseBarcodeScanner
@@ -282,9 +294,17 @@ static INT8U
 initQueue(BarcodeScanner *pBarcodeScanner)
 {
     INT8U status = OS_NO_ERR;
-    pBarcodeScanner->pBarcodeKeyPressQueue = OSQCreate(pBarcodeScanner->pBarcodeKeyPressQueueData,
-                                                       BARCODE_MESSAGE_QUEUE_SIZE);
-    if (pBarcodeScanner->pBarcodeKeyPressQueue == NULL)
+
+    if (pBarcodeScanner)
+    {
+        pBarcodeScanner->pBarcodeKeyPressQueue = OSQCreate(pBarcodeScanner->pBarcodeKeyPressQueueData,
+                                                           BARCODE_MESSAGE_QUEUE_SIZE);
+        if (pBarcodeScanner->pBarcodeKeyPressQueue == NULL)
+        {
+            status = OS_ERR_PDATA_NULL;
+        }
+    }
+    else
     {
         status = OS_ERR_PDATA_NULL;
     }
@@ -346,12 +366,15 @@ getNextKeyPress(BarcodeScanner *pBarcodeScanner)
     EncodedKeyPress *pEncodedKeyPress = NULL;
     INT8U            queueError       = OS_NO_ERR;
 
-    pEncodedKeyPress = (EncodedKeyPress *)OSQPend(pBarcodeScanner->pBarcodeKeyPressQueue,
-                                                  0,
-                                                  &queueError);
-    if (queueError != OS_NO_ERR)
+    if (pBarcodeScanner)
     {
-        pEncodedKeyPress = NULL;
+        pEncodedKeyPress = (EncodedKeyPress *)OSQPend(pBarcodeScanner->pBarcodeKeyPressQueue,
+                                                      0,
+                                                      &queueError);
+        if (queueError != OS_NO_ERR)
+        {
+            pEncodedKeyPress = NULL;
+        }
     }
 
     return pEncodedKeyPress;
