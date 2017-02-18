@@ -178,7 +178,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../barcode_scanner_bsp/
+BSP_ROOT_DIR := ../common_board_support_package
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=

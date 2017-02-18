@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>buttons</name>
+	<name>common_board_support_package</name>
 	<comment></comment>
 	<projects>
-		<project>common_board_support_package</project>
 	</projects>
 	<buildSpec>
-		<buildCommand>
-			<name>com.altera.sbtgui.project.makefileBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>com.altera.sbtgui.project.makefileBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 		<buildCommand>
 			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
 			<triggers>clean,full,incremental,</triggers>
@@ -42,7 +31,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc://buttons}</value>
+					<value>${workspace_loc://board_support_package}</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
@@ -91,7 +80,6 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>com.altera.sbtgui.project.SBTGUINature</nature>
-		<nature>com.altera.sbtgui.project.SBTGUIAppNature</nature>
-		<nature>com.altera.sbtgui.project.SBTGUIManagedNature</nature>
+		<nature>com.altera.sbtgui.project.SBTGUIBspNature</nature>
 	</natures>
 </projectDescription>
