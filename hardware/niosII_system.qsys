@@ -217,14 +217,6 @@
          type = "int";
       }
    }
-   element timer.s1
-   {
-      datum baseAddress
-      {
-         value = "26251264";
-         type = "String";
-      }
-   }
    element green_leds.s1
    {
       datum baseAddress
@@ -241,11 +233,51 @@
          type = "String";
       }
    }
+   element timer.s1
+   {
+      datum baseAddress
+      {
+         value = "26251264";
+         type = "String";
+      }
+   }
+   element red_leds.s1
+   {
+      datum baseAddress
+      {
+         value = "26251328";
+         type = "String";
+      }
+   }
+   element dm9000a_if_ethernet.s1
+   {
+      datum baseAddress
+      {
+         value = "26251424";
+         type = "String";
+      }
+   }
+   element sdram.s1
+   {
+      datum baseAddress
+      {
+         value = "8388608";
+         type = "String";
+      }
+   }
    element onchip_memory2.s1
    {
       datum baseAddress
       {
          value = "26230784";
+         type = "String";
+      }
+   }
+   element switch.s1
+   {
+      datum baseAddress
+      {
+         value = "26251392";
          type = "String";
       }
    }
@@ -262,38 +294,6 @@
       datum baseAddress
       {
          value = "26251376";
-         type = "String";
-      }
-   }
-   element dm9000a_if_ethernet.s1
-   {
-      datum baseAddress
-      {
-         value = "26251424";
-         type = "String";
-      }
-   }
-   element switch.s1
-   {
-      datum baseAddress
-      {
-         value = "26251392";
-         type = "String";
-      }
-   }
-   element sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "8388608";
-         type = "String";
-      }
-   }
-   element red_leds.s1
-   {
-      datum baseAddress
-      {
-         value = "26251328";
          type = "String";
       }
    }
@@ -389,7 +389,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1487445685586" />
+ <parameter name="timeStamp" value="1487538324716" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clock_50MHz.clk_in" type="clock" dir="end" />
@@ -685,7 +685,7 @@
   <parameter name="width" value="8" />
  </module>
  <module kind="altera_avalon_pio" version="12.1" enabled="1" name="switch">
-  <parameter name="bitClearingEdgeCapReg" value="true" />
+  <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
