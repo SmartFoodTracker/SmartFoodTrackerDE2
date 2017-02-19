@@ -145,20 +145,10 @@ SOPC_NAME := niosII_system
 # setting SOPC_SIMULATION_ENABLED is false
 ELF_PATCH_FLAG  += --simulation_enabled false
 
-# The SOPC System ID 
-# setting SOPC_SYSID is 0
-SOPC_SYSID_FLAG += --id=0
-ELF_PATCH_FLAG  += --id 0
-
 # The SOPC System ID Base Address 
 # setting SOPC_SYSID_BASE_ADDRESS is 0x19090b8
 SOPC_SYSID_FLAG += --sidp=0x19090b8
 ELF_PATCH_FLAG  += --sidp 0x19090b8
-
-# The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1487460552
-SOPC_SYSID_FLAG += --timestamp=1487460552
-ELF_PATCH_FLAG  += --timestamp 1487460552
 
 # Small-footprint (polled mode) driver none 
 # setting altera_avalon_jtag_uart_driver.enable_small_driver is false
@@ -312,12 +302,12 @@ ALT_CPPFLAGS += -DALT_NO_INSTRUCTION_EMULATION
 # Enable BSP generation to query SOPC system for system ID. If true ignores 
 # export of 'SOPC_SYSID_FLAG += --id=<sysid>' and 'ELF_PATCH_FLAG += 
 # --id=<sysid>' to public.mk. none 
-# setting hal.make.ignore_system_derived.sopc_system_id is 0
+# setting hal.make.ignore_system_derived.sopc_system_id is 1
 
 # Enable BSP generation to query SOPC system for system timestamp. If true 
 # ignores export of 'SOPC_SYSID_FLAG += --timestamp=<timestamp>' and 
 # 'ELF_PATCH_FLAG += --timestamp=<timestamp>' to public.mk. none 
-# setting hal.make.ignore_system_derived.sopc_system_timestamp is 0
+# setting hal.make.ignore_system_derived.sopc_system_timestamp is 1
 
 # Slave descriptor of STDERR character-mode device. This setting is used by the 
 # ALT_STDERR family of defines in system.h. none 

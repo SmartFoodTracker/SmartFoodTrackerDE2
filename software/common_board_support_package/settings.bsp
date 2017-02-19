@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Feb 18, 2017 4:43:32 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1487461412661</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/afs/ualberta.ca/home/k/o/koshaugh/temp/SmartFoodTrackerDE2/software/common_board_support_package</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Feb 18, 2017 5:08:06 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1487462886562</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>/afs/ualberta.ca/home/k/o/koshaugh/SmartFoodTrackerDE2/software/common_board_support_package</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -542,7 +542,7 @@
                 <SettingName>hal.make.ignore_system_derived.sopc_system_id</SettingName>
                 <Identifier>NONE</Identifier>
                 <Type>Boolean</Type>
-                <Value>0</Value>
+                <Value>1</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Enable BSP generation to query SOPC system for system ID. If true ignores export of 'SOPC_SYSID_FLAG += --id=&lt;sysid>' and 'ELF_PATCH_FLAG  += --id=&lt;sysid>' to public.mk.</Description>
@@ -554,7 +554,7 @@
                 <SettingName>hal.make.ignore_system_derived.sopc_system_timestamp</SettingName>
                 <Identifier>NONE</Identifier>
                 <Type>Boolean</Type>
-                <Value>0</Value>
+                <Value>1</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Enable BSP generation to query SOPC system for system timestamp. If true ignores export of 'SOPC_SYSID_FLAG += --timestamp=&lt;timestamp>' and 'ELF_PATCH_FLAG  += --timestamp=&lt;timestamp>' to public.mk.</Description>
