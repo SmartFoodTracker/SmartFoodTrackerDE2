@@ -12,12 +12,12 @@
  </systemtable>
  <clocktable>
   <columns>
-   <clockname preferredWidth="385" />
-   <clocksource preferredWidth="384" />
-   <frequency preferredWidth="365" />
+   <clockname preferredWidth="325" />
+   <clocksource preferredWidth="324" />
+   <frequency preferredWidth="305" />
   </columns>
  </clocktable>
- <library expandedCategories="Library,Project" />
+ <library expandedCategories="Project,Library" />
  <window width="1460" height="856" x="-9" y="20" />
  <hdlexample language="VHDL" />
 </preferences>

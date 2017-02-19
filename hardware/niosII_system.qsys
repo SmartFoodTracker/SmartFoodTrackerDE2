@@ -217,11 +217,11 @@
          type = "int";
       }
    }
-   element green_leds.s1
+   element remove_button.s1
    {
       datum baseAddress
       {
-         value = "26251408";
+         value = "26251360";
          type = "String";
       }
    }
@@ -233,35 +233,11 @@
          type = "String";
       }
    }
-   element timer.s1
+   element switch.s1
    {
       datum baseAddress
       {
-         value = "26251264";
-         type = "String";
-      }
-   }
-   element red_leds.s1
-   {
-      datum baseAddress
-      {
-         value = "26251328";
-         type = "String";
-      }
-   }
-   element dm9000a_if_ethernet.s1
-   {
-      datum baseAddress
-      {
-         value = "26251424";
-         type = "String";
-      }
-   }
-   element sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "8388608";
+         value = "26251392";
          type = "String";
       }
    }
@@ -273,19 +249,43 @@
          type = "String";
       }
    }
-   element switch.s1
+   element sdram.s1
    {
       datum baseAddress
       {
-         value = "26251392";
+         value = "8388608";
          type = "String";
       }
    }
-   element remove_button.s1
+   element red_leds.s1
    {
       datum baseAddress
       {
-         value = "26251360";
+         value = "26251328";
+         type = "String";
+      }
+   }
+   element timer.s1
+   {
+      datum baseAddress
+      {
+         value = "26251264";
+         type = "String";
+      }
+   }
+   element green_leds.s1
+   {
+      datum baseAddress
+      {
+         value = "26251408";
+         type = "String";
+      }
+   }
+   element dm9000a_if_ethernet.s1
+   {
+      datum baseAddress
+      {
+         value = "26251424";
          type = "String";
       }
    }
@@ -389,7 +389,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1487538324716" />
+ <parameter name="timeStamp" value="1487546375666" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clock_50MHz.clk_in" type="clock" dir="end" />
@@ -825,15 +825,15 @@
    name="audio_config">
   <parameter name="device">On-Board Peripherals</parameter>
   <parameter name="board" value="DE2" />
-  <parameter name="eai" value="false" />
+  <parameter name="eai" value="true" />
   <parameter name="audio_in" value="Microphone to ADC" />
   <parameter name="dac_enable" value="true" />
   <parameter name="mic_bypass" value="false" />
   <parameter name="line_in_bypass" value="false" />
   <parameter name="mic_attenuation" value="-6dB" />
   <parameter name="data_format" value="Left Justified" />
-  <parameter name="bit_length" value="24" />
-  <parameter name="sampling_rate" value="48 kHz" />
+  <parameter name="bit_length" value="16" />
+  <parameter name="sampling_rate" value="32 kHz" />
   <parameter name="video_format" value="NTSC" />
   <parameter name="d5m_resolution" value="2592 x 1944" />
   <parameter name="exposure" value="false" />
