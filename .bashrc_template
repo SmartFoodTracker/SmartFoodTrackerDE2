@@ -1,0 +1,5 @@
+export PATH=/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin:$PATH
+export PATH=/OPT/altera/12.1/nios2eds/sdk2/bin:$PATH
+export PATH=/OPT/altera/12.1/nios2eds/bin:$PATH
+export LD_LIBRARY_PATH=/OPT/altera/12.1/quartus/linux:$LD_LIBRARY_PATH
+export SOPC_KIT_NIOS2=/OPT/altera/12.1/nios2eds
