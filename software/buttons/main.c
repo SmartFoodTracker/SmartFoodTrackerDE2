@@ -103,6 +103,7 @@ main(void)
         printf("Buttons creation failed.\n");
     }
 
+    // TODO: Check the status of these init calls
     // Initialize all buttons
     buttonsInitButton(pButtons,
     				  ButtonAdd,

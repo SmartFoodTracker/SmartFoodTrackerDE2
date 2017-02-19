@@ -30,6 +30,13 @@ static void     buttonISR(void *pContext, alt_u32 id);
 /* Functions                                                                 */
 /*****************************************************************************/
 
+/**
+ * @brief      Allocates a Buttons object on the heap and initializes it.
+ *             Caller must call buttonsInitButton, and buttonsEnableButton
+ *             after this routine has been run.
+ *
+ * @return     a new Buttons object, ready to go.
+ */
 Buttons*
 buttonsCreate()
 {
@@ -57,6 +64,12 @@ buttonsCreate()
 
 /*****************************************************************************/
 
+/**
+ * @brief      Uninitialize and cleanup a Buttons object. This should be called
+ *             after buttonsCreate is called.
+ *
+ * @param      pButtons  Pointer to Buttons object to be cleaned-up.
+ */
 void
 buttonsDestroy(Buttons *pButtons)
 {
@@ -65,6 +78,16 @@ buttonsDestroy(Buttons *pButtons)
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pButtons     The buttons
+ * @param[in]  buttonID     The button id
+ * @param[in]  baseAddress  The base address
+ * @param[in]  irq          The irq
+ *
+ * @return     { description_of_the_return_value }
+ */
 INT8U
 buttonsInitButton(Buttons      *pButtons,
                   Button        buttonID,
@@ -85,7 +108,15 @@ buttonsInitButton(Buttons      *pButtons,
             pIsrContext->baseAddress    = baseAddress;
             pIsrContext->buttonID       = buttonID;
 
-            // Save context for later
+            // Disable and and free buttons that are being re-initialized
+            if (pButtons->isrContexts[buttonID])
+            {
+                buttonsDisableButton(pButtons, buttonID);
+                free(pButtons->isrContexts[buttonID]);
+                pButtons->isrContexts[buttonID] = NULL;
+            }
+
+            // Save context for later cleanup
             pButtons->isrContexts[buttonID] = pIsrContext;
 
             // Disable button by default
@@ -111,6 +142,12 @@ buttonsInitButton(Buttons      *pButtons,
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pButtons  The buttons
+ * @param[in]  buttonID  The button id
+ */
 void
 buttonsDisableButton(Buttons *pButtons, Button buttonID)
 {
@@ -128,6 +165,12 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pButtons  The buttons
+ * @param[in]  buttonID  The button id
+ */
 void
 buttonsEnableButton(Buttons *pButtons, Button buttonID)
 {
@@ -145,12 +188,20 @@ buttonsEnableButton(Buttons *pButtons, Button buttonID)
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pButtons  The buttons
+ *
+ * @return     { description_of_the_return_value }
+ */
 Button
 buttonsGetButtonPress(Buttons *pButtons)
 {
     INT8U   queueError  = OS_NO_ERR;
     Button  buttonID    = ButtonMax;
 
+    // TODO: check against pButtonPressQueue as well
     if (pButtons)
     {
         buttonID = (Button) OSQPend(pButtons->pButtonPressQueue,
@@ -170,6 +221,11 @@ buttonsGetButtonPress(Buttons *pButtons)
 /* Static Functions                                                          */
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @return     { description_of_the_return_value }
+ */
 static Buttons*
 acquireButtons()
 {
@@ -191,6 +247,11 @@ acquireButtons()
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pButtons  The buttons
+ */
 static void
 releaseButtons(Buttons *pButtons)
 {
@@ -204,8 +265,8 @@ releaseButtons(Buttons *pButtons)
         {
             if (pButtons->isrContexts[button])
             {
-                // Disable the button's interrupt
-                IOWR_ALTERA_AVALON_PIO_IRQ_MASK(pButtons->isrContexts[button]->baseAddress, 0xf);
+                // Disable interrupts
+                buttonsDisableButton(pButtons, button);
 
                 // Free heap allocated memory
                 free(pButtons->isrContexts[button]);
@@ -230,12 +291,19 @@ releaseButtons(Buttons *pButtons)
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pButtons  The buttons
+ *
+ * @return     { description_of_the_return_value }
+ */
 static INT8U
 initQueue(Buttons *pButtons)
 {
     INT8U status = OS_NO_ERR;
 
-    if (pButtons)
+    if (pButtons && (pButtons->pButtonPressQueueData == NULL))
     {
         pButtons->pButtonPressQueue = OSQCreate(pButtons->pButtonPressQueueData,
                                                 BUTTONS_MESSAGE_QUEUE_SIZE);
@@ -254,11 +322,18 @@ initQueue(Buttons *pButtons)
 
 /*****************************************************************************/
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      pContext  The context
+ * @param[in]  id        The identifier
+ */
 static void
 buttonISR(void *pContext, alt_u32 id)
 {
     ButtonContext *pButtonContext = (ButtonContext *) pContext;
 
+    // Push buttonID onto the message queue
     OSQPost(pButtonContext->pButtons->pButtonPressQueue, (void *) pButtonContext->buttonID);
 
     // Reset the button's edge capture register

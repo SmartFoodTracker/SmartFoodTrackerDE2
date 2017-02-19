@@ -42,6 +42,14 @@ typedef enum _Button
 /*****************************************************************************/
 
 struct _Buttons;
+struct _ButtonContext;
+
+typedef struct _Buttons
+{
+    ButtonContext      *isrContexts[ButtonMax];
+    OS_EVENT           *pButtonPressQueue;
+    void               *pButtonPressQueueData[BUTTONS_MESSAGE_QUEUE_SIZE];
+} Buttons;
 
 typedef struct _ButtonContext
 {
@@ -50,13 +58,6 @@ typedef struct _ButtonContext
     unsigned int        baseAddress;
     Button              buttonID;
 } ButtonContext;
-
-typedef struct _Buttons
-{
-    ButtonContext      *isrContexts[ButtonMax];
-    OS_EVENT           *pButtonPressQueue;
-    void               *pButtonPressQueueData[BUTTONS_MESSAGE_QUEUE_SIZE];
-} Buttons;
 
 /*****************************************************************************/
 /* Functions                                                                 */
