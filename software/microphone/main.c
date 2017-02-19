@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include "includes.h"
+#include "microphone.h"
 #include "altera_up_avalon_character_lcd.h"
 
 /*****************************************************************************/
@@ -38,7 +39,8 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
 void
 LCDTask(void* pData)
 {
-    alt_up_character_lcd_dev *pLCD = NULL;
+    alt_up_character_lcd_dev   *pLCD = NULL;
+    Microphone                 *pMicrophone = (Microphone *) pData;
 
     // LCD setup
     if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) == NULL)
@@ -56,7 +58,12 @@ LCDTask(void* pData)
     // Functional task loop
     while (1)
     {
-    	OSTimeDlyHMSM(0, 0, 1, 0);
+        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+        alt_up_character_lcd_string(pLCD, "hello");
+    	OSTimeDlyHMSM(0, 0, 2, 0);
+        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+        alt_up_character_lcd_string(pLCD, "HELLO");
+        OSTimeDlyHMSM(0, 0, 2, 0);
     }
 } // LCDTask
 
@@ -69,11 +76,16 @@ LCDTask(void* pData)
 int
 main(void)
 {
-    INT8U status = OS_NO_ERR;
+    INT8U       status      = OS_NO_ERR;
+    Microphone *pMicrophone = NULL;
+
+    // Setup push-to-talk microphone
+    pMicrophone = microphoneCreate();
+    // TODO : add a null check
 
     // Create and initialize LCDTask
     status = OSTaskCreateExt(LCDTask,
-                             NULL,
+                             pMicrophone,
                              &LCDTaskStack[TASK_STACKSIZE-1],
                              LCD_TASK_PRIORITY,
                              LCD_TASK_PRIORITY,
