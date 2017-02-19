@@ -56,14 +56,19 @@ LCDTask(void* pData)
     }
 
     // Functional task loop
-    while (1)
+    while (pMicrophone != NULL)
     {
+        // Wait for push-to-talk switch to trigger recording
+        microphoneWaitAndBeginRecording(pMicrophone);
+        alt_up_character_lcd_init(pLCD);
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
-        alt_up_character_lcd_string(pLCD, "hello");
-    	OSTimeDlyHMSM(0, 0, 2, 0);
+        alt_up_character_lcd_string(pLCD, "Begin");
+
+        // Wait for push-to-talk switch to trigger record completion
+        microphoneFinishRecording(pMicrophone);
+        alt_up_character_lcd_init(pLCD);
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
-        alt_up_character_lcd_string(pLCD, "HELLO");
-        OSTimeDlyHMSM(0, 0, 2, 0);
+        alt_up_character_lcd_string(pLCD, "Finish");
     }
 } // LCDTask
 
@@ -80,7 +85,8 @@ main(void)
     Microphone *pMicrophone = NULL;
 
     // Setup push-to-talk microphone
-    pMicrophone = microphoneCreate();
+    pMicrophone = microphoneCreate(SWITCH_BASE,
+                                   SWITCH_IRQ);
     // TODO : add a null check
 
     // Create and initialize LCDTask

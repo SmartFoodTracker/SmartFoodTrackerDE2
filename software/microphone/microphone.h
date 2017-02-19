@@ -37,15 +37,19 @@ struct _Microphone;
 
 typedef struct _Microphone
 {
-    void *pData;
+    unsigned int    switchBaseAddress;
+    OS_EVENT       *pPushToTalkSemaphore;
 } Microphone;
 
 /*****************************************************************************/
 /* Functions                                                                 */
 /*****************************************************************************/
 
-Microphone* microphoneCreate();
+Microphone* microphoneCreate(unsigned int switchBaseAddress,
+                             unsigned int switchIRQ);
 void        microphoneDestroy(Microphone *pMicrophone);
+void        microphoneWaitAndBeginRecording(Microphone *pMicrophone);
+void        microphoneFinishRecording(Microphone *pMicrophone);
 
 /*****************************************************************************/
 /* End of File                                                               */
