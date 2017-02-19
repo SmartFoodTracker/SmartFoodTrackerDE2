@@ -53,6 +53,10 @@ typedef enum _KeyPosition
 /* Structures                                                                */
 /*****************************************************************************/
 
+struct _Barcode;
+struct _EncodedKeyPress;
+struct _BarcodeScanner;
+
 typedef struct _Barcode
 {
     char            pString[MAX_BARCODE_LENGTH];

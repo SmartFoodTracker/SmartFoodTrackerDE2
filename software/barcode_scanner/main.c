@@ -36,7 +36,7 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
 /**
  * @brief       LCD update task
  * @details     pends on barcodeScannerDecode and writes barcode to LCD display
- * 
+ *
  * @param pData pointer to a BarcodeScanner object, this is pased in during setup
  */
 void

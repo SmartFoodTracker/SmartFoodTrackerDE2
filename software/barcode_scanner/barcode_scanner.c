@@ -41,14 +41,14 @@ static bool             isDelimiterKey(const char *pKeyPressString);
 
 /**
  * @brief               Allocates and intializes a BarcodeScanner object.
- * @details             Allocates BarcodeScanner object on the heap, 
+ * @details             Allocates BarcodeScanner object on the heap,
  *                      intiailizes the device handle, registers the ISR, and
  *                      initializes the key press queue.
- * 
+ *
  * @param pName         Name of the dev port associated with the PS2 port.
  * @param baseAddress   Base address of the memory mapped device.
  * @param irq           IRQ number of the memory mapped device.
- * @return              A new BarcodeScanner object. 
+ * @return              A new BarcodeScanner object.
  */
 BarcodeScanner*
 barcodeScannerCreate(const char   *pName,
@@ -92,7 +92,7 @@ barcodeScannerCreate(const char   *pName,
  * @details                 Should be called if barcodeScannerCreate was used
  *                          to create the object. This will free all resources
  *                          associated with the object and the object itself.
- * 
+ *
  * @param pBarcodeScanner   Pointer to BarcodeScanner to be destroyed.
  */
 void
@@ -111,7 +111,7 @@ barcodeScannerDestroy(BarcodeScanner *pBarcodeScanner)
  *                          SHIFTs, Control characters, and ENTERs are ignored.
  *                          This routine will return when the decoding of a
  *                          complete barcode finishes.
- * 
+ *
  * @param pBarcodeScanner   Pointer to barcode scanner (in/out)
  * @param pBarcode          Pointer to barcode to be filled in (out)
  */
@@ -185,7 +185,7 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
  * @brief   Allocate a BarcodeScanner object and intialize it
  * @details Allocates a BarcodeScanner on the heap and sets all members to
  *          defaults
- * 
+ *
  * @return  Pointer to a BarcodeScanner object or NULL in the case of failed
  *          alloc.
  */
@@ -208,9 +208,9 @@ acquireBarcodeScanner()
 
 /**
  * @brief                   Release resources associated with a BarcodeScanner.
- * @details                 This should be called for any device created with 
+ * @details                 This should be called for any device created with
  *                          acquireBarcodeScanner().
- * 
+ *
  * @param pBarcodeScanner   Pointer to BarcodeScanner object to be released.
  */
 static void
@@ -240,7 +240,7 @@ releaseBarcodeScanner(BarcodeScanner *pBarcodeScanner)
  * @brief                   Initialize PS2 device handle and register ISR.
  * @details                 Open dev handle for ps2 port; assign base address
  *                          and irq; register isr.
- * 
+ *
  * @param pBarcodeScanner   Parent object, owner of device handle
  * @param pName             Name of dev port for the ps2 device.
  * @param baseAddress       Base address of the memory mapped device.
@@ -285,7 +285,7 @@ initHandle(BarcodeScanner *pBarcodeScanner,
  * @brief                   Initialize the barcode keypress queue.
  * @details                 Simply associates the queue data with a new queue.
  *                          which is assigned to the barcode scanner.
- * 
+ *
  * @param pBarcodeScanner   Pointer to parent object.
  * @return                  OS_NO_ERR if no error, OS_ERR_PDATA_NULL if created
  *                          queue is NULL.
@@ -319,8 +319,8 @@ initQueue(BarcodeScanner *pBarcodeScanner)
  * @details         Decode and push new keypresses onto a synchronized queue.
  *                  The data pushed onto the queue should be freed after being
  *                  consumed.
- * 
- * @param pContext  Pointer to a BarcodeScanner object, this is passed in 
+ *
+ * @param pContext  Pointer to a BarcodeScanner object, this is passed in
  *                  during initHandle.
  * @param id        Interrupt id, currently unused.
  */
@@ -382,6 +382,12 @@ getNextKeyPress(BarcodeScanner *pBarcodeScanner)
 
 /*****************************************************************************/
 
+/**
+ * @brief
+ * @details
+ *
+ * @param pKeyPosition
+ */
 static void
 toggleKeyPosition(KeyPosition *pKeyPosition)
 {
@@ -400,6 +406,13 @@ toggleKeyPosition(KeyPosition *pKeyPosition)
 
 /*****************************************************************************/
 
+/**
+ * @brief
+ * @details
+ *
+ * @param pKeyPressString
+ * @return
+ */
 static bool
 isControlKey(const char *pKeyPressString)
 {
@@ -415,6 +428,13 @@ isControlKey(const char *pKeyPressString)
 
 /*****************************************************************************/
 
+/**
+ * @brief
+ * @details
+ *
+ * @param pKeyPressString
+ * @return
+ */
 static bool
 isValidKey(const char *pKeyPressString)
 {
@@ -431,6 +451,13 @@ isValidKey(const char *pKeyPressString)
 
 /*****************************************************************************/
 
+/**
+ * @brief
+ * @details
+ *
+ * @param pKeyPressString
+ * @return
+ */
 static bool
 isDelimiterKey(const char *pKeyPressString)
 {
