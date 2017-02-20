@@ -29,13 +29,8 @@
 #define RECORDING_BUFFER_SIZE       (RECORDING_FREQUENCY_HERTZ * MAX_RECORD_TIME_SECONDS)
 
 /*****************************************************************************/
-/* Enumerations                                                              */
-/*****************************************************************************/
-
-/*****************************************************************************/
 /* Structures                                                                */
 /*****************************************************************************/
-
 
 struct _Microphone;
 
@@ -46,7 +41,6 @@ typedef struct _Microphone
     unsigned int        switchBaseAddress;
     unsigned int        recordingBuffer[RECORDING_BUFFER_SIZE];
     unsigned int       *pNextSample;
-
 } Microphone;
 
 /*****************************************************************************/

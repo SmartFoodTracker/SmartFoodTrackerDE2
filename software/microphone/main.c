@@ -31,10 +31,10 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
 /*****************************************************************************/
 
 /**
- * @brief       LCD update task
- * @details
+ * @brief      LCD update task; writes status of push-to-talk microphone to LCD
+ *             Display.
  *
- * @param pData
+ * @param      pData  Microphone pointer wrapped as task context
  */
 void
 LCDTask(void* pData)
@@ -75,8 +75,9 @@ LCDTask(void* pData)
 /*****************************************************************************/
 
 /**
- * @brief   Program entry point
- * @details Initialize tasks and shared objects
+ * @brief      Program entry point; initialize tasks and shared objects.
+ *
+ * @return     Always 0
  */
 int
 main(void)

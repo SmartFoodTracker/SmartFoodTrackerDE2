@@ -19,6 +19,10 @@
 #include "altera_avalon_pio_regs.h"
 #include "microphone.h"
 
+/*****************************************************************************/
+/* Macros                                                                    */
+/*****************************************************************************/
+
 #ifndef min
 #define min(a,b) ((a) < (b) ? (a) : (b))
 #endif
@@ -43,6 +47,20 @@ static void         readFifoISR(void *pContext, alt_u32 id);
 /* Functions                                                                 */
 /*****************************************************************************/
 
+/**
+ * @brief      Create and intitialize a new Microphone object. This memory is
+ *             allocated on the heap and should be cleaned up by the caller
+ *             using microphoneDestroy(...). Interrupt service routines are
+ *             registered for both the push-to-talk switch and the audio codec
+ *             fifos.
+ *
+ * @param[in]  pName              Audio core device name; ex: /dev/audio
+ * @param[in]  audioCoreIRQ       Audio core IRQ number
+ * @param[in]  switchBaseAddress  Switch base address
+ * @param[in]  switchIRQ          Switch IRQ number
+ *
+ * @return     Pointer to new Microphone object
+ */
 Microphone*
 microphoneCreate(const char   *pName,
                  unsigned int  audioCoreIRQ,
@@ -87,6 +105,15 @@ microphoneCreate(const char   *pName,
 
 /*****************************************************************************/
 
+/**
+ * @brief      Release all resources held by the Microphone handle pMicrophone.
+ *             Users should call this for all handles created using
+ *             microphoneCreate(...). Following a call to this routine, the
+ *             handle passed in should be set to NULL to avoid referencing
+ *             invalid memory.
+ *
+ * @param[in]  pMicrophone  Handle to resources to be released
+ */
 void
 microphoneDestroy(Microphone *pMicrophone)
 {
@@ -95,6 +122,15 @@ microphoneDestroy(Microphone *pMicrophone)
 
 /*****************************************************************************/
 
+/**
+ * @brief      Wait for push-to-talk sequence to begin then start recording.
+ *             This is a blocking routine due to an indefinite pend on a
+ *             semaphore. Upon unblocking, the audio codec's read fifo ISR is
+ *             enabled and data transfer begins. This routine should be matched
+ *             with a call to microphoneFinishRecording(...) shortly afterwards.
+ *
+ * @param[in]  pMicrophone  Valid microphone handle
+ */
 void
 microphoneWaitAndBeginRecording(Microphone *pMicrophone)
 {
@@ -122,6 +158,17 @@ microphoneWaitAndBeginRecording(Microphone *pMicrophone)
 
 /*****************************************************************************/
 
+/**
+ * @brief      Wait for push-to-talk sequence to end, this is triggered by
+ *             the push-to-talk switch being moved to the downward position.
+ *             This is a blocking call due to a indefinite pend on a semaphore.
+ *             This should only be called after a call to the
+ *             microphoneWaitAndBeginRecording(...) routine is called. This
+ *             routine will turn off the codec's readFifo interrupts and stop
+ *             data transfer.
+ *
+ * @param[in]  pMicrophone  Valid microphone handle
+ */
 void
 microphoneFinishRecording(Microphone *pMicrophone)
 {
@@ -142,6 +189,12 @@ microphoneFinishRecording(Microphone *pMicrophone)
 /* Static Functions                                                          */
 /*****************************************************************************/
 
+/**
+ * @brief      Allocate a Microphone object on the heap and intitialize all
+ *             members. Object should be released with releaseMicrophone(...).
+ *
+ * @return     A new Microphone object
+ */
 static Microphone*
 acquireMicrophone()
 {
@@ -161,6 +214,15 @@ acquireMicrophone()
 
 /*****************************************************************************/
 
+/**
+ * @brief      Frees all resources associated with a Mcirohpone object and the
+ *             object itself. All associated interrupts are disabled. System
+ *             resources are deleted and returned to their pools. Any
+ *             Microphone allocated with acquireMicrophone should be cleaned up
+ *             using this routine.
+ *
+ * @param[in]  pMicrophone  Microphone object to be released
+ */
 static void
 releaseMicrophone(Microphone *pMicrophone)
 {
@@ -197,6 +259,17 @@ releaseMicrophone(Microphone *pMicrophone)
 
 /*****************************************************************************/
 
+/**
+ * @brief      Initialize handle for audio core device. Disables interrupts and
+ *             registers the readFifo ISR.
+ *
+ * @param[in]  pMicrophone   Valid microphone handle
+ * @param[in]  pName         Audio core device name; ex: /dev/audio
+ * @param[in]  audioCoreIRQ  Audio core IRQ number
+ *
+ * @return     OS_NO_ERR if no error, OS_ERR_PDATA_NULL if device not found,
+ *             negative if ISR failed to register
+ */
 static INT8U
 initHandle(Microphone *pMicrophone, const char *pName, unsigned int audioCoreIRQ)
 {
@@ -224,6 +297,14 @@ initHandle(Microphone *pMicrophone, const char *pName, unsigned int audioCoreIRQ
 
 /*****************************************************************************/
 
+/**
+ * @brief      Initialize push-to-talk semaphore.
+ *
+ * @param[in]  pMicrophone  Valid microphone handle
+ *
+ * @return     OS_NO_ERR if no error, OS_ERR_PDATA_NULL if semaphore init
+ *             failed or if microphone handle is invalid
+ */
 static INT8U
 initSemaphore(Microphone *pMicrophone)
 {
@@ -247,6 +328,15 @@ initSemaphore(Microphone *pMicrophone)
 
 /*****************************************************************************/
 
+/**
+ * @brief      Initialize ISR for push-to-talk switch and enable the interrupt.
+ *
+ * @param[in]  pMicrophone        Valid microphone handle
+ * @param[in]  switchBaseAddress  Switch base address
+ * @param[in]  switchIRQ          Switch IRQ number
+ *
+ * @return     { description_of_the_return_value }
+ */
 static INT8U
 initSwitch(Microphone   *pMicrophone,
            unsigned int  switchBaseAddress,
@@ -272,6 +362,15 @@ initSwitch(Microphone   *pMicrophone,
 
 /*****************************************************************************/
 
+/**
+ * @brief      Interrupt service routine for the push-to-talk switch. Simply
+ *             posts to the push-to-talk semaphore pended on by
+ *             microphoneFinishRecording and microphoneWaitAndBeginRecording.
+ *             This is an ALL edge sensitive ISR.
+ *
+ * @param[in]  pContext  Microphone handle wrapped as an ISR context
+ * @param[in]  id        UNUSED PARAMETER
+ */
 static void
 switchISR(void *pContext, alt_u32 id)
 {
@@ -290,6 +389,16 @@ switchISR(void *pContext, alt_u32 id)
 
 /*****************************************************************************/
 
+/**
+ * @brief      Interrupt service routine for the audio codec read fifo. This
+ *             ISR is triggered when data is available for read from the
+ *             channel fifos. This routine simply copies available data to
+ *             the microphone's recording buffer. This isr is enabled/disabled
+ *             by microphoneWaitAndBeginRecording/microphoneFinishRecording.
+ *
+ * @param      pContext  Microphone handle wrapped as an ISR context
+ * @param[in]  id        UNUSED PARAMETER
+ */
 static void
 readFifoISR(void *pContext, alt_u32 id)
 {
@@ -316,6 +425,7 @@ readFifoISR(void *pContext, alt_u32 id)
                                                channel);
             pMicrophone->pNextSample += wordsRead;
         }
+        // TODO: disable this interrupt when pMicrophone->recordingBuffer is full
     }
 } // readFifoISR
 
