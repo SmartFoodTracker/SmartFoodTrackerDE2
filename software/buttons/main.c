@@ -34,11 +34,12 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
 /*****************************************************************************/
 
 /**
- * @brief       LCD update task
- * @details     Enables buttons, pends on buttonsGetButtonPress, and then
- *              writes button ID (as an int) to embedded LCD
+ * @brief      LCD update task; Enables buttons, pends on
+ *             buttonsGetButtonPress, and then writes button ID (as an int) to
+ *             embedded LCD
  *
- * @param pData Pointer to a Buttons object, this is pased in during setup
+ * @param[in]  pData  Pointer to a Buttons object, pased in during setup as
+ *             task context
  */
 void
 LCDTask(void* pData)
@@ -87,8 +88,9 @@ LCDTask(void* pData)
 /*****************************************************************************/
 
 /**
- * @brief   Program entry point
- * @details Initialize tasks and shared objects
+ * @brief      Program entry point; Initialize tasks and shared objects.
+ *
+ * @return     Always 0
  */
 int
 main(void)

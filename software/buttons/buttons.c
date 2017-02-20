@@ -32,10 +32,11 @@ static void     buttonISR(void *pContext, alt_u32 id);
 
 /**
  * @brief      Allocates a Buttons object on the heap and initializes it.
- *             Caller must call buttonsInitButton, and buttonsEnableButton
- *             after this routine has been run.
+ *             Caller must call buttonsInitButton(), and buttonsEnableButton()
+ *             after this routine has been run for each new button. To clean
+ *             up the object, call buttonsDestroy().
  *
- * @return     a new Buttons object, ready to go.
+ * @return     A new Buttons object
  */
 Buttons*
 buttonsCreate()
@@ -66,9 +67,9 @@ buttonsCreate()
 
 /**
  * @brief      Uninitialize and cleanup a Buttons object. This should be called
- *             after buttonsCreate is called.
+ *             if buttonsCreate() was called to create the object.
  *
- * @param      pButtons  Pointer to Buttons object to be cleaned-up.
+ * @param[in]  pButtons  Pointer to Buttons object to be cleaned-up.
  */
 void
 buttonsDestroy(Buttons *pButtons)
@@ -79,14 +80,16 @@ buttonsDestroy(Buttons *pButtons)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Add a new button to the Buttons object. This disables the
+ *             button's interrupt by default and registers it's ISR.
  *
- * @param      pButtons     The buttons
- * @param[in]  buttonID     The button id
- * @param[in]  baseAddress  The base address
- * @param[in]  irq          The irq
+ * @param[in]  pButtons     Valid handle for Buttons object
+ * @param[in]  buttonID     Button id
+ * @param[in]  baseAddress  Button base address
+ * @param[in]  irq          Button IRQ number
  *
- * @return     { description_of_the_return_value }
+ * @return     OS_NO_ERR if no error, otherwise OS_ERR_PDATA_NULL if ISR
+ *             registration fails or invalid parameters
  */
 INT8U
 buttonsInitButton(Buttons      *pButtons,
@@ -143,10 +146,10 @@ buttonsInitButton(Buttons      *pButtons,
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Disables interrupt for a button.
  *
- * @param      pButtons  The buttons
- * @param[in]  buttonID  The button id
+ * @param[in]  pButtons  Valid handle for Buttons object
+ * @param[in]  buttonID  Button id
  */
 void
 buttonsDisableButton(Buttons *pButtons, Button buttonID)
@@ -166,10 +169,10 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Enables interrupt for a button.
  *
- * @param      pButtons  The buttons
- * @param[in]  buttonID  The button id
+ * @param[in]  pButtons  Valid handle for Buttons object
+ * @param[in]  buttonID  Button id
  */
 void
 buttonsEnableButton(Buttons *pButtons, Button buttonID)
@@ -189,11 +192,11 @@ buttonsEnableButton(Buttons *pButtons, Button buttonID)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Wait for next button press and get it's id.
  *
- * @param      pButtons  The buttons
+ * @param[in]  pButtons  Valid handle for Buttons object
  *
- * @return     { description_of_the_return_value }
+ * @return     button id of next available button press
  */
 Button
 buttonsGetButtonPress(Buttons *pButtons)
@@ -222,9 +225,10 @@ buttonsGetButtonPress(Buttons *pButtons)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Heap allocate and initialize members of a Buttons object.
+ *             Cleanup the object later using releaseButtons().
  *
- * @return     { description_of_the_return_value }
+ * @return     A new buttons object or NULL if malloc failed
  */
 static Buttons*
 acquireButtons()
@@ -248,9 +252,11 @@ acquireButtons()
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Release all resources associated with a Buttons object including
+ *             itself. This will disable associated interrupts, release system
+ *             queues, and free the ISR contexts.
  *
- * @param      pButtons  The buttons
+ * @param[in]  pButtons  Valid handle for Buttons object
  */
 static void
 releaseButtons(Buttons *pButtons)
@@ -292,11 +298,12 @@ releaseButtons(Buttons *pButtons)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Initialize the button press queue.
  *
- * @param      pButtons  The buttons
+ * @param[in]  pButtons  Valid handle for Buttons object
  *
- * @return     { description_of_the_return_value }
+ * @return     OS_NO_ERR if no error, OS_ERR_PDATA_NULL is OSQCreate fails or
+ *             if parameters are invalid
  */
 static INT8U
 initQueue(Buttons *pButtons)
@@ -323,10 +330,13 @@ initQueue(Buttons *pButtons)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Interrupt service routine for all button presses. This routine
+ *             is triggered on the falling edge of the registered buttons.
+ *             The button id of the pressed button is posted to the shared
+ *             queue.
  *
- * @param      pContext  The context
- * @param[in]  id        The identifier
+ * @param[in]  pContext  ButtonContext handle wrapped as an isr context.
+ * @param[in]  id        UNUSED_PARAMETER
  */
 static void
 buttonISR(void *pContext, alt_u32 id)
