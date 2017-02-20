@@ -85,9 +85,15 @@ main(void)
     Microphone *pMicrophone = NULL;
 
     // Setup push-to-talk microphone
-    pMicrophone = microphoneCreate(SWITCH_BASE,
+    pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
+                                   AUDIO_CORE_IRQ,
+                                   SWITCH_BASE,
                                    SWITCH_IRQ);
-    // TODO : add a null check
+    if (pMicrophone == NULL)
+    {
+        status = OS_ERR_PDATA_NULL;
+        printf("Microphone setup failed.\n");
+    }
 
     // Create and initialize LCDTask
     status = OSTaskCreateExt(LCDTask,

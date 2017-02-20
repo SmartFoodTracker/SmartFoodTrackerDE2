@@ -18,12 +18,15 @@
 
 #include <stdbool.h>
 #include "includes.h"
+#include "altera_up_avalon_audio.h"
 
 /*****************************************************************************/
 /* Constants                                                                 */
 /*****************************************************************************/
 
-#define MAX_RECORD_TIME_SECONDS 10
+#define MAX_RECORD_TIME_SECONDS     (10)
+#define RECORDING_FREQUENCY_HERTZ   (32000)
+#define RECORDING_BUFFER_SIZE       (RECORDING_FREQUENCY_HERTZ * MAX_RECORD_TIME_SECONDS)
 
 /*****************************************************************************/
 /* Enumerations                                                              */
@@ -33,20 +36,27 @@
 /* Structures                                                                */
 /*****************************************************************************/
 
+
 struct _Microphone;
 
 typedef struct _Microphone
 {
-    unsigned int    switchBaseAddress;
-    OS_EVENT       *pPushToTalkSemaphore;
+    alt_up_audio_dev   *pHandle;
+    OS_EVENT           *pPushToTalkSemaphore;
+    unsigned int        switchBaseAddress;
+    unsigned int        recordingBuffer[RECORDING_BUFFER_SIZE];
+    unsigned int       *pNextSample;
+
 } Microphone;
 
 /*****************************************************************************/
 /* Functions                                                                 */
 /*****************************************************************************/
 
-Microphone* microphoneCreate(unsigned int switchBaseAddress,
-                             unsigned int switchIRQ);
+Microphone* microphoneCreate(const char   *pName,
+                             unsigned int  audioCoreIRQ,
+                             unsigned int  switchBaseAddress,
+                             unsigned int  switchIRQ);
 void        microphoneDestroy(Microphone *pMicrophone);
 void        microphoneWaitAndBeginRecording(Microphone *pMicrophone);
 void        microphoneFinishRecording(Microphone *pMicrophone);
