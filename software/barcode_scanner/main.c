@@ -34,10 +34,11 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
 /*****************************************************************************/
 
 /**
- * @brief       LCD update task
- * @details     pends on barcodeScannerDecode and writes barcode to LCD display
+ * @brief      LCD update task; pends on barcodeScannerDecode and writes
+ *             barcode to LCD display.
  *
- * @param pData pointer to a BarcodeScanner object, this is pased in during setup
+ * @param[in]  pData  pointer to a BarcodeScanner object pased in as task
+ *                    context
  */
 void
 LCDTask(void* pData)
@@ -77,8 +78,9 @@ LCDTask(void* pData)
 /*****************************************************************************/
 
 /**
- * @brief   Program entry point
- * @details Initialize tasks and shared objects
+ * @brief      Program entry point; initializes tasks and shared objects.
+ *
+ * @return     Always 0
  */
 int
 main(void)
