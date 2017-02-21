@@ -106,8 +106,8 @@ output					AUD_DACDAT;
  *                           Constant Declarations                           *
  *****************************************************************************/
 
-localparam DW						= 15;
-localparam BIT_COUNTER_INIT	= 5'd15;
+localparam DW						= 31;
+localparam BIT_COUNTER_INIT	= 5'd31;
 
 /*****************************************************************************
  *                 Internal Wires and Registers Declarations                 *

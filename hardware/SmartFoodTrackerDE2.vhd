@@ -92,7 +92,8 @@ entity SmartFoodTrackerDE2 is port
    AUD_ADCDAT  :  in    std_logic;
    AUD_DACLRCK :  inout std_logic;
    AUD_DACDAT  :  out   std_logic;
-   AUD_BCLK    :  inout std_logic
+   AUD_BCLK    :  inout std_logic;
+   AUD_XCK     :  out   std_logic
 );
 end SmartFoodTrackerDE2;
 
@@ -105,6 +106,7 @@ architecture structure of SmartFoodTrackerDE2 is
       clock_27mhz_clk_in_clk                                               : in     std_logic                     := 'X';
       clock_27mhz_clk_in_reset_reset_n                                     : in     std_logic                     := 'X';
       main_pll_sdram_clk_clk                                               : out    std_logic;
+      main_pll_audio_clk_clk                                               : out    std_logic;
       green_leds_external_connection_export                                : out    DE2_LED_GREEN;
       red_leds_external_connection_export                                  : out    DE2_LED_RED;
       switch_external_connection_export                                    : in     std_logic                     := 'X';
@@ -183,6 +185,7 @@ begin
       clock_27mhz_clk_in_clk                                               => CLOCK_27,
       clock_27mhz_clk_in_reset_reset_n                                     => KEY(0),
       main_pll_sdram_clk_clk                                               => DRAM_CLK,
+      main_pll_audio_clk_clk                                               => AUD_XCK,
       green_leds_external_connection_export                                => LEDG,
       red_leds_external_connection_export                                  => LEDR,
       switch_external_connection_export                                    => SW(0),
