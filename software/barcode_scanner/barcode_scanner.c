@@ -178,6 +178,34 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
 } // barcodeScannerDecode
 
 /*****************************************************************************/
+
+#ifdef TODO_EXTRA_FUNCTIONS
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pBarcodeScanner  The barcode scanner
+ */
+void
+barcodeScannerEnable(BarcodeScanner *pBarcodeScanner)
+{
+
+} // barcodeScannerEnable
+
+/*****************************************************************************/
+
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pBarcodeScanner  The barcode scanner
+ */
+void
+barcodeScannerDisable(BarcodeScanner *pBarcodeScanner)
+{
+
+} // barcodeScannerDisable
+#endif // TODO_EXTRA_FUNCTIONS
+
+/*****************************************************************************/
 /* Static Functions                                                          */
 /*****************************************************************************/
 
