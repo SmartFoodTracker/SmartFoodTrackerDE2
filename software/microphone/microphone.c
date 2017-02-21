@@ -40,9 +40,7 @@ static INT8U        initSemaphore(Microphone *pMicrophone);
 static INT8U        initSwitch(Microphone   *pMicrophone,
                                unsigned int  switchBaseAddress,
                                unsigned int  switchIRQ);
-#ifdef TODO_EXTRA_FUNCTIONS
 static void         clearRecording(Microphone *pMicrophone);
-#endif // TODO_EXTRA_FUNCTIONS
 static void         switchISR(void *pContext, alt_u32 id);
 static void         codecFifoISR(void *pContext, alt_u32 id);
 
@@ -140,12 +138,11 @@ microphoneWaitAndBeginRecording(Microphone *pMicrophone)
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
     {
-        // Reset recording buffer and next sample pointer
-        memset(pMicrophone->recordingBuffer, 0, RECORDING_BUFFER_SIZE * sizeof(unsigned int));
-        pMicrophone->pNextSample = pMicrophone->recordingBuffer;
-
         // Wait indefinitely for next push-to-talk sequence
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
+
+        // Reset recording
+        clearRecording(pMicrophone);
 
         // Clear codec fifos
         alt_up_audio_reset_audio_core(pMicrophone->pHandle);
@@ -180,7 +177,6 @@ microphoneFinishRecording(Microphone *pMicrophone)
     }
 } // microphoneFinishRecording
 
-#ifdef TODO_EXTRA_FUNCTIONS
 /*****************************************************************************/
 
 /**
@@ -191,7 +187,10 @@ microphoneFinishRecording(Microphone *pMicrophone)
 void
 microphoneEnablePushToTalk(Microphone *pMicrophone)
 {
-
+    if (pMicrophone)
+    {
+        alt_irq_enable(pMicrophone->switchIRQ);
+    }
 } // microphoneEnablePushToTalk
 
 /*****************************************************************************/
@@ -204,11 +203,15 @@ microphoneEnablePushToTalk(Microphone *pMicrophone)
 void
 microphoneDisablePushToTalk(Microphone *pMicrophone)
 {
-
+    if (pMicrophone)
+    {
+        alt_irq_disable(pMicrophone->switchIRQ);
+    }
 } // microphoneDisablePushToTalk
 
 /*****************************************************************************/
 
+#ifdef TODO_EXPORTED_BUFFER
 /**
  * @brief        { function_description }
  *
@@ -221,22 +224,30 @@ microphoneExportLinear16(Microphone        *pMicrophone,
 {
 
 } // microphoneExportLinear16
+#endif // TODO_EXPORTED_BUFFER
 
 /*****************************************************************************/
 
-#ifdef MICROPHONE_TESTING
 /**
  * @brief      { function_description }
  *
  * @param[in]  pMicrophone  The microphone
  */
 void
-microphonePlayback(Microphone *pMicrophone)
+microphonePlaybackRecording(Microphone *pMicrophone)
 {
-    // Enable codec write interrupt
-} // microphonePlayback
-#endif // MICROPHONE_TESTING
-#endif // TODO_EXTRA_FUNCTIONS
+    if (pMicrophone)
+    {
+        // Move the read/write pointer back to the beginning of recording buffer
+        pMicrophone->pNextSample = pMicrophone->recordingBuffer;
+
+        // Clear codec fifos
+        alt_up_audio_reset_audio_core(pMicrophone->pHandle);
+
+        // Turn on write interrupts, this will begin write sequence to output fifos
+        alt_up_audio_enable_write_interrupt(pMicrophone->pHandle);
+    }
+} // microphonePlaybackRecording
 
 /*****************************************************************************/
 /* Static Functions                                                          */
@@ -256,10 +267,10 @@ acquireMicrophone()
     if (pMicrophone)
     {
         pMicrophone->switchBaseAddress      = 0;
+        pMicrophone->switchIRQ              = 0;
         pMicrophone->pPushToTalkSemaphore   = NULL;
         pMicrophone->pHandle                = NULL;
-        pMicrophone->pNextSample            = pMicrophone->recordingBuffer;
-        memset(pMicrophone->recordingBuffer, 0, RECORDING_BUFFER_SIZE * sizeof(unsigned int));
+        clearRecording(pMicrophone);
     }
 
     return pMicrophone;
@@ -400,7 +411,10 @@ initSwitch(Microphone   *pMicrophone,
     if (pMicrophone)
     {
         // Save base address for use inside switchISR
-        pMicrophone->switchBaseAddress = switchBaseAddress;
+        pMicrophone->switchBaseAddress  = switchBaseAddress;
+
+        // Save IRQ so we can enable/disable later
+        pMicrophone->switchIRQ          = switchIRQ;
 
         // Reset edge capture register and enable interrupt
         IOWR_ALTERA_AVALON_PIO_IRQ_MASK(switchBaseAddress, 0xf);
@@ -415,7 +429,6 @@ initSwitch(Microphone   *pMicrophone,
 
 /*****************************************************************************/
 
-#ifdef TODO_EXTRA_FUNCTIONS
 /**
  * @brief      { function_description }
  *
@@ -424,9 +437,13 @@ initSwitch(Microphone   *pMicrophone,
 static void
 clearRecording(Microphone *pMicrophone)
 {
-
+    if (pMicrophone)
+    {
+        pMicrophone->pNextSample    = pMicrophone->recordingBuffer;
+        pMicrophone->totalSamples   = 0;
+        memset(pMicrophone->recordingBuffer, 0, RECORDING_BUFFER_SIZE * sizeof(unsigned int));
+    }
 } // clearRecording
-#endif // TODO_EXTRA_FUNCTIONS
 
 /*****************************************************************************/
 
@@ -475,10 +492,11 @@ codecFifoISR(void *pContext, alt_u32 id)
     unsigned int    wordsToRead         = 0;
     unsigned int    remainingBufferSize = 0;
 
+    // Reading audio from the codec
     if (alt_up_audio_read_interrupt_pending(pMicrophone->pHandle) == 1)
     {
         // Calculate the number of words to read
-        remainingBufferSize = RECORDING_BUFFER_SIZE - (pMicrophone->pNextSample - pMicrophone->recordingBuffer);
+        remainingBufferSize = RECORDING_BUFFER_SIZE - pMicrophone->totalSamples;
         wordsToRead = alt_up_audio_read_fifo_avail(pMicrophone->pHandle,
                                                    ALT_UP_AUDIO_LEFT);
         wordsToRead = min(wordsToRead, remainingBufferSize);
@@ -496,7 +514,10 @@ codecFifoISR(void *pContext, alt_u32 id)
                                                pMicrophone->pNextSample,
                                                wordsToRead,
                                                ALT_UP_AUDIO_LEFT);
-            pMicrophone->pNextSample += wordsRead;
+
+            // Progress the write pointer forward
+            pMicrophone->pNextSample    += wordsRead;
+            pMicrophone->totalSamples   += wordsRead;
         }
         else
         {
@@ -505,15 +526,39 @@ codecFifoISR(void *pContext, alt_u32 id)
             OSSemPost(pMicrophone->pPushToTalkSemaphore);
         }
     }
-#ifdef TODO_EXTRA_FUNCTIONS
-#ifdef MICROPHONE_TESTING
+
+    // Writing recorded audio to the codec
     if (alt_up_audio_write_interrupt_pending(pMicrophone->pHandle) == 1)
     {
+        remainingBufferSize = pMicrophone->totalSamples -
+                              (pMicrophone->pNextSample -
+                               pMicrophone->recordingBuffer);
         // Copy pMicrophone->recordingBuffer to the write fifo in chunks
-        // Disable write interrupt when recoring has finished being copied
+        wordsToRead = alt_up_audio_write_fifo_space(pMicrophone->pHandle,
+                                                    ALT_UP_AUDIO_LEFT);
+        wordsToRead = min(wordsToRead, remainingBufferSize);
+
+        if (wordsToRead > 0)
+        {
+            // Write the recorded audio to both channels
+            wordsRead = alt_up_audio_write_fifo(pMicrophone->pHandle,
+                                                pMicrophone->pNextSample,
+                                                wordsToRead,
+                                                ALT_UP_AUDIO_RIGHT);
+
+            wordsRead = alt_up_audio_write_fifo(pMicrophone->pHandle,
+                                                pMicrophone->pNextSample,
+                                                wordsToRead,
+                                                ALT_UP_AUDIO_LEFT);
+
+            // Progress the read pointer forward
+            pMicrophone->pNextSample += wordsRead;
+        }
+        else
+        {
+            alt_up_audio_disable_write_interrupt(pMicrophone->pHandle);
+        }
     }
-#endif // MICROPHONE_TESTING
-#endif // TODO_EXTRA_FUNCTIONS
 } // codecFifoISR
 
 /*****************************************************************************/
