@@ -47,6 +47,8 @@ typedef struct _Microphone
 /* Functions                                                                 */
 /*****************************************************************************/
 
+// TODO: Add a playback function, just for testing
+// TODO: Add an export function, takes in a byte buffer and fills it with 16-bit samples
 Microphone* microphoneCreate(const char   *pName,
                              unsigned int  audioCoreIRQ,
                              unsigned int  switchBaseAddress,

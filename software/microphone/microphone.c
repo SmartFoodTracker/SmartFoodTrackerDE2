@@ -48,7 +48,7 @@ static void         readFifoISR(void *pContext, alt_u32 id);
 /*****************************************************************************/
 
 /**
- * @brief      Create and intitialize a new Microphone object. This memory is
+ * @brief      Create and initialize a new Microphone object. This memory is
  *             allocated on the heap and should be cleaned up by the caller
  *             using microphoneDestroy(...). Interrupt service routines are
  *             registered for both the push-to-talk switch and the audio codec
@@ -78,7 +78,7 @@ microphoneCreate(const char   *pName,
     // Initialize audio core device handle
     if (status == OS_NO_ERR)
     {
-        status  = initHandle(pMicrophone, pName, switchIRQ);
+        status  = initHandle(pMicrophone, pName, audioCoreIRQ);
     }
 
     // Initialize the "push-to-talk" semaphore
@@ -144,14 +144,11 @@ microphoneWaitAndBeginRecording(Microphone *pMicrophone)
         // Wait indefinitely for next push-to-talk sequence
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
 
-        // TODO: begin recording on audio codec
-#ifdef TODO_TURN_ON_RECORDING
         // Clear codec fifos
         alt_up_audio_reset_audio_core(pMicrophone->pHandle);
 
         // Enable read interrupt, this will trigger recording sequence
         alt_up_audio_enable_read_interrupt(pMicrophone->pHandle);
-#endif
     }
 
 } // microphoneWaitAndBeginRecording
@@ -175,13 +172,8 @@ microphoneFinishRecording(Microphone *pMicrophone)
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
     {
-        // TODO: add a proper timeout
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
-        // TODO: complete recording on audio codec
-#ifdef TODO_TURN_ON_RECORDING
         alt_up_audio_disable_read_interrupt(pMicrophone->pHandle);
-        alt_up_audio_reset_audio_core(pMicrophone->pHandle);
-#endif
     }
 } // microphoneFinishRecording
 
@@ -190,7 +182,7 @@ microphoneFinishRecording(Microphone *pMicrophone)
 /*****************************************************************************/
 
 /**
- * @brief      Allocate a Microphone object on the heap and intitialize all
+ * @brief      Allocate a Microphone object on the heap and initialize all
  *             members. Object should be released with releaseMicrophone(...).
  *
  * @return     A new Microphone object
@@ -215,7 +207,7 @@ acquireMicrophone()
 /*****************************************************************************/
 
 /**
- * @brief      Frees all resources associated with a Mcirohpone object and the
+ * @brief      Frees all resources associated with a Microphone object and the
  *             object itself. All associated interrupts are disabled. System
  *             resources are deleted and returned to their pools. Any
  *             Microphone allocated with acquireMicrophone should be cleaned up
@@ -406,26 +398,36 @@ readFifoISR(void *pContext, alt_u32 id)
     unsigned int    wordsRead           = 0;
     unsigned int    wordsToRead         = 0;
     unsigned int    remainingBufferSize = 0;
-    int             channel             = ALT_UP_AUDIO_LEFT; // or ALT_UP_AUDIO_RIGHT
 
     if (alt_up_audio_read_interrupt_pending(pMicrophone->pHandle) == 1)
     {
         // Calculate the number of words to read
         remainingBufferSize = RECORDING_BUFFER_SIZE - (pMicrophone->pNextSample - pMicrophone->recordingBuffer);
         wordsToRead = alt_up_audio_read_fifo_avail(pMicrophone->pHandle,
-                                                   channel);
+                                                   ALT_UP_AUDIO_LEFT);
         wordsToRead = min(wordsToRead, remainingBufferSize);
 
         // Read `wordsToRead` words from the specified channel
         if (wordsToRead > 0)
         {
+            // Read both channels to advance both fifos
             wordsRead = alt_up_audio_read_fifo(pMicrophone->pHandle,
                                                pMicrophone->pNextSample,
                                                wordsToRead,
-                                               channel);
+                                               ALT_UP_AUDIO_RIGHT);
+
+            wordsRead = alt_up_audio_read_fifo(pMicrophone->pHandle,
+                                               pMicrophone->pNextSample,
+                                               wordsToRead,
+                                               ALT_UP_AUDIO_LEFT);
             pMicrophone->pNextSample += wordsRead;
         }
-        // TODO: disable this interrupt when pMicrophone->recordingBuffer is full
+        else
+        {
+            // Buffer is full, disable reading, push-to-talk sequence is done
+            alt_up_audio_disable_read_interrupt(pMicrophone->pHandle);
+            OSSemPost(pMicrophone->pPushToTalkSemaphore);
+        }
     }
 } // readFifoISR
 
