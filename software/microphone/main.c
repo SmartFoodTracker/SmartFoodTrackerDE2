@@ -20,6 +20,8 @@
 #define TASK_STACKSIZE      2048
 #define LCD_TASK_PRIORITY   1
 
+#define MICROPHONE_TESTING
+
 /*****************************************************************************/
 /* Globals                                                                   */
 /*****************************************************************************/
@@ -69,6 +71,11 @@ LCDTask(void* pData)
         alt_up_character_lcd_init(pLCD);
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
         alt_up_character_lcd_string(pLCD, "Finish");
+
+#ifdef TODO_EXTRA_FUNCTIONS
+        // Playback the recorded buffer to LINE_OUT
+        microphonePlayback(pMicrophone);
+#endif // TODO_EXTRA_FUNCTIONS
     }
 
     // Test loop, reads a word from read fifo and writes it back to the write fifo

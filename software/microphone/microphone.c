@@ -40,8 +40,11 @@ static INT8U        initSemaphore(Microphone *pMicrophone);
 static INT8U        initSwitch(Microphone   *pMicrophone,
                                unsigned int  switchBaseAddress,
                                unsigned int  switchIRQ);
+#ifdef TODO_EXTRA_FUNCTIONS
+static void         clearRecording(Microphone *pMicrophone);
+#endif // TODO_EXTRA_FUNCTIONS
 static void         switchISR(void *pContext, alt_u32 id);
-static void         readFifoISR(void *pContext, alt_u32 id);
+static void         codecFifoISR(void *pContext, alt_u32 id);
 
 /*****************************************************************************/
 /* Functions                                                                 */
@@ -177,6 +180,64 @@ microphoneFinishRecording(Microphone *pMicrophone)
     }
 } // microphoneFinishRecording
 
+#ifdef TODO_EXTRA_FUNCTIONS
+/*****************************************************************************/
+
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pMicrophone  The microphone
+ */
+void
+microphoneEnablePushToTalk(Microphone *pMicrophone)
+{
+
+} // microphoneEnablePushToTalk
+
+/*****************************************************************************/
+
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pMicrophone  The microphone
+ */
+void
+microphoneDisablePushToTalk(Microphone *pMicrophone)
+{
+
+} // microphoneDisablePushToTalk
+
+/*****************************************************************************/
+
+/**
+ * @brief        { function_description }
+ *
+ * @param[in]    pMicrophone         The microphone
+ * @param[inout] pLinear16Recording  The linear 16 recording
+ */
+void
+microphoneExportLinear16(Microphone        *pMicrophone,
+                         Linear16Recording *pLinear16Recording)
+{
+
+} // microphoneExportLinear16
+
+/*****************************************************************************/
+
+#ifdef MICROPHONE_TESTING
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pMicrophone  The microphone
+ */
+void
+microphonePlayback(Microphone *pMicrophone)
+{
+    // Enable codec write interrupt
+} // microphonePlayback
+#endif // MICROPHONE_TESTING
+#endif // TODO_EXTRA_FUNCTIONS
+
 /*****************************************************************************/
 /* Static Functions                                                          */
 /*****************************************************************************/
@@ -280,7 +341,7 @@ initHandle(Microphone *pMicrophone, const char *pName, unsigned int audioCoreIRQ
             alt_up_audio_disable_read_interrupt(pMicrophone->pHandle);
             alt_up_audio_disable_write_interrupt(pMicrophone->pHandle);
             alt_up_audio_reset_audio_core(pMicrophone->pHandle);
-            status = alt_irq_register(audioCoreIRQ, pMicrophone, readFifoISR);
+            status = alt_irq_register(audioCoreIRQ, pMicrophone, codecFifoISR);
         }
     }
 
@@ -354,6 +415,21 @@ initSwitch(Microphone   *pMicrophone,
 
 /*****************************************************************************/
 
+#ifdef TODO_EXTRA_FUNCTIONS
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pMicrophone  The microphone
+ */
+static void
+clearRecording(Microphone *pMicrophone)
+{
+
+} // clearRecording
+#endif // TODO_EXTRA_FUNCTIONS
+
+/*****************************************************************************/
+
 /**
  * @brief      Interrupt service routine for the push-to-talk switch. Simply
  *             posts to the push-to-talk semaphore pended on by
@@ -392,7 +468,7 @@ switchISR(void *pContext, alt_u32 id)
  * @param[in]  id        UNUSED PARAMETER
  */
 static void
-readFifoISR(void *pContext, alt_u32 id)
+codecFifoISR(void *pContext, alt_u32 id)
 {
     Microphone     *pMicrophone         = (Microphone *) pContext;
     unsigned int    wordsRead           = 0;
@@ -429,7 +505,16 @@ readFifoISR(void *pContext, alt_u32 id)
             OSSemPost(pMicrophone->pPushToTalkSemaphore);
         }
     }
-} // readFifoISR
+#ifdef TODO_EXTRA_FUNCTIONS
+#ifdef MICROPHONE_TESTING
+    if (alt_up_audio_write_interrupt_pending(pMicrophone->pHandle) == 1)
+    {
+        // Copy pMicrophone->recordingBuffer to the write fifo in chunks
+        // Disable write interrupt when recoring has finished being copied
+    }
+#endif // MICROPHONE_TESTING
+#endif // TODO_EXTRA_FUNCTIONS
+} // codecFifoISR
 
 /*****************************************************************************/
 /* End of File                                                               */

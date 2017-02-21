@@ -33,6 +33,16 @@
 /*****************************************************************************/
 
 struct _Microphone;
+#ifdef TODO_EXPORTED_BUFFER
+// TODO: add a typedef for an exported buffer
+struct _Linear16Recoring;
+
+typedef struct _Linear16Recording
+{
+    unsigned char   pRecording[RECORDING_BUFFER_SIZE * 2];
+    size_t          size;
+} Linear16Recording;
+#endif // TODO_EXPORTED_BUFFER
 
 typedef struct _Microphone
 {
@@ -47,8 +57,6 @@ typedef struct _Microphone
 /* Functions                                                                 */
 /*****************************************************************************/
 
-// TODO: Add a playback function, just for testing
-// TODO: Add an export function, takes in a byte buffer and fills it with 16-bit samples
 Microphone* microphoneCreate(const char   *pName,
                              unsigned int  audioCoreIRQ,
                              unsigned int  switchBaseAddress,
@@ -56,6 +64,17 @@ Microphone* microphoneCreate(const char   *pName,
 void        microphoneDestroy(Microphone *pMicrophone);
 void        microphoneWaitAndBeginRecording(Microphone *pMicrophone);
 void        microphoneFinishRecording(Microphone *pMicrophone);
+#ifdef TODO_EXTRA_FUNCTIONS
+void        microphoneEnablePushToTalk(Microphone *pMicrophone);
+void        microphoneDisablePushToTalk(Microphone *pMicrophone);
+// TODO: Add an export function, takes in a byte buffer and fills it with 16-bit samples
+void        microphoneExportLinear16(Microphone        *pMicrophone,
+                                     Linear16Recording *pLinear16Recording);
+#ifdef MICROPHONE_TESTING
+// TODO: Add a playback function, just for testing
+void        microphonePlayback(Microphone *pMicrophone);
+#endif // MICROPHONE_TESTING
+#endif // TODO_EXTRA_FUNCTIONS
 
 /*****************************************************************************/
 /* End of File                                                               */
