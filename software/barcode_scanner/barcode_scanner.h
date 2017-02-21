@@ -87,10 +87,8 @@ BarcodeScanner* barcodeScannerCreate(const char   *pName,
 void            barcodeScannerDestroy(BarcodeScanner *pBarcodeScanner);
 void            barcodeScannerDecode(BarcodeScanner *pBarcodeScanner,
                                      Barcode        *pBarcode);
-#ifdef TODO_EXTRA_FUNCTIONS
 void            barcodeScannerEnable(BarcodeScanner *pBarcodeScanner);
 void            barcodeScannerDisable(BarcodeScanner *pBarcodeScanner);
-#endif // TODO_EXTRA_FUNCTIONS
 
 /*****************************************************************************/
 /* End of File                                                               */

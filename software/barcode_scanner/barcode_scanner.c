@@ -179,7 +179,6 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
 
 /*****************************************************************************/
 
-#ifdef TODO_EXTRA_FUNCTIONS
 /**
  * @brief      { function_description }
  *
@@ -188,7 +187,10 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
 void
 barcodeScannerEnable(BarcodeScanner *pBarcodeScanner)
 {
-
+	if (pBarcodeScanner)
+	{
+		alt_up_ps2_enable_read_interrupt(pBarcodeScanner->pHandle);
+	}
 } // barcodeScannerEnable
 
 /*****************************************************************************/
@@ -201,9 +203,11 @@ barcodeScannerEnable(BarcodeScanner *pBarcodeScanner)
 void
 barcodeScannerDisable(BarcodeScanner *pBarcodeScanner)
 {
-
+	if (pBarcodeScanner)
+	{
+		alt_up_ps2_disable_read_interrupt(pBarcodeScanner->pHandle);
+	}
 } // barcodeScannerDisable
-#endif // TODO_EXTRA_FUNCTIONS
 
 /*****************************************************************************/
 /* Static Functions                                                          */
