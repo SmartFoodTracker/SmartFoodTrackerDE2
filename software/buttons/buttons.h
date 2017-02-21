@@ -71,10 +71,8 @@ INT8U       buttonsInitButton(Buttons      *pButtons,
                               unsigned int  irq);
 void        buttonsEnableButton(Buttons *pButtons, Button buttonID);
 void        buttonsDisableButton(Buttons *pButtons, Button buttonID);
-#ifdef TODO_EXTRA_FUNCTIONS
 void        buttonsEnableAll(Buttons *pButtons);
 void        buttonsDisableAll(Buttons *pButtons);
-#endif // TODO_EXTRA_FUNCTIONS
 Button      buttonsGetButtonPress(Buttons *pButtons);
 
 /*****************************************************************************/

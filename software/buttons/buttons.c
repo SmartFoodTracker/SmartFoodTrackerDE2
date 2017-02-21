@@ -191,7 +191,6 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
 
 /*****************************************************************************/
 
-#ifdef TODO_EXTRA_FUNCTIONS
 /**
  * @brief      { function_description }
  *
@@ -200,7 +199,14 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
 void
 buttonsEnableAll(Buttons *pButtons)
 {
-
+	Button button;
+	if (pButtons)
+	{
+		for (button = 0; button < ButtonMax; button++)
+		{
+			buttonsEnableButton(pButtons, button);
+		}
+	}
 } // buttonsEnableAll
 
 /*****************************************************************************/
@@ -213,9 +219,15 @@ buttonsEnableAll(Buttons *pButtons)
 void
 buttonsDisableAll(Buttons *pButtons)
 {
-
+	Button button;
+	if (pButtons)
+	{
+		for (button = 0; button < ButtonMax; button++)
+		{
+			buttonsDisableButton(pButtons, button);
+		}
+	}
 } // buttonsDisableAll
-#endif // TODO_EXTRA_FUNCTIONS
 
 /*****************************************************************************/
 
@@ -232,13 +244,11 @@ buttonsGetButtonPress(Buttons *pButtons)
     INT8U   queueError  = OS_NO_ERR;
     Button  buttonID    = ButtonMax;
 
-    // TODO: check against pButtonPressQueue as well
-    if (pButtons)
+    if (pButtons && pButtons->pButtonPressQueue)
     {
         buttonID = (Button) OSQPend(pButtons->pButtonPressQueue,
                                     0,
                                     &queueError);
-
         if (queueError != OS_NO_ERR)
         {
             buttonID = ButtonMax;
