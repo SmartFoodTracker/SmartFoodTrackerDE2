@@ -146,6 +146,29 @@ buttonsInitButton(Buttons      *pButtons,
 /*****************************************************************************/
 
 /**
+ * @brief      Enables interrupt for a button.
+ *
+ * @param[in]  pButtons  Valid handle for Buttons object
+ * @param[in]  buttonID  Button id
+ */
+void
+buttonsEnableButton(Buttons *pButtons, Button buttonID)
+{
+    unsigned int baseAddress = 0;
+    if (pButtons && (buttonID < ButtonMax))
+    {
+        if (pButtons->isrContexts[buttonID])
+        {
+            baseAddress = pButtons->isrContexts[buttonID]->baseAddress;
+            IOWR_ALTERA_AVALON_PIO_IRQ_MASK(baseAddress, 0xf);
+            IOWR_ALTERA_AVALON_PIO_EDGE_CAP(baseAddress, 0x0);
+        }
+    }
+} // buttonsEnableButton
+
+/*****************************************************************************/
+
+/**
  * @brief      Disables interrupt for a button.
  *
  * @param[in]  pButtons  Valid handle for Buttons object
@@ -168,26 +191,31 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
 
 /*****************************************************************************/
 
+#ifdef TODO_EXTRA_FUNCTIONS
 /**
- * @brief      Enables interrupt for a button.
+ * @brief      { function_description }
  *
- * @param[in]  pButtons  Valid handle for Buttons object
- * @param[in]  buttonID  Button id
+ * @param[in]  pButtons  The buttons
  */
 void
-buttonsEnableButton(Buttons *pButtons, Button buttonID)
+buttonsEnableAll(Buttons *pButtons)
 {
-    unsigned int baseAddress = 0;
-    if (pButtons && (buttonID < ButtonMax))
-    {
-        if (pButtons->isrContexts[buttonID])
-        {
-            baseAddress = pButtons->isrContexts[buttonID]->baseAddress;
-            IOWR_ALTERA_AVALON_PIO_IRQ_MASK(baseAddress, 0xf);
-            IOWR_ALTERA_AVALON_PIO_EDGE_CAP(baseAddress, 0x0);
-        }
-    }
-} // buttonsEnableButton
+
+} // buttonsEnableAll
+
+/*****************************************************************************/
+
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  pButtons  The buttons
+ */
+void
+buttonsDisableAll(Buttons *pButtons)
+{
+
+} // buttonsDisableAll
+#endif // TODO_EXTRA_FUNCTIONS
 
 /*****************************************************************************/
 
