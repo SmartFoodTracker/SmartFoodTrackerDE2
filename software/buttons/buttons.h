@@ -46,17 +46,17 @@ struct _ButtonContext;
 
 typedef struct _Buttons
 {
-    ButtonContext      *isrContexts[ButtonMax];
-    OS_EVENT           *pButtonPressQueue;
-    void               *pButtonPressQueueData[BUTTONS_MESSAGE_QUEUE_SIZE];
+    struct _ButtonContext  *isrContexts[ButtonMax];
+    OS_EVENT           	   *pButtonPressQueue;
+    void               	   *pButtonPressQueueData[BUTTONS_MESSAGE_QUEUE_SIZE];
 } Buttons;
 
 typedef struct _ButtonContext
 {
-    struct _Buttons    *pButtons;
-    unsigned int        irq;
-    unsigned int        baseAddress;
-    Button              buttonID;
+    struct _Buttons    	   *pButtons;
+    unsigned int        	irq;
+    unsigned int        	baseAddress;
+    Button              	buttonID;
 } ButtonContext;
 
 /*****************************************************************************/
