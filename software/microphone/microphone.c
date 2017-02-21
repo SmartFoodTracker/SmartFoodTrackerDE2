@@ -211,7 +211,6 @@ microphoneDisablePushToTalk(Microphone *pMicrophone)
 
 /*****************************************************************************/
 
-#ifdef TODO_EXPORTED_BUFFER
 /**
  * @brief        { function_description }
  *
@@ -222,9 +221,22 @@ void
 microphoneExportLinear16(Microphone        *pMicrophone,
                          Linear16Recording *pLinear16Recording)
 {
+    unsigned int    sample      = 0;
+    unsigned short  dataPoint   = 0;
+    if (pMicrophone && pLinear16Recording)
+    {
+        if (pMicrophone->totalSamples > 0)
+        {
+            for (sample = 0; sample < pMicrophone->totalSamples; sample++)
+            {
+                dataPoint = (unsigned short) (pMicrophone->recordingBuffer[sample] >> 16);
+                pLinear16Recording->pRecording[sample] = dataPoint;
+            }
+        }
 
+        pLinear16Recording->size = pMicrophone->totalSamples;
+    }
 } // microphoneExportLinear16
-#endif // TODO_EXPORTED_BUFFER
 
 /*****************************************************************************/
 

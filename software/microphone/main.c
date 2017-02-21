@@ -41,6 +41,7 @@ LCDTask(void* pData)
 {
     alt_up_character_lcd_dev   *pLCD = NULL;
     Microphone                 *pMicrophone = (Microphone *) pData;
+    Linear16Recording           exportedRecording;
 
     // LCD setup
     if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) == NULL)
@@ -69,6 +70,9 @@ LCDTask(void* pData)
         alt_up_character_lcd_init(pLCD);
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
         alt_up_character_lcd_string(pLCD, "Finish");
+
+        // Quick test of buffer exporting, view in the debugger
+        microphoneExportLinear16(pMicrophone, &exportedRecording);
 
         // Playback the recorded buffer to LINE_OUT
         microphonePlaybackRecording(pMicrophone);

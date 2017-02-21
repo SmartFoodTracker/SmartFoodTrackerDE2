@@ -33,16 +33,13 @@
 /*****************************************************************************/
 
 struct _Microphone;
-#ifdef TODO_EXPORTED_BUFFER
-// TODO: add a typedef for an exported buffer
 struct _Linear16Recoring;
 
 typedef struct _Linear16Recording
 {
-    unsigned char   pRecording[RECORDING_BUFFER_SIZE * 2];
-    size_t          size;
+    unsigned short  pRecording[RECORDING_BUFFER_SIZE];
+    size_t          size; // in shorts, not bytes
 } Linear16Recording;
-#endif // TODO_EXPORTED_BUFFER
 
 typedef struct _Microphone
 {
@@ -68,11 +65,8 @@ void        microphoneWaitAndBeginRecording(Microphone *pMicrophone);
 void        microphoneFinishRecording(Microphone *pMicrophone);
 void        microphoneEnablePushToTalk(Microphone *pMicrophone);
 void        microphoneDisablePushToTalk(Microphone *pMicrophone);
-#ifdef TODO_EXPORTED_BUFFER
-// TODO: Add an export function, takes in a byte buffer and fills it with 16-bit samples
 void        microphoneExportLinear16(Microphone        *pMicrophone,
                                      Linear16Recording *pLinear16Recording);
-#endif // TODO_EXPORTED_BUFFER
 void        microphonePlaybackRecording(Microphone *pMicrophone);
 
 /*****************************************************************************/
