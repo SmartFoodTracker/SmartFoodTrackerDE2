@@ -1,11 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <errno.h>
-#include <sys/socket.h>
-#include <resolv.h>
+#include <ctype.h>
+#include <sys/param.h>
+#include <sys/fcntl.h>
+#include "sys/alt_alarm.h"
+#include "alt_types.h"
+#include "client.h"
+#include "web_server.h"
 
-#define PORT 8080
-#define IP_ADDR "127.0.0.1"
+#include "ipport.h"
+#include "libport.h"
+#include "osport.h"
+#include "tcpport.h"
+
+#define PORT 80
+#define IP_ADDR "107.20.218.71"
 #define MAX_HTTP_SIZE 10000
 #define MAX_CHUNK 1024
 
@@ -15,14 +25,15 @@ char request[MAX_HTTP_SIZE];
 char response[MAX_HTTP_SIZE];
 char body[MAX_HTTP_SIZE];
 
+u_long inet_addr(char FAR * str);
+
 // Set up socket file descriptor and connect to server
 int create_connection() {
-    printf("Trying to talk to server...\n");
-
     // Set up socket
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         perror("Couldn't open socket");
+        return -1;
     }
 
     // Set up information for server
@@ -35,7 +46,9 @@ int create_connection() {
     if (connect(server_fd, (struct sockaddr*)&server_info, sizeof(server_info)) != 0)
     {
         perror("Couldn't connect to server");
+        return -1;
     }
+    return 1;
 }
 
 // Gets the response on the socket, returns total received bytes once connection dies
@@ -48,11 +61,12 @@ int reliable_receive() {
             return total_bytes;
         } else if (bytes_received < 0) {
             perror("Error while receiving");
-            return;
+            return -1;
         } else {
             total_bytes += bytes_received;
         }
     }
+    return 0;
 }
 
 // Create a request for a barcode
@@ -67,18 +81,38 @@ void parse_body() {
     strcpy(body, position);
 }
 
-int main()
+int translate_barcode(char* barcode, char* resp)
 {
-    create_connection();
-    create_barcode_request("087684001165");
+	printf("starting connection\n");
+    if(create_connection() < 0) {
+    	sprintf(resp, "Could not connect to internet.");
+    	return -1;
+    }
+    create_barcode_request(barcode);
+    printf("sending values\n");
     if (send(server_fd, request, strlen(request), 0) < 0) {
         perror("Error while sending");
+        sprintf(resp, "Could not connect to internet.");
+        return -1;
     }
-    printf("Finished sending\n");
+    printf("recievemingang values\n");
     int total_bytes = reliable_receive();
+    printf("%i\n", total_bytes);
     response[total_bytes] = '\0';
     parse_body();
-    printf("%s\n", body);
+    printf("%s\n", response);
     close(server_fd);
+    strcpy(resp, body);
+    return 1;
+}
+int translate_audio(char* audio, char* resp) {
+	sprintf(resp, "Chicken");
+	return -1;
+}
+int add_item(char* item) {
+	return -1;
+}
+int remove_item(char *item) {
+	return -1;
 }
 
