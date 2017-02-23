@@ -47,9 +47,9 @@ typedef struct _Microphone
     OS_EVENT           *pPushToTalkSemaphore;
     unsigned int        switchBaseAddress;
     unsigned int        switchIRQ;
-    unsigned int        recordingBuffer[RECORDING_BUFFER_SIZE];
-    unsigned int       *pNextSample;
     unsigned int        totalSamples;
+    unsigned int        pRecordingBuffer[RECORDING_BUFFER_SIZE];
+    unsigned int       *pNextSample;
 } Microphone;
 
 /*****************************************************************************/
@@ -62,7 +62,7 @@ Microphone* microphoneCreate(const char   *pName,
                              unsigned int  switchIRQ);
 void        microphoneDestroy(Microphone *pMicrophone);
 void        microphoneWaitAndBeginRecording(Microphone *pMicrophone);
-void        microphoneFinishRecording(Microphone *pMicrophone);
+void        microphoneWaitAndFinishRecording(Microphone *pMicrophone);
 void        microphoneEnablePushToTalk(Microphone *pMicrophone);
 void        microphoneDisablePushToTalk(Microphone *pMicrophone);
 void        microphoneExportLinear16(Microphone        *pMicrophone,
