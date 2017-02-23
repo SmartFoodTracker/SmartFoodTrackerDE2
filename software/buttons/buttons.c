@@ -348,7 +348,7 @@ initQueue(Buttons *pButtons)
 {
     INT8U status = OS_NO_ERR;
 
-    if (pButtons && (pButtons->pButtonPressQueueData == NULL))
+    if (pButtons)
     {
         pButtons->pButtonPressQueue = OSQCreate(pButtons->pButtonPressQueueData,
                                                 BUTTONS_MESSAGE_QUEUE_SIZE);
