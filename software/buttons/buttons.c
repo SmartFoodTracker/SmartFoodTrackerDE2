@@ -192,9 +192,9 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Enable interrupts for all buttons.
  *
- * @param[in]  pButtons  The buttons
+ * @param[in]  pButtons  Valid handle for Buttons object
  */
 void
 buttonsEnableAll(Buttons *pButtons)
@@ -212,9 +212,9 @@ buttonsEnableAll(Buttons *pButtons)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Disable interrupts for all buttons.
  *
- * @param[in]  pButtons  The buttons
+ * @param[in]  pButtons  Valid handle for Buttons object
  */
 void
 buttonsDisableAll(Buttons *pButtons)
@@ -236,7 +236,7 @@ buttonsDisableAll(Buttons *pButtons)
  *
  * @param[in]  pButtons  Valid handle for Buttons object
  *
- * @return     button id of next available button press
+ * @return     Button id of next available button press
  */
 Button
 buttonsGetButtonPress(Buttons *pButtons)
