@@ -143,7 +143,7 @@ ELF := buttons.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS += main.c
-C_SRCS += ../common_code/buttons.c
+C_SRCS += buttons.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -181,7 +181,7 @@ SYS_LIB :=
 BSP_ROOT_DIR := ../common_board_support_package
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS := ../common_code
+APP_INCLUDE_DIRS :=
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 

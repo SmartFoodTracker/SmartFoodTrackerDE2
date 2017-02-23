@@ -142,7 +142,8 @@ ACDS_VERSION := 12.1sp1
 ELF := barcode_scanner.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := main.c ../common_code/barcode_scanner.c
+C_SRCS += main.c
+C_SRCS += barcode_scanner.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -180,7 +181,7 @@ SYS_LIB :=
 BSP_ROOT_DIR := ../common_board_support_package
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS := ../common_code
+APP_INCLUDE_DIRS :=
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 

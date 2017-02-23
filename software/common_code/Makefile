@@ -151,7 +151,7 @@ ACDS_VERSION := 12.1sp1
 LIB_NAME := common_code
 
 # Paths to C, C++, and assembly source files.
-C_SRCS :=
+C_SRCS := client.c
 CXX_SRCS :=
 ASM_SRCS :=
 
