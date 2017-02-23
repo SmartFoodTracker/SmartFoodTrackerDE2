@@ -3,7 +3,8 @@
 	<name>barcode_scanner</name>
 	<comment></comment>
 	<projects>
-		<project>barcode_scanner_bsp</project>
+		<project>common_board_support_package</project>
+		<project>common_code</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

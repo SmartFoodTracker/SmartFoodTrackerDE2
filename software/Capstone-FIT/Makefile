@@ -143,12 +143,12 @@ ELF := Capstone-FIT.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS += alt_error_handler.c
+C_SRCS += ../common_code/client.c
 C_SRCS += http.c
 C_SRCS += network_utilities.c
 C_SRCS += srec_flash.c
 C_SRCS += web_server.c
 C_SRCS += dm9000a.c
-C_SRCS += client.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -183,10 +183,10 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../Capstone-FIT_bsp/
+BSP_ROOT_DIR := ../common_ethernet_board_support_package
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS :=
+APP_INCLUDE_DIRS := ../common_code
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 

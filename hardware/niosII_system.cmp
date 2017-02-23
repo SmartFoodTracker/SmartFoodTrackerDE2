@@ -56,7 +56,8 @@
 			remove_button_external_connection_export                              : in    std_logic                     := 'X';             -- export
 			main_pll_sdram_clk_clk                                                : out   std_logic;                                        -- clk
 			clock_27mhz_clk_in_clk                                                : in    std_logic                     := 'X';             -- clk
-			clock_27mhz_clk_in_reset_reset_n                                      : in    std_logic                     := 'X'              -- reset_n
+			clock_27mhz_clk_in_reset_reset_n                                      : in    std_logic                     := 'X';             -- reset_n
+			main_pll_audio_clk_clk                                                : out   std_logic                                         -- clk
 		);
 	end component niosII_system;
 
