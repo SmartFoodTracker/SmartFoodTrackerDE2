@@ -3,6 +3,7 @@
 	<name>microphone</name>
 	<comment></comment>
 	<projects>
+		<project>common_board_support_package</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

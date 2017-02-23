@@ -142,13 +142,15 @@ ACDS_VERSION := 12.1sp1
 ELF := Capstone-FIT.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS += alt_error_handler.c
 C_SRCS += ../common_code/client.c
-C_SRCS += http.c
-C_SRCS += network_utilities.c
-C_SRCS += srec_flash.c
-C_SRCS += web_server.c
-C_SRCS += dm9000a.c
+C_SRCS += ../ethernet_server/alt_error_handler.c
+C_SRCS += ../ethernet_server/dm9000a.c
+C_SRCS += ../ethernet_server/network_utilities.c
+C_SRCS += ../buttons/buttons.c
+C_SRCS += ../barcode_scanner/barcode_scanner.c
+C_SRCS += ../microphone/microphone.c
+C_SRCS += ../client/client.c
+C_SRCS += main.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -186,7 +188,11 @@ SYS_LIB :=
 BSP_ROOT_DIR := ../common_ethernet_board_support_package
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS := ../common_code
+APP_INCLUDE_DIRS += ../ethernet_server
+APP_INCLUDE_DIRS += ../buttons
+APP_INCLUDE_DIRS += ../barcode_scanner
+APP_INCLUDE_DIRS += ../microphone
+APP_INCLUDE_DIRS += ../client
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 

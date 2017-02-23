@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Capstone-FIT</name>
+	<name>ethernet_server</name>
 	<comment></comment>
 	<projects>
 		<project>common_ethernet_board_support_package</project>
@@ -42,7 +42,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc://Capstone-FIT}</value>
+					<value>${workspace_loc://ethernet_serv}</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>

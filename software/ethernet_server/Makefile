@@ -139,15 +139,15 @@ ACDS_VERSION := 12.1sp1
 # Define path to the application ELF. 
 # It may be used by the makefile fragments so is defined before including them. 
 # 
-ELF := Capstone-FIT.elf
+ELF := ethernet_serv.elf
 
 # Paths to C, C++, and assembly source files.
+C_SRCS += alt_error_handler.c
+C_SRCS += dm9000a.c
 C_SRCS += http.c
+C_SRCS += network_utilities.c
+C_SRCS += srec_flash.c
 C_SRCS += web_server.c
-C_SRCS += ../dm9000a_ethernet_code/alt_error_handler.c
-C_SRCS += ../dm9000a_ethernet_code/dm9000a.c
-C_SRCS += ../dm9000a_ethernet_code/network_utilities.c
-C_SRCS += ../dm9000a_ethernet_code/srec_flash.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -157,7 +157,7 @@ OBJ_ROOT_DIR := obj
 
 # Options to control objdump.
 CREATE_OBJDUMP := 1
-OBJDUMP_INCLUDE_SOURCE := 1
+OBJDUMP_INCLUDE_SOURCE := 0
 OBJDUMP_FULL_CONTENTS := 0
 
 # Options to enable/disable optional files.
@@ -182,10 +182,10 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../common_ethernet_board_support_package
+BSP_ROOT_DIR := ../common_ethernet_board_support_package/
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS := ../dm9000a_ethernet_code
+APP_INCLUDE_DIRS :=
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 
@@ -193,7 +193,6 @@ APP_LIBRARY_NAMES :=
 BUILD_PRE_PROCESS :=
 BUILD_POST_PROCESS :=
 
-QUARTUS_PROJECT_DIR := ../../
 
 
 #END GENERATED

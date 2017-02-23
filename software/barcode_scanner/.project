@@ -4,7 +4,6 @@
 	<comment></comment>
 	<projects>
 		<project>common_board_support_package</project>
-		<project>common_code</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
