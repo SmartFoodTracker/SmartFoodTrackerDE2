@@ -167,7 +167,7 @@ microphoneWaitAndBeginRecording(Microphone *pMicrophone)
  * @param[in]  pMicrophone  Valid microphone handle
  */
 void
-microphoneFinishRecording(Microphone *pMicrophone)
+microphoneWaitAndFinishRecording(Microphone *pMicrophone)
 {
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
@@ -180,9 +180,10 @@ microphoneFinishRecording(Microphone *pMicrophone)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Simply enables the switch's interrupts, this will allow the
+ *             push-to-talk sequence to start.
  *
- * @param[in]  pMicrophone  The microphone
+ * @param[in]  pMicrophone  Valid microphone handle
  */
 void
 microphoneEnablePushToTalk(Microphone *pMicrophone)
@@ -196,9 +197,10 @@ microphoneEnablePushToTalk(Microphone *pMicrophone)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Simply disables the switch's interrupts, this will prevent the
+ *             push-to-talk sequence from starting.
  *
- * @param[in]  pMicrophone  The microphone
+ * @param[in]  pMicrophone  Valid microphone handle
  */
 void
 microphoneDisablePushToTalk(Microphone *pMicrophone)
@@ -212,10 +214,12 @@ microphoneDisablePushToTalk(Microphone *pMicrophone)
 /*****************************************************************************/
 
 /**
- * @brief        { function_description }
+ * @brief        Moves the two MSBs from each 32-bit sample into 2-byte shorts.
+ *               This data format is required for the Google Speech API. Also
+ *               the buffer should be Little Endian byte order.
  *
- * @param[in]    pMicrophone         The microphone
- * @param[inout] pLinear16Recording  The linear 16 recording
+ * @param[in]    pMicrophone         Valid microphone handle
+ * @param[inout] pLinear16Recording  Buffer to be filled with 16-bit samples
  */
 void
 microphoneExportLinear16(Microphone        *pMicrophone,
@@ -229,7 +233,7 @@ microphoneExportLinear16(Microphone        *pMicrophone,
         {
             for (sample = 0; sample < pMicrophone->totalSamples; sample++)
             {
-                dataPoint = (unsigned short) (pMicrophone->recordingBuffer[sample] >> 16);
+                dataPoint = (unsigned short) (pMicrophone->pRecordingBuffer[sample] >> 16);
                 pLinear16Recording->pRecording[sample] = dataPoint;
             }
         }
@@ -241,9 +245,12 @@ microphoneExportLinear16(Microphone        *pMicrophone,
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Enable's write interrupts for the audio codec. This will trigger
+ *             codecFifoISR to begin writing pMicrophone->pRecordingBuffer to
+ *             the codec's write fifo. Recorded audio clip will play to
+ *             LINE_OUT.
  *
- * @param[in]  pMicrophone  The microphone
+ * @param[in]  pMicrophone  Valid microphone handle
  */
 void
 microphonePlaybackRecording(Microphone *pMicrophone)
@@ -251,7 +258,7 @@ microphonePlaybackRecording(Microphone *pMicrophone)
     if (pMicrophone)
     {
         // Move the read/write pointer back to the beginning of recording buffer
-        pMicrophone->pNextSample = pMicrophone->recordingBuffer;
+        pMicrophone->pNextSample = pMicrophone->pRecordingBuffer;
 
         // Clear codec fifos
         alt_up_audio_reset_audio_core(pMicrophone->pHandle);
@@ -411,7 +418,7 @@ initSemaphore(Microphone *pMicrophone)
  * @param[in]  switchBaseAddress  Switch base address
  * @param[in]  switchIRQ          Switch IRQ number
  *
- * @return     { description_of_the_return_value }
+ * @return     OS_NO_ERR if no error
  */
 static INT8U
 initSwitch(Microphone   *pMicrophone,
@@ -442,18 +449,18 @@ initSwitch(Microphone   *pMicrophone,
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Resets the recorded buffer, read/write pointer, and sample count.
  *
- * @param[in]  pMicrophone  The microphone
+ * @param[in]  pMicrophone  Valid microphone handle
  */
 static void
 clearRecording(Microphone *pMicrophone)
 {
     if (pMicrophone)
     {
-        pMicrophone->pNextSample    = pMicrophone->recordingBuffer;
+        pMicrophone->pNextSample    = pMicrophone->pRecordingBuffer;
         pMicrophone->totalSamples   = 0;
-        memset(pMicrophone->recordingBuffer, 0, RECORDING_BUFFER_SIZE * sizeof(unsigned int));
+        memset(pMicrophone->pRecordingBuffer, 0, RECORDING_BUFFER_SIZE * sizeof(unsigned int));
     }
 } // clearRecording
 
@@ -487,11 +494,13 @@ switchISR(void *pContext, alt_u32 id)
 /*****************************************************************************/
 
 /**
- * @brief      Interrupt service routine for the audio codec read fifo. This
- *             ISR is triggered when data is available for read from the
- *             channel fifos. This routine simply copies available data to
- *             the microphone's recording buffer. This isr is enabled/disabled
- *             by microphoneWaitAndBeginRecording/microphoneFinishRecording.
+ * @brief      Interrupt service routine for the audio codec read/write fifo.
+ *             This ISR is triggered when data is available for read from the
+ *             channel fifos or if room is available for writing. This routine
+ *             simply copies available data to/from the microphone's recording
+ *             buffer. This isr is enabled/disabled by
+ *             microphoneWaitAndBeginRecording/microphoneFinishRecording and
+ *             microphonePlaybackRecording.
  *
  * @param      pContext  Microphone handle wrapped as an ISR context
  * @param[in]  id        UNUSED PARAMETER
@@ -544,8 +553,8 @@ codecFifoISR(void *pContext, alt_u32 id)
     {
         remainingBufferSize = pMicrophone->totalSamples -
                               (pMicrophone->pNextSample -
-                               pMicrophone->recordingBuffer);
-        // Copy pMicrophone->recordingBuffer to the write fifo in chunks
+                               pMicrophone->pRecordingBuffer);
+        // Copy recording buffer to the write fifo in chunks
         wordsToRead = alt_up_audio_write_fifo_space(pMicrophone->pHandle,
                                                     ALT_UP_AUDIO_LEFT);
         wordsToRead = min(wordsToRead, remainingBufferSize);

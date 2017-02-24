@@ -40,8 +40,8 @@ static bool             isDelimiterKey(const char *pKeyPressString);
 /*****************************************************************************/
 
 /**
- * @brief      Allocates and intializes a BarcodeScanner object on the heap.
- *             intiailizes the device handle, registers the ISR, and
+ * @brief      Allocates and initializes a BarcodeScanner object on the heap.
+ *             initializes the device handle, registers the ISR, and
  *             initializes the key press queue. barcodeScannerDestroy(...)
  *             should be called to cleanup this object.
  *
@@ -76,7 +76,7 @@ barcodeScannerCreate(const char   *pName,
         status = initQueue(pBarcodeScanner);
     }
 
-    // Cleanup if an error has occured
+    // Cleanup if an error has occurred
     if (status != OS_NO_ERR)
     {
         releaseBarcodeScanner(pBarcodeScanner);
@@ -124,6 +124,9 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
 
     if (pBarcodeScanner && pBarcode)
     {
+    	// Enable scanner
+    	barcodeScannerEnable(pBarcodeScanner);
+
         // Clear barcode
         memset(pBarcode, 0, sizeof(Barcode));
 
@@ -174,15 +177,18 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
                 pEncodedKeyPress = NULL;
             }
         }
+
+        // Disable scanner
+    	barcodeScannerDisable(pBarcodeScanner);
     }
 } // barcodeScannerDecode
 
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Enable barcode interrupts.
  *
- * @param[in]  pBarcodeScanner  The barcode scanner
+ * @param[in]  pBarcodeScanner  Pointer to barcode scanner
  */
 void
 barcodeScannerEnable(BarcodeScanner *pBarcodeScanner)
@@ -196,9 +202,9 @@ barcodeScannerEnable(BarcodeScanner *pBarcodeScanner)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Disable barcode interrupts.
  *
- * @param[in]  pBarcodeScanner  The barcode scanner
+ * @param[in]  pBarcodeScanner  Pointer to barcode scanner
  */
 void
 barcodeScannerDisable(BarcodeScanner *pBarcodeScanner)
@@ -214,7 +220,7 @@ barcodeScannerDisable(BarcodeScanner *pBarcodeScanner)
 /*****************************************************************************/
 
 /**
- * @brief      Allocate a BarcodeScanner object on heap and intialize it. All
+ * @brief      Allocate a BarcodeScanner object on heap and initialize it. All
  *             members set to defaults. Should be paired with an eventual call
  *             to releaseBarcodeScanner
  *
@@ -296,7 +302,7 @@ initHandle(BarcodeScanner *pBarcodeScanner,
 
         set_keyboard_rate(pBarcodeScanner->pHandle, 0);
 
-        alt_up_ps2_enable_read_interrupt(pBarcodeScanner->pHandle);
+        alt_up_ps2_disable_read_interrupt(pBarcodeScanner->pHandle);
 
         status = alt_irq_register(pBarcodeScanner->pHandle->irq_id,
                                   (void *)pBarcodeScanner,
@@ -363,6 +369,7 @@ dataLineISR(void *pContext, alt_u32 id)
     KB_CODE_TYPE        decodeMode      = KB_INVALID_CODE;
     alt_u8              encodedValue    = 0;
     char                asciiValue      = '\0';
+    INT8U 				status			= OS_NO_ERR;
 
     // Read byte from device and clear interrupt
     if (decode_scancode(pBarcodeScanner->pHandle, &decodeMode,
@@ -373,7 +380,11 @@ dataLineISR(void *pContext, alt_u32 id)
         {
             pData->decodeMode   = decodeMode;
             pData->encodedValue = encodedValue;
-            OSQPost(pBarcodeScanner->pBarcodeKeyPressQueue, pData);
+            status = OSQPost(pBarcodeScanner->pBarcodeKeyPressQueue, pData);
+            if (status == OS_ERR_Q_FULL)
+            {
+            	free(pData);
+            }
         }
     }
 } // dataLineISR
@@ -414,7 +425,7 @@ getNextKeyPress(BarcodeScanner *pBarcodeScanner)
 /*****************************************************************************/
 
 /**
- * @brief      { function_description }
+ * @brief      Simply toggles KeyPositionUp to KeyPositionDown and vice versa
  *
  * @param      pKeyPosition  The key position
  */

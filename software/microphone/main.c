@@ -32,7 +32,9 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
 
 /**
  * @brief      LCD update task; writes status of push-to-talk microphone to LCD
- *             Display.
+ *             Display. Waits for push-to-talk sequence to begin, begins
+ *             recording audio, waits for push-to-talk sequence to finish
+ *             (switch or timeout), plays back the audio to LINE_OUT.
  *
  * @param      pData  Microphone pointer wrapped as task context
  */
@@ -66,12 +68,13 @@ LCDTask(void* pData)
         alt_up_character_lcd_string(pLCD, "Begin");
 
         // Wait for push-to-talk switch to trigger record completion
-        microphoneFinishRecording(pMicrophone);
+        microphoneWaitAndFinishRecording(pMicrophone);
         alt_up_character_lcd_init(pLCD);
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
         alt_up_character_lcd_string(pLCD, "Finish");
 
-        // Quick test of buffer exporting, view in the debugger
+        // Quick test of buffer exporting, view memory map in the debugger
+        // To ensure proper endianness
         microphoneExportLinear16(pMicrophone, &exportedRecording);
 
         // Playback the recorded buffer to LINE_OUT
