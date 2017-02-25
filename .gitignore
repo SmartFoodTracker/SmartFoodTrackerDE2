@@ -48,4 +48,8 @@ sopc_builder_log.txt
 *.objdump
 *.force_relink
 software/*/obj/*
-
+hardware/niosII_system/*
+hardware/.qsys_edit/*
+hardware/niosII_system.bsf
+hardware/niosII_system.cmp
+hardware/niosII_system.html
