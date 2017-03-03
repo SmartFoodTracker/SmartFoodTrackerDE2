@@ -1,16 +1,4 @@
-/** @file   client.c
- *  @brief  Source for http socket requests to our server
- *
- *  Used to add items, remove items, translate barcodes and translate audio through http requests.
- *
- *  @author Andrew Bradshaw (abradsha)
- */
-
-/*****************************************************************************/
-/* Includes                                                                  */
-/*****************************************************************************/
-
-/*#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -21,13 +9,15 @@
 #include "ipport.h"
 #include "libport.h"
 #include "osport.h"
-#include "tcpport.h"*/
+#include "tcpport.h"
 
+/*
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
 #include <sys/socket.h>
 #include <resolv.h>
+*/
 
 #define PORT 80
 #define IP_ADDR "13.56.5.40"

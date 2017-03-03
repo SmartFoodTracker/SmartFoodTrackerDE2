@@ -14,7 +14,13 @@
 /*****************************************************************************/
 
 #include <stdio.h>
+#include <errno.h>
+#include <ctype.h>
+#include <unistd.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
 #include "includes.h"
+
 #include "buttons.h"
 #include "barcode_scanner.h"
 #include "client.h"
@@ -38,9 +44,9 @@
 /*****************************************************************************/
 
 #define TASK_STACKSIZE      2048
-#define MUTEX_PRIORITY           1
-#define MICROPHONE_TASK_PRIORITY   2
-#define BARCODE_TASK_PRIORITY   3
+#define MUTEX_PRIORITY           6
+#define MICROPHONE_TASK_PRIORITY   8
+#define BARCODE_TASK_PRIORITY   7
 
 /*****************************************************************************/
 /* Globals                                                                   */
@@ -57,6 +63,12 @@ OS_EVENT *confirmationMutex;
  * TK_ENTRY macro corresponds to the entry point, or defined function name, of the task.
  * inet_taskinfo is the structure used by TK_NEWTASK to create the task.
  */
+
+extern void MicrophoneTask();
+extern void BarcodeTask();
+extern void DisplayText();
+
+//extern struct net netstatic[STATIC_NETS];
 
 TK_OBJECT(to_MicrophoneTask);
 TK_ENTRY(MicrophoneTask);
@@ -89,12 +101,11 @@ struct inet_taskinfo bartask = {
  *             shared transmit mutex, then goes through confirmation process
  *
  */
-void
-MicrophoneTask()
-{
+void MicrophoneTask(void* pData) {
     INT8U status = OS_NO_ERR;
+    Microphone *pMicrophone = NULL;
     Linear16Recording exportedRecording;
-    char audio_string[1000];
+    char audio_string[] = "audio";
     // Setup push-to-talk microphone
     pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
                                    AUDIO_CORE_IRQ,
@@ -107,15 +118,19 @@ MicrophoneTask()
     }
     while (1)
     {
+    	microphoneEnablePushToTalk(pMicrophone);
         microphoneWaitAndBeginRecording(pMicrophone);
         microphoneWaitAndFinishRecording(pMicrophone);
+        microphoneDisablePushToTalk(pMicrophone);
         microphoneExportLinear16(pMicrophone, &exportedRecording);
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-            translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
+            //translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
             DisplayText(audio_string);
             OSMutexPost(confirmationMutex);
+        } else {
+        	printf("discarding data\n");
         }
     }
 } // MicrophoneTask
@@ -125,12 +140,11 @@ MicrophoneTask()
  *             shared transmit mutex, then goes through confirmation process
  *
  */
-void
-BarcodeTask()
-{
+void BarcodeTask(void* pData) {
     INT8U status = OS_NO_ERR;
+    BarcodeScanner *pBarcodeScanner = NULL;
     Barcode barcode;
-    char barcode_string[1000];
+    char barcode_string[] = "barcode";
     // Create and initialize barcode scanner
     pBarcodeScanner = barcodeScannerCreate(BARCODE_SCANNER_PS2_NAME,
                                            BARCODE_SCANNER_PS2_BASE,
@@ -145,9 +159,11 @@ BarcodeTask()
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-            translate_barcode(barcode.pString, barcode_string);
+            //translate_barcode(barcode.pString, barcode_string);
             DisplayText(barcode_string);
             OSMutexPost(confirmationMutex);
+        } else {
+        	printf("discarding data\n");
         }
     }
 } // BarcodeTask
@@ -156,8 +172,7 @@ BarcodeTask()
  * @brief      Display String on LCD and get button response based on user input
  *
  */
-void
-DisplayText(char* item) {
+void DisplayText(char* item) {
     Button button = ButtonMax;
     // Clear LCD
     alt_up_character_lcd_init(pLCD);
@@ -188,7 +203,7 @@ DisplayText(char* item) {
  * @brief      Task to set up subtasks
  *
  */
-static void FITSetup(void* pdata)
+void FITSetup()
 {
     INT8U       status      = OS_NO_ERR;
 

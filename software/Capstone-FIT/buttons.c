@@ -160,8 +160,8 @@ buttonsEnableButton(Buttons *pButtons, Button buttonID)
         if (pButtons->isrContexts[buttonID])
         {
             baseAddress = pButtons->isrContexts[buttonID]->baseAddress;
-            IOWR_ALTERA_AVALON_PIO_IRQ_MASK(baseAddress, 0xf);
             IOWR_ALTERA_AVALON_PIO_EDGE_CAP(baseAddress, 0x0);
+            IOWR_ALTERA_AVALON_PIO_IRQ_MASK(baseAddress, 0xf);
         }
     }
 } // buttonsEnableButton
@@ -183,8 +183,8 @@ buttonsDisableButton(Buttons *pButtons, Button buttonID)
         if (pButtons->isrContexts[buttonID])
         {
             baseAddress = pButtons->isrContexts[buttonID]->baseAddress;
+            IOWR_ALTERA_AVALON_PIO_IRQ_MASK(baseAddress, 0x0);
             IOWR_ALTERA_AVALON_PIO_EDGE_CAP(baseAddress, 0x0);
-            IOWR_ALTERA_AVALON_PIO_IRQ_MASK(baseAddress, 0xf);
         }
     }
 } // buttonsDisableButton

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Feb 23, 2017 12:54:32 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1487879672566</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Feb 27, 2017 2:51:21 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1488232281157</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/a/b/abradsha/a/SmartFoodTrackerDE2/software/common_board_support_package</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>

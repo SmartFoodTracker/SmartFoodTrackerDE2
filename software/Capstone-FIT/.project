@@ -3,11 +3,7 @@
 	<name>Capstone-FIT</name>
 	<comment></comment>
 	<projects>
-		<project>barcode_scanner</project>
-		<project>buttons</project>
 		<project>common_ethernet_board_support_package</project>
-		<project>ethernet_server</project>
-		<project>microphone</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
