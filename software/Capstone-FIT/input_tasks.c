@@ -47,6 +47,7 @@
 #define MUTEX_PRIORITY           6
 #define MICROPHONE_TASK_PRIORITY   8
 #define BARCODE_TASK_PRIORITY   7
+#define ITEM_SIZE 64
 
 /*****************************************************************************/
 /* Globals                                                                   */
@@ -105,7 +106,7 @@ void MicrophoneTask(void* pData) {
     INT8U status = OS_NO_ERR;
     Microphone *pMicrophone = NULL;
     Linear16Recording exportedRecording;
-    char audio_string[] = "audio";
+    char audio_string[ITEM_SIZE];
     // Setup push-to-talk microphone
     pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
                                    AUDIO_CORE_IRQ,
@@ -126,7 +127,7 @@ void MicrophoneTask(void* pData) {
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-            //translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
+            translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
             DisplayText(audio_string);
             OSMutexPost(confirmationMutex);
         } else {
@@ -144,7 +145,7 @@ void BarcodeTask(void* pData) {
     INT8U status = OS_NO_ERR;
     BarcodeScanner *pBarcodeScanner = NULL;
     Barcode barcode;
-    char barcode_string[] = "barcode";
+    char barcode_string[ITEM_SIZE];
     // Create and initialize barcode scanner
     pBarcodeScanner = barcodeScannerCreate(BARCODE_SCANNER_PS2_NAME,
                                            BARCODE_SCANNER_PS2_BASE,
@@ -159,7 +160,7 @@ void BarcodeTask(void* pData) {
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-            //translate_barcode(barcode.pString, barcode_string);
+            translate_barcode(barcode.pString, barcode_string);
             DisplayText(barcode_string);
             OSMutexPost(confirmationMutex);
         } else {
@@ -190,10 +191,10 @@ void DisplayText(char* item) {
 
     if (button == ButtonAdd) {
         printf("added item\n");
-        //add_item(item);
+        add_item(item);
     } else if (button == ButtonRemove) {
         printf("removed item\n");
-        //remove_item(item);
+        remove_item(item);
     }
 }
 
