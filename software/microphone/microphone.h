@@ -50,6 +50,7 @@ typedef struct _Microphone
     unsigned int        totalSamples;
     unsigned int        pRecordingBuffer[RECORDING_BUFFER_SIZE];
     unsigned int       *pNextSample;
+    bool 				bSwitchUp;
 } Microphone;
 
 /*****************************************************************************/

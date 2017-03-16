@@ -9,6 +9,7 @@
 /*****************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "includes.h"
 #include "microphone.h"
 #include "altera_up_avalon_character_lcd.h"
@@ -35,15 +36,17 @@ OS_STK  LCDTaskStack[TASK_STACKSIZE];
  *             Display. Waits for push-to-talk sequence to begin, begins
  *             recording audio, waits for push-to-talk sequence to finish
  *             (switch or timeout), plays back the audio to LINE_OUT.
+ *             Linear16Recording should be malloced, otherwise it will overflow
+ *             the stack for this task.
  *
  * @param      pData  Microphone pointer wrapped as task context
  */
 void
 LCDTask(void* pData)
 {
-    alt_up_character_lcd_dev   *pLCD = NULL;
-    Microphone                 *pMicrophone = (Microphone *) pData;
-    Linear16Recording           exportedRecording;
+    alt_up_character_lcd_dev   *pLCD 				= NULL;
+    Microphone                 *pMicrophone 		= (Microphone *) pData;
+    Linear16Recording          *pExportedRecording 	= (Linear16Recording *) malloc(sizeof(Linear16Recording));
 
     // LCD setup
     if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) == NULL)
@@ -59,7 +62,7 @@ LCDTask(void* pData)
     }
 
     // Functional task loop
-    while (pMicrophone != NULL)
+    while ((pMicrophone != NULL) && (pExportedRecording != NULL))
     {
         // Wait for push-to-talk switch to trigger recording
         microphoneWaitAndBeginRecording(pMicrophone);
@@ -75,10 +78,15 @@ LCDTask(void* pData)
 
         // Quick test of buffer exporting, view memory map in the debugger
         // To ensure proper endianness
-        microphoneExportLinear16(pMicrophone, &exportedRecording);
+        microphoneExportLinear16(pMicrophone, pExportedRecording);
 
         // Playback the recorded buffer to LINE_OUT
         microphonePlaybackRecording(pMicrophone);
+    }
+
+    if (pExportedRecording != NULL)
+    {
+		free(pExportedRecording);
     }
 } // LCDTask
 
