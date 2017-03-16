@@ -190,6 +190,8 @@ microphoneEnablePushToTalk(Microphone *pMicrophone)
 {
     if (pMicrophone)
     {
+    	// Switch may have moved if push-to-talk was disabled
+        pMicrophone->bSwitchUp = ((*(volatile unsigned int *)(pMicrophone->switchBaseAddress)) == 1);
         alt_irq_enable(pMicrophone->switchIRQ);
     }
 } // microphoneEnablePushToTalk
