@@ -105,7 +105,7 @@ struct inet_taskinfo bartask = {
 void MicrophoneTask(void* pData) {
     INT8U status = OS_NO_ERR;
     Microphone *pMicrophone = NULL;
-    Linear16Recording exportedRecording;
+    Linear16Recording *pExportedRecording = (Linear16Recording *) malloc(sizeof(Linear16Recording));
     char audio_string[ITEM_SIZE];
     // Setup push-to-talk microphone
     pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
@@ -117,22 +117,37 @@ void MicrophoneTask(void* pData) {
         status = OS_ERR_PDATA_NULL;
         printf("Microphone setup failed.\n");
     }
-    while (1)
+    if (pExportedRecording == NULL)
+    {
+    	status = OS_ERR_PDATA_NULL;
+    	printf("recording malloc failed");
+    }
+    while (status == OS_NO_ERR)
     {
     	microphoneEnablePushToTalk(pMicrophone);
         microphoneWaitAndBeginRecording(pMicrophone);
         microphoneWaitAndFinishRecording(pMicrophone);
         microphoneDisablePushToTalk(pMicrophone);
-        microphoneExportLinear16(pMicrophone, &exportedRecording);
+        microphoneExportLinear16(pMicrophone, pExportedRecording);
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-            translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
+            translate_audio(pExportedRecording->pRecording, pExportedRecording->size * 2, audio_string);
             DisplayText(audio_string);
             OSMutexPost(confirmationMutex);
         } else {
         	printf("discarding data\n");
         }
+    }
+
+    if (pExportedRecording)
+    {
+    	free(pExportedRecording);
+    }
+
+    if (pMicrophone)
+    {
+    	microphoneDestroy(pMicrophone);
     }
 } // MicrophoneTask
 

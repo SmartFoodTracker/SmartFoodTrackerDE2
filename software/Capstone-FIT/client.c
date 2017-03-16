@@ -145,24 +145,54 @@ void create_barcode_request(char* barcode, char* request) {
 // Takes in a barcode and returns the food item that it corresponds to
 int translate_barcode(char* barcode, char* resp)
 {
-    char request[MAX_HTTP_SIZE];
-    char response[MAX_HTTP_SIZE];
-    char body[MAX_BODY_SIZE];
-    if(create_connection() < 0) {
-    	sprintf(resp, "Could not connect to internet.");
-    	return -1;
+    char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *body     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
+    if ((request  != NULL) &&
+        (response != NULL) &&
+        (body     != NULL)) {
+        if(create_connection() < 0) {
+            sprintf(resp, "Could not connect to internet.");
+		    if (request)
+		    	free(request);
+
+		    if (response)
+		    	free(response);
+
+		    if (body)
+		    	free(body);
+            return -1;
+        }
+        create_barcode_request(barcode, request);
+        if (send(server_fd, request, strlen(request), 0) < 0) {
+            perror("Error while sending");
+            sprintf(resp, "Could not connect to internet.");
+		    if (request)
+		    	free(request);
+
+		    if (response)
+		    	free(response);
+
+		    if (body)
+		    	free(body);
+            return -1;
+        }
+        int total_bytes = reliable_receive(response);
+        response[total_bytes] = '\0';
+        parse_body(response, body);
+        close(server_fd);
+        strcpy(resp, body);
     }
-    create_barcode_request(barcode, request);
-    if (send(server_fd, request, strlen(request), 0) < 0) {
-        perror("Error while sending");
-        sprintf(resp, "Could not connect to internet.");
-        return -1;
-    }
-    int total_bytes = reliable_receive(response);
-    response[total_bytes] = '\0';
-    parse_body(response, body);
-    close(server_fd);
-    strcpy(resp, body);
+
+    if (request)
+    	free(request);
+
+    if (response)
+    	free(response);
+
+    if (body)
+    	free(body);
+
     return 1;
 }
 
@@ -176,25 +206,55 @@ long create_audio_request(char* audio, long len, char* request) {
 
 // Takes in an audio file and its size and returns the text the audio represents
 int translate_audio(char* audio, long audio_length, char* resp) {
-    char request[MAX_HTTP_SIZE];
-    char response[MAX_HTTP_SIZE];
-    char body[MAX_BODY_SIZE];
-    if(create_connection() < 0) {
-        sprintf(resp, "Could not connect to internet.");
-        return -1;
+    char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *body     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
+    if ((request  != NULL) &&
+        (response != NULL) &&
+        (body     != NULL)) {
+        if(create_connection() < 0) {
+            sprintf(resp, "Could not connect to internet.");
+		    if (request)
+		    	free(request);
+
+		    if (response)
+		    	free(response);
+
+		    if (body)
+		    	free(body);
+            return -1;
+        }
+        long header_length = create_audio_request(audio, audio_length, request);
+        int sent_bytes = send(server_fd, request, header_length + audio_length, 0);
+        if (sent_bytes < 0) {
+            perror("Error while sending");
+            sprintf(resp, "Could not connect to internet.");
+		    if (request)
+		    	free(request);
+
+		    if (response)
+		    	free(response);
+
+		    if (body)
+		    	free(body);
+            return -1;
+        }
+        int total_bytes = reliable_receive(response);
+        response[total_bytes] = '\0';
+        parse_body(response, body);
+        close(server_fd);
+        strcpy(resp, body);
     }
-    long header_length = create_audio_request(audio, audio_length, request);
-    int sent_bytes = send(server_fd, request, header_length + audio_length, 0);
-    if (sent_bytes < 0) {
-        perror("Error while sending");
-        sprintf(resp, "Could not connect to internet.");
-        return -1;
-    }
-    int total_bytes = reliable_receive(response);
-    response[total_bytes] = '\0';
-    parse_body(response, body);
-    close(server_fd);
-    strcpy(resp, body);
+
+    if (request)
+    	free(request);
+
+    if (response)
+    	free(response);
+
+    if (body)
+    	free(body);
+
     return 1;
 }
 
