@@ -138,6 +138,9 @@ microphoneWaitAndBeginRecording(Microphone *pMicrophone)
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
     {
+    	// Enable push-to-talk
+    	microphoneEnablePushToTalk(pMicrophone);
+
         // Wait indefinitely for next push-to-talk sequence
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
 
@@ -172,7 +175,12 @@ microphoneWaitAndFinishRecording(Microphone *pMicrophone)
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
     {
+    	// Wait indefinitely for either the switch to change
+    	// or the recording to complete
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
+
+        // Disable push-to-talk and codec reads
+        microphoneDisablePushToTalk(pMicrophone);
         alt_up_audio_disable_read_interrupt(pMicrophone->pHandle);
     }
 } // microphoneFinishRecording
