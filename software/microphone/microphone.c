@@ -199,7 +199,7 @@ microphoneEnablePushToTalk(Microphone *pMicrophone)
     if (pMicrophone)
     {
     	// Switch may have moved if push-to-talk was disabled
-        pMicrophone->bSwitchUp = ((*(volatile unsigned int *)(pMicrophone->switchBaseAddress)) == 1);
+        pMicrophone->bSwitchUp = (IORD(pMicrophone->switchBaseAddress, 0) == 1);
         alt_irq_enable(pMicrophone->switchIRQ);
     }
 } // microphoneEnablePushToTalk
@@ -447,7 +447,7 @@ initSwitch(Microphone   *pMicrophone,
         pMicrophone->switchIRQ          = switchIRQ;
 
         // Set switch position (ie, starting in "up" state is not an issue)
-        pMicrophone->bSwitchUp = ((*(volatile unsigned int *)(switchBaseAddress)) == 1);
+        pMicrophone->bSwitchUp = (IORD(switchBaseAddress, 0) == 1);
 
         // Reset edge capture register and enable interrupt
         IOWR_ALTERA_AVALON_PIO_IRQ_MASK(switchBaseAddress, 0xf);
@@ -501,8 +501,8 @@ switchISR(void *pContext, alt_u32 id)
     }
     else
     {
-		// We don't really care about the return value of this call
-		OSSemPost(pMicrophone->pPushToTalkSemaphore);
+        // We don't really care about the return value of this call
+        OSSemPost(pMicrophone->pPushToTalkSemaphore);
     }
 
     // Reset the button's edge capture register
