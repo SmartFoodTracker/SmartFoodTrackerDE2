@@ -105,8 +105,9 @@ struct inet_taskinfo bartask = {
 void MicrophoneTask(void* pData) {
     INT8U status = OS_NO_ERR;
     Microphone *pMicrophone = NULL;
-    Linear16Recording *pExportedRecording = (Linear16Recording *) malloc(sizeof(Linear16Recording));
+    Linear16Recording exportedRecording;
     char audio_string[ITEM_SIZE];
+
     // Setup push-to-talk microphone
     pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
                                    AUDIO_CORE_IRQ,
@@ -117,32 +118,26 @@ void MicrophoneTask(void* pData) {
         status = OS_ERR_PDATA_NULL;
         printf("Microphone setup failed.\n");
     }
-    if (pExportedRecording == NULL)
+
+    while (pMicrophone != NULL)
     {
-    	status = OS_ERR_PDATA_NULL;
-    	printf("recording malloc failed");
-    }
-    while (status == OS_NO_ERR)
-    {
-    	microphoneEnablePushToTalk(pMicrophone);
         microphoneWaitAndBeginRecording(pMicrophone);
         microphoneWaitAndFinishRecording(pMicrophone);
-        microphoneDisablePushToTalk(pMicrophone);
-        microphoneExportLinear16(pMicrophone, pExportedRecording);
+        microphoneExportLinear16(pMicrophone, &exportedRecording);
+
+        // Playback recording to line-out as a debugging safety-net
+        microphonePlaybackRecording(pMicrophone);
+
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-            translate_audio(pExportedRecording->pRecording, pExportedRecording->size * 2, audio_string);
+            translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
+            printf("Voice decoded: %s\n", audio_string);
             DisplayText(audio_string);
             OSMutexPost(confirmationMutex);
         } else {
         	printf("discarding data\n");
         }
-    }
-
-    if (pExportedRecording)
-    {
-    	free(pExportedRecording);
     }
 
     if (pMicrophone)
@@ -161,6 +156,7 @@ void BarcodeTask(void* pData) {
     BarcodeScanner *pBarcodeScanner = NULL;
     Barcode barcode;
     char barcode_string[ITEM_SIZE];
+
     // Create and initialize barcode scanner
     pBarcodeScanner = barcodeScannerCreate(BARCODE_SCANNER_PS2_NAME,
                                            BARCODE_SCANNER_PS2_BASE,
@@ -169,13 +165,16 @@ void BarcodeTask(void* pData) {
     {
         printf("Barcode scanner setup failed.\n");
     }
+
     while (1)
     {
         barcodeScannerDecode(pBarcodeScanner, &barcode);
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
+        	printf("Barcode: %s\n", barcode.pString);
             translate_barcode(barcode.pString, barcode_string);
+            printf("Barcode decoded: %s\n", barcode_string);
             DisplayText(barcode_string);
             OSMutexPost(confirmationMutex);
         } else {
@@ -205,10 +204,10 @@ void DisplayText(char* item) {
     alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
 
     if (button == ButtonAdd) {
-        printf("added item\n");
+        printf("added \"%s\"\n", item);
         add_item(item);
     } else if (button == ButtonRemove) {
-        printf("removed item\n");
+        printf("removed \"%s\"\n", item);
         remove_item(item);
     }
 }

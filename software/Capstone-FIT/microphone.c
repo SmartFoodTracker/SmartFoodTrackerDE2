@@ -138,6 +138,9 @@ microphoneWaitAndBeginRecording(Microphone *pMicrophone)
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
     {
+    	// Enable push-to-talk
+    	microphoneEnablePushToTalk(pMicrophone);
+
         // Wait indefinitely for next push-to-talk sequence
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
 
@@ -172,7 +175,12 @@ microphoneWaitAndFinishRecording(Microphone *pMicrophone)
     INT8U semError = OS_NO_ERR;
     if (pMicrophone)
     {
+    	// Wait indefinitely for either the switch to change
+    	// or the recording to complete
         OSSemPend(pMicrophone->pPushToTalkSemaphore, 0, &semError);
+
+        // Disable push-to-talk and codec reads
+        microphoneDisablePushToTalk(pMicrophone);
         alt_up_audio_disable_read_interrupt(pMicrophone->pHandle);
     }
 } // microphoneFinishRecording
@@ -190,6 +198,8 @@ microphoneEnablePushToTalk(Microphone *pMicrophone)
 {
     if (pMicrophone)
     {
+    	// Switch may have moved if push-to-talk was disabled
+        pMicrophone->bSwitchUp = (IORD(pMicrophone->switchBaseAddress, 0) == 1);
         alt_irq_enable(pMicrophone->switchIRQ);
     }
 } // microphoneEnablePushToTalk
@@ -289,6 +299,7 @@ acquireMicrophone()
         pMicrophone->switchIRQ              = 0;
         pMicrophone->pPushToTalkSemaphore   = NULL;
         pMicrophone->pHandle                = NULL;
+        pMicrophone->bSwitchUp				= false;
         clearRecording(pMicrophone);
     }
 
@@ -435,6 +446,9 @@ initSwitch(Microphone   *pMicrophone,
         // Save IRQ so we can enable/disable later
         pMicrophone->switchIRQ          = switchIRQ;
 
+        // Set switch position (ie, starting in "up" state is not an issue)
+        pMicrophone->bSwitchUp = (IORD(switchBaseAddress, 0) == 1);
+
         // Reset edge capture register and enable interrupt
         IOWR_ALTERA_AVALON_PIO_IRQ_MASK(switchBaseAddress, 0xf);
         IOWR_ALTERA_AVALON_PIO_EDGE_CAP(switchBaseAddress, 0x0);
@@ -480,8 +494,16 @@ switchISR(void *pContext, alt_u32 id)
 {
     Microphone *pMicrophone = (Microphone *) pContext;
 
-    // We don't really care about the return value of this call
-    OSSemPost(pMicrophone->pPushToTalkSemaphore);
+    // Correct the switch position if a long recording occurred
+    if (pMicrophone->bSwitchUp)
+    {
+    	pMicrophone->bSwitchUp = false;
+    }
+    else
+    {
+        // We don't really care about the return value of this call
+        OSSemPost(pMicrophone->pPushToTalkSemaphore);
+    }
 
     // Reset the button's edge capture register
     IOWR_ALTERA_AVALON_PIO_EDGE_CAP(pMicrophone->switchBaseAddress, 0x0);
@@ -543,7 +565,9 @@ codecFifoISR(void *pContext, alt_u32 id)
         else
         {
             // Buffer is full, disable reading, push-to-talk sequence is done
+        	// Switch will be in wrong position if this is the case
             alt_up_audio_disable_read_interrupt(pMicrophone->pHandle);
+            pMicrophone->bSwitchUp = true;
             OSSemPost(pMicrophone->pPushToTalkSemaphore);
         }
     }
