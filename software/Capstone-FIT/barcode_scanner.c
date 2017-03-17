@@ -130,7 +130,7 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
         memset(pBarcode, 0, sizeof(Barcode));
 
         // Begin decode process
-        while (status == DecodeStatusNotComplete)
+        while (status != DecodeStatusComplete)
         {
             // Fetch next encoded key press
             pEncodedKeyPress = getNextKeyPress(pBarcodeScanner);
@@ -138,6 +138,7 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
             if (pEncodedKeyPress != NULL)
             {
                 // Decode the key press
+            	pKeyPressString[0] = '\0';
                 translate_make_code(pEncodedKeyPress->decodeMode,
                                     pEncodedKeyPress->encodedValue,
                                     pKeyPressString);
@@ -178,7 +179,7 @@ barcodeScannerDecode(BarcodeScanner *pBarcodeScanner, Barcode *pBarcode)
         }
 
         // Disable scanner
-    	//barcodeScannerDisable(pBarcodeScanner);
+    	barcodeScannerDisable(pBarcodeScanner);
     }
 } // barcodeScannerDecode
 
@@ -194,6 +195,8 @@ barcodeScannerEnable(BarcodeScanner *pBarcodeScanner)
 {
 	if (pBarcodeScanner)
 	{
+		OSQFlush(pBarcodeScanner->pBarcodeKeyPressQueue);
+		alt_up_ps2_clear_fifo(pBarcodeScanner->pHandle);
 		alt_up_ps2_enable_read_interrupt(pBarcodeScanner->pHandle);
 	}
 } // barcodeScannerEnable
@@ -483,7 +486,8 @@ isValidKey(const char *pKeyPressString)
     if (pKeyPressString)
     {
         bReturn = ((strcmp(pKeyPressString, BARCODE_SHIFT)   != 0) &&
-                   (strcmp(pKeyPressString, BARCODE_CONTROL) != 0));
+                   (strcmp(pKeyPressString, BARCODE_CONTROL) != 0) &&
+                   (strcmp(pKeyPressString, "")              != 0));
     }
 
     return bReturn;
