@@ -200,6 +200,7 @@ microphoneEnablePushToTalk(Microphone *pMicrophone)
     {
     	// Switch may have moved if push-to-talk was disabled
         pMicrophone->bSwitchUp = (IORD(pMicrophone->switchBaseAddress, 0) == 1);
+        IOWR_ALTERA_AVALON_PIO_EDGE_CAP(pMicrophone->switchBaseAddress, 0x0);
         alt_irq_enable(pMicrophone->switchIRQ);
     }
 } // microphoneEnablePushToTalk
