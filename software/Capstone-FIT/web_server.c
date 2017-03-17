@@ -205,7 +205,7 @@ int main (int argc, char* argv[], char* envp[])
   /* Clear the RTOS timer */
   OSTimeSet(0);
   /* turn on green leds */
-  *(volatile INT8U *)(GREEN_LEDS_BASE) = 0xff;
+  IOWR(GREEN_LEDS_BASE, 0, 0xff);
 
   /* WSInitialTask will initialize the NicheStack TCP/IP Stack and then 
    * initialize the rest of the web server's tasks.
