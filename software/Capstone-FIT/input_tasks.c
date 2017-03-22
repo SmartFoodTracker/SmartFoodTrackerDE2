@@ -3,7 +3,7 @@
  *
  *  Wait for either audio-clip or barcode to be entered;
  *  Send data to server for processing (translate to plain text);
- *  Display item plain text and have user click a button to add or remove the 
+ *  Display item plain text and have user click a button to add or remove the
  *  item.
  *
  *  @author Andrew Bradshaw (abradsha), Kyle O'Shaughnessy (koshaugh)
@@ -49,7 +49,7 @@
 #define MUTEX_PRIORITY              6
 #define BARCODE_TASK_PRIORITY       7
 #define MICROPHONE_TASK_PRIORITY    8
-#define ITEM_SIZE                   64
+#define ITEM_NAME_MAX_LENGTH        64
 
 /*****************************************************************************/
 /* Globals                                                                   */
@@ -59,7 +59,7 @@ Buttons *pButtons;
 /* Declaration of the mutex to protect global buttons and lcd*/
 OS_EVENT *confirmationMutex;
 
-/* Declarations for creating a task with TK_NEWTASK.  
+/* Declarations for creating a task with TK_NEWTASK.
  * All tasks which use NicheStack (those that use sockets) must be created this way.
  * TK_OBJECT macro creates the static task object used by NicheStack during operation.
  * TK_ENTRY macro corresponds to the entry point, or defined function name, of the task.
@@ -102,11 +102,13 @@ struct inet_taskinfo bartask = {
  *
  * @param      pData  Pointer to task context (NULL)
  */
-void MicrophoneTask(void* pData) {
+void
+MicrophoneTask(void* pData)
+{
     INT8U status = OS_NO_ERR;
     Microphone *pMicrophone = NULL;
     Linear16Recording exportedRecording;
-    char audio_string[ITEM_SIZE];
+    char audio_string[ITEM_NAME_MAX_LENGTH];
 
     // Setup push-to-talk microphone
     pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
@@ -154,11 +156,13 @@ void MicrophoneTask(void* pData) {
  *
  * @param[in]  pData  Pointer to task context (NULL)
  */
-void BarcodeTask(void* pData) {
+void
+BarcodeTask(void* pData)
+{
     INT8U status = OS_NO_ERR;
     BarcodeScanner *pBarcodeScanner = NULL;
     Barcode barcode;
-    char pItemString[ITEM_SIZE];
+    char pItemString[ITEM_NAME_MAX_LENGTH];
 
     // Create and initialize barcode scanner
     pBarcodeScanner = barcodeScannerCreate(BARCODE_SCANNER_PS2_NAME,
@@ -191,9 +195,11 @@ void BarcodeTask(void* pData) {
 /**
  * @brief      Display item on LCD and process button response
  *
- * @param[in]  pItemName  String reprenting item to be added
+ * @param[in]  pItemName  String representing item to be added
  */
-void ConfirmItem(char* pItemName) {
+void
+ConfirmItem(char* pItemName)
+{
     alt_up_character_lcd_dev   *pLCD    = NULL;
     Button                      button  = ButtonMax;
 
@@ -217,13 +223,13 @@ void ConfirmItem(char* pItemName) {
 
         // Add or remove item depending on response
         if (button == ButtonAdd) {
-            printf("added \"%s\"\n", pItemString);
+            printf("added \"%s\"\n", pItemName);
             add_item(pItemName);
         } else if (button == ButtonRemove) {
             printf("removed \"%s\"\n", pItemName);
             remove_item(pItemName);
         }
-    } 
+    }
     else
     {
         printf("LCD setup failed\n");
@@ -233,47 +239,62 @@ void ConfirmItem(char* pItemName) {
 /*****************************************************************************/
 
 /**
- * @brief      Routine which sets up input tasks and 
+ * @brief      Routine which sets up input tasks and
  */
-void FITSetup()
+void
+FITSetup()
 {
     INT8U status = OS_NO_ERR;
 
-    // Initialize input synchonization mutex
+    // Initialize input synchronization mutex
     confirmationMutex = OSMutexCreate(MUTEX_PRIORITY, &status);
-    if (status != OS_ERR_NONE)
+    if (status != OS_NO_ERR)
     {
         printf("confirmationMutex creation failed.\n");
     }
 
     // Create Buttons object
-    pButtons = buttonsCreate();
-    if (pButtons != NULL)
+    if (status == OS_NO_ERR)
     {
-        // Initialize all buttons
-        buttonsInitButton(pButtons,
-                          ButtonAdd,
-                          ADD_BUTTON_BASE,
-                          ADD_BUTTON_IRQ);
-
-        buttonsInitButton(pButtons,
-                          ButtonCancel,
-                          CANCEL_BUTTON_BASE,
-                          CANCEL_BUTTON_IRQ);
-
-        buttonsInitButton(pButtons,
-                          ButtonRemove,
-                          REMOVE_BUTTON_BASE,
-                          REMOVE_BUTTON_IRQ);
+        pButtons = buttonsCreate();
+        if (pButtons != NULL)
+        {
+            // Initialize all buttons
+            if (status == OS_NO_ERR)
+                status = buttonsInitButton(pButtons,
+                                           ButtonAdd,
+                                           ADD_BUTTON_BASE,
+                                           ADD_BUTTON_IRQ);
+            if (status == OS_NO_ERR)
+                status = buttonsInitButton(pButtons,
+                                           ButtonCancel,
+                                           CANCEL_BUTTON_BASE,
+                                           CANCEL_BUTTON_IRQ);
+            if (status == OS_NO_ERR)
+                status = buttonsInitButton(pButtons,
+                                           ButtonRemove,
+                                           REMOVE_BUTTON_BASE,
+                                           REMOVE_BUTTON_IRQ);
+        }
+        else
+        {
+            status = OS_ERR_PDATA_NULL;
+            printf("Buttons creation failed.\n");
+        }
     }
-    else
+
+    if (status == OS_NO_ERR)
     {
-        printf("Buttons creation failed.\n");
+        // Initialize input processing tasks
+        if (TK_NEWTASK(&mictask) != 0)
+        {
+            status = OS_ERR_TASK_NOT_EXIST;
+        }
+        if (TK_NEWTASK(&bartask) != 0)
+        {
+            status = OS_ERR_TASK_NOT_EXIST;
+        }
     }
-
-    // Initialize input processing tasks
-    TK_NEWTASK(&mictask);
-    TK_NEWTASK(&bartask);
 } // FITSetup
 
 /*****************************************************************************/

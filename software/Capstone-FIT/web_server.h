@@ -19,21 +19,21 @@
 
 /*
  * Prototypes:
- *    die_with_error() - Kills current task and delivers error message to 
+ *    die_with_error() - Kills current task and delivers error message to
  *                       STDERR.
- * 
- * dhcp_timeout_task() - Keeps track of whether an IP address has been 
+ *
+ * dhcp_timeout_task() - Keeps track of whether an IP address has been
  *                       aquired from a DHCP server, or times out and resorts
  *                       to a static IP address.
- * 
- *         http_task() - Manages HTTP connections and calls relevant 
+ *
+ *         http_task() - Manages HTTP connections and calls relevant
  *                       subroutines to service HTTP requests.
  */
 void die_with_error(char err_msg[]);
 
 /*
- * Mailbox to control board features 
- * 
+ * Mailbox to control board features
+ *
  */
 extern OS_EVENT *board_control_mbox;
 
@@ -48,15 +48,15 @@ struct http_form_data
 extern FILE* lcdDevice;
 
 
-/* 
- * The IP, gateway, and subnet mask address below are used as a last resort 
+/*
+ * The IP, gateway, and subnet mask address below are used as a last resort
  * if no network settings can be found, and DHCP (if enabled) fails. You can
  * edit these as a quick-and-dirty way of changing network settings if desired.
- * 
+ *
  * Default IP addresses are set to all zeros so that DHCP server packets will
- * penetrate secure routers. They are NOT intended to be valid static IPs, 
- * these values are only a valid default on networks with DHCP server. 
- * 
+ * penetrate secure routers. They are NOT intended to be valid static IPs,
+ * these values are only a valid default on networks with DHCP server.
+ *
  * If DHCP will not be used, select valid static IP addresses here, for example:
  *           IP: 192.168.1.234
  *      Gateway: 192.168.1.1
@@ -81,9 +81,9 @@ extern FILE* lcdDevice;
  * Task priorities
  *
  * MicroC/OS-II only allows one task (thread) per priority number. Our web
- * SERVER task is given a high priority (lower only than timers which must run 
+ * SERVER task is given a high priority (lower only than timers which must run
  * when they need to) so that we can focus on pushing data *out* of the system.
- * An ethernet CLIENT application would have lower prioritization than the 
+ * An ethernet CLIENT application would have lower prioritization than the
  * stack & ethernet tasks.
  */
 #define HTTP_PRIO               4
@@ -91,10 +91,10 @@ extern FILE* lcdDevice;
 #define LED_PRIO                6
 #define SSD_PRIO                7
 #define BOARD_PRIO              8
-/* 
+/*
  * Buffer size for a routine to call if things fail
  */
- 
+
 /* Definition of Task Stacks for tasks not using networking. */
 #define TASK_STACKSIZE          2048
 

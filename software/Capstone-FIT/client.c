@@ -43,14 +43,14 @@
 int                 server_fd;
 struct sockaddr_in  server_info;
 
-// Header for barcode
+// HTTP header for barcode
 static const char barcode_request[] = {"\
 GET /barcode/%s HTTP/1.1\r\n\
 Host: %s\r\n\
 Connection: Close\r\n\r\n\
 "};
 
-// Header for audio
+// HTTP header for audio
 static const char audio_request[] = {"\
 POST /speech HTTP/1.1\r\n\
 Host: %s\r\n\
@@ -59,7 +59,7 @@ Content-Length: %ld\r\n\
 Content-Type: audio/wav\r\n\r\n\
 "};
 
-// Header for adding
+// HTTP header for adding
 static const char add_request[] = {"\
 PUT /1/inventory HTTP/1.1\r\n\
 Host: %s\r\n\
@@ -68,14 +68,14 @@ Content-Length: %i\r\n\
 Content-Type: application/json\r\n\r\n\
 "};
 
-// Header for deleting
+// HTTP header for deleting
 static const char delete_request[] = {"\
 DELETE /1/inventory/title/%s HTTP/1.1\r\n\
 Host: %s\r\n\
 Connection: Close\r\n\r\n\
 "};
 
-// Body for adding
+// JSON body for adding
 static const char add_json[] = {"{\
 \"title\": \"%s\",\
 \"quantity\": 1,\
@@ -93,7 +93,9 @@ static const char add_json[] = {"{\
  *
  * @return     1 if no error, otherwise -1 (socket or connection error)
  */
-int create_connection() {
+int
+create_connection()
+{
     // Set up socket
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
@@ -126,7 +128,9 @@ int create_connection() {
  *
  * @return     { description_of_the_return_value }
  */
-int reliable_receive(char* response) {
+int
+reliable_receive(char* response)
+{
     int total_bytes = 0;
     // Loop over receiving until connection dies because it might be split into multiple packets
     while (1) {
@@ -151,7 +155,9 @@ int reliable_receive(char* response) {
  * @param      response  The response
  * @param      body      The body
  */
-void parse_body(char* response, char* body) {
+void
+parse_body(char* response, char* body)
+{
     // Ignore the starting newlines in body by adding 4
     char* position = strstr(response, "\r\n\r\n") + 4;
     strcpy(body, position);
@@ -166,7 +172,9 @@ void parse_body(char* response, char* body) {
  *
  * @return     { description_of_the_return_value }
  */
-int good_response(char* response) {
+int
+good_response(char* response)
+{
     char* position = strstr(response, "200 OK");
     return position != NULL;
 } // good_response
@@ -179,7 +187,9 @@ int good_response(char* response) {
  * @param      barcode  The barcode
  * @param      request  The request
  */
-void create_barcode_request(char* barcode, char* request) {
+void
+create_barcode_request(char* barcode, char* request)
+{
     sprintf(request, barcode_request, barcode, IP_ADDR);
 } // create_barcode_request
 
@@ -193,7 +203,8 @@ void create_barcode_request(char* barcode, char* request) {
  *
  * @return     { description_of_the_return_value }
  */
-int translate_barcode(char* barcode, char* resp)
+int
+translate_barcode(char* barcode, char* resp)
 {
     char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
     char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
@@ -258,7 +269,9 @@ int translate_barcode(char* barcode, char* resp)
  *
  * @return     { description_of_the_return_value }
  */
-long create_audio_request(char* audio, long len, char* request) {
+long
+create_audio_request(char* audio, long len, char* request)
+{
     sprintf(request, audio_request, IP_ADDR, len);
     long header_length = strlen(request);
     memcpy(request+strlen(request),audio,len);
@@ -276,7 +289,9 @@ long create_audio_request(char* audio, long len, char* request) {
  *
  * @return     { description_of_the_return_value }
  */
-int translate_audio(char* audio, long audio_length, char* resp) {
+int
+translate_audio(char* audio, long audio_length, char* resp)
+{
     char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
     char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
     char *body     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
@@ -340,7 +355,9 @@ int translate_audio(char* audio, long audio_length, char* resp) {
  *
  * @return     { description_of_the_return_value }
  */
-int create_add_request(char* item, char* request) {
+int
+create_add_request(char* item, char* request)
+{
     char body[MAX_BODY_SIZE];
     sprintf(body, add_json, item);
     sprintf(request, add_request, IP_ADDR, (int)strlen(body));
@@ -357,7 +374,9 @@ int create_add_request(char* item, char* request) {
  *
  * @return     { description_of_the_return_value }
  */
-int add_item(char* item) {
+int
+add_item(char* item)
+{
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
     char body[MAX_BODY_SIZE];
@@ -384,7 +403,9 @@ int add_item(char* item) {
  * @param      item     The item
  * @param      request  The request
  */
-void create_delete_request(char* item, char* request) {
+void
+create_delete_request(char* item, char* request)
+{
     sprintf(request, delete_request, item, IP_ADDR);
 } // create_delete_request
 
@@ -399,7 +420,9 @@ void create_delete_request(char* item, char* request) {
  *
  * @return     { description_of_the_return_value }
  */
-int remove_item(char *item) {
+int
+remove_item(char *item)
+{
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
     char body[MAX_BODY_SIZE];
