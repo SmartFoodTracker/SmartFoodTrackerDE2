@@ -41,6 +41,8 @@
 #include "tcpport.h"
 #include "net.h"
 
+#include "input_tasks.h"
+
 /*****************************************************************************/
 /* Constants                                                                 */
 /*****************************************************************************/
@@ -57,7 +59,7 @@
 
 Buttons *pButtons;
 /* Declaration of the mutex to protect global buttons and lcd*/
-OS_EVENT *confirmationMutex;
+OS_EVENT *pConfirmationMutex;
 
 /* Declarations for creating a task with TK_NEWTASK.
  * All tasks which use NicheStack (those that use sockets) must be created this way.
@@ -105,10 +107,10 @@ struct inet_taskinfo bartask = {
 void
 MicrophoneTask(void* pData)
 {
-    INT8U status = OS_NO_ERR;
-    Microphone *pMicrophone = NULL;
-    Linear16Recording exportedRecording;
-    char audio_string[ITEM_NAME_MAX_LENGTH];
+    INT8U               status      = OS_NO_ERR;
+    Microphone         *pMicrophone = NULL;
+    Linear16Recording   exportedRecording;
+    char                audio_string[ITEM_NAME_MAX_LENGTH];
 
     // Setup push-to-talk microphone
     pMicrophone = microphoneCreate(AUDIO_CORE_NAME,
@@ -123,28 +125,21 @@ MicrophoneTask(void* pData)
 
     while (pMicrophone != NULL)
     {
+        // Record audio clip (wait on push-to-talk)
         microphoneWaitAndBeginRecording(pMicrophone);
         microphoneWaitAndFinishRecording(pMicrophone);
         microphoneExportLinear16(pMicrophone, &exportedRecording);
 
-        // Playback recording to line-out as a debugging safety-net
-        microphonePlaybackRecording(pMicrophone);
-
-        // Nonblocking mutex to throw away data while blocked
-        OSMutexPend(confirmationMutex, 1, &status);
+        // Try to enter item confirmation workflow
+        OSMutexPend(pConfirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
             translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
             printf("Voice decoded: %s\n", audio_string);
             ConfirmItem(audio_string);
-            OSMutexPost(confirmationMutex);
+            OSMutexPost(pConfirmationMutex);
         } else {
             printf("discarding data\n");
         }
-    }
-
-    if (pMicrophone)
-    {
-        microphoneDestroy(pMicrophone);
     }
 } // MicrophoneTask
 
@@ -159,10 +154,10 @@ MicrophoneTask(void* pData)
 void
 BarcodeTask(void* pData)
 {
-    INT8U status = OS_NO_ERR;
+    INT8U           status          = OS_NO_ERR;
     BarcodeScanner *pBarcodeScanner = NULL;
-    Barcode barcode;
-    char pItemString[ITEM_NAME_MAX_LENGTH];
+    Barcode         barcode;
+    char            pItemString[ITEM_NAME_MAX_LENGTH];
 
     // Create and initialize barcode scanner
     pBarcodeScanner = barcodeScannerCreate(BARCODE_SCANNER_PS2_NAME,
@@ -173,17 +168,19 @@ BarcodeTask(void* pData)
         printf("Barcode scanner setup failed.\n");
     }
 
-    while (1)
+    while (pBarcodeScanner != NULL)
     {
+        // Wait for barcode scanner to produce a new barcode
         barcodeScannerDecode(pBarcodeScanner, &barcode);
-        // Nonblocking mutex to throw away data while blocked
-        OSMutexPend(confirmationMutex, 1, &status);
+
+        // Try to enter item confirmation workflow
+        OSMutexPend(pConfirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
             printf("Barcode: %s\n", barcode.pString);
             translate_barcode(barcode.pString, pItemString);
             printf("Barcode decoded: %s\n", pItemString);
             ConfirmItem(pItemString);
-            OSMutexPost(confirmationMutex);
+            OSMutexPost(pConfirmationMutex);
         } else {
             printf("discarding data\n");
         }
@@ -239,7 +236,65 @@ ConfirmItem(char* pItemName)
 /*****************************************************************************/
 
 /**
- * @brief      Routine which sets up input tasks and
+ * @brief      Set LCD and status light messages given a particular status
+ *
+ * @param[in]  status  FIT status indicating state of the client board
+ */
+void
+displayStatus(FITStatus status)
+{
+    alt_up_character_lcd_dev *pLCD = NULL;
+
+    if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) != NULL)
+    {
+        switch (status)
+        {
+        case FITStatusReady:
+
+            // Clear LCD
+            alt_up_character_lcd_init(pLCD);
+            alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+
+            // Write Messages
+            alt_up_character_lcd_string(pLCD, FIT_MSG_READY);
+            printf("%s\n", FIT_MSG_READY);
+
+            // Set LEDs
+            IOWR(RED_LEDS_BASE,   0, 0x0);
+            IOWR(GREEN_LEDS_BASE, 0, 0x1);
+
+            break;
+
+        case FITStatusSetupFailed:
+
+            // Clear LCD
+            alt_up_character_lcd_init(pLCD);
+            alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+
+            // Write Messages
+            alt_up_character_lcd_string(pLCD, FIT_MSG_SETUP_FAILED);
+            printf("%s\n", FIT_MSG_SETUP_FAILED);
+
+            // Set LEDs
+            IOWR(RED_LEDS_BASE,   0, 0x1);
+            IOWR(GREEN_LEDS_BASE, 0, 0x0);
+
+            break;
+
+        default:
+            break;
+        }
+    }
+    else
+    {
+        printf("LCD setup failed\n");
+    }
+}
+
+/*****************************************************************************/
+
+/**
+ * @brief      Routine which sets up input tasks and shared devices
  */
 void
 FITSetup()
@@ -247,10 +302,10 @@ FITSetup()
     INT8U status = OS_NO_ERR;
 
     // Initialize input synchronization mutex
-    confirmationMutex = OSMutexCreate(MUTEX_PRIORITY, &status);
+    pConfirmationMutex = OSMutexCreate(MUTEX_PRIORITY, &status);
     if (status != OS_NO_ERR)
     {
-        printf("confirmationMutex creation failed.\n");
+        printf("Mutex creation failed.\n");
     }
 
     // Create Buttons object
@@ -294,6 +349,15 @@ FITSetup()
         {
             status = OS_ERR_TASK_NOT_EXIST;
         }
+    }
+
+    if (status == OS_NO_ERR)
+    {
+        displayStatus(FITStatusReady);
+    }
+    else
+    {
+        displayStatus(FITStatusSetupFailed);
     }
 } // FITSetup
 
