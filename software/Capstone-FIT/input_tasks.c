@@ -57,42 +57,9 @@
 /* Globals                                                                   */
 /*****************************************************************************/
 
-Buttons *pButtons;
-/* Declaration of the mutex to protect global buttons and lcd*/
-OS_EVENT *pConfirmationMutex;
-
-/* Declarations for creating a task with TK_NEWTASK.
- * All tasks which use NicheStack (those that use sockets) must be created this way.
- * TK_OBJECT macro creates the static task object used by NicheStack during operation.
- * TK_ENTRY macro corresponds to the entry point, or defined function name, of the task.
- * inet_taskinfo is the structure used by TK_NEWTASK to create the task.
- */
-
-extern void MicrophoneTask();
-extern void BarcodeTask();
-extern void ConfirmItem();
-
-TK_OBJECT(to_MicrophoneTask);
-TK_ENTRY(MicrophoneTask);
-
-struct inet_taskinfo mictask = {
-            &to_MicrophoneTask,
-            "microphone_task",
-            MicrophoneTask,
-            MICROPHONE_TASK_PRIORITY,
-            TASK_STACKSIZE,
-};
-
-TK_OBJECT(to_BarcodeTask);
-TK_ENTRY(BarcodeTask);
-
-struct inet_taskinfo bartask = {
-            &to_BarcodeTask,
-            "barcode_task",
-            BarcodeTask,
-            BARCODE_TASK_PRIORITY,
-            TASK_STACKSIZE,
-};
+OS_EVENT   *pConfirmationMutex;
+OS_STK      pBarcodeTaskStack[TASK_STACKSIZE];
+OS_STK      pMicrophoneTaskStack[TASK_STACKSIZE];
 
 /*****************************************************************************/
 /* Functions                                                                 */
@@ -102,13 +69,14 @@ struct inet_taskinfo bartask = {
  * @brief      Microphone task; waits on voice, non blocking pends on
  *             shared transmit mutex, then goes through confirmation process
  *
- * @param      pData  Pointer to task context (NULL)
+ * @param[in]  pData  Pointer to task context, confirmation buttons in this case
  */
 void
 MicrophoneTask(void* pData)
 {
     INT8U               status      = OS_NO_ERR;
     Microphone         *pMicrophone = NULL;
+    Buttons            *pButtons    = (Buttons *) pData;
     Linear16Recording   exportedRecording;
     char                audio_string[ITEM_NAME_MAX_LENGTH];
 
@@ -135,7 +103,7 @@ MicrophoneTask(void* pData)
         if (status == OS_ERR_NONE) {
             translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
             printf("Voice decoded: %s\n", audio_string);
-            ConfirmItem(audio_string);
+            ConfirmItem(audio_string, pButtons);
             OSMutexPost(pConfirmationMutex);
         } else {
             printf("discarding data\n");
@@ -149,13 +117,14 @@ MicrophoneTask(void* pData)
  * @brief      Barcode task; waits on barcode scan, non blocking pends on
  *             shared transmit mutex, then goes through confirmation process
  *
- * @param[in]  pData  Pointer to task context (NULL)
+ * @param[in]  pData  Pointer to task context, confirmation buttons in this case
  */
 void
 BarcodeTask(void* pData)
 {
     INT8U           status          = OS_NO_ERR;
     BarcodeScanner *pBarcodeScanner = NULL;
+    Buttons        *pButtons        = (Buttons *) pData;
     Barcode         barcode;
     char            pItemString[ITEM_NAME_MAX_LENGTH];
 
@@ -179,7 +148,7 @@ BarcodeTask(void* pData)
             printf("Barcode: %s\n", barcode.pString);
             translate_barcode(barcode.pString, pItemString);
             printf("Barcode decoded: %s\n", pItemString);
-            ConfirmItem(pItemString);
+            ConfirmItem(pItemString, pButtons);
             OSMutexPost(pConfirmationMutex);
         } else {
             printf("discarding data\n");
@@ -195,7 +164,7 @@ BarcodeTask(void* pData)
  * @param[in]  pItemName  String representing item to be added
  */
 void
-ConfirmItem(char* pItemName)
+ConfirmItem(char* pItemName, Buttons *pButtons)
 {
     alt_up_character_lcd_dev   *pLCD    = NULL;
     Button                      button  = ButtonMax;
@@ -299,7 +268,8 @@ displayStatus(FITStatus status)
 void
 FITSetup()
 {
-    INT8U status = OS_NO_ERR;
+    INT8U       status      = OS_NO_ERR;
+    Buttons    *pButtons    = NULL;
 
     // Initialize input synchronization mutex
     pConfirmationMutex = OSMutexCreate(MUTEX_PRIORITY, &status);
@@ -338,16 +308,40 @@ FITSetup()
         }
     }
 
+    // Initialize input processing tasks
     if (status == OS_NO_ERR)
     {
-        // Initialize input processing tasks
-        if (TK_NEWTASK(&mictask) != 0)
+        if (status == OS_NO_ERR)
         {
-            status = OS_ERR_TASK_NOT_EXIST;
+            status = OSTaskCreateExt(MicrophoneTask,
+                                     pButtons,
+                                     &pMicrophoneTaskStack[TASK_STACKSIZE-1],
+                                     MICROPHONE_TASK_PRIORITY,
+                                     MICROPHONE_TASK_PRIORITY,
+                                     pMicrophoneTaskStack,
+                                     TASK_STACKSIZE,
+                                     NULL,
+                                     0);
+            if (status != OS_NO_ERR)
+            {
+                printf("LCDTask setup failed.\n");
+            }
         }
-        if (TK_NEWTASK(&bartask) != 0)
+        if (status == OS_NO_ERR)
         {
-            status = OS_ERR_TASK_NOT_EXIST;
+            status = OSTaskCreateExt(BarcodeTask,
+                                     pButtons,
+                                     &pBarcodeTaskStack[TASK_STACKSIZE-1],
+                                     BARCODE_TASK_PRIORITY,
+                                     BARCODE_TASK_PRIORITY,
+                                     pBarcodeTaskStack,
+                                     TASK_STACKSIZE,
+                                     NULL,
+                                     0);
+            if (status != OS_NO_ERR)
+            {
+                printf("LCDTask setup failed.\n");
+            }
         }
     }
 

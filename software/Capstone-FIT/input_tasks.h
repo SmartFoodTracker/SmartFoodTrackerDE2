@@ -29,6 +29,9 @@ typedef enum _FITStatus
 /* Functions                                                                 */
 /*****************************************************************************/
 
+void MicrophoneTask(void* pData);
+void BarcodeTask(void* pData);
+void ConfirmItem(char* pItemName, Buttons *pButtons);
 void displayStatus(FITStatus status);
 void FITSetup();
 
