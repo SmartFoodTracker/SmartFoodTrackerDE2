@@ -1,44 +1,47 @@
 /** @file   client.c
- *  @brief  Source for http socket requests to our server
+ *  @brief  Routines to facilitate http requests to our server
  *
- *  Used to add items, remove items, translate barcodes and translate audio through http requests.
+ *  Used to add items, remove items, translate barcodes and translate audio
+ *  through http requests to a remote statically hosted server.
  *
- *  @author Andrew Bradshaw (abradsha)
+ *  @author Andrew Bradshaw (abradsha), Kyle O'Shaughnessy (koshaugh)
  */
 
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
 
+// System routines
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <sys/param.h>
 #include <sys/fcntl.h>
-#include "client.h"
-
 #include "ipport.h"
 #include "libport.h"
 #include "osport.h"
 #include "tcpport.h"
 
-/*
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <sys/socket.h>
-#include <resolv.h>
-*/
+// Web request routines
+#include "client.h"
 
-#define PORT 80
-#define IP_ADDR "13.56.5.40"
-#define MAX_HTTP_SIZE 1000000
-#define MAX_BODY_SIZE 1000
-#define MAX_CHUNK 1024
+/*****************************************************************************/
+/* Constants                                                                 */
+/*****************************************************************************/
 
-int server_fd;
-struct sockaddr_in server_info;
+#define PORT            80
+#define IP_ADDR         "13.56.5.40"
+#define MAX_HTTP_SIZE   1000000
+#define MAX_BODY_SIZE   1000
+#define MAX_CHUNK       1024
+
+/*****************************************************************************/
+/* Globals                                                                   */
+/*****************************************************************************/
+
+int                 server_fd;
+struct sockaddr_in  server_info;
 
 // Header for barcode
 static const char barcode_request[] = {"\
@@ -81,9 +84,15 @@ static const char add_json[] = {"{\
 \"timeExpired\": 32326905600\
 }"};
 
-//u_long inet_addr(char FAR * str);
+/*****************************************************************************/
+/* Functions                                                                 */
+/*****************************************************************************/
 
-// Set up socket file descriptor and connect to server
+/**
+ * @brief      Set up socket file descriptor and connect to server
+ *
+ * @return     1 if no error, otherwise -1 (socket or connection error)
+ */
 int create_connection() {
     // Set up socket
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
@@ -105,9 +114,18 @@ int create_connection() {
         return -1;
     }
     return 1;
-}
+} // create_connection
 
-// Gets the response on the socket, returns total received bytes once connection dies
+/*****************************************************************************/
+
+/**
+ * @brief      Gets the response on the socket, returns total received bytes
+ *             once connection dies
+ *
+ * @param      response  The response
+ *
+ * @return     { description_of_the_return_value }
+ */
 int reliable_receive(char* response) {
     int total_bytes = 0;
     // Loop over receiving until connection dies because it might be split into multiple packets
@@ -123,26 +141,58 @@ int reliable_receive(char* response) {
         }
     }
     return 0;
-}
+} // reliable_receive
 
-// Grab the body from an http response
+/*****************************************************************************/
+
+/**
+ * @brief      Grab the body from an http response
+ *
+ * @param      response  The response
+ * @param      body      The body
+ */
 void parse_body(char* response, char* body) {
     // Ignore the starting newlines in body by adding 4
     char* position = strstr(response, "\r\n\r\n") + 4;
     strcpy(body, position);
-}
+} // parse_body
 
-// Check if returned response says the request is valid
+/*****************************************************************************/
+
+/**
+ * @brief      Check if returned response says the request is valid
+ *
+ * @param      response  The response
+ *
+ * @return     { description_of_the_return_value }
+ */
 int good_response(char* response) {
-	char* position = strstr(response, "200 OK");
-	return position != NULL;
-}
+    char* position = strstr(response, "200 OK");
+    return position != NULL;
+} // good_response
 
+/*****************************************************************************/
+
+/**
+ * @brief      Creates a barcode request.
+ *
+ * @param      barcode  The barcode
+ * @param      request  The request
+ */
 void create_barcode_request(char* barcode, char* request) {
     sprintf(request, barcode_request, barcode, IP_ADDR);
-}
+} // create_barcode_request
 
-// Takes in a barcode and returns the food item that it corresponds to
+/*****************************************************************************/
+
+/**
+ * @brief      Convert a barcode to a plain-text item string
+ *
+ * @param      barcode  The barcode
+ * @param      resp     The resp
+ *
+ * @return     { description_of_the_return_value }
+ */
 int translate_barcode(char* barcode, char* resp)
 {
     char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
@@ -153,28 +203,28 @@ int translate_barcode(char* barcode, char* resp)
         (body     != NULL)) {
         if(create_connection() < 0) {
             sprintf(resp, "Could not connect to internet.");
-		    if (request)
-		    	free(request);
+            if (request)
+                free(request);
 
-		    if (response)
-		    	free(response);
+            if (response)
+                free(response);
 
-		    if (body)
-		    	free(body);
+            if (body)
+                free(body);
             return -1;
         }
         create_barcode_request(barcode, request);
         if (send(server_fd, request, strlen(request), 0) < 0) {
             perror("Error while sending");
             sprintf(resp, "Could not connect to internet.");
-		    if (request)
-		    	free(request);
+            if (request)
+                free(request);
 
-		    if (response)
-		    	free(response);
+            if (response)
+                free(response);
 
-		    if (body)
-		    	free(body);
+            if (body)
+                free(body);
             return -1;
         }
         int total_bytes = reliable_receive(response);
@@ -185,26 +235,47 @@ int translate_barcode(char* barcode, char* resp)
     }
 
     if (request)
-    	free(request);
+        free(request);
 
     if (response)
-    	free(response);
+        free(response);
 
     if (body)
-    	free(body);
+        free(body);
 
     return 1;
-}
+} // translate_barcode
 
-// Create the request by creating the header and appending the audio file to it after
+/*****************************************************************************/
+
+/**
+ * @brief      Create the request by generating the header and appending the
+ *             audio file to it after
+ *
+ * @param      audio    The audio
+ * @param[in]  len      The length
+ * @param      request  The request
+ *
+ * @return     { description_of_the_return_value }
+ */
 long create_audio_request(char* audio, long len, char* request) {
     sprintf(request, audio_request, IP_ADDR, len);
     long header_length = strlen(request);
     memcpy(request+strlen(request),audio,len);
     return header_length;
-}
+} // create_audio_request
 
-// Takes in an audio file and its size and returns the text the audio represents
+/*****************************************************************************/
+
+/**
+ * @brief      Convert a spoken word audio clip to plain-text tokens
+ *
+ * @param      audio         The audio
+ * @param[in]  audio_length  The audio length
+ * @param      resp          The resp
+ *
+ * @return     { description_of_the_return_value }
+ */
 int translate_audio(char* audio, long audio_length, char* resp) {
     char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
     char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
@@ -214,14 +285,14 @@ int translate_audio(char* audio, long audio_length, char* resp) {
         (body     != NULL)) {
         if(create_connection() < 0) {
             sprintf(resp, "Could not connect to internet.");
-		    if (request)
-		    	free(request);
+            if (request)
+                free(request);
 
-		    if (response)
-		    	free(response);
+            if (response)
+                free(response);
 
-		    if (body)
-		    	free(body);
+            if (body)
+                free(body);
             return -1;
         }
         long header_length = create_audio_request(audio, audio_length, request);
@@ -229,14 +300,14 @@ int translate_audio(char* audio, long audio_length, char* resp) {
         if (sent_bytes < 0) {
             perror("Error while sending");
             sprintf(resp, "Could not connect to internet.");
-		    if (request)
-		    	free(request);
+            if (request)
+                free(request);
 
-		    if (response)
-		    	free(response);
+            if (response)
+                free(response);
 
-		    if (body)
-		    	free(body);
+            if (body)
+                free(body);
             return -1;
         }
         int total_bytes = reliable_receive(response);
@@ -247,28 +318,45 @@ int translate_audio(char* audio, long audio_length, char* resp) {
     }
 
     if (request)
-    	free(request);
+        free(request);
 
     if (response)
-    	free(response);
+        free(response);
 
     if (body)
-    	free(body);
+        free(body);
 
     return 1;
-}
+} // translate_audio
 
-// Create add request by creating the json we need then creating the header and returning the length
-// of the total request size
+/*****************************************************************************/
+
+/**
+ * @brief      Create add request by generating the json we need then creating
+               the header and returning the length of the total request size
+ *
+ * @param      item     The item
+ * @param      request  The request
+ *
+ * @return     { description_of_the_return_value }
+ */
 int create_add_request(char* item, char* request) {
-	char body[MAX_BODY_SIZE];
-	sprintf(body, add_json, item);
+    char body[MAX_BODY_SIZE];
+    sprintf(body, add_json, item);
     sprintf(request, add_request, IP_ADDR, (int)strlen(body));
     memcpy(request+strlen(request), body, strlen(body));
     return (int)strlen(request);
-}
+} // create_add_request
 
-// Adds an item string to the items we have
+/*****************************************************************************/
+
+/**
+ * @brief      Adds an item to the FIT database
+ *
+ * @param      item  The item
+ *
+ * @return     { description_of_the_return_value }
+ */
 int add_item(char* item) {
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
@@ -286,13 +374,31 @@ int add_item(char* item) {
     response[total_bytes] = '\0';
     close(server_fd);
     return good_response(response);
-}
+} // add_item
 
+/*****************************************************************************/
+
+/**
+ * @brief      Creates a delete request
+ *
+ * @param      item     The item
+ * @param      request  The request
+ */
 void create_delete_request(char* item, char* request) {
     sprintf(request, delete_request, item, IP_ADDR);
-}
+} // create_delete_request
+
+/*****************************************************************************/
 
 // Remove item from our inventory based on a string
+
+/**
+ * @brief      Remove item from FIT database
+ *
+ * @param      item  The item
+ *
+ * @return     { description_of_the_return_value }
+ */
 int remove_item(char *item) {
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
@@ -310,4 +416,8 @@ int remove_item(char *item) {
     response[total_bytes] = '\0';
     close(server_fd);
     return good_response(response);
-}
+} // remove_item
+
+/*****************************************************************************/
+/* End of File                                                               */
+/*****************************************************************************/

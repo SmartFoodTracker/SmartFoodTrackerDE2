@@ -86,17 +86,17 @@ extern FILE* lcdDevice;
  * An ethernet CLIENT application would have lower prioritization than the 
  * stack & ethernet tasks.
  */
-#define HTTP_PRIO     4
-#define WS_INITIAL_TASK_PRIO 5
-#define LED_PRIO      6
-#define SSD_PRIO      7
-#define BOARD_PRIO    8
+#define HTTP_PRIO               4
+#define WS_INITIAL_TASK_PRIO    5
+#define LED_PRIO                6
+#define SSD_PRIO                7
+#define BOARD_PRIO              8
 /* 
  * Buffer size for a routine to call if things fail
  */
  
 /* Definition of Task Stacks for tasks not using networking. */
-#define   TASK_STACKSIZE       2048
+#define TASK_STACKSIZE          2048
 
 
 extern OS_STK    WSInitialTaskStk[TASK_STACKSIZE];
@@ -104,7 +104,7 @@ extern OS_STK    BCTaskStk[TASK_STACKSIZE];
 extern OS_STK    LEDTaskStk[TASK_STACKSIZE];
 extern OS_STK    SSDTaskStk[TASK_STACKSIZE];
 
-#define DIE_WITH_ERROR_BUFFER 256
+#define DIE_WITH_ERROR_BUFFER   256
 
 #endif /* __WEB_SERVER_H__ */
 

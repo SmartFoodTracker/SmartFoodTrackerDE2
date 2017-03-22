@@ -1,13 +1,21 @@
-/*
- * input_tasks.h
+/** @file   input_tasks.h
+ *  @brief  Public facing routines for facilitating food inventory tracker
+ *          data entry
  *
- *  Created on: Feb 27, 2017
- *      Author: abradsha
+ *  @author Andrew Bradshaw (abradsha), Kyle O'Shaughnessy (koshaugh)
  */
 
-#ifndef INPUT_TASKS_H_
-#define INPUT_TASKS_H_
+#ifndef __INPUT_TASKS_H
+#define __INPUT_TASKS_H
+
+/*****************************************************************************/
+/* Functions                                                                 */
+/*****************************************************************************/
 
 void FITSetup();
 
-#endif /* INPUT_TASKS_H_ */
+/*****************************************************************************/
+/* End of File                                                               */
+/*****************************************************************************/
+
+#endif // __INPUT_TASKS_H

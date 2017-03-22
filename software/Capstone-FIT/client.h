@@ -1,16 +1,23 @@
-/*
- * client.h
+/** @file   client.h
+ *  @brief  Public facing routines to facilitate http requests to our server
  *
- *  Created on: Feb 10, 2017
- *      Author: abradsha
+ *  @author Andrew Bradshaw (abradsha), Kyle O'Shaughnessy (koshaugh)
  */
 
-#ifndef CLIENT_H_
-#define CLIENT_H_
+#ifndef __CLIENT_H
+#define __CLIENT_H
+
+/*****************************************************************************/
+/* Functions                                                                 */
+/*****************************************************************************/
 
 int translate_barcode(char* barcode, char* response);
 int translate_audio(char* audio, long audio_length, char* response);
 int add_item(char* item);
 int remove_item(char *item);
 
-#endif /* CLIENT_H_ */
+/*****************************************************************************/
+/* End of File                                                               */
+/*****************************************************************************/
+
+#endif // __CLIENT_H

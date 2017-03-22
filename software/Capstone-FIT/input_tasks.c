@@ -1,38 +1,40 @@
 /** @file   input_tasks.c
- *  @brief  Code for entering food into the food inventory tracking system
+ *  @brief  Routines for food inventory tracker data entry
  *
- *  Wait for either audio or barcode to be entered
- *  Send them to server and have it translate it into text
- *  Display text and have user click a button to either add or remove the food
+ *  Wait for either audio-clip or barcode to be entered;
+ *  Send data to server for processing (translate to plain text);
+ *  Display item plain text and have user click a button to add or remove the 
+ *  item.
  *
- *
- *  @author Andrew Bradshaw (abradsha)
+ *  @author Andrew Bradshaw (abradsha), Kyle O'Shaughnessy (koshaugh)
  */
 
 /*****************************************************************************/
 /* Includes                                                                  */
 /*****************************************************************************/
 
+// System routines
 #include <stdio.h>
 #include <errno.h>
 #include <ctype.h>
 #include <unistd.h>
 #include "system.h"
-#include "altera_avalon_pio_regs.h"
 #include "includes.h"
+#include "altera_avalon_pio_regs.h"
 
+// Device driver routines
 #include "buttons.h"
 #include "barcode_scanner.h"
-#include "client.h"
 #include "microphone.h"
 #include "altera_up_avalon_character_lcd.h"
+#include "client.h"
 
-/* Web Server definitions */
+// Web server routines
 #include "alt_error_handler.h"
 #include "web_server.h"
 #include "dm9000a.h"
 
-/* Nichestack definitions */
+// Nichestack
 #include "ipport.h"
 #include "libport.h"
 #include "osport.h"
@@ -43,18 +45,17 @@
 /* Constants                                                                 */
 /*****************************************************************************/
 
-#define TASK_STACKSIZE      2048
-#define MUTEX_PRIORITY           6
-#define MICROPHONE_TASK_PRIORITY   8
-#define BARCODE_TASK_PRIORITY   7
-#define ITEM_SIZE 64
+#define TASK_STACKSIZE              2048
+#define MUTEX_PRIORITY              6
+#define BARCODE_TASK_PRIORITY       7
+#define MICROPHONE_TASK_PRIORITY    8
+#define ITEM_SIZE                   64
 
 /*****************************************************************************/
 /* Globals                                                                   */
 /*****************************************************************************/
 
 Buttons *pButtons;
-alt_up_character_lcd_dev *pLCD;
 /* Declaration of the mutex to protect global buttons and lcd*/
 OS_EVENT *confirmationMutex;
 
@@ -67,9 +68,7 @@ OS_EVENT *confirmationMutex;
 
 extern void MicrophoneTask();
 extern void BarcodeTask();
-extern void DisplayText();
-
-//extern struct net netstatic[STATIC_NETS];
+extern void ConfirmItem();
 
 TK_OBJECT(to_MicrophoneTask);
 TK_ENTRY(MicrophoneTask);
@@ -101,6 +100,7 @@ struct inet_taskinfo bartask = {
  * @brief      Microphone task; waits on voice, non blocking pends on
  *             shared transmit mutex, then goes through confirmation process
  *
+ * @param      pData  Pointer to task context (NULL)
  */
 void MicrophoneTask(void* pData) {
     INT8U status = OS_NO_ERR;
@@ -133,29 +133,32 @@ void MicrophoneTask(void* pData) {
         if (status == OS_ERR_NONE) {
             translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
             printf("Voice decoded: %s\n", audio_string);
-            DisplayText(audio_string);
+            ConfirmItem(audio_string);
             OSMutexPost(confirmationMutex);
         } else {
-        	printf("discarding data\n");
+            printf("discarding data\n");
         }
     }
 
     if (pMicrophone)
     {
-    	microphoneDestroy(pMicrophone);
+        microphoneDestroy(pMicrophone);
     }
 } // MicrophoneTask
+
+/*****************************************************************************/
 
 /**
  * @brief      Barcode task; waits on barcode scan, non blocking pends on
  *             shared transmit mutex, then goes through confirmation process
  *
+ * @param[in]  pData  Pointer to task context (NULL)
  */
 void BarcodeTask(void* pData) {
     INT8U status = OS_NO_ERR;
     BarcodeScanner *pBarcodeScanner = NULL;
     Barcode barcode;
-    char barcode_string[ITEM_SIZE];
+    char pItemString[ITEM_SIZE];
 
     // Create and initialize barcode scanner
     pBarcodeScanner = barcodeScannerCreate(BARCODE_SCANNER_PS2_NAME,
@@ -172,92 +175,103 @@ void BarcodeTask(void* pData) {
         // Nonblocking mutex to throw away data while blocked
         OSMutexPend(confirmationMutex, 1, &status);
         if (status == OS_ERR_NONE) {
-        	printf("Barcode: %s\n", barcode.pString);
-            translate_barcode(barcode.pString, barcode_string);
-            printf("Barcode decoded: %s\n", barcode_string);
-            DisplayText(barcode_string);
+            printf("Barcode: %s\n", barcode.pString);
+            translate_barcode(barcode.pString, pItemString);
+            printf("Barcode decoded: %s\n", pItemString);
+            ConfirmItem(pItemString);
             OSMutexPost(confirmationMutex);
         } else {
-        	printf("discarding data\n");
+            printf("discarding data\n");
         }
     }
 } // BarcodeTask
 
+/*****************************************************************************/
+
 /**
- * @brief      Display String on LCD and get button response based on user input
+ * @brief      Display item on LCD and process button response
  *
+ * @param[in]  pItemName  String reprenting item to be added
  */
-void DisplayText(char* item) {
-    Button button = ButtonMax;
-    // Clear LCD
-    alt_up_character_lcd_init(pLCD);
-    alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+void ConfirmItem(char* pItemName) {
+    alt_up_character_lcd_dev   *pLCD    = NULL;
+    Button                      button  = ButtonMax;
 
-    // Write button string to LCD
-    alt_up_character_lcd_string(pLCD, item);
-    buttonsEnableAll(pButtons);
-    button = buttonsGetButtonPress(pButtons);
-    buttonsDisableAll(pButtons);
+    if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) != NULL)
+    {
+        // Clear LCD
+        alt_up_character_lcd_init(pLCD);
+        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
 
-    // Clear LCD
-    alt_up_character_lcd_init(pLCD);
-    alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+        // Write item string to LCD
+        alt_up_character_lcd_string(pLCD, pItemName);
 
-    if (button == ButtonAdd) {
-        printf("added \"%s\"\n", item);
-        add_item(item);
-    } else if (button == ButtonRemove) {
-        printf("removed \"%s\"\n", item);
-        remove_item(item);
+        // Get confirmation response
+        buttonsEnableAll(pButtons);
+        button = buttonsGetButtonPress(pButtons);
+        buttonsDisableAll(pButtons);
+
+        // Clear LCD
+        alt_up_character_lcd_init(pLCD);
+        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+
+        // Add or remove item depending on response
+        if (button == ButtonAdd) {
+            printf("added \"%s\"\n", pItemString);
+            add_item(pItemName);
+        } else if (button == ButtonRemove) {
+            printf("removed \"%s\"\n", pItemName);
+            remove_item(pItemName);
+        }
+    } 
+    else
+    {
+        printf("LCD setup failed\n");
     }
-}
+} // ConfirmItem
 
 /*****************************************************************************/
 
 /**
- * @brief      Task to set up subtasks
- *
+ * @brief      Routine which sets up input tasks and 
  */
 void FITSetup()
 {
-    INT8U       status      = OS_NO_ERR;
+    INT8U status = OS_NO_ERR;
+
+    // Initialize input synchonization mutex
+    confirmationMutex = OSMutexCreate(MUTEX_PRIORITY, &status);
+    if (status != OS_ERR_NONE)
+    {
+        printf("confirmationMutex creation failed.\n");
+    }
 
     // Create Buttons object
     pButtons = buttonsCreate();
-    if (pButtons == NULL)
+    if (pButtons != NULL)
+    {
+        // Initialize all buttons
+        buttonsInitButton(pButtons,
+                          ButtonAdd,
+                          ADD_BUTTON_BASE,
+                          ADD_BUTTON_IRQ);
+
+        buttonsInitButton(pButtons,
+                          ButtonCancel,
+                          CANCEL_BUTTON_BASE,
+                          CANCEL_BUTTON_IRQ);
+
+        buttonsInitButton(pButtons,
+                          ButtonRemove,
+                          REMOVE_BUTTON_BASE,
+                          REMOVE_BUTTON_IRQ);
+    }
+    else
     {
         printf("Buttons creation failed.\n");
     }
 
-    // Initialize mutex
-    confirmationMutex = OSMutexCreate(MUTEX_PRIORITY, &status);
-
-    // Initialize all buttons
-    buttonsInitButton(pButtons,
-                        ButtonAdd,
-                        ADD_BUTTON_BASE,
-                                ADD_BUTTON_IRQ);
-
-    buttonsInitButton(pButtons,
-                        ButtonCancel,
-                        CANCEL_BUTTON_BASE,
-                                CANCEL_BUTTON_IRQ);
-
-    buttonsInitButton(pButtons,
-                        ButtonRemove,
-                        REMOVE_BUTTON_BASE,
-                                REMOVE_BUTTON_IRQ);
-    // LCD setup
-    if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) == NULL)
-    {
-        printf("LCD setup failed\n");
-    } else {
-        // Clear LCD
-        alt_up_character_lcd_init(pLCD);
-        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
-        alt_up_character_lcd_string(pLCD, "setup");
-    }
-
+    // Initialize input processing tasks
     TK_NEWTASK(&mictask);
     TK_NEWTASK(&bartask);
 } // FITSetup
