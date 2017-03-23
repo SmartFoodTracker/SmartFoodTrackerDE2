@@ -24,16 +24,6 @@
 #include "client.h"
 
 /*****************************************************************************/
-/* Constants                                                                 */
-/*****************************************************************************/
-
-#define PORT            80
-#define IP_ADDR         "13.56.5.40"
-#define MAX_HTTP_SIZE   1000000
-#define MAX_BODY_SIZE   1000
-#define MAX_CHUNK       1024
-
-/*****************************************************************************/
 /* Declarations                                                              */
 /*****************************************************************************/
 
@@ -113,54 +103,32 @@ static const char add_json[] = {"{\
 int
 translate_barcode(char *pBarcodeString, char *pItemString)
 {
-    char *pRequest  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *pResponse = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *pBody     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
-    if ((pRequest  != NULL) &&
-        (pResponse != NULL) &&
-        (pBody     != NULL)) {
-        if(create_connection() < 0) {
+    FITRequest *pHttpRequest = (FITRequest *) malloc(sizeof(FITRequest));
+    
+    if (pHttpRequest != NULL)
+    {
+        if(create_connection() < 0)
+        {
             sprintf(pItemString, "Could not connect to internet.");
-            if (pRequest)
-                free(pRequest);
-
-            if (pResponse)
-                free(pResponse);
-
-            if (pBody)
-                free(pBody);
+            free(pHttpRequest);
             return -1;
         }
-        create_barcode_request(pBarcodeString, pRequest);
-        if (send(server_fd, pRequest, strlen(pRequest), 0) < 0) {
+        create_barcode_request(pBarcodeString, pHttpRequest->pRequest);
+        if (send(server_fd, pHttpRequest->pRequest, strlen(pHttpRequest->pRequest), 0) < 0)
+        {
             perror("Error while sending");
             sprintf(pItemString, "Could not connect to internet.");
-            if (pRequest)
-                free(pRequest);
-
-            if (pResponse)
-                free(pResponse);
-
-            if (pBody)
-                free(pBody);
+            free(pHttpRequest);
             return -1;
         }
-        int total_bytes = reliable_receive(pResponse);
-        pResponse[total_bytes] = '\0';
-        parse_body(pResponse, pBody);
+        int total_bytes = reliable_receive(pHttpRequest->pResponse);
+        pHttpRequest->pResponse[total_bytes] = '\0';
+        parse_body(pHttpRequest->pResponse, pHttpRequest->pBody);
         close(server_fd);
-        strcpy(pItemString, pBody);
+        strcpy(pItemString, pHttpRequest->pBody);
     }
 
-    if (pRequest)
-        free(pRequest);
-
-    if (pResponse)
-        free(pResponse);
-
-    if (pBody)
-        free(pBody);
-
+    free(pHttpRequest);
     return 1;
 } // translate_barcode
 
@@ -179,55 +147,38 @@ translate_barcode(char *pBarcodeString, char *pItemString)
 int
 translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
 {
-    char *pRequest  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *pResponse = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *pBody     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
-    if ((pRequest  != NULL) &&
-        (pResponse != NULL) &&
-        (pBody     != NULL)) {
-        if(create_connection() < 0) {
+    FITRequest *pHttpRequest = (FITRequest *) malloc(sizeof(FITRequest));
+    
+    if (pHttpRequest != NULL)
+    {
+        if(create_connection() < 0)
+        {
             sprintf(pItemString, "Could not connect to internet.");
-            if (pRequest)
-                free(pRequest);
-
-            if (pResponse)
-                free(pResponse);
-
-            if (pBody)
-                free(pBody);
+            free(pHttpRequest);
             return -1;
         }
-        long header_length = create_audio_request(pAudioRecording, audioLengthBytes, pRequest);
-        int sent_bytes = send(server_fd, pRequest, header_length + audioLengthBytes, 0);
-        if (sent_bytes < 0) {
+        long header_length = create_audio_request(pAudioRecording,
+                                                  audioLengthBytes,
+                                                  pHttpRequest->pRequest);
+        int sent_bytes = send(server_fd,
+                              pHttpRequest->pRequest,
+                              header_length + audioLengthBytes,
+                              0);
+        if (sent_bytes < 0)
+        {
             perror("Error while sending");
             sprintf(pItemString, "Could not connect to internet.");
-            if (pRequest)
-                free(pRequest);
-
-            if (pResponse)
-                free(pResponse);
-
-            if (pBody)
-                free(pBody);
+            free(pHttpRequest);
             return -1;
         }
-        int total_bytes = reliable_receive(pResponse);
-        pResponse[total_bytes] = '\0';
-        parse_body(pResponse, pBody);
+        int total_bytes = reliable_receive(pHttpRequest->pResponse);
+        pHttpRequest->pResponse[total_bytes] = '\0';
+        parse_body(pHttpRequest->pResponse, pHttpRequest->pBody);
         close(server_fd);
-        strcpy(pItemString, pBody);
+        strcpy(pItemString, pHttpRequest->pBody);
     }
 
-    if (pRequest)
-        free(pRequest);
-
-    if (pResponse)
-        free(pResponse);
-
-    if (pBody)
-        free(pBody);
-
+    free(pHttpRequest);
     return 1;
 } // translate_audio
 
@@ -238,27 +189,40 @@ translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
  *
  * @param[in]  pItemString  The item to be added
  *
- * @return     1 if successful, otherwise -1 in case of error
+ * @return     1 if successful, otherwise error
  */
 int
 add_item(char *pItemString)
 {
-    char request[MAX_HTTP_SIZE];
-    char response[MAX_HTTP_SIZE];
-    char body[MAX_BODY_SIZE];
-    if(create_connection() < 0) {
-        return -1;
+    int         retval          = -1;
+    FITRequest *pHttpRequest    = (FITRequest *) malloc(sizeof(FITRequest));
+    
+    if (pHttpRequest != NULL)
+    {
+        if(create_connection() < 0)
+        {
+            free(pHttpRequest);
+            return retval;
+        }
+        long header_length = create_add_request(pItemString, pHttpRequest->pRequest);
+        int sent_bytes = send(server_fd, pHttpRequest->pRequest, header_length, 0);
+        if (sent_bytes < 0)
+        {
+            free(pHttpRequest);
+            perror("Error while sending");
+            return retval;
+        }
+        int total_bytes = reliable_receive(pHttpRequest->pResponse);
+        pHttpRequest->pResponse[total_bytes] = '\0';
+        close(server_fd);
+        retval = good_response(pHttpRequest->pResponse);
+        free(pHttpRequest);
+        return retval;  
     }
-    long header_length = create_add_request(pItemString, request);
-    int sent_bytes = send(server_fd, request, header_length, 0);
-    if (sent_bytes < 0) {
-        perror("Error while sending");
-        return -1;
+    else
+    {
+        return retval;
     }
-    int total_bytes = reliable_receive(response);
-    response[total_bytes] = '\0';
-    close(server_fd);
-    return good_response(response);
 } // add_item
 
 /*****************************************************************************/
@@ -268,27 +232,39 @@ add_item(char *pItemString)
  *
  * @param[in]  pItemString  The item to be removed
  *
- * @return     1 if successful, otherwise -1 in case of error
+ * @return     1 if successful, otherwise error
  */
 int
 remove_item(char *pItemString)
 {
-    char request[MAX_HTTP_SIZE];
-    char response[MAX_HTTP_SIZE];
-    char body[MAX_BODY_SIZE];
-    if(create_connection() < 0) {
-        return -1;
+
+    int         retval          = -1;
+    FITRequest *pHttpRequest    = (FITRequest *) malloc(sizeof(FITRequest));
+    
+    if (pHttpRequest != NULL)
+    {
+        if(create_connection() < 0)
+        {
+            free(pHttpRequest);
+            return retval;
+        }
+        create_delete_request(pItemString, pHttpRequest->pRequest);
+        int sent_bytes = send(server_fd, pHttpRequest->pRequest, strlen(pHttpRequest->pRequest), 0);
+        if (sent_bytes < 0)
+        {
+            perror("Error while sending");
+            free(pHttpRequest);
+            return retval;
+        }
+        int total_bytes = reliable_receive(pHttpRequest->pResponse);
+        pHttpRequest->pResponse[total_bytes] = '\0';
+        close(server_fd);
+        free(pHttpRequest);
+        retval = good_response(pHttpRequest->pResponse);
+        return retval;
     }
-    create_delete_request(pItemString, request);
-    int sent_bytes = send(server_fd, request, strlen(request), 0);
-    if (sent_bytes < 0) {
-        perror("Error while sending");
-        return -1;
-    }
-    int total_bytes = reliable_receive(response);
-    response[total_bytes] = '\0';
-    close(server_fd);
-    return good_response(response);
+
+    return retval;
 } // remove_item
 
 /*****************************************************************************/
@@ -313,8 +289,8 @@ create_connection()
     // Set up information for server
     bzero(&server_info, sizeof(server_info));
     server_info.sin_family = AF_INET;
-    server_info.sin_port = htons(PORT);
-    server_info.sin_addr.s_addr = inet_addr(IP_ADDR);
+    server_info.sin_port = htons(FIT_PORT);
+    server_info.sin_addr.s_addr = inet_addr(FIT_IP_ADDR);
 
     // Connect to server
     if (connect(server_fd, (struct sockaddr*)&server_info, sizeof(server_info)) != 0)
@@ -342,7 +318,7 @@ reliable_receive(char *pResponse)
     int total_bytes = 0;
     // Loop over receiving until connection dies because it might be split into multiple packets
     while (1) {
-        int bytes_received = recv(server_fd, pResponse + total_bytes, MAX_HTTP_SIZE - total_bytes, 0);
+        int bytes_received = recv(server_fd, pResponse + total_bytes, FIT_MAX_HTTP_SIZE - total_bytes, 0);
         if (bytes_received == 0) {
             return total_bytes;
         } else if (bytes_received < 0) {
@@ -400,7 +376,7 @@ good_response(char *pResponse)
 static void
 create_barcode_request(char *pBarcodeString, char *pRequest)
 {
-    sprintf(pRequest, barcode_request, pBarcodeString, IP_ADDR);
+    sprintf(pRequest, barcode_request, pBarcodeString, FIT_IP_ADDR);
 } // create_barcode_request
 
 /*****************************************************************************/
@@ -419,7 +395,7 @@ create_barcode_request(char *pBarcodeString, char *pRequest)
 static long
 create_audio_request(char *pAudioRecording, long audioLengthBytes, char *pRequest)
 {
-    sprintf(pRequest, audio_request, IP_ADDR, audioLengthBytes);
+    sprintf(pRequest, audio_request, FIT_IP_ADDR, audioLengthBytes);
     long header_length = strlen(pRequest);
     memcpy(pRequest+strlen(pRequest),pAudioRecording,audioLengthBytes);
     return header_length;
@@ -440,9 +416,9 @@ create_audio_request(char *pAudioRecording, long audioLengthBytes, char *pReques
 static int
 create_add_request(char *pItemString, char *pRequest)
 {
-    char body[MAX_BODY_SIZE];
+    char body[FIT_MAX_BODY_SIZE];
     sprintf(body, add_json, pItemString);
-    sprintf(pRequest, add_request, IP_ADDR, (int)strlen(body));
+    sprintf(pRequest, add_request, FIT_IP_ADDR, (int)strlen(body));
     memcpy(pRequest+strlen(pRequest), body, strlen(body));
     return (int)strlen(pRequest);
 } // create_add_request
@@ -459,7 +435,7 @@ create_add_request(char *pItemString, char *pRequest)
 static void
 create_delete_request(char *pItemString, char *pRequest)
 {
-    sprintf(pRequest, delete_request, pItemString, IP_ADDR);
+    sprintf(pRequest, delete_request, pItemString, FIT_IP_ADDR);
 } // create_delete_request
 
 /*****************************************************************************/
