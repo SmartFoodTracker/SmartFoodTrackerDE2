@@ -11,10 +11,13 @@
 /* Functions                                                                 */
 /*****************************************************************************/
 
-int translate_barcode(char* barcode, char* response);
-int translate_audio(char* audio, long audio_length, char* response);
-int add_item(char* item);
-int remove_item(char *item);
+int translate_barcode(char *pBarcodeString,
+                      char *pItemString);
+int translate_audio(char *pAudioRecording,
+                    long  audioLengthBytes,
+                    char *pItemString);
+int add_item(char *pItemString);
+int remove_item(char *pItemString);
 
 /*****************************************************************************/
 /* End of File                                                               */

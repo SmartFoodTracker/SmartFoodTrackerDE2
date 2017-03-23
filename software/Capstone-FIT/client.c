@@ -38,13 +38,15 @@
 /*****************************************************************************/
 
 static int  create_connection();
-static int  reliable_receive(char* response);
-static void parse_body(char* response, char* body);
-static int  good_response(char* response);
-static void create_barcode_request(char* barcode, char* request);
-static long create_audio_request(char* audio, long len, char* request);
-static int  create_add_request(char* item, char* request);
-static void create_delete_request(char* item, char* request);
+static int  reliable_receive(char *pResponse);
+static void parse_body(char *pResponse, char *pBody);
+static int  good_response(char *pResponse);
+static void create_barcode_request(char *pBarcodeString, char *pRequest);
+static long create_audio_request(char *pAudioRecording,
+                                 long  audioLengthBytes,
+                                 char *pRequest);
+static int  create_add_request(char *pItem, char *pRequest);
+static void create_delete_request(char *pItem, char *pRequest);
 
 /*****************************************************************************/
 /* Globals                                                                   */
@@ -101,61 +103,63 @@ static const char add_json[] = {"{\
 /**
  * @brief      Convert a barcode to a plain-text item string
  *
- * @param      barcode  The barcode
- * @param      resp     The resp
+ * @param[in]     pBarcodeString  Barcode as a string
+ * @param[inout]  pItemString     Item string representation, buffer must be
+ *                                pre-allocated by caller
  *
- * @return     { description_of_the_return_value }
+ *
+ * @return     1 if successful, -1 otherwise (pItemString will not be useful)
  */
 int
-translate_barcode(char* barcode, char* resp)
+translate_barcode(char *pBarcodeString, char *pItemString)
 {
-    char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *body     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
-    if ((request  != NULL) &&
-        (response != NULL) &&
-        (body     != NULL)) {
+    char *pRequest  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *pResponse = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *pBody     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
+    if ((pRequest  != NULL) &&
+        (pResponse != NULL) &&
+        (pBody     != NULL)) {
         if(create_connection() < 0) {
-            sprintf(resp, "Could not connect to internet.");
-            if (request)
-                free(request);
+            sprintf(pItemString, "Could not connect to internet.");
+            if (pRequest)
+                free(pRequest);
 
-            if (response)
-                free(response);
+            if (pResponse)
+                free(pResponse);
 
-            if (body)
-                free(body);
+            if (pBody)
+                free(pBody);
             return -1;
         }
-        create_barcode_request(barcode, request);
-        if (send(server_fd, request, strlen(request), 0) < 0) {
+        create_barcode_request(pBarcodeString, pRequest);
+        if (send(server_fd, pRequest, strlen(pRequest), 0) < 0) {
             perror("Error while sending");
-            sprintf(resp, "Could not connect to internet.");
-            if (request)
-                free(request);
+            sprintf(pItemString, "Could not connect to internet.");
+            if (pRequest)
+                free(pRequest);
 
-            if (response)
-                free(response);
+            if (pResponse)
+                free(pResponse);
 
-            if (body)
-                free(body);
+            if (pBody)
+                free(pBody);
             return -1;
         }
-        int total_bytes = reliable_receive(response);
-        response[total_bytes] = '\0';
-        parse_body(response, body);
+        int total_bytes = reliable_receive(pResponse);
+        pResponse[total_bytes] = '\0';
+        parse_body(pResponse, pBody);
         close(server_fd);
-        strcpy(resp, body);
+        strcpy(pItemString, pBody);
     }
 
-    if (request)
-        free(request);
+    if (pRequest)
+        free(pRequest);
 
-    if (response)
-        free(response);
+    if (pResponse)
+        free(pResponse);
 
-    if (body)
-        free(body);
+    if (pBody)
+        free(pBody);
 
     return 1;
 } // translate_barcode
@@ -165,63 +169,64 @@ translate_barcode(char* barcode, char* resp)
 /**
  * @brief      Convert a spoken word audio clip to plain-text tokens
  *
- * @param      audio         The audio
- * @param[in]  audio_length  The audio length
- * @param      resp          The resp
+ * @param[in]     pAudioRecording   Linear16 lossless audio recording
+ * @param[in]     audioLengthBytes  Number of bytes in recording
+ * @param[inout]  pItemString       Item string representation, buffer must be
+ *                                  pre-allocated by caller
  *
- * @return     { description_of_the_return_value }
+ * @return     1 if successful, -1 otherwise (pItemString will not be useful)
  */
 int
-translate_audio(char* audio, long audio_length, char* resp)
+translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
 {
-    char *request  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *response = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
-    char *body     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
-    if ((request  != NULL) &&
-        (response != NULL) &&
-        (body     != NULL)) {
+    char *pRequest  = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *pResponse = (char *) malloc(MAX_HTTP_SIZE * sizeof(char));
+    char *pBody     = (char *) malloc(MAX_BODY_SIZE * sizeof(char));
+    if ((pRequest  != NULL) &&
+        (pResponse != NULL) &&
+        (pBody     != NULL)) {
         if(create_connection() < 0) {
-            sprintf(resp, "Could not connect to internet.");
-            if (request)
-                free(request);
+            sprintf(pItemString, "Could not connect to internet.");
+            if (pRequest)
+                free(pRequest);
 
-            if (response)
-                free(response);
+            if (pResponse)
+                free(pResponse);
 
-            if (body)
-                free(body);
+            if (pBody)
+                free(pBody);
             return -1;
         }
-        long header_length = create_audio_request(audio, audio_length, request);
-        int sent_bytes = send(server_fd, request, header_length + audio_length, 0);
+        long header_length = create_audio_request(pAudioRecording, audioLengthBytes, pRequest);
+        int sent_bytes = send(server_fd, pRequest, header_length + audioLengthBytes, 0);
         if (sent_bytes < 0) {
             perror("Error while sending");
-            sprintf(resp, "Could not connect to internet.");
-            if (request)
-                free(request);
+            sprintf(pItemString, "Could not connect to internet.");
+            if (pRequest)
+                free(pRequest);
 
-            if (response)
-                free(response);
+            if (pResponse)
+                free(pResponse);
 
-            if (body)
-                free(body);
+            if (pBody)
+                free(pBody);
             return -1;
         }
-        int total_bytes = reliable_receive(response);
-        response[total_bytes] = '\0';
-        parse_body(response, body);
+        int total_bytes = reliable_receive(pResponse);
+        pResponse[total_bytes] = '\0';
+        parse_body(pResponse, pBody);
         close(server_fd);
-        strcpy(resp, body);
+        strcpy(pItemString, pBody);
     }
 
-    if (request)
-        free(request);
+    if (pRequest)
+        free(pRequest);
 
-    if (response)
-        free(response);
+    if (pResponse)
+        free(pResponse);
 
-    if (body)
-        free(body);
+    if (pBody)
+        free(pBody);
 
     return 1;
 } // translate_audio
@@ -231,12 +236,12 @@ translate_audio(char* audio, long audio_length, char* resp)
 /**
  * @brief      Adds an item to the FIT database
  *
- * @param      item  The item
+ * @param[in]  pItemString  The item to be added
  *
- * @return     { description_of_the_return_value }
+ * @return     1 if successful, otherwise -1 in case of error
  */
 int
-add_item(char* item)
+add_item(char *pItemString)
 {
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
@@ -244,7 +249,7 @@ add_item(char* item)
     if(create_connection() < 0) {
         return -1;
     }
-    long header_length = create_add_request(item, request);
+    long header_length = create_add_request(pItemString, request);
     int sent_bytes = send(server_fd, request, header_length, 0);
     if (sent_bytes < 0) {
         perror("Error while sending");
@@ -261,12 +266,12 @@ add_item(char* item)
 /**
  * @brief      Remove item from FIT database
  *
- * @param      item  The item
+ * @param[in]  pItemString  The item to be removed
  *
- * @return     { description_of_the_return_value }
+ * @return     1 if successful, otherwise -1 in case of error
  */
 int
-remove_item(char *item)
+remove_item(char *pItemString)
 {
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
@@ -274,7 +279,7 @@ remove_item(char *item)
     if(create_connection() < 0) {
         return -1;
     }
-    create_delete_request(item, request);
+    create_delete_request(pItemString, request);
     int sent_bytes = send(server_fd, request, strlen(request), 0);
     if (sent_bytes < 0) {
         perror("Error while sending");
@@ -326,17 +331,18 @@ create_connection()
  * @brief      Gets the response on the socket, returns total received bytes
  *             once connection dies
  *
- * @param      response  The response
+ * @param[inout]  pResponse  Response from server for particular request,
+ *                           buffer must be pre-allocated by the caller
  *
- * @return     { description_of_the_return_value }
+ * @return     1 if no error, otherwise -1 (socket or connection error)
  */
 static int
-reliable_receive(char* response)
+reliable_receive(char *pResponse)
 {
     int total_bytes = 0;
     // Loop over receiving until connection dies because it might be split into multiple packets
     while (1) {
-        int bytes_received = recv(server_fd, response + total_bytes, MAX_HTTP_SIZE - total_bytes, 0);
+        int bytes_received = recv(server_fd, pResponse + total_bytes, MAX_HTTP_SIZE - total_bytes, 0);
         if (bytes_received == 0) {
             return total_bytes;
         } else if (bytes_received < 0) {
@@ -354,15 +360,16 @@ reliable_receive(char* response)
 /**
  * @brief      Grab the body from an http response
  *
- * @param      response  The response
- * @param      body      The body
+ * @param[in]     pResponse  HTTP response that will be parsed
+ * @param[inout]  pBody      Body of response, buffer must be pre-allcoated by
+ *                           the caller
  */
 static void
-parse_body(char* response, char* body)
+parse_body(char *pResponse, char *pBody)
 {
     // Ignore the starting newlines in body by adding 4
-    char* position = strstr(response, "\r\n\r\n") + 4;
-    strcpy(body, position);
+    char *pPosition = strstr(pResponse, "\r\n\r\n") + 4;
+    strcpy(pBody, pPosition);
 } // parse_body
 
 /*****************************************************************************/
@@ -370,29 +377,30 @@ parse_body(char* response, char* body)
 /**
  * @brief      Check if returned response says the request is valid
  *
- * @param      response  The response
+ * @param[in]  pResponse  HTTP response that is checked
  *
- * @return     { description_of_the_return_value }
+ * @return     1 if good, 0 otherwise
  */
 static int
-good_response(char* response)
+good_response(char *pResponse)
 {
-    char* position = strstr(response, "200 OK");
+    char* position = strstr(pResponse, "200 OK");
     return position != NULL;
 } // good_response
 
 /*****************************************************************************/
 
 /**
- * @brief      Creates a barcode request.
+ * @brief      Creates a barcode request
  *
- * @param      barcode  The barcode
- * @param      request  The request
+ * @param[in]     pBarcodeString  Barcode represented as a string
+ * @param[inout]  pRequest  Request to be filled in, this buffer must be
+ *                          pre-allocated by the caller
  */
 static void
-create_barcode_request(char* barcode, char* request)
+create_barcode_request(char *pBarcodeString, char *pRequest)
 {
-    sprintf(request, barcode_request, barcode, IP_ADDR);
+    sprintf(pRequest, barcode_request, pBarcodeString, IP_ADDR);
 } // create_barcode_request
 
 /*****************************************************************************/
@@ -401,18 +409,19 @@ create_barcode_request(char* barcode, char* request)
  * @brief      Create the request by generating the header and appending the
  *             audio file to it after
  *
- * @param      audio    The audio
- * @param[in]  len      The length
- * @param      request  The request
+ * @param[in]     pAudioRecording   Linear16 lossless audio recording
+ * @param[in]     audioLengthBytes  Number of bytes in recording
+ * @param[inout]  pRequest  Request to be filled in, this buffer must be
+ *                          pre-allocated by the caller
  *
- * @return     { description_of_the_return_value }
+ * @return     The length of the resulting request in bytes
  */
 static long
-create_audio_request(char* audio, long len, char* request)
+create_audio_request(char *pAudioRecording, long audioLengthBytes, char *pRequest)
 {
-    sprintf(request, audio_request, IP_ADDR, len);
-    long header_length = strlen(request);
-    memcpy(request+strlen(request),audio,len);
+    sprintf(pRequest, audio_request, IP_ADDR, audioLengthBytes);
+    long header_length = strlen(pRequest);
+    memcpy(pRequest+strlen(pRequest),pAudioRecording,audioLengthBytes);
     return header_length;
 } // create_audio_request
 
@@ -422,19 +431,20 @@ create_audio_request(char* audio, long len, char* request)
  * @brief      Create add request by generating the json we need then creating
                the header and returning the length of the total request size
  *
- * @param      item     The item
- * @param      request  The request
+ * @param[in]     pItemString  Item to be added
+ * @param[inout]  pRequest     Request to be filled in, this buffer must be
+ *                             pre-allocated by the caller
  *
- * @return     { description_of_the_return_value }
+ * @return     The length of the resulting request in bytes
  */
 static int
-create_add_request(char* item, char* request)
+create_add_request(char *pItemString, char *pRequest)
 {
     char body[MAX_BODY_SIZE];
-    sprintf(body, add_json, item);
-    sprintf(request, add_request, IP_ADDR, (int)strlen(body));
-    memcpy(request+strlen(request), body, strlen(body));
-    return (int)strlen(request);
+    sprintf(body, add_json, pItemString);
+    sprintf(pRequest, add_request, IP_ADDR, (int)strlen(body));
+    memcpy(pRequest+strlen(pRequest), body, strlen(body));
+    return (int)strlen(pRequest);
 } // create_add_request
 
 /*****************************************************************************/
@@ -442,13 +452,14 @@ create_add_request(char* item, char* request)
 /**
  * @brief      Creates a delete request
  *
- * @param      item     The item
- * @param      request  The request
+ * @param[in]     pItemString  Item to be deleted
+ * @param[inout]  pRequest     Request to be filled in, this buffer must be
+ *                             pre-allocated by the caller
  */
 static void
-create_delete_request(char* item, char* request)
+create_delete_request(char *pItemString, char *pRequest)
 {
-    sprintf(request, delete_request, item, IP_ADDR);
+    sprintf(pRequest, delete_request, pItemString, IP_ADDR);
 } // create_delete_request
 
 /*****************************************************************************/
