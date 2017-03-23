@@ -47,7 +47,7 @@ Connection: Close\r\n\r\n\
 
 // Header for audio
 static const char audio_request[] = {"\
-POST /speech HTTP/1.1\r\n\
+POST /speech/16000 HTTP/1.1\r\n\
 Host: %s\r\n\
 Connection: Close\r\n\
 Content-Length: %ld\r\n\
