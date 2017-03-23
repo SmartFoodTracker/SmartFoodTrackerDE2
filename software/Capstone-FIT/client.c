@@ -98,38 +98,44 @@ static const char add_json[] = {"{\
  *                                pre-allocated by caller
  *
  *
- * @return     1 if successful, -1 otherwise (pItemString will not be useful)
+ * @return     1 if successful, 0 otherwise (pItemString will not be useful)
  */
 int
 translate_barcode(char *pBarcodeString, char *pItemString)
 {
+    int         total_bytes  = 0;
     FITRequest *pHttpRequest = (FITRequest *) malloc(sizeof(FITRequest));
-    
+
     if (pHttpRequest != NULL)
     {
         if(create_connection() < 0)
         {
             sprintf(pItemString, "Could not connect to internet.");
             free(pHttpRequest);
-            return -1;
+            return 0;
         }
+
         create_barcode_request(pBarcodeString, pHttpRequest->pRequest);
+
         if (send(server_fd, pHttpRequest->pRequest, strlen(pHttpRequest->pRequest), 0) < 0)
         {
             perror("Error while sending");
             sprintf(pItemString, "Could not connect to internet.");
             free(pHttpRequest);
-            return -1;
+            return 0;
         }
-        int total_bytes = reliable_receive(pHttpRequest->pResponse);
+
+        total_bytes = reliable_receive(pHttpRequest->pResponse);
         pHttpRequest->pResponse[total_bytes] = '\0';
         parse_body(pHttpRequest->pResponse, pHttpRequest->pBody);
         close(server_fd);
         strcpy(pItemString, pHttpRequest->pBody);
+        free(pHttpRequest);
+        return 1;
     }
 
-    free(pHttpRequest);
-    return 1;
+    perror("HttpRequest malloc failed");
+    return 0;
 } // translate_barcode
 
 /*****************************************************************************/
@@ -142,21 +148,24 @@ translate_barcode(char *pBarcodeString, char *pItemString)
  * @param[inout]  pItemString       Item string representation, buffer must be
  *                                  pre-allocated by caller
  *
- * @return     1 if successful, -1 otherwise (pItemString will not be useful)
+ * @return     1 if successful, 0 otherwise (pItemString will not be useful)
  */
 int
 translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
 {
+    int         total_bytes  = 0;
     FITRequest *pHttpRequest = (FITRequest *) malloc(sizeof(FITRequest));
     
+
     if (pHttpRequest != NULL)
     {
         if(create_connection() < 0)
         {
             sprintf(pItemString, "Could not connect to internet.");
             free(pHttpRequest);
-            return -1;
+            return 0;
         }
+
         long header_length = create_audio_request(pAudioRecording,
                                                   audioLengthBytes,
                                                   pHttpRequest->pRequest);
@@ -169,17 +178,20 @@ translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
             perror("Error while sending");
             sprintf(pItemString, "Could not connect to internet.");
             free(pHttpRequest);
-            return -1;
+            return 0;
         }
-        int total_bytes = reliable_receive(pHttpRequest->pResponse);
+
+        total_bytes = reliable_receive(pHttpRequest->pResponse);
         pHttpRequest->pResponse[total_bytes] = '\0';
         parse_body(pHttpRequest->pResponse, pHttpRequest->pBody);
         close(server_fd);
         strcpy(pItemString, pHttpRequest->pBody);
+        free(pHttpRequest);
+        return 1;
     }
 
-    free(pHttpRequest);
-    return 1;
+    perror("HttpRequest malloc failed");
+    return 0;
 } // translate_audio
 
 /*****************************************************************************/
@@ -189,12 +201,12 @@ translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
  *
  * @param[in]  pItemString  The item to be added
  *
- * @return     1 if successful, otherwise error
+ * @return     1 if successful, 0 in case of error
  */
 int
 add_item(char *pItemString)
 {
-    int         retval          = -1;
+    int         retval          = 0;
     FITRequest *pHttpRequest    = (FITRequest *) malloc(sizeof(FITRequest));
     
     if (pHttpRequest != NULL)
@@ -217,12 +229,13 @@ add_item(char *pItemString)
         close(server_fd);
         retval = good_response(pHttpRequest->pResponse);
         free(pHttpRequest);
-        return retval;  
     }
     else
     {
-        return retval;
+        perror("HttpRequest malloc failed");
     }
+
+    return retval;
 } // add_item
 
 /*****************************************************************************/
@@ -232,13 +245,12 @@ add_item(char *pItemString)
  *
  * @param[in]  pItemString  The item to be removed
  *
- * @return     1 if successful, otherwise error
+ * @return     1 if successful, o in case of error
  */
 int
 remove_item(char *pItemString)
 {
-
-    int         retval          = -1;
+    int         retval          = 0;
     FITRequest *pHttpRequest    = (FITRequest *) malloc(sizeof(FITRequest));
     
     if (pHttpRequest != NULL)
@@ -261,7 +273,10 @@ remove_item(char *pItemString)
         close(server_fd);
         free(pHttpRequest);
         retval = good_response(pHttpRequest->pResponse);
-        return retval;
+    }
+    else
+    {
+        perror("HttpRequest malloc failed");
     }
 
     return retval;
@@ -274,30 +289,31 @@ remove_item(char *pItemString)
 /**
  * @brief      Set up socket file descriptor and connect to server
  *
- * @return     1 if no error, otherwise -1 (socket or connection error)
+ * @return     1 if successful, otherwise 0 (socket or connection error)
  */
 static int
 create_connection()
 {
-    // Set up socket
+    // Setup socket
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         perror("Couldn't open socket");
-        return -1;
+        return 0;
     }
 
     // Set up information for server
     bzero(&server_info, sizeof(server_info));
-    server_info.sin_family = AF_INET;
-    server_info.sin_port = htons(FIT_PORT);
+    server_info.sin_family      = AF_INET;
+    server_info.sin_port        = htons(FIT_PORT);
     server_info.sin_addr.s_addr = inet_addr(FIT_IP_ADDR);
 
     // Connect to server
-    if (connect(server_fd, (struct sockaddr*)&server_info, sizeof(server_info)) != 0)
+    if (connect(server_fd, (struct sockaddr *) &server_info, sizeof(server_info)) != 0)
     {
         perror("Couldn't connect to server");
-        return -1;
+        return 0;
     }
+
     return 1;
 } // create_connection
 
@@ -310,24 +326,33 @@ create_connection()
  * @param[inout]  pResponse  Response from server for particular request,
  *                           buffer must be pre-allocated by the caller
  *
- * @return     1 if no error, otherwise -1 (socket or connection error)
+ * @return     Total number of bytes received
  */
 static int
 reliable_receive(char *pResponse)
 {
-    int total_bytes = 0;
+    int total_bytes     = 0;
+    int bytes_received  = 0;
+
     // Loop over receiving until connection dies because it might be split into multiple packets
-    while (1) {
-        int bytes_received = recv(server_fd, pResponse + total_bytes, FIT_MAX_HTTP_SIZE - total_bytes, 0);
-        if (bytes_received == 0) {
+    while (1)
+    {
+        bytes_received = recv(server_fd, pResponse + total_bytes, FIT_MAX_HTTP_SIZE - total_bytes, 0);
+        if (bytes_received == 0)
+        {
             return total_bytes;
-        } else if (bytes_received < 0) {
+        }
+        else if (bytes_received < 0)
+        {
             perror("Error while receiving");
-            return -1;
-        } else {
+            return 0;
+        }
+        else
+        {
             total_bytes += bytes_received;
         }
     }
+
     return 0;
 } // reliable_receive
 
@@ -360,8 +385,7 @@ parse_body(char *pResponse, char *pBody)
 static int
 good_response(char *pResponse)
 {
-    char* position = strstr(pResponse, "200 OK");
-    return position != NULL;
+    return (strstr(pResponse, "200 OK") != NULL);
 } // good_response
 
 /*****************************************************************************/
@@ -397,7 +421,7 @@ create_audio_request(char *pAudioRecording, long audioLengthBytes, char *pReques
 {
     sprintf(pRequest, audio_request, FIT_IP_ADDR, audioLengthBytes);
     long header_length = strlen(pRequest);
-    memcpy(pRequest+strlen(pRequest),pAudioRecording,audioLengthBytes);
+    memcpy(pRequest + strlen(pRequest), pAudioRecording, audioLengthBytes);
     return header_length;
 } // create_audio_request
 

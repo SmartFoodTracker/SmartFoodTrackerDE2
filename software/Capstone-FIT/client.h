@@ -26,6 +26,7 @@ typedef struct _FITRequest
     char pResponse[FIT_MAX_HTTP_SIZE];
     char pBody[FIT_MAX_BODY_SIZE];
 } FITRequest;
+
 /*****************************************************************************/
 /* Functions                                                                 */
 /*****************************************************************************/
