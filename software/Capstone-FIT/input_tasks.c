@@ -203,7 +203,6 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
 } // ConfirmItem
 
 /*****************************************************************************/
-
 /**
  * @brief      Set LCD and status light messages given a particular status
  *
@@ -211,6 +210,22 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
  */
 void
 displayStatus(FITStatus status)
+{
+    displayStatusEx(status, NULL);
+} // dispalyStatus
+
+/*****************************************************************************/
+
+/**
+ * @brief      Extension to displayStatus that allows optional messages to be
+ *             appended
+ *
+ * @param[in]  status  FIT status indicating state of the client board
+ * @param[in]  pOptionalString  Additional information that may be appended
+ *                              to status message depending on status code
+ */
+void
+displayStatusEx(FITStatus status, char *pOptionalString)
 {
     alt_up_character_lcd_dev *pLCD = NULL;
 
@@ -258,12 +273,13 @@ displayStatus(FITStatus status)
     {
         printf("LCD setup failed\n");
     }
-}
+} // DisplayStatusEx
 
 /*****************************************************************************/
 
 /**
- * @brief      Routine which sets up input tasks and shared devices
+ * @brief      Routine which sets up input tasks, sync objects, and shared
+ *             devices
  */
 void
 FITSetup()

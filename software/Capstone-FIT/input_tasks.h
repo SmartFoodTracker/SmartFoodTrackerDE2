@@ -14,6 +14,8 @@
 
 #define FIT_MSG_READY           "FIT Ready"
 #define FIT_MSG_SETUP_FAILED    "FIT Setup Failed"
+#define FIT_MSG_ITEM_ADDED      "Item added"
+#define FIT_MSG_ITEM_REMOVED    "Item removed"
 
 /*****************************************************************************/
 /* Enumerations                                                              */
@@ -22,7 +24,9 @@
 typedef enum _FITStatus
 {
     FITStatusReady,
-    FITStatusSetupFailed
+    FITStatusSetupFailed,
+    FITStatusItemAdded,
+    FITStatusItemRemoved
 } FITStatus;
 
 /*****************************************************************************/
@@ -32,7 +36,8 @@ typedef enum _FITStatus
 void MicrophoneTask(void* pData);
 void BarcodeTask(void* pData);
 void ConfirmItem(char* pItemName, Buttons *pButtons);
-void displayStatus(FITStatus status);
+void dispalyStatus(FITStatus status);
+void displayStatusEx(FITStatus status, char *pOptionalString);
 void FITSetup();
 
 /*****************************************************************************/
