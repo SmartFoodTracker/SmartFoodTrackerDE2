@@ -100,12 +100,15 @@ MicrophoneTask(void* pData)
 
         // Try to enter item confirmation workflow
         OSMutexPend(pConfirmationMutex, 1, &status);
-        if (status == OS_ERR_NONE) {
+        if (status == OS_ERR_NONE)
+        {
             translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
             printf("Voice decoded: %s\n", audio_string);
             ConfirmItem(audio_string, pButtons);
             OSMutexPost(pConfirmationMutex);
-        } else {
+        }
+        else
+        {
             printf("discarding data\n");
         }
     }
@@ -150,7 +153,9 @@ BarcodeTask(void* pData)
             printf("Barcode decoded: %s\n", pItemString);
             ConfirmItem(pItemString, pButtons);
             OSMutexPost(pConfirmationMutex);
-        } else {
+        }
+        else
+        {
             printf("discarding data\n");
         }
     }
@@ -188,13 +193,19 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
 
         // Add or remove item depending on response
-        if (button == ButtonAdd) {
-            printf("added \"%s\"\n", pItemName);
+        if (button == ButtonAdd)
+        {
             add_item(pItemName);
-        } else if (button == ButtonRemove) {
-            printf("removed \"%s\"\n", pItemName);
-            remove_item(pItemName);
+            displayStatusEx(FITStatusItemAdded, pItemName);
+            OSTimeDlyHMSM(0,0,2,0);
         }
+        else if (button == ButtonRemove)
+        {
+            remove_item(pItemName);
+            displayStatusEx(FITStatusItemRemoved, pItemName);
+            OSTimeDlyHMSM(0,0,2,0);
+        }
+        displayStatus(FITStatusReady);
     }
     else
     {
@@ -231,13 +242,13 @@ displayStatusEx(FITStatus status, char *pOptionalString)
 
     if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) != NULL)
     {
+        // Clear LCD
+        alt_up_character_lcd_init(pLCD);
+        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+
         switch (status)
         {
         case FITStatusReady:
-
-            // Clear LCD
-            alt_up_character_lcd_init(pLCD);
-            alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
 
             // Write Messages
             alt_up_character_lcd_string(pLCD, FIT_MSG_READY);
@@ -251,10 +262,6 @@ displayStatusEx(FITStatus status, char *pOptionalString)
 
         case FITStatusSetupFailed:
 
-            // Clear LCD
-            alt_up_character_lcd_init(pLCD);
-            alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
-
             // Write Messages
             alt_up_character_lcd_string(pLCD, FIT_MSG_SETUP_FAILED);
             printf("%s\n", FIT_MSG_SETUP_FAILED);
@@ -262,6 +269,35 @@ displayStatusEx(FITStatus status, char *pOptionalString)
             // Set LEDs
             IOWR(RED_LEDS_BASE,   0, 0x1);
             IOWR(GREEN_LEDS_BASE, 0, 0x0);
+
+            break;
+
+        case FITStatusItemAdded:
+
+            // Write Messages
+            alt_up_character_lcd_string(pLCD, FIT_MSG_ITEM_ADDED);
+            if (pOptionalString)
+            {
+                printf("%s: %s\n", FIT_MSG_ITEM_ADDED, pOptionalString);
+            }
+            else
+            {
+                printf("%s\n", FIT_MSG_ITEM_ADDED);
+            }
+
+            break;
+        case FITStatusItemRemoved:
+
+            // Write Messages
+            alt_up_character_lcd_string(pLCD, FIT_MSG_ITEM_REMOVED);
+            if (pOptionalString)
+            {
+                printf("%s: %s\n", FIT_MSG_ITEM_REMOVED, pOptionalString);
+            }
+            else
+            {
+                printf("%s\n", FIT_MSG_ITEM_REMOVED);
+            }
 
             break;
 
