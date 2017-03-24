@@ -73,7 +73,7 @@ Connection: Close\r\n\r\n\
 // Body for adding
 static const char add_json[] = {"{\
 \"title\": \"%s\",\
-\"quantity\": 1,\
+\"quantity\": %d,\
 \"units\": \"whole\",\
 \"timeAdded\": 1487568006,\
 \"timeExpired\": 32326905600\
@@ -198,23 +198,23 @@ int translate_audio(char* audio, long audio_length, char* resp) {
 
 // Create add request by creating the json we need then creating the header and returning the length
 // of the total request size
-int create_add_request(char* item, char* request) {
+int create_add_request(char* item, char* request, int amount) {
 	char body[MAX_BODY_SIZE];
-	sprintf(body, add_json, item);
+	sprintf(body, add_json, item, amount);
     sprintf(request, add_request, IP_ADDR, (int)strlen(body));
     memcpy(request+strlen(request), body, strlen(body));
     return (int)strlen(request);
 }
 
 // Adds an item string to the items we have
-int add_item(char* item) {
+int add_item(char* item, int amount) {
     char request[MAX_HTTP_SIZE];
     char response[MAX_HTTP_SIZE];
     char body[MAX_BODY_SIZE];
     if(create_connection() < 0) {
         return -1;
     }
-    long header_length = create_add_request(item, request);
+    long header_length = create_add_request(item, request, amount);
     int sent_bytes = send(server_fd, request, header_length, 0);
     if (sent_bytes < 0) {
         perror("Error while sending");

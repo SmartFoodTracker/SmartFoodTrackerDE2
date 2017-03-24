@@ -29,6 +29,9 @@
 #include "altera_up_avalon_character_lcd.h"
 #include "client.h"
 
+// Parsing
+#include "word_parser.h"
+
 // Web server routines
 #include "alt_error_handler.h"
 #include "web_server.h"
@@ -173,6 +176,11 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
 {
     alt_up_character_lcd_dev   *pLCD    = NULL;
     Button                      button  = ButtonMax;
+    Command                     command = CommandNothing;
+    char pItemNameNoCommand[ITEM_NAME_MAX_LENGTH];
+    char pItemNameNoQuantity[ITEM_NAME_MAX_LENGTH];
+    int amount = 1;
+    
 
     if ((pLCD = alt_up_character_lcd_open_dev(CHARACTER_LCD_NAME)) != NULL)
     {
@@ -183,26 +191,28 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
         // Write item string to LCD
         alt_up_character_lcd_string(pLCD, pItemName);
 
-        // Get confirmation response
-        buttonsEnableAll(pButtons);
-        button = buttonsGetButtonPress(pButtons);
-        buttonsDisableAll(pButtons);
+        command = parse_command(pItemName, pItemNameNoCommand);
+        amount = parse_number(pItemNameNoCommand, pItemNameNoQuantity);
 
-        // Clear LCD
-        alt_up_character_lcd_init(pLCD);
-        alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
+
+        if (command == CommandNothing) {
+            // Get confirmation response
+            buttonsEnableAll(pButtons);
+            button = buttonsGetButtonPress(pButtons);
+            buttonsDisableAll(pButtons);
+        }
 
         // Add or remove item depending on response
-        if (button == ButtonAdd)
+        if (button == ButtonAdd || command == CommandAdd)
         {
-            add_item(pItemName);
-            displayStatusEx(FITStatusItemAdded, pItemName);
+            add_item(pItemNameNoQuantity, amount);
+            displayStatusEx(FITStatusItemAdded, pItemNameNoCommand);
             OSTimeDlyHMSM(0,0,2,0);
         }
-        else if (button == ButtonRemove)
+        else if (button == ButtonRemove || command == CommandRemove)
         {
-            remove_item(pItemName);
-            displayStatusEx(FITStatusItemRemoved, pItemName);
+            add_item(pItemNameNoQuantity, -1 * amount);
+            displayStatusEx(FITStatusItemRemoved, pItemNameNoCommand);
             OSTimeDlyHMSM(0,0,2,0);
         }
         displayStatus(FITStatusReady);

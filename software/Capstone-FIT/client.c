@@ -35,7 +35,7 @@ static void create_barcode_request(char *pBarcodeString, char *pRequest);
 static long create_audio_request(char *pAudioRecording,
                                  long  audioLengthBytes,
                                  char *pRequest);
-static int  create_add_request(char *pItem, char *pRequest);
+static int  create_add_request(char *pItem, char *pRequest, int amount);
 static void create_delete_request(char *pItem, char *pRequest);
 
 /*****************************************************************************/
@@ -80,7 +80,7 @@ Connection: Close\r\n\r\n\
 // JSON body for adding
 static const char add_json[] = {"{\
 \"title\": \"%s\",\
-\"quantity\": 1,\
+\"quantity\": %d,\
 \"units\": \"whole\",\
 \"timeAdded\": 1487568006,\
 \"timeExpired\": 32326905600\
@@ -204,7 +204,7 @@ translate_audio(char *pAudioRecording, long audioLengthBytes, char *pItemString)
  * @return     1 if successful, 0 in case of error
  */
 int
-add_item(char *pItemString)
+add_item(char *pItemString, int amount)
 {
     int         retval          = 0;
     FITRequest *pHttpRequest    = (FITRequest *) malloc(sizeof(FITRequest));
@@ -216,7 +216,7 @@ add_item(char *pItemString)
             free(pHttpRequest);
             return retval;
         }
-        long header_length = create_add_request(pItemString, pHttpRequest->pRequest);
+        long header_length = create_add_request(pItemString, pHttpRequest->pRequest, amount);
         int sent_bytes = send(server_fd, pHttpRequest->pRequest, header_length, 0);
         if (sent_bytes < 0)
         {
@@ -432,16 +432,17 @@ create_audio_request(char *pAudioRecording, long audioLengthBytes, char *pReques
                the header and returning the length of the total request size
  *
  * @param[in]     pItemString  Item to be added
+ * @param[in]     amount       amount of item to be added
  * @param[inout]  pRequest     Request to be filled in, this buffer must be
  *                             pre-allocated by the caller
  *
  * @return     The length of the resulting request in bytes
  */
 static int
-create_add_request(char *pItemString, char *pRequest)
+create_add_request(char *pItemString, char *pRequest, int amount)
 {
     char body[FIT_MAX_BODY_SIZE];
-    sprintf(body, add_json, pItemString);
+    sprintf(body, add_json, pItemString, amount);
     sprintf(pRequest, add_request, FIT_IP_ADDR, (int)strlen(body));
     memcpy(pRequest+strlen(pRequest), body, strlen(body));
     return (int)strlen(pRequest);

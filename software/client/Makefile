@@ -1,4 +1,4 @@
 make: 
-	gcc -o client main.c client.c
+	gcc -o main main.c client.c word_parser.c
 clean:
-	rm client
+	rm main

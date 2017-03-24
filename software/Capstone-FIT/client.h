@@ -36,7 +36,7 @@ int translate_barcode(char *pBarcodeString,
 int translate_audio(char *pAudioRecording,
                     long  audioLengthBytes,
                     char *pItemString);
-int add_item(char *pItemString);
+int add_item(char *pItemString, int amount);
 int remove_item(char *pItemString);
 
 /*****************************************************************************/

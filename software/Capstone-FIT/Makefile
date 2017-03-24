@@ -152,6 +152,7 @@ C_SRCS += srec_flash.c
 C_SRCS += web_server.c
 C_SRCS += input_tasks.c
 C_SRCS += client.c
+C_SRCS += word_parser.c
 CXX_SRCS :=
 ASM_SRCS :=
 
