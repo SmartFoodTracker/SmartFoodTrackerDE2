@@ -23,7 +23,7 @@ long readFile() {
 }
 
 // Test the 4 api calls, translate_barcode, translate_audio, add_item, delete_item
-void main() {
+int main() {
     char barcode_string[1000];
     char audio_string[1000];
     // Fruit Punch Juice Box,  8 - 6.75 fl oz boxes
@@ -44,5 +44,5 @@ void main() {
     assert(remove_item("test") == 1);
 
     printf("%s\n", "All tests passed!");
-    return;
+    return 0;
 }
