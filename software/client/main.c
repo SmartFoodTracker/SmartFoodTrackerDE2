@@ -24,7 +24,7 @@ long readFile() {
 }
 
 // Test the 4 api calls, translate_barcode, translate_audio, add_item, delete_item also test parsing strings
-void main() {
+int main() {
 
     // parse commands
     char new_string[100];
@@ -77,5 +77,5 @@ void main() {
     assert(remove_item("test") == 1);
 
     printf("%s\n", "All tests passed!");
-    return;
+    return 0;
 }
