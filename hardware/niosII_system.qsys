@@ -217,30 +217,6 @@
          type = "int";
       }
    }
-   element sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "8388608";
-         type = "String";
-      }
-   }
-   element dm9000a_if_ethernet.s1
-   {
-      datum baseAddress
-      {
-         value = "26251424";
-         type = "String";
-      }
-   }
-   element cancel_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251344";
-         type = "String";
-      }
-   }
    element switch.s1
    {
       datum baseAddress
@@ -249,35 +225,11 @@
          type = "String";
       }
    }
-   element onchip_memory2.s1
+   element sdram.s1
    {
       datum baseAddress
       {
-         value = "26230784";
-         type = "String";
-      }
-   }
-   element remove_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251360";
-         type = "String";
-      }
-   }
-   element timer.s1
-   {
-      datum baseAddress
-      {
-         value = "26251264";
-         type = "String";
-      }
-   }
-   element add_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251376";
+         value = "8388608";
          type = "String";
       }
    }
@@ -289,11 +241,59 @@
          type = "String";
       }
    }
+   element dm9000a_if_ethernet.s1
+   {
+      datum baseAddress
+      {
+         value = "26251424";
+         type = "String";
+      }
+   }
+   element remove_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251360";
+         type = "String";
+      }
+   }
+   element cancel_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251344";
+         type = "String";
+      }
+   }
    element red_leds.s1
    {
       datum baseAddress
       {
          value = "26251328";
+         type = "String";
+      }
+   }
+   element add_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251376";
+         type = "String";
+      }
+   }
+   element onchip_memory2.s1
+   {
+      datum baseAddress
+      {
+         value = "26230784";
+         type = "String";
+      }
+   }
+   element timer.s1
+   {
+      datum baseAddress
+      {
+         value = "26251264";
          type = "String";
       }
    }
@@ -389,7 +389,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1488044943304" />
+ <parameter name="timeStamp" value="1490811089765" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
@@ -893,8 +893,8 @@
   <parameter name="USE_WRITEDATA" value="1" />
   <parameter name="USE_READ" value="1" />
   <parameter name="USE_WRITE" value="1" />
-  <parameter name="USE_BEGINTRANSFER" value="1" />
-  <parameter name="USE_BYTEENABLE" value="1" />
+  <parameter name="USE_BEGINTRANSFER" value="0" />
+  <parameter name="USE_BYTEENABLE" value="0" />
   <parameter name="USE_CHIPSELECT" value="1" />
   <parameter name="USE_LOCK" value="0" />
   <parameter name="USE_ADDRESS" value="1" />
@@ -934,7 +934,7 @@
    version="12.1"
    enabled="1"
    name="tristate_conduit_bridge">
-  <parameter name="INTERFACE_INFO"><![CDATA[<info><slave name="tcs"><master name="tristate_conduit_pin_sharer.tcm"><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_address_out" width="22" type="Output" output_name="tristate_controller_tcm_address_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_data_out" width="8" type="Bidirectional" output_name="tristate_controller_tcm_data_out" output_enable_name="tristate_controller_tcm_data_outen" input_name="tristate_controller_tcm_data_in" /><pin role="tristate_controller_tcm_write_n_out" width="1" type="Output" output_name="tristate_controller_tcm_write_n_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_read_n_out" width="1" type="Output" output_name="tristate_controller_tcm_read_n_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_begintransfer_out" width="1" type="Output" output_name="tristate_controller_tcm_begintransfer_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_chipselect_n_out" width="1" type="Output" output_name="tristate_controller_tcm_chipselect_n_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_byteenable_out" width="1" type="Output" output_name="tristate_controller_tcm_byteenable_out" output_enable_name="" input_name="" /></master></slave></info>]]></parameter>
+  <parameter name="INTERFACE_INFO"><![CDATA[<info><slave name="tcs"><master name="tristate_conduit_pin_sharer.tcm"><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_address_out" width="22" type="Output" output_name="tristate_controller_tcm_address_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_data_out" width="8" type="Bidirectional" output_name="tristate_controller_tcm_data_out" output_enable_name="tristate_controller_tcm_data_outen" input_name="tristate_controller_tcm_data_in" /><pin role="tristate_controller_tcm_write_n_out" width="1" type="Output" output_name="tristate_controller_tcm_write_n_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_read_n_out" width="1" type="Output" output_name="tristate_controller_tcm_read_n_out" output_enable_name="" input_name="" /><pin role="tristate_controller_tcm_chipselect_n_out" width="1" type="Output" output_name="tristate_controller_tcm_chipselect_n_out" output_enable_name="" input_name="" /></master></slave></info>]]></parameter>
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
@@ -943,15 +943,15 @@
    version="12.1"
    enabled="1"
    name="tristate_conduit_pin_sharer">
-  <parameter name="INTERFACE_INFO"><![CDATA[<info><slave name="tcs0"><master name="tristate_controller.tcm"><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="address" width="22" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /><pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /><pin role="data" width="8" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /><pin role="read_n" width="1" type="Output" output_name="tcm_read_n_out" output_enable_name="" input_name="" /><pin role="begintransfer" width="1" type="Output" output_name="tcm_begintransfer_out" output_enable_name="" input_name="" /><pin role="byteenable" width="1" type="Output" output_name="tcm_byteenable_out" output_enable_name="" input_name="" /><pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /></master></slave></info>]]></parameter>
+  <parameter name="INTERFACE_INFO"><![CDATA[<info><slave name="tcs0"><master name="tristate_controller.tcm"><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="address" width="22" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /><pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /><pin role="data" width="8" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /><pin role="read_n" width="1" type="Output" output_name="tcm_read_n_out" output_enable_name="" input_name="" /><pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /></master></slave></info>]]></parameter>
   <parameter name="NUM_INTERFACES" value="1" />
-  <parameter name="MODULE_ORIGIN_LIST">tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm</parameter>
-  <parameter name="SIGNAL_ORIGIN_LIST">byteenable,address,read_n,write_n,data,chipselect_n,begintransfer</parameter>
+  <parameter name="MODULE_ORIGIN_LIST">tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm,tristate_controller.tcm</parameter>
+  <parameter name="SIGNAL_ORIGIN_LIST">address,read_n,write_n,data,chipselect_n</parameter>
   <parameter name="SHARED_SIGNAL_LIST" value="" />
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="7" />
   <parameter name="AUTO_CLK_RESET_DOMAIN" value="7" />
-  <parameter name="AUTO_TRISTATECONDUIT_MASTERS"><![CDATA[<info><slave name="tcs0"><master name="tristate_controller.tcm"><port role="write_n_out" direction="output" width="1" /><port role="read_n_out" direction="output" width="1" /><port role="begintransfer_out" direction="output" width="1" /><port role="chipselect_n_out" direction="output" width="1" /><port role="request" direction="output" width="1" /><port role="grant" direction="input" width="1" /><port role="address_out" direction="output" width="22" /><port role="byteenable_out" direction="output" width="1" /><port role="data_out" direction="output" width="8" /><port role="data_outen" direction="output" width="1" /><port role="data_in" direction="input" width="8" /></master></slave></info>]]></parameter>
+  <parameter name="AUTO_TRISTATECONDUIT_MASTERS"><![CDATA[<info><slave name="tcs0"><master name="tristate_controller.tcm"><port role="write_n_out" direction="output" width="1" /><port role="read_n_out" direction="output" width="1" /><port role="chipselect_n_out" direction="output" width="1" /><port role="request" direction="output" width="1" /><port role="grant" direction="input" width="1" /><port role="address_out" direction="output" width="22" /><port role="data_out" direction="output" width="8" /><port role="data_outen" direction="output" width="1" /><port role="data_in" direction="input" width="8" /></master></slave></info>]]></parameter>
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
   <parameter name="AUTO_DEVICE" value="EP2C35F672C6" />
  </module>
