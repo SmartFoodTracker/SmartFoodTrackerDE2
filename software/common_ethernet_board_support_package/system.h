@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_qsys' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Mon Feb 27 14:58:47 MST 2017
+ * Generated: Wed Mar 29 14:36:26 MDT 2017
  */
 
 /*
@@ -87,7 +87,7 @@
 #define ALT_CPU_INST_ADDR_WIDTH 0x19
 #define ALT_CPU_NAME "nios2_qsys"
 #define ALT_CPU_NUM_OF_SHADOW_REG_SETS 0
-#define ALT_CPU_RESET_ADDR 0x1904000
+#define ALT_CPU_RESET_ADDR 0x1400000
 
 
 /*
@@ -119,7 +119,7 @@
 #define NIOS2_INITDA_SUPPORTED
 #define NIOS2_INST_ADDR_WIDTH 0x19
 #define NIOS2_NUM_OF_SHADOW_REG_SETS 0
-#define NIOS2_RESET_ADDR 0x1904000
+#define NIOS2_RESET_ADDR 0x1400000
 
 
 /*
@@ -554,7 +554,7 @@
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1488230797
+#define SYSID_QSYS_TIMESTAMP 1490819245
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
 
 

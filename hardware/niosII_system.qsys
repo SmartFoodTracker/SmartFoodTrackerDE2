@@ -217,11 +217,19 @@
          type = "int";
       }
    }
-   element switch.s1
+   element add_button.s1
    {
       datum baseAddress
       {
-         value = "26251392";
+         value = "26251376";
+         type = "String";
+      }
+   }
+   element remove_button.s1
+   {
+      datum baseAddress
+      {
+         value = "26251360";
          type = "String";
       }
    }
@@ -230,6 +238,14 @@
       datum baseAddress
       {
          value = "8388608";
+         type = "String";
+      }
+   }
+   element red_leds.s1
+   {
+      datum baseAddress
+      {
+         value = "26251328";
          type = "String";
       }
    }
@@ -249,35 +265,19 @@
          type = "String";
       }
    }
-   element remove_button.s1
+   element timer.s1
    {
       datum baseAddress
       {
-         value = "26251360";
+         value = "26251264";
          type = "String";
       }
    }
-   element cancel_button.s1
+   element switch.s1
    {
       datum baseAddress
       {
-         value = "26251344";
-         type = "String";
-      }
-   }
-   element red_leds.s1
-   {
-      datum baseAddress
-      {
-         value = "26251328";
-         type = "String";
-      }
-   }
-   element add_button.s1
-   {
-      datum baseAddress
-      {
-         value = "26251376";
+         value = "26251392";
          type = "String";
       }
    }
@@ -289,11 +289,11 @@
          type = "String";
       }
    }
-   element timer.s1
+   element cancel_button.s1
    {
       datum baseAddress
       {
-         value = "26251264";
+         value = "26251344";
          type = "String";
       }
    }
@@ -389,7 +389,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1490811089765" />
+ <parameter name="timeStamp" value="1490818761911" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
@@ -548,7 +548,7 @@
   <parameter name="cpuID_stored" value="0" />
   <parameter name="breakOffset" value="32" />
   <parameter name="userDefinedSettings" value="" />
-  <parameter name="resetSlave" value="onchip_memory2.s1" />
+  <parameter name="resetSlave">tristate_controller.uas</parameter>
   <parameter name="mmu_TLBMissExcSlave" value="" />
   <parameter name="exceptionSlave" value="onchip_memory2.s1" />
   <parameter name="breakSlave">nios2_qsys.jtag_debug_module</parameter>
