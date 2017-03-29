@@ -54,7 +54,7 @@
 #define MUTEX_PRIORITY              6
 #define BARCODE_TASK_PRIORITY       7
 #define MICROPHONE_TASK_PRIORITY    8
-#define ITEM_NAME_MAX_LENGTH        64
+#define ITEM_NAME_MAX_LENGTH        256
 
 /*****************************************************************************/
 /* Globals                                                                   */
