@@ -10,9 +10,10 @@
 
 typedef enum _Command
 {
-    CommandAdd    = 0,
-    CommandRemove = 1,
-    CommandNothing
+    CommandAdd,
+    CommandRemove,
+    CommandNothing,
+    CommandUnknown
 } Command;
 
 Command parse_command(char* original_text, char* stripped_text);

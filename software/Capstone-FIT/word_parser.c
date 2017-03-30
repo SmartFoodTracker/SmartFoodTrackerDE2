@@ -52,7 +52,10 @@ Command parse_command(char* original_text, char* stripped_text) {
     }
     strncpy(first_word, original_text, first_space);
     first_word[first_space] = '\0';
-    if (strcmp(first_word, "add") == 0) {
+    if ((strcmp(first_word, "Unknown") == 0) || (strcmp(first_word, "Unable") == 0)) {
+    	c = CommandUnknown;
+    }
+    else if (strcmp(first_word, "add") == 0) {
         c = CommandAdd;
     }
     else if (strcmp(first_word, "Add") == 0) {

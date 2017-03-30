@@ -77,10 +77,10 @@ OS_STK      pMicrophoneTaskStack[TASK_STACKSIZE];
 void
 MicrophoneTask(void* pData)
 {
-    INT8U               status      = OS_NO_ERR;
-    Microphone         *pMicrophone = NULL;
-    Buttons            *pButtons    = (Buttons *) pData;
-    Linear16Recording   exportedRecording;
+    INT8U               status      		= OS_NO_ERR;
+    Microphone         *pMicrophone 		= NULL;
+    Buttons            *pButtons    		= (Buttons *) pData;
+    Linear16Recording  *pExportedRecording 	= (Linear16Recording *) malloc(sizeof(Linear16Recording));
     char                audio_string[ITEM_NAME_MAX_LENGTH];
 
     // Setup push-to-talk microphone
@@ -94,18 +94,24 @@ MicrophoneTask(void* pData)
         printf("Microphone setup failed.\n");
     }
 
-    while (pMicrophone != NULL)
+    if (pExportedRecording == NULL)
+    {
+    	status = OS_ERR_PDATA_NULL;
+    	printf("Linear16Recording malloc failed.\n");
+    }
+
+    while ((pMicrophone != NULL) && (pExportedRecording != NULL))
     {
         // Record audio clip (wait on push-to-talk)
         microphoneWaitAndBeginRecording(pMicrophone);
         microphoneWaitAndFinishRecording(pMicrophone);
-        microphoneExportLinear16(pMicrophone, &exportedRecording);
+        microphoneExportLinear16(pMicrophone, pExportedRecording);
 
         // Try to enter item confirmation workflow
         OSMutexPend(pConfirmationMutex, 1, &status);
         if (status == OS_ERR_NONE)
         {
-            translate_audio(exportedRecording.pRecording, exportedRecording.size * 2, audio_string);
+            translate_audio(pExportedRecording->pRecording, (pExportedRecording->size) * 2, audio_string);
             printf("Voice decoded: %s\n", audio_string);
             ConfirmItem(audio_string, pButtons);
             OSMutexPost(pConfirmationMutex);
@@ -114,6 +120,20 @@ MicrophoneTask(void* pData)
         {
             printf("discarding data\n");
         }
+    }
+
+    // This section REALLY should never be run
+    // this is only in the case that if one of the mallocs fails
+    if (pMicrophone)
+    {
+    	microphoneDestroy(pMicrophone);
+    	pMicrophone = NULL;
+    }
+
+    if (pExportedRecording)
+    {
+    	free(pExportedRecording);
+    	pMicrophone = NULL;
     }
 } // MicrophoneTask
 
@@ -177,8 +197,8 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
     alt_up_character_lcd_dev   *pLCD    = NULL;
     Button                      button  = ButtonMax;
     Command                     command = CommandNothing;
-    char pItemNameNoCommand[ITEM_NAME_MAX_LENGTH];
-    char pItemNameNoQuantity[ITEM_NAME_MAX_LENGTH];
+    char 						pItemNameNoCommand[ITEM_NAME_MAX_LENGTH];
+    char 						pItemNameNoQuantity[ITEM_NAME_MAX_LENGTH];
     int amount = 1;
     
 
@@ -188,18 +208,25 @@ ConfirmItem(char* pItemName, Buttons *pButtons)
         alt_up_character_lcd_init(pLCD);
         alt_up_character_lcd_set_cursor_pos(pLCD, 0, 0);
 
-        // Write item string to LCD
-        alt_up_character_lcd_string(pLCD, pItemName);
 
         command = parse_command(pItemName, pItemNameNoCommand);
         amount = parse_number(pItemNameNoCommand, pItemNameNoQuantity);
 
 
         if (command == CommandNothing) {
+			// Write item string to LCD
+			alt_up_character_lcd_string(pLCD, pItemName);
+
             // Get confirmation response
             buttonsEnableAll(pButtons);
             button = buttonsGetButtonPress(pButtons);
             buttonsDisableAll(pButtons);
+        }
+
+        if (command == CommandUnknown) {
+        	// Write item string to LCD
+        	alt_up_character_lcd_string(pLCD, FIT_MSG_ITEM_UNKNOWN);
+        	OSTimeDlyHMSM(0,0,3,0);
         }
 
         // Add or remove item depending on response

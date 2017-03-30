@@ -16,6 +16,8 @@
 #define FIT_MSG_SETUP_FAILED    "FIT Setup Failed"
 #define FIT_MSG_ITEM_ADDED      "Item added"
 #define FIT_MSG_ITEM_REMOVED    "Item removed"
+#define FIT_MSG_ITEM_UNKNOWN    "Unrecognized"
+
 
 /*****************************************************************************/
 /* Enumerations                                                              */
