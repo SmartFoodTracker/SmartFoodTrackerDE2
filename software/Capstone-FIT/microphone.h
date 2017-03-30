@@ -24,7 +24,7 @@
 /* Constants                                                                 */
 /*****************************************************************************/
 
-#define MAX_RECORD_TIME_SECONDS     (10)
+#define MAX_RECORD_TIME_SECONDS     (5)
 #define RECORDING_FREQUENCY_HERTZ   (32000)
 #define RECORDING_BUFFER_SIZE       (RECORDING_FREQUENCY_HERTZ * MAX_RECORD_TIME_SECONDS)
 
